@@ -78,26 +78,37 @@
         }
 
         .event-item {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 5px 0;
+            padding: 8px 12px;
             background-color: white;
-            border-left: 4px solid #007bff;
+            border-left: 3px solid #007bff;
             border-radius: 3px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-main {
+            flex: 1;
         }
 
         .event-date {
             font-weight: bold;
             color: #007bff;
+            font-size: 14px;
         }
 
         .event-title {
-            font-size: 16px;
-            margin: 5px 0;
+            font-size: 14px;
+            margin: 2px 0;
+            color: #333;
         }
 
         .event-location {
             color: #666;
-            font-size: 14px;
+            font-size: 12px;
+            margin-left: 15px;
+            flex-shrink: 0;
         }
 
         .loading {
@@ -119,19 +130,7 @@
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
             Updates.</p>
-
-        <div class="calendar-link">
-            <h3>Jugendfahrplan abonnieren</h3>
-            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Jugendfahrplan</a>
-            <button class="copy-button"
-                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics')">URL
-                kopieren</button>
-        </div>
-
-        <div class="events-container">
-            <h4>Aktuelle Termine - Jugendfahrplan</h4>
-            <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
-        </div>
+        <p>Gr&uuml;&szlig;e Paul (Vater von Teddy)</p>
 
         <div class="calendar-link">
             <h3>Spielplan U12 abonnieren</h3>
@@ -144,6 +143,19 @@
         <div class="events-container">
             <h4>Aktuelle Termine - Spielplan U12</h4>
             <div id="u12-events" class="loading">Lade Termine...</div>
+        </div>
+
+        <div class="calendar-link">
+            <h3>Jugendfahrplan abonnieren</h3>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Jugendfahrplan</a>
+            <button class="copy-button"
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics')">URL
+                kopieren</button>
+        </div>
+
+        <div class="events-container">
+            <h4>Aktuelle Termine - Jugendfahrplan</h4>
+            <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
         </div>
 
         <div class="instructions">
@@ -262,7 +274,7 @@
                         today.setHours(0, 0, 0, 0);
                         const upcomingEvents = events.filter(event => event.startDate >= today);
 
-                        displayEvents(upcomingEvents.slice(0, 10), containerId); // Show next 10 events
+                        displayEvents(upcomingEvents, containerId); // Show all upcoming events
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
                         document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
@@ -284,8 +296,10 @@
 
             const eventsHTML = events.map(event => `
                 <div class="event-item">
-                    <div class="event-date">${formatDate(event.startDate)}</div>
-                    <div class="event-title">${event.summary || 'Kein Titel'}</div>
+                    <div class="event-main">
+                        <div class="event-date">${formatDate(event.startDate)}</div>
+                        <div class="event-title">${event.summary || 'Kein Titel'}</div>
+                    </div>
                     ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
                 </div>
             `).join('');
