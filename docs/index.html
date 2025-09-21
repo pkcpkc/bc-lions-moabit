@@ -344,7 +344,7 @@
                     <div class="event-main">
                         <div class="event-date">${formatDate(event.startDate)}</div>
                         <div class="event-title">${event.summary || 'Kein Titel'}</div>
-                    </div>
+                    </div><br/>
                     ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
                 </div>
             `).join('');
