@@ -63,15 +63,18 @@ function createICSEvent(game) {
   const endTime = addHoursToTime(game.time, 2);
   const dtEnd = formatDateForICS(game.date, endTime);
   
+  // Location: only street, zip, and city (no venue name)
   const location = [
-    game.venue.name,
     game.venue.street,
     `${game.venue.zip} ${game.venue.city}`
   ].filter(Boolean).join(', ');
   
   // Add TBD indicator for games with placeholder times
   const timeIndicator = game.time === '23:59' ? ' (Zeit TBD)' : '';
-  const summary = `${game.home} vs ${game.guest}${timeIndicator}`;
+  
+  // Add venue name in brackets to the title
+  const venueInTitle = game.venue.name ? ` (${game.venue.name})` : '';
+  const summary = `${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
   
   return [
     'BEGIN:VEVENT',
