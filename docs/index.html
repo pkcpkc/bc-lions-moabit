@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BC Lions Moabit - Termine U12</title>
+    <script src="https://cdn.jsdelivr.net/npm/ical.js@1.5.0/build/ical.min.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -68,13 +69,56 @@
             margin-top: 10px;
             margin-left: 0;
         }
+
+        .events-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .event-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            border-left: 4px solid #007bff;
+            border-radius: 3px;
+        }
+
+        .event-date {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .event-title {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .event-location {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        .error {
+            color: #dc3545;
+            font-style: italic;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine U12</h1>
-        <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen Updates.</p>
+        <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
+            unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
+            Updates.</p>
 
         <div class="calendar-link">
             <h3>Jugendfahrplan abonnieren</h3>
@@ -84,12 +128,22 @@
                 kopieren</button>
         </div>
 
+        <div class="events-container">
+            <h4>Aktuelle Termine - Jugendfahrplan</h4>
+            <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
+        </div>
+
         <div class="calendar-link">
             <h3>Spielplan U12 abonnieren</h3>
             <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Spielplan U12</a>
             <button class="copy-button"
                 onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics')">URL
                 kopieren</button>
+        </div>
+
+        <div class="events-container">
+            <h4>Aktuelle Termine - Spielplan U12</h4>
+            <div id="u12-events" class="loading">Lade Termine...</div>
         </div>
 
         <div class="instructions">
@@ -168,6 +222,82 @@
                 }, 2000);
             });
         }
+
+        function formatDate(date) {
+            const options = {
+                weekday: 'short',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            return date.toLocaleDateString('de-DE', options);
+        }
+
+        function loadCalendarEvents(url, containerId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    try {
+                        const jcalData = ICAL.parse(data);
+                        const comp = new ICAL.Component(jcalData);
+                        const vevents = comp.getAllSubcomponents('vevent');
+
+                        const events = vevents.map(vevent => {
+                            const event = new ICAL.Event(vevent);
+                            return {
+                                summary: event.summary,
+                                startDate: event.startDate.toJSDate(),
+                                location: event.location,
+                                description: event.description
+                            };
+                        });
+
+                        // Sort events by date
+                        events.sort((a, b) => a.startDate - b.startDate);
+
+                        // Filter upcoming events (from today)
+                        const today = new Date();
+                        today.setHours(0, 0, 0, 0);
+                        const upcomingEvents = events.filter(event => event.startDate >= today);
+
+                        displayEvents(upcomingEvents.slice(0, 10), containerId); // Show next 10 events
+                    } catch (error) {
+                        console.error('Error parsing calendar:', error);
+                        document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching calendar:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
+                });
+        }
+
+        function displayEvents(events, containerId) {
+            const container = document.getElementById(containerId);
+
+            if (events.length === 0) {
+                container.innerHTML = '<div>Keine anstehenden Termine</div>';
+                return;
+            }
+
+            const eventsHTML = events.map(event => `
+                <div class="event-item">
+                    <div class="event-date">${formatDate(event.startDate)}</div>
+                    <div class="event-title">${event.summary || 'Kein Titel'}</div>
+                    ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+                </div>
+            `).join('');
+
+            container.innerHTML = eventsHTML;
+        }
+
+        // Load events when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events');
+            loadCalendarEvents('./ics/bc_lions_moabit_u12.ics', 'u12-events');
+        });
     </script>
 </body>
 
