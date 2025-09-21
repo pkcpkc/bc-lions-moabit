@@ -83,13 +83,10 @@
             background-color: white;
             border-left: 3px solid #007bff;
             border-radius: 3px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .event-main {
-            flex: 1;
+            width: 100%;
         }
 
         .event-date {
@@ -107,8 +104,7 @@
         .event-location {
             color: #666;
             font-size: 12px;
-            margin-left: 15px;
-            flex-shrink: 0;
+            margin-top: 4px;
         }
 
         .loading {
@@ -344,8 +340,8 @@
                     <div class="event-main">
                         <div class="event-date">${formatDate(event.startDate)}</div>
                         <div class="event-title">${event.summary || 'Kein Titel'}</div>
-                    </div><br/>
-                    ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+                        ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+                    </div>
                 </div>
             `).join('');
 
