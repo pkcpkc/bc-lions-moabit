@@ -172,27 +172,27 @@
 
         <div class="calendar-link" id="spielplan">
             <h3>Spielplan U12</h3>
-            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Spielplan U12</a>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Kompletter Spielplan U12</a>
             <button class="copy-button"
                 onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics')">URL
                 kopieren</button>
         </div>
 
         <div class="events-container">
-            <h4>Aktuelle Termine - Spielplan U12</h4>
+            <h4>Nächsten drei Termine - Spielplan U12</h4>
             <div id="u12-events" class="loading">Lade Termine...</div>
         </div>
 
         <div class="calendar-link" id="jugendkalender">
             <h3>Jugendfahrplan</h3>
-            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Jugendfahrplan</a>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">KompletterJugendfahrplan</a>
             <button class="copy-button"
                 onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics')">URL
                 kopieren</button>
         </div>
 
         <div class="events-container">
-            <h4>Aktuelle Termine - Jugendfahrplan</h4>
+            <h4>Nächsten drei Termine - Jugendfahrplan</h4>
             <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
         </div>
 
@@ -312,7 +312,7 @@
                         today.setHours(0, 0, 0, 0);
                         const upcomingEvents = events.filter(event => event.startDate >= today);
 
-                        displayEvents(upcomingEvents, containerId); // Show all upcoming events
+                        displayEvents(upcomingEvents.slice(0, 3), containerId); // Show next 3 events
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
                         document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
