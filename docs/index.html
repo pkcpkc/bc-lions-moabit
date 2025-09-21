@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,34 +11,86 @@
             line-height: 1.6;
             margin: 20px;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #333;
         }
+
         a {
             color: #007bff;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
         }
+
         .instructions {
             margin-top: 20px;
         }
+
         .platform {
             margin-bottom: 20px;
         }
+
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+
+        .copy-button:active {
+            background-color: #004085;
+        }
+
+        .calendar-link {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .copy-button {
+            margin-top: 10px;
+            margin-left: 0;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine U12</h1>
-        <p>Um einen Kalendar zu abonnieren, klicken Sie auf den folgenden Link:</p>
-        <p><a href="./ics/jugendfahrplan.ics">Jugendfahrplan abonnieren</a></p>
-        <p><a href="./ics/bc_lions_moabit_u12.ics">Spielplan U12 abonnieren</a></p>
+        <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen Updates.</p>
+
+        <div class="calendar-link">
+            <h3>Jugendfahrplan abonnieren</h3>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Jugendfahrplan</a>
+            <button class="copy-button"
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics')">URL
+                kopieren</button>
+        </div>
+
+        <div class="calendar-link">
+            <h3>Spielplan U12 abonnieren</h3>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Spielplan U12</a>
+            <button class="copy-button"
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics')">URL
+                kopieren</button>
+        </div>
 
         <div class="instructions">
             <h2>Anleitungen</h2>
@@ -66,7 +119,8 @@
                     <li>Öffnen Sie den Google Kalender im Webbrowser auf einem Computer.</li>
                     <li>Klicken Sie neben "Weitere Kalender" auf das "+"-Symbol und wählen Sie "Per URL".</li>
                     <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
-                    <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät synchronisiert.</li>
+                    <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät
+                        synchronisiert.</li>
                 </ol>
             </div>
             <div class="platform">
@@ -79,5 +133,42 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function () {
+                // Show success feedback
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Kopiert!';
+                button.style.backgroundColor = '#28a745';
+
+                setTimeout(function () {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#007bff';
+                }, 2000);
+            }).catch(function (err) {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                // Show success feedback
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Kopiert!';
+                button.style.backgroundColor = '#28a745';
+
+                setTimeout(function () {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#007bff';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
+
 </html>
