@@ -5,6 +5,7 @@ import { writeFileSync } from "fs";
 const COMPETITION_URL = "https://www.basketball-bund.net/rest/competition/spielplan/id/50422";
 const MATCH_URL = (id) => `https://www.basketball-bund.net/rest/match/id/${id}/matchInfo`;
 const TEAM_NAME = "BC Lions Moabit 1 mix";
+const ICS_FILENAME = "docs/ics/bc_lions_moabit_u12.ics";
 
 async function fetchJSON(url) {
   const res = await fetch(url);
@@ -144,9 +145,8 @@ async function main() {
     // Step 4: Create ICS file
     if (bcLionsGames.length > 0) {
       const icsContent = createICSFile(bcLionsGames);
-      const filename = 'docs/ics/bc_lions_moabit_u12.ics';
-      writeFileSync(filename, icsContent);
-      console.log(`\nICS file created: ${filename}`);
+      writeFileSync(ICS_FILENAME, icsContent);
+      console.log(`\nICS file created: ${ICS_FILENAME}`);
     } else {
       console.log('No games found for BC Lions Moabit 1 mix');
     }
