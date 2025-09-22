@@ -158,19 +158,36 @@
 
         <nav class="navigation">
             <div class="nav-links">
-                <a href="#spielplan" class="nav-link">Spielplan U12</a>
+                <a href="#spielplan_u11" class="nav-link">Spielplan U11</a>
+                <a href="#spielplan_u12" class="nav-link">Spielplan U12</a>
                 <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
                 <a href="#anleitung" class="nav-link">Anleitung</a>
             </div>
         </nav>
 
-        <div class="calendar-link" id="spielplan">
+        <div class="calendar-link" id="spielplan_u11">
+            <h3>Spielplan U11</h3>
+            <button class="copy-button"
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/u11.ics', event)">iCalender-URL
+                kopieren</button>
+            <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/u11.ics">Kalender abonnieren</a>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/u11.ics">Kalender laden</a>
+            <a href="https://www.basketball-bund.net/static/#/liga/50470">Spielplan U11 auf Deutscher Basketball Bund
+                Webseite</a>
+        </div>
+
+        <div class="events-container">
+            <h4>Nächste drei Termine - Spielplan U11</h4>
+            <div id="u11-events" class="loading">Lade Termine...</div>
+        </div>
+
+        <div class="calendar-link" id="spielplan_u12">
             <h3>Spielplan U12</h3>
             <button class="copy-button"
-                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics', event)">iCalender-URL
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/u12.ics', event)">iCalender-URL
                 kopieren</button>
-            <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Kalender abonnieren</a>
-            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/bc_lions_moabit_u12.ics">Kalender laden</a>
+            <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/u12.ics">Kalender abonnieren</a>
+            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/u12.ics">Kalender laden</a>
             <a href="https://www.basketball-bund.net/static/#/liga/50422">Spielplan U12 auf Deutscher Basketball Bund
                 Webseite</a>
         </div>
@@ -348,6 +365,7 @@
         // Load events when page loads
         document.addEventListener('DOMContentLoaded', function () {
             loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events');
+            loadCalendarEvents('./ics/u11.ics', 'u11-events');
             loadCalendarEvents('./ics/bc_lions_moabit_u12.ics', 'u12-events');
         });
     </script>

@@ -1,11 +1,35 @@
 // Save as fetchGames.js
 import fetch from "node-fetch";
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 
-const COMPETITION_URL = "https://www.basketball-bund.net/rest/competition/spielplan/id/50422";
+// Read config file from command line argument
+if (process.argv.length < 3) {
+  console.error("Usage: node fetchGames.js <config-file>");
+  console.error("Example: node fetchGames.js u12.json");
+  process.exit(1);
+}
+
+const configFile = process.argv[2];
+let config;
+
+try {
+  const configContent = readFileSync(configFile, 'utf8');
+  config = JSON.parse(configContent);
+} catch (error) {
+  console.error(`Error reading config file ${configFile}:`, error.message);
+  process.exit(1);
+}
+
+// Validate required config fields
+if (!config.competitionId || !config.teamName || !config.icsFilename) {
+  console.error("Config file must contain: competitionId, teamName, icsFilename");
+  process.exit(1);
+}
+
+const COMPETITION_URL = `https://www.basketball-bund.net/rest/competition/spielplan/id/${config.competitionId}`;
 const MATCH_URL = (id) => `https://www.basketball-bund.net/rest/match/id/${id}/matchInfo`;
-const TEAM_NAME = "BC Lions Moabit 1 mix";
-const ICS_FILENAME = "docs/ics/bc_lions_moabit_u12.ics";
+const TEAM_NAME = config.teamName;
+const ICS_FILENAME = config.icsFilename;
 
 async function fetchJSON(url) {
   const res = await fetch(url);
@@ -15,7 +39,7 @@ async function fetchJSON(url) {
 
 function formatDateForICS(dateStr, timeStr) {
   let day, month, year;
-  
+
   // Check if date is in YYYY-MM-DD format or DD.MM.YYYY format
   if (dateStr.includes('-')) {
     // YYYY-MM-DD format
@@ -26,19 +50,19 @@ function formatDateForICS(dateStr, timeStr) {
   } else {
     throw new Error(`Unsupported date format: ${dateStr}`);
   }
-  
+
   const [hours, minutes] = timeStr.split(':');
-  
+
   // Handle placeholder times like 23:59 (TBD)
   if (timeStr === '23:59') {
     // Set to 00:00 for TBD games - return local time format
     return `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}T000000`;
   }
-  
+
   // Format as YYYYMMDDTHHMMSS for ICS (local time, no timezone conversion)
   const formattedDate = `${year}${month.padStart(2, '0')}${day.padStart(2, '0')}`;
   const formattedTime = `${hours.padStart(2, '0')}${minutes.padStart(2, '0')}00`;
-  
+
   return `${formattedDate}T${formattedTime}`;
 }
 
@@ -47,15 +71,15 @@ function addHoursToTime(timeStr, hoursToAdd) {
   if (timeStr === '23:59') {
     return '23:59'; // Keep as is for TBD games
   }
-  
+
   const [hours, minutes] = timeStr.split(':').map(Number);
   const newHours = hours + hoursToAdd;
-  
+
   // Handle overflow past 24 hours
   if (newHours >= 24) {
     return '23:59'; // Cap at 23:59 for same day
   }
-  
+
   return `${String(newHours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
 }
 
@@ -63,20 +87,20 @@ function createICSEvent(game) {
   const dtStart = formatDateForICS(game.date, game.time);
   const endTime = addHoursToTime(game.time, 2);
   const dtEnd = formatDateForICS(game.date, endTime);
-  
+
   // Location: format as "Street; ZIP City" as requested
   const location = `${game.venue.street}; ${game.venue.zip} ${game.venue.city}`;
-  
+
   // Create a description with venue name and full address
   const description = `Venue: ${game.venue.name || 'TBD'}\\nAddress: ${location}`;
-  
+
   // Add TBD indicator for games with placeholder times
   const timeIndicator = game.time === '23:59' ? ' (Zeit TBD)' : '';
-  
+
   // Add venue name in brackets to the title
   const venueInTitle = game.venue.name ? ` (${game.venue.name})` : '';
   const summary = `${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
-  
+
   return [
     'BEGIN:VEVENT',
     `DTSTART:${dtStart}`,
@@ -96,11 +120,11 @@ function createICSFile(games) {
     'PRODID:-//BC Lions Moabit//Basketball Schedule//EN',
     'CALSCALE:GREGORIAN'
   ].join('\r\n');
-  
+
   const footer = 'END:VCALENDAR';
-  
+
   const events = games.map(createICSEvent).join('\r\n');
-  
+
   return [header, events, footer].join('\r\n');
 }
 
@@ -133,7 +157,7 @@ async function main() {
     }
 
     // Step 3: Filter for BC Lions Moabit 1 mix games
-    const bcLionsGames = results.filter(game => 
+    const bcLionsGames = results.filter(game =>
       game.home.includes(TEAM_NAME) || game.guest.includes(TEAM_NAME)
     );
 
