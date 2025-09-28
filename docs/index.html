@@ -346,9 +346,20 @@
         }
 
         function formatDate(startDate, endDate) {
+            // Check if this is an all-day event (time is exactly midnight)
+            const isAllDayEvent = startDate.getHours() === 0 && startDate.getMinutes() === 0 && 
+                                 endDate.getHours() === 0 && endDate.getMinutes() === 0;
+            
+            // For all-day events, ICS DTEND is exclusive (day after last day), so subtract 1 day
+            let displayEndDate = endDate;
+            if (isAllDayEvent) {
+                displayEndDate = new Date(endDate);
+                displayEndDate.setDate(displayEndDate.getDate() - 1);
+            }
+            
             // Check if the event spans multiple days
             const startDay = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
-            const endDay = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+            const endDay = new Date(displayEndDate.getFullYear(), displayEndDate.getMonth(), displayEndDate.getDate());
             
             const isMultiDay = endDay > startDay;
             
@@ -368,7 +379,7 @@
                 };
                 
                 const startStr = startDate.toLocaleDateString('de-DE', startOptions);
-                const endStr = endDate.toLocaleDateString('de-DE', endOptions);
+                const endStr = displayEndDate.toLocaleDateString('de-DE', endOptions);
                 
                 return `${startStr} bis ${endStr}`;
             } else {
