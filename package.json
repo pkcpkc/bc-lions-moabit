@@ -1,6 +1,12 @@
 {
   "type": "module",
   "dependencies": {
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "glob": "^10.3.10"
+  },
+  "scripts": {
+    "fetch-all": "node fetch-all.js",
+    "build-html": "node build-html.js",
+    "build": "node build.js"
   }
 }

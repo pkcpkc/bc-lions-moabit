@@ -1,15 +1,16 @@
-// Save as fetchGames.js
+// Save as fetch-games.js
 import fetch from "node-fetch";
 import { writeFileSync, readFileSync } from "fs";
+import { generateIndexHTML } from "./build-html.js";
 
 // Read config file from command line argument
 if (process.argv.length < 3) {
-  console.error("Usage: node fetchGames.js <config-file>");
-  console.error("Example: node fetchGames.js u12.json");
+  console.error("Usage: node fetch-games.js <config-file>");
+  console.error("Example: node fetch-games.js u12.json");
   process.exit(1);
 }
 
-const configFile = process.argv[2];
+const configFile = `teams/${process.argv[2]}`;
 let config;
 
 try {
@@ -21,15 +22,18 @@ try {
 }
 
 // Validate required config fields
-if (!config.competitionId || !config.teamName || !config.icsFilename) {
-  console.error("Config file must contain: competitionId, teamName, icsFilename");
+if (!config.competitionId || !config.teamName || !config.teamId) {
+  console.error("Config file must contain: competitionId, teamName, teamId");
   process.exit(1);
 }
+
+// Use teamId from config instead of inferring from filename
+const teamShortcut = config.teamId;
 
 const COMPETITION_URL = `https://www.basketball-bund.net/rest/competition/spielplan/id/${config.competitionId}`;
 const MATCH_URL = (id) => `https://www.basketball-bund.net/rest/match/id/${id}/matchInfo`;
 const TEAM_NAME = config.teamName;
-const ICS_FILENAME = config.icsFilename;
+const ICS_FILENAME = `docs/ics/${config.teamId}.ics`;
 
 async function fetchJSON(url) {
   const res = await fetch(url);
@@ -99,7 +103,7 @@ function createICSEvent(game) {
 
   // Add venue name in brackets to the title
   const venueInTitle = game.venue.name ? ` (${game.venue.name})` : '';
-  const summary = `${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
+  const summary = `${teamShortcut}: ${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
 
   return [
     'BEGIN:VEVENT',
@@ -177,6 +181,15 @@ async function main() {
 
     console.log('\nAll games:');
     console.log(JSON.stringify(results, null, 2));
+
+    // Generate the HTML file with current configurations
+    try {
+      console.log('\nGenerating index.html...');
+      generateIndexHTML();
+    } catch (htmlError) {
+      console.error('Error generating HTML:', htmlError);
+    }
+
   } catch (err) {
     console.error("Error:", err);
   }

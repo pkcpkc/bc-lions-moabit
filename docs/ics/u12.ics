@@ -5,7 +5,7 @@ CALSCALE:GREGORIAN
 BEGIN:VEVENT
 DTSTART:20250928T000000
 DTEND:20250928T000000
-SUMMARY:Nachmeldung 2 vs BC Lions Moabit 1 mix (Zeit TBD) (N.N.)
+SUMMARY:u12: Nachmeldung 2 vs BC Lions Moabit 1 mix (Zeit TBD) (N.N.)
 LOCATION:###; 10437 Berlin
 DESCRIPTION:Venue: N.N.\nAddress: ###; 10437 Berlin
 UID:2751097@bc-lions-moabit
@@ -13,7 +13,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251012T100000
 DTEND:20251012T120000
-SUMMARY:BC Lions Moabit 1 mix vs Einheit Pankow 2 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs Einheit Pankow 2 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751232@bc-lions-moabit
@@ -21,7 +21,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251108T160000
 DTEND:20251108T180000
-SUMMARY:SSV Lok Bernau 2 vs BC Lions Moabit 1 mix (Bernau - Zepernicker Chaussee)
+SUMMARY:u12: SSV Lok Bernau 2 vs BC Lions Moabit 1 mix (Bernau - Zepernicker Chaussee)
 LOCATION:Zepernicker Chaussee 22; 16321 Bernau bei Berlin
 DESCRIPTION:Venue: Bernau - Zepernicker Chaussee\nAddress: Zepernicker Chaussee 22; 16321 Bernau bei Berlin
 UID:2751308@bc-lions-moabit
@@ -29,7 +29,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251115T100000
 DTEND:20251115T120000
-SUMMARY:BC Lions Moabit 1 mix vs DBV Charlottenburg 2 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs DBV Charlottenburg 2 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751328@bc-lions-moabit
@@ -37,7 +37,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251130T140000
 DTEND:20251130T160000
-SUMMARY:BC Lions Moabit 1 mix vs CITY Basket Berlin 1 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs CITY Basket Berlin 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751424@bc-lions-moabit
@@ -45,7 +45,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251205T173000
 DTEND:20251205T193000
-SUMMARY:BC Lions Moabit 1 mix vs ALBA Berlin 8 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs ALBA Berlin 8 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751133@bc-lions-moabit
@@ -53,7 +53,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251206T140000
 DTEND:20251206T160000
-SUMMARY:ALBA Berlin 9 (wbl.) vs BC Lions Moabit 1 mix (Knaackstraße)
+SUMMARY:u12: ALBA Berlin 9 (wbl.) vs BC Lions Moabit 1 mix (Knaackstraße)
 LOCATION:Knaackstraße 67; 10435 Berlin
 DESCRIPTION:Venue: Knaackstraße\nAddress: Knaackstraße 67; 10435 Berlin
 UID:2751377@bc-lions-moabit
@@ -61,7 +61,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251207T114500
 DTEND:20251207T134500
-SUMMARY:TSC Spandau 1 vs BC Lions Moabit 1 mix (Staakener Feldstraße)
+SUMMARY:u12: TSC Spandau 1 vs BC Lions Moabit 1 mix (Staakener Feldstraße)
 LOCATION:Staakener Feldstraße 6-8; 13591 Berlin
 DESCRIPTION:Venue: Staakener Feldstraße\nAddress: Staakener Feldstraße 6-8; 13591 Berlin
 UID:2751512@bc-lions-moabit
@@ -69,7 +69,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251214T100000
 DTEND:20251214T120000
-SUMMARY:BC Lions Moabit 1 mix vs Nachmeldung 2 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs Nachmeldung 2 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751530@bc-lions-moabit
@@ -77,7 +77,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260111T093000
 DTEND:20260111T113000
-SUMMARY:ALBA Berlin 8 vs BC Lions Moabit 1 mix (Hussitenstraße (rechts))
+SUMMARY:u12: ALBA Berlin 8 vs BC Lions Moabit 1 mix (Hussitenstraße (rechts))
 LOCATION:Hussitenstraße 47; 13355 Berlin
 DESCRIPTION:Venue: Hussitenstraße (rechts)\nAddress: Hussitenstraße 47; 13355 Berlin
 UID:2751570@bc-lions-moabit
@@ -85,7 +85,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260118T100000
 DTEND:20260118T120000
-SUMMARY:BC Lions Moabit 1 mix vs BG Red Dragons KW 1 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs BG Red Dragons KW 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751645@bc-lions-moabit
@@ -93,7 +93,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260124T160000
 DTEND:20260124T180000
-SUMMARY:Einheit Pankow 2 vs BC Lions Moabit 1 mix (Hauptstraße (Halle 2))
+SUMMARY:u12: Einheit Pankow 2 vs BC Lions Moabit 1 mix (Hauptstraße (Halle 2))
 LOCATION:Hauptstraße 66; 13127 Berlin
 DESCRIPTION:Venue: Hauptstraße (Halle 2)\nAddress: Hauptstraße 66; 13127 Berlin
 UID:2751665@bc-lions-moabit
@@ -101,7 +101,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260215T120000
 DTEND:20260215T140000
-SUMMARY:BC Lions Moabit 1 mix vs SSV Lok Bernau 2 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs SSV Lok Bernau 2 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751741@bc-lions-moabit
@@ -109,7 +109,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260222T140000
 DTEND:20260222T160000
-SUMMARY:DBV Charlottenburg 2 vs BC Lions Moabit 1 mix (Schillerstraße, oben)
+SUMMARY:u12: DBV Charlottenburg 2 vs BC Lions Moabit 1 mix (Schillerstraße, oben)
 LOCATION:Schillerstraße 121; 10625 Berlin
 DESCRIPTION:Venue: Schillerstraße, oben\nAddress: Schillerstraße 121; 10625 Berlin
 UID:2751761@bc-lions-moabit
@@ -117,7 +117,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260301T120000
 DTEND:20260301T140000
-SUMMARY:BC Lions Moabit 1 mix vs ALBA Berlin 9 (wbl.) (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs ALBA Berlin 9 (wbl.) (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751809@bc-lions-moabit
@@ -125,7 +125,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260307T100000
 DTEND:20260307T120000
-SUMMARY:CITY Basket Berlin 1 vs BC Lions Moabit 1 mix (Schillerstraße, unten)
+SUMMARY:u12: CITY Basket Berlin 1 vs BC Lions Moabit 1 mix (Schillerstraße, unten)
 LOCATION:Schillerstraße 121; 10625 Berlin
 DESCRIPTION:Venue: Schillerstraße, unten\nAddress: Schillerstraße 121; 10625 Berlin
 UID:2751842@bc-lions-moabit
@@ -133,7 +133,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260315T100000
 DTEND:20260315T120000
-SUMMARY:BC Lions Moabit 1 mix vs TSC Spandau 1 (Alt-Moabit)
+SUMMARY:u12: BC Lions Moabit 1 mix vs TSC Spandau 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10; 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
 UID:2751079@bc-lions-moabit
@@ -141,7 +141,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260322T120000
 DTEND:20260322T140000
-SUMMARY:BG Red Dragons KW 1 vs BC Lions Moabit 1 mix (Königs Wusterhausen - Paul-Dinter-Halle)
+SUMMARY:u12: BG Red Dragons KW 1 vs BC Lions Moabit 1 mix (Königs Wusterhausen - Paul-Dinter-Halle)
 LOCATION:Maxim-Gorki-Straße 16; 15711 Königs Wusterhausen
 DESCRIPTION:Venue: Königs Wusterhausen - Paul-Dinter-Halle\nAddress: Maxim-Gorki-Straße 16; 15711 Königs Wusterhausen
 UID:2751213@bc-lions-moabit
