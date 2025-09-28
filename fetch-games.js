@@ -3,6 +3,9 @@ import fetch from "node-fetch";
 import { writeFileSync, readFileSync } from "fs";
 import { generateIndexHTML } from "./build-html.js";
 
+// Check for quiet mode
+const isQuiet = process.argv.includes('--quiet');
+
 // Read config file from command line argument
 if (process.argv.length < 3) {
   console.error("Usage: node fetch-games.js <config-file>");
@@ -165,27 +168,37 @@ async function main() {
       game.home.includes(TEAM_NAME) || game.guest.includes(TEAM_NAME)
     );
 
-    console.log(`Found ${bcLionsGames.length} games for ${TEAM_NAME}:`);
-    bcLionsGames.forEach(game => {
-      console.log(`${game.date} ${game.time} - ${game.home} vs ${game.guest}`);
-    });
+    if (!isQuiet) {
+      console.log(`Found ${bcLionsGames.length} games for ${TEAM_NAME}:`);
+      bcLionsGames.forEach(game => {
+        console.log(`${game.date} ${game.time} - ${game.home} vs ${game.guest}`);
+      });
+    }
 
     // Step 4: Create ICS file
     if (bcLionsGames.length > 0) {
       const icsContent = createICSFile(bcLionsGames);
       writeFileSync(ICS_FILENAME, icsContent);
-      console.log(`\nICS file created: ${ICS_FILENAME}`);
+      if (!isQuiet) {
+        console.log(`\nICS file created: ${ICS_FILENAME}`);
+      }
     } else {
-      console.log('No games found for BC Lions Moabit 1 mix');
+      if (!isQuiet) {
+        console.log('No games found for BC Lions Moabit 1 mix');
+      }
     }
 
-    console.log('\nAll games:');
-    console.log(JSON.stringify(results, null, 2));
+    if (!isQuiet) {
+      console.log('\nAll games:');
+      console.log(JSON.stringify(results, null, 2));
+    }
 
     // Generate the HTML file with current configurations
     try {
-      console.log('\nGenerating index.html...');
-      generateIndexHTML();
+      if (!isQuiet) {
+        console.log('\nGenerating index.html...');
+      }
+      generateIndexHTML(isQuiet);
     } catch (htmlError) {
       console.error('Error generating HTML:', htmlError);
     }

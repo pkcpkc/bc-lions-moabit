@@ -36,7 +36,7 @@ jobs:
       run: npm install
     
     - name: Run build script
-      run: npm run build
+      run: node build.js --quiet
     
     - name: Check for changes
       id: verify-changed-files

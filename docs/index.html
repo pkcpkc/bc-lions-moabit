@@ -145,17 +145,24 @@
             color: white;
             text-decoration: none;
         }
+
+        .last-updated {
+            text-align: center;
+            color: #666;
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
+        <p class="last-updated"><small><em></em></small></p>
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
-            Updates.</p>
-        <p>Grüße Paul (Vater von Teddy)</p>
-
+            Updates.<br><br>
+            Zuletzt aktualisiert: Sonntag, 28. September 2025 um 13:57</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
@@ -253,12 +260,12 @@
         function generateTeamSections() {
             const navContainer = document.getElementById('dynamic-nav-links');
             const calendarContainer = document.getElementById('team-calendars-container');
-            
+
             // Clear existing dynamic content
             const existingNavLinks = navContainer.querySelectorAll('.team-nav-link');
             existingNavLinks.forEach(link => link.remove());
             calendarContainer.innerHTML = '';
-            
+
             // Generate navigation links and calendar sections for each team
             CALENDAR_CONFIGS.forEach(config => {
                 // Create navigation link
@@ -266,11 +273,11 @@
                 navLink.href = `#spielplan_${config.id}`;
                 navLink.className = 'nav-link team-nav-link';
                 navLink.textContent = config.name;
-                
+
                 // Insert before Jugendfahrplan link
                 const jugendfahrplanLink = navContainer.querySelector('a[href="#jugendfahrplan"]');
                 navContainer.insertBefore(navLink, jugendfahrplanLink);
-                
+
                 // Create calendar section
                 const calendarSection = document.createElement('div');
                 calendarSection.innerHTML = `
@@ -290,7 +297,7 @@
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
-                
+
                 calendarContainer.appendChild(calendarSection);
             });
         }
@@ -405,10 +412,10 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
             generateTeamSections();
-            
+
             // Load static Jugendfahrplan events
             loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events');
-            
+
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {
                 const icsFile = config.icsFilename.replace('docs/', './');

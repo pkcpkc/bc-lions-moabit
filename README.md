@@ -56,6 +56,15 @@ npm run build-html
 node build-html.js
 ```
 
+### Quiet Mode
+All scripts support `--quiet` flag for minimal output (used by GitHub Actions):
+```bash
+node build.js --quiet           # Minimal output: "✅ Build completed - calendars updated"
+node fetch-all.js --quiet       # Only shows: "✅ Fetched data for X teams"
+node fetch-games.js u11.json --quiet  # Silent operation
+node build-html.js --quiet      # Silent operation
+```
+
 ## How It Works
 
 ### Server-Side (Build Time)
@@ -78,6 +87,12 @@ All calendar entries are prefixed with the team ID for easy identification:
 
 ### Dynamic Team Sections
 Teams are automatically sorted alphabetically and rendered client-side, making it easy to add new teams without template changes.
+
+### Last Updated Timestamp
+The generated HTML includes a Berlin timezone timestamp showing when the calendars were last updated:
+- Automatically generated during build process
+- Displays in German format: "Sonntag, 28. September 2025 um 13:48"
+- Updates every time the build script runs
 
 ### Automatic File Generation
 - ICS files: `docs/ics/${teamId}.ics`

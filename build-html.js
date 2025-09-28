@@ -3,9 +3,9 @@ import { readFileSync, writeFileSync } from 'fs';
 import { glob } from 'glob';
 
 /**
- * Generates the index.html file dynamically based on available config files
+ * Generates the index.html file with embedded calendar configurations
  */
-function generateIndexHTML() {
+export function generateIndexHTML(quiet = false) {
     // Find all JSON config files in the teams folder
     const configFiles = glob.sync('teams/*.json');
 
@@ -52,27 +52,43 @@ function generateIndexHTML() {
     // Read the template
     const template = readFileSync('index.template.html', 'utf8');
 
-    // Replace only the JSON configuration data
+    // Generate Berlin time timestamp
+    const now = new Date();
+    const berlinTime = now.toLocaleString('de-DE', {
+        timeZone: 'Europe/Berlin',
+        dateStyle: 'full',
+        timeStyle: 'short'
+    });
+
+    // Replace placeholders (handle both with and without spaces)
     let html = template
-        .replace('{{CALENDAR_CONFIGS}}', JSON.stringify(configs, null, 8));
+        .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(configs, null, 8))
+        .replace(/\{\{\s*LAST_UPDATED\s*\}\}/g, berlinTime);
 
     // Write the generated HTML
     writeFileSync('docs/index.html', html);
     
-    console.log(`Generated docs/index.html with ${configs.length} calendar configurations`);
+    if (!quiet) {
+        console.log(`Generated docs/index.html with ${configs.length} calendar configurations`);
+    }
     
     return configs;
 }
 
-// Export the function for use by other modules
-export { generateIndexHTML };
-
 // Run the function if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log('Generating index.html from available configurations...');
+  const isQuiet = process.argv.includes('--quiet');
+  
+  if (!isQuiet) {
+    console.log('Generating index.html from available configurations...');
+  }
+  
   try {
-    generateIndexHTML();
-    console.log('HTML generation completed successfully!');
+    generateIndexHTML(isQuiet);
+    
+    if (!isQuiet) {
+      console.log('HTML generation completed successfully!');
+    }
   } catch (error) {
     console.error('Error generating HTML:', error);
     process.exit(1);

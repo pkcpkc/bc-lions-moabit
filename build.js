@@ -9,21 +9,35 @@ const __dirname = dirname(__filename);
 /**
  * Runs a Node.js script and returns a Promise
  */
-function runScript(scriptName, args = []) {
+function runScript(scriptName, args = [], quiet = false) {
     return new Promise((resolve, reject) => {
-        console.log(`🚀 Running: node ${scriptName} ${args.join(' ')}`);
+        if (!quiet) {
+            console.log(`🚀 Running: node ${scriptName} ${args.join(' ')}`);
+        }
         
         const scriptPath = join(__dirname, scriptName);
-        const child = spawn('node', [scriptPath, ...args], {
-            stdio: 'inherit',
+        const allArgs = quiet ? [...args, '--quiet'] : args;
+        const child = spawn('node', [scriptPath, ...allArgs], {
+            stdio: quiet ? 'pipe' : 'inherit',
             cwd: __dirname
         });
 
+        let output = '';
+        if (quiet) {
+            child.stdout.on('data', (data) => output += data);
+            child.stderr.on('data', (data) => output += data);
+        }
+
         child.on('close', (code) => {
             if (code !== 0) {
+                if (quiet && output) {
+                    console.error(output); // Show output on error even in quiet mode
+                }
                 reject(new Error(`Script ${scriptName} exited with code ${code}`));
             } else {
-                console.log(`✅ Completed: ${scriptName}\n`);
+                if (!quiet) {
+                    console.log(`✅ Completed: ${scriptName}\n`);
+                }
                 resolve();
             }
         });
@@ -38,23 +52,36 @@ function runScript(scriptName, args = []) {
  * Build all: fetch games for all teams, then generate HTML
  */
 async function buildAll() {
-    console.log('🏀 BC Lions Moabit - Build All');
-    console.log('==============================\n');
+    // Check for quiet mode (for automated builds)
+    const isQuiet = process.argv.includes('--quiet');
+    
+    if (!isQuiet) {
+        console.log('🏀 BC Lions Moabit - Build All');
+        console.log('==============================\n');
+    }
 
     try {
         // Step 1: Fetch games for all configured teams
-        console.log('📥 Step 1: Fetching games for all teams...');
-        await runScript('fetch-all.js');
+        if (!isQuiet) {
+            console.log('📥 Step 1: Fetching games for all teams...');
+        }
+        await runScript('fetch-all.js', [], isQuiet);
 
         // Step 2: Generate HTML with updated data
-        console.log('🔨 Step 2: Building HTML with fresh data...');
-        await runScript('build-html.js');
+        if (!isQuiet) {
+            console.log('🔨 Step 2: Building HTML with fresh data...');
+        }
+        await runScript('build-html.js', [], isQuiet);
 
-        console.log('🎉 Build all completed successfully!');
-        console.log('📄 Generated docs/index.html with latest game data');
+        if (isQuiet) {
+            console.log('✅ Build completed - calendars updated');
+        } else {
+            console.log('🎉 Build all completed successfully!');
+            console.log('📄 Generated docs/index.html with latest game data');
+        }
 
     } catch (error) {
-        console.error('❌ Build all failed:', error.message);
+        console.error('❌ Build failed:', error.message);
         process.exit(1);
     }
 }
