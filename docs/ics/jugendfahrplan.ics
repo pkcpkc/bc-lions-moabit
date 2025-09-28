@@ -1,680 +1,186 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//BC Lions Moabit Jugendfahrplan//DE
+PRODID:-//Merged Calendar//DE
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250814
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:e4eea8ff-00d1-4156-9e8c-28081266fc0d@e4ee.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251230
-SUMMARY:Lions Christmas Edition Turnier + Sylvesterparty
-UID:2ae43ac0-e6f8-491d-90e7-097a4afd683e@2ae4.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250901
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp II mit Übernachtung
-UID:d0d86e38-b23d-4f70-b7a0-484331a1a1ee@d0d8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250827
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:4459b10d-15db-493d-9282-f0afd95bb2cd@4459.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251228
-SUMMARY:Vereinsreise Lemvig Dänemark
-UID:681bc275-2a62-4314-96a4-6f308c6827c9@681b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250810
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:8eaae2d5-db86-4e4b-9c3b-cb1dbc0eb33d@8eaa.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250816
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:0719818f-59ca-4f05-afaf-50d780494098@0719.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250912
-SUMMARY:Leszno Austausch WU12–WU15
-UID:8d03b131-22c2-46f8-be8d-9df12403fadc@8d03.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250830
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:ab7885d8-4632-4fec-891e-7794da9f82bb@ab78.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251027
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:3d27a6de-a5f4-4718-a070-d112dde5cfc4@3d27.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250824
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:197ffae8-8818-4d7c-a6fe-f608686e1f32@197f.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251222
-SUMMARY:Xmas Ballin Projekt (STK)
-UID:739a8cab-3abf-40b9-9ce7-17c882c02b5c@739a.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250815
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:2c2de903-3336-4da4-afa9-23b90270c36c@2c2d.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250803
-SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
-UID:32abd063-2dc1-47a9-a524-aa9c73cacab5@32ab.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250902
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:cc8287b7-091c-4159-ab31-9039533842ed@cc82.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250724
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:3d49cd2f-f987-478f-9090-63144a521712@3d49.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250727
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp I mit Übernachtung
-UID:f636beb1-6e3b-4ee3-a160-f18ed8484531@f636.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250905
-SUMMARY:Network Cup Made in Moabit
-UID:5a520a1e-d8e9-4419-b66b-0f4fbccea3c3@5a52.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250802
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:572e7810-bf96-4f4c-88a3-721e9cc22e2e@572e.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250729
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:8ce87543-5a43-4527-8ad4-fa34e9882acf@8ce8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250802
-SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
-UID:e4464514-fa28-4e2d-9e72-2f6b11572f9d@e446.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250827
-SUMMARY:Ferienreise nach Leer
-UID:1f28efb2-ac26-4c7a-a5b8-5a83e31f714f@1f28.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250913
-SUMMARY:MediDay/Kinderschutz-Seminar/Coaches-Clinic
-UID:29b64a25-2916-4813-99c6-c9255f0885a3@29b6.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251021
-SUMMARY:Herbstcamp I
-UID:3bba9069-4196-4f4a-b07e-94fecd6dc6b1@3bba.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250908
-SUMMARY:Elterninformationsabend I (Online via Zoom)
-UID:bfa5e76a-8f70-4f4d-9f47-010fa2b701e3@bfa5.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250724
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp I mit Übernachtung
-UID:5051d430-42ae-4923-ad27-2d14caf0ed8b@5051.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250804
-SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
-UID:bde5cf8a-408d-4b3c-b3dc-9986fc79271c@bde5.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250811
-SUMMARY:Kooperationspartner Austausch MOA
-UID:de39591f-b6c3-4fa5-9695-9cb8b75b110f@de39.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250723
+UID:Projekttage Made in Moabit-2025-07-19@merged
 SUMMARY:Projekttage Made in Moabit
-UID:24449e39-1536-4259-8ce4-60155b9a0bf6@2444.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251101
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:a18b3854-b865-493c-bf91-bdd54b6cb5bb@a18b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250822
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:6d334248-f51c-4887-a865-9ffd8e86cdb3@6d33.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250829
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:a40d4488-758f-4016-8d3d-3f909ba386ae@a40d.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250901
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:af620313-55f7-43d0-836e-c6519b04071b@af62.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250815
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:98b2a55d-d10b-4ca7-998d-42cfd35ed405@98b2.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250920
-SUMMARY:Moabiter Kiezfest (am Rathaus Tiergarten)
-UID:5748d13a-7648-4187-b4d3-d8bca2ce2e80@5748.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251031
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:38506ee4-c754-4466-a7fa-1f375a1b9cf9@3850.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250904
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:120625f5-73bd-4a6b-b5e9-1efb7a324dda@1206.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250820
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:2c405c82-f4e3-460c-b14c-802928dc5c38@2c40.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250902
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp II mit Übernachtung
-UID:4d2448f6-4d40-4483-ab78-8e6dfe0d8ad9@4d24.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251028
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:afad9b92-a5db-427a-8b10-df839e64efad@afad.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250905
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:ed433dad-c987-453d-841a-14311949b24a@ed43.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250818
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:421276f1-c194-460e-9257-82fbb7719e8e@4212.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250907
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:eaba78b5-4025-4f1d-bd03-bf79c6b9d15b@eaba.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251021
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:c3ca59b2-3060-490b-8466-626d40636ac1@c3ca.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250826
-SUMMARY:Ferienreise nach Leer
-UID:d6b64073-6b24-4510-8d93-a33b01d160d8@d6b6.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251023
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:c0004a46-1309-4689-a85a-f84ac10a2051@c000.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250721
-SUMMARY:Projekttage Made in Moabit
-UID:0732fe33-839c-4577-bc55-93e4fd9f9d92@0732.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250726
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:ec800e05-99b6-44d8-9933-212f72bd777c@ec80.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250825
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:d123b7f3-6adb-4425-a2a4-764418022003@d123.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250730
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:020f309e-0bae-4ff8-a2d3-16cdc613b3a1@020f.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250819
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:def31c64-ff8e-4cbc-812c-d18c258e4930@def3.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250906
-SUMMARY:Network Cup Made in Moabit
-UID:ff7f1930-7eb1-42b6-939d-8f93aa955d0a@ff7f.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251031
-LOCATION:Alt-Moabit
-SUMMARY:Jahreshauptversammlung
-UID:3dc859b5-3043-4997-8477-78b8ed427895@3dc8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251020
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:d7d5b973-e8bf-44fe-b2e3-e21d460f1bc6@d7d5.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251020
-SUMMARY:Herbstcamp I
-UID:83d40040-88f1-4f81-8558-01b0007e2e89@83d4.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250818
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:132e83fa-bb69-4cf6-8fb9-3c6cd6a6fc45@132e.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250804
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:248ba669-b805-4a3b-955e-f899606965be@248b.org
-END:VEVENT
-BEGIN:VEVENT
+DTSTAMP:20250928T174352Z
 DTSTART;VALUE=DATE:20250719
-SUMMARY:Projekttage Made in Moabit
-UID:6a514cf6-8794-4fe0-be45-57ff4ba32a7e@6a51.org
+DTEND;VALUE=DATE:20250724
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250806
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:e4cb1fe3-d101-4c19-aa77-f2016630b577@e4cb.org
+UID:Volleyball-Turnier (Alt-Moabit)-2025-07-20@merged
+SUMMARY:Volleyball-Turnier (Alt-Moabit)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250720
+DTEND;VALUE=DATE:20250722
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250903
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:de9fb296-4183-4665-b9d4-f7e8c2ae7a69@de9f.org
+UID:Sommercamp I mit Übernachtung (Alt-Moabit)-2025-07-24@merged
+SUMMARY:Sommercamp I mit Übernachtung (Alt-Moabit)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250724
+DTEND;VALUE=DATE:20250727
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251027
-SUMMARY:Herbstcamp II
-UID:d8706e08-2f11-48e7-945f-54d4cdaab7f5@d870.org
+UID:Sommerferien-2025-07-24@merged
+SUMMARY:Sommerferien
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250724
+DTEND;VALUE=DATE:20250908
 END:VEVENT
 BEGIN:VEVENT
+UID:Basketball-Flohmarkt (Alt-Moabit)-2025-07-27@merged
+SUMMARY:Basketball-Flohmarkt (Alt-Moabit)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250727
+DTEND;VALUE=DATE:20250729
+END:VEVENT
+BEGIN:VEVENT
+UID:Trainingslager Jahrgang M 2011–2015 Ostsee-2025-08-02@merged
+SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250802
+DTEND;VALUE=DATE:20250807
+END:VEVENT
+BEGIN:VEVENT
+UID:Kooperationspartner-Austausch MOA-2025-08-09@merged
+SUMMARY:Kooperationspartner-Austausch MOA
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250809
+DTEND;VALUE=DATE:20250811
+END:VEVENT
+BEGIN:VEVENT
+UID:Projekt 'Mein Bewegter Sommer' (LSB)-2025-08-11@merged
+SUMMARY:Projekt 'Mein Bewegter Sommer' (LSB)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250811
+DTEND;VALUE=DATE:20250823
+END:VEVENT
+BEGIN:VEVENT
+UID:Ferienreise nach Leer-2025-08-24@merged
+SUMMARY:Ferienreise nach Leer
+DTSTAMP:20250928T174352Z
 DTSTART;VALUE=DATE:20250824
-SUMMARY:Ferienreise nach Leer
-UID:72a50b10-9a65-42dc-840e-5ac870bf16a2@72a5.org
+DTEND;VALUE=DATE:20250829
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251227
-SUMMARY:Vereinsreise Lemvig Dänemark
-UID:cf389c3c-de4c-48af-8b21-0957236ea950@cf38.org
+UID:Sommercamp II mit Übernachtung (Alt-Moabit)-2025-09-01@merged
+SUMMARY:Sommercamp II mit Übernachtung (Alt-Moabit)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250901
+DTEND;VALUE=DATE:20250906
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250904
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp II mit Übernachtung
-UID:1767abc7-1b04-46b2-bcbf-421fd3257fcc@1767.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250920
-SUMMARY:Saisonstart 25/26 + SUK geöffnet
-UID:2cd18d0b-18ad-4cf6-abe9-2998021e44cf@2cd1.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250811
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:cd7421a2-fb57-4258-bbe3-f0e4b7fcc71d@cd74.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250722
-SUMMARY:Projekttage Made in Moabit
-UID:55ae85bd-25d5-46eb-9cc5-991c965a7027@55ae.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250819
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:eab3af52-983a-4eae-926e-5b201da1bd6f@eab3.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250728
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:63de5967-71f1-4964-9074-72a0d8307a9c@63de.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251022
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:9ff8b09e-e044-4bdb-a348-8ba9351fc043@9ff8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250725
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp I mit Übernachtung
-UID:130cbc8f-15fe-4149-8804-a884c805e33d@130c.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250727
-LOCATION:Alt-Moabit
-SUMMARY:10–14 Uhr Basketball-Flohmarkt
-UID:a1459068-a628-4a03-a282-8cf8d6807772@a145.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250821
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:6ce800ae-3a71-44b1-a39d-d8516f6c3eff@6ce8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250720
-LOCATION:Alt-Moabit
-SUMMARY:Volleyball-Turnier 10–19 Uhr
-UID:27946309-a365-4fc2-baf3-449b843988e6@2794.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250809
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:6824a0e4-1572-4883-8ea0-c52f84619565@6824.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250812
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:73fbec1f-f96d-4b55-acd9-7d621fe370d5@73fb.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250808
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:9833b15f-dddf-491f-a3c7-bb9759952e55@9833.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251219
-SUMMARY:Moabiter Grundschulcup
-UID:550ae31e-3c19-45cc-a371-1d17aabb1ff9@550a.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250809
-SUMMARY:Kooperationspartner Austausch MOA
-UID:39407b62-9a5e-4793-bbca-d4b8ce32ec32@3940.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251025
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:bb68d3f7-dc9b-4bb1-aa00-1de253947bdb@bb68.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250914
-SUMMARY:Leszno Austausch WU12–WU15
-UID:a31b4150-cfab-4ce0-9d9b-638c411ed41e@a31b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250906
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:a5cb8746-c176-4610-ab33-1e4fd207c7db@a5cb.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250817
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:527bc112-6f46-4860-a56f-0da1b14e2859@527b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250805
-SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
-UID:bf4e46d9-47dc-4e96-84d5-b5ed33b7546c@bf4e.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250727
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:30f153a4-63ae-4a17-afa4-4f9df1d76a38@30f1.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250720
-SUMMARY:Projekttage Made in Moabit
-UID:51ab6ec2-77aa-4613-8f06-93dbea12a9cd@51ab.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250822
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:381acea8-cd5d-4d93-87d2-9500a49dcf77@381a.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250825
-SUMMARY:Ferienreise nach Leer
-UID:97de7bbd-1049-4942-82d4-d74da333f4e2@97de.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250913
-SUMMARY:Leszno Austausch WU12–WU15
-UID:6ebb6ef5-055a-4b31-8fe5-dbacc7bdbc13@6ebb.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251022
-SUMMARY:Herbstcamp I
-UID:ce0b89f9-f964-4047-a57a-77a0548e8a0b@ce0b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250817
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:27e14c59-877b-4eff-afec-f68b9b802cec@27e1.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251208
-SUMMARY:Online-Elternabend Lemvig-Vereinsreise
-UID:e4b9953f-a996-4749-ba08-bbcf053ba43d@e4b9.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251026
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:709816df-c88d-4d38-ac46-69422bbc42ad@7098.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250820
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:b533eb37-3232-4504-91b9-c5c14c5624f3@b533.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250821
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:25b9e96e-82d7-47cd-bd57-59bc2256d17a@25b9.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250725
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:020548dd-350c-4303-a3ed-d0b7badc1750@0205.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250831
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:53d42def-a650-4d11-a31c-b49fd431fe4e@53d4.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250921
-SUMMARY:Saisonstart 25/26 + SUK geöffnet
-UID:ecc839cc-c62e-41f2-a466-64b785815538@ecc8.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250801
-SUMMARY:Trainingslager Jahrgang M 2011–2015 Ostsee
-UID:834fe551-1037-465e-a80b-05f91344f167@834f.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250801
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:8ea037db-b7fb-41da-9eea-fd322fd9a422@8ea0.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250808
-SUMMARY:Kooperationspartner Austausch MOA
-UID:35ed1109-bf2d-4463-88df-b6c38b2d9c0b@35ed.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251029
-SUMMARY:Herbstcamp II
-UID:7dacd8a0-82c9-45ad-9a90-15a6930802b5@7dac.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251030
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:2a20fcfd-0d21-4fff-82d8-ece2ae4d4f86@2a20.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251029
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:2426ed96-d3b5-471a-bf78-d754b5ec0037@2426.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250907
+UID:Network Cup Made in Moabit-2025-09-05@merged
 SUMMARY:Network Cup Made in Moabit
-UID:926c6dbb-9538-4f8c-8c3d-8126276a43be@926c.org
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250905
+DTEND;VALUE=DATE:20250908
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250726
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp I mit Übernachtung
-UID:691a5b45-43ac-4310-b30e-dc4893cf8f81@691a.org
+UID:Elterninformationsabend I (Online, Zoom)-2025-09-08@merged
+SUMMARY:Elterninformationsabend I (Online, Zoom)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250908
+DTEND;VALUE=DATE:20250910
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251220
-SUMMARY:Weihnachtsfeier & Coaches-Clinic
-UID:e410b0ca-d5d5-4719-8a03-c8821e8c55bf@e410.org
+UID:Leszno Austausch WU12–WU15-2025-09-12@merged
+SUMMARY:Leszno Austausch WU12–WU15
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250912
+DTEND;VALUE=DATE:20250916
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250807
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:2ec588d5-1bbe-40cd-bccf-4d8fc7edaa66@2ec5.org
+UID:MediDay / Kinderschutz-Seminar / Coaches-Clinic-2025-09-13@merged
+SUMMARY:MediDay / Kinderschutz-Seminar / Coaches-Clinic
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250913
+DTEND;VALUE=DATE:20250915
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250823
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:a04b93a6-da0c-4f62-9184-3b0ecd2e04c5@a04b.org
+UID:Moabiter Kiezfest (Rathaus Tiergarten)-2025-09-20@merged
+SUMMARY:Moabiter Kiezfest (Rathaus Tiergarten)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250920
+DTEND;VALUE=DATE:20250922
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250826
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:d4e117ed-99f8-4358-8087-9121664fb960@d4e1.org
+UID:Saisonstart 25/26 (SUK geöffnet)-2025-09-20@merged
+SUMMARY:Saisonstart 25/26 (SUK geöffnet)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20250920
+DTEND;VALUE=DATE:20250922
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250828
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:6d288817-b3b8-44b8-a99a-b8c2f37b3b83@6d28.org
+UID:Herbstferien-2025-10-20@merged
+SUMMARY:Herbstferien
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251020
+DTEND;VALUE=DATE:20251101
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251231
-SUMMARY:Lions Christmas Edition Turnier + Sylvesterparty
-UID:f8ef1e6b-a12e-4225-b6d1-b4b27a997462@f8ef.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251230
-SUMMARY:Vereinsreise Lemvig Dänemark
-UID:1a385eb4-8933-43ea-b1e1-d0e82ba77514@1a38.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251229
-SUMMARY:Lions Christmas Edition Turnier + Sylvesterparty
-UID:1ee03871-c5f3-466e-8ff6-8ebd4f210a4b@1ee0.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250811
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:852f8922-ac42-4060-85e4-3fb6dd2f3fe4@852f.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251102
-SUMMARY:Coaches-Clinic
-UID:f8dc7d8b-8384-4ff2-aa54-05077c64e54b@f8dc.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251030
-SUMMARY:Herbstcamp II
-UID:34b52417-4a6a-417a-8e56-aa76b1fb60fb@34b5.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250731
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:bb5cff99-2112-432c-9d82-31636193de29@bb5c.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250813
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:84df061a-6523-4cf9-abbc-a64f44abb105@84df.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250810
-SUMMARY:Kooperationspartner Austausch MOA
-UID:05d7d502-8dc4-45ea-8c4f-aa0c5ee48048@05d7.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251028
-SUMMARY:Herbstcamp II
-UID:1f90fdd3-6992-4151-8b4d-09cd5d3f1c72@1f90.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250812
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:fa9bf15d-3ffc-4035-8b86-68ffb37b6811@fa9b.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251023
+UID:Herbstcamp I-2025-10-20@merged
 SUMMARY:Herbstcamp I
-UID:2ef1cfc1-a0fd-481f-82ab-1035710cfe20@2ef1.org
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251020
+DTEND;VALUE=DATE:20251024
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250816
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:ace89dc1-3b9f-46dc-8b26-dd409fc1986d@ace8.org
+UID:Herbstcamp II-2025-10-27@merged
+SUMMARY:Herbstcamp II
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251027
+DTEND;VALUE=DATE:20251029
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251024
-SUMMARY:Herbstferien (Camps\, Istanbul DSJ Austausch + Ferientrainingsplan)
-UID:415723e4-fa1a-4dcf-a844-ce43c72cc674@4157.org
+UID:Jahreshauptversammlung (Alt-Moabit)-2025-10-31@merged
+SUMMARY:Jahreshauptversammlung (Alt-Moabit)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251031
+DTEND;VALUE=DATE:20251102
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250803
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:841b8709-636f-4580-9039-98ef89737e69@841b.org
+UID:Online-Elternabend Lemvig-Vereinsreise-2025-12-08@merged
+SUMMARY:Online-Elternabend Lemvig-Vereinsreise
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251208
+DTEND;VALUE=DATE:20251210
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251228
-SUMMARY:Lions Christmas Edition Turnier + Sylvesterparty
-UID:eb30e5ce-4371-4a32-b745-d36b13193f8d@eb30.org
+UID:Moabiter Grundschulcup-2025-12-19@merged
+SUMMARY:Moabiter Grundschulcup
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251219
+DTEND;VALUE=DATE:20251221
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250805
-SUMMARY:Sommerferien (Training/Camps/Ferienreise/Boysday/Trainingslager Ostsee Jahrgang 2011–2015/Athletiktraining mit Coach Motaz 3x pro Woche/Bewegte Sommerferien)
-UID:fc6f2876-1c2e-4482-8c80-56332ebbb62b@fc6f.org
+UID:Xmas Ballin Projekt (STK)-2025-12-22@merged
+SUMMARY:Xmas Ballin Projekt (STK)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251222
+DTEND;VALUE=DATE:20251224
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250814
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:bd6d8594-a9cc-4fef-bb57-0564b1be480a@bd6d.org
+UID:Vereinsreise Lemvig (Dänemark)-2025-12-27@merged
+SUMMARY:Vereinsreise Lemvig (Dänemark)
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251227
+DTEND;VALUE=DATE:20251230
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250914
-SUMMARY:MediDay/Kinderschutz-Seminar/Coaches-Clinic
-UID:ce253eba-139c-4bde-a019-79c2a5b7f838@ce25.org
+UID:Lions Christmas Edition Turnier-2025-12-30@merged
+SUMMARY:Lions Christmas Edition Turnier
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251230
+DTEND;VALUE=DATE:20260101
 END:VEVENT
 BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250813
-SUMMARY:Mein Bewegter Sommer Projekt (LSB)
-UID:24d3002d-adec-4e31-aa76-c3f97c2118ac@24d3.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20251229
-SUMMARY:Vereinsreise Lemvig Dänemark
-UID:daa2b40a-f538-4a7b-ae0e-27dcb7d8fd60@daa2.org
-END:VEVENT
-BEGIN:VEVENT
-DTSTART;VALUE=DATE:20250903
-LOCATION:Alt-Moabit
-SUMMARY:Sommercamp II mit Übernachtung
-UID:b1d96b10-87f0-467c-be0a-329d963c3b1a@b1d9.org
+UID:Silvesterparty-2025-12-30@merged
+SUMMARY:Silvesterparty
+DTSTAMP:20250928T174352Z
+DTSTART;VALUE=DATE:20251230
+DTEND;VALUE=DATE:20260101
 END:VEVENT
 END:VCALENDAR

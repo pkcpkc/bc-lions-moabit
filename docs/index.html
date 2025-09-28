@@ -162,7 +162,7 @@
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
             Updates.<br><br>
-            Zuletzt aktualisiert: Sonntag, 28. September 2025 um 13:57</p>
+            Zuletzt aktualisiert: Sonntag, 28. September 2025 um 19:35</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
@@ -237,6 +237,15 @@
     <script>
         // Team configuration data - will be dynamically populated
         const CALENDAR_CONFIGS = [
+        {
+                "id": "he1",
+                "name": "Spielplan HE1",
+                "competitionId": "50395",
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/he1.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he1.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50395"
+        },
         {
                 "id": "u11",
                 "name": "Spielplan U11",
@@ -336,16 +345,44 @@
             });
         }
 
-        function formatDate(date) {
-            const options = {
-                weekday: 'short',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            };
-            return date.toLocaleDateString('de-DE', options);
+        function formatDate(startDate, endDate) {
+            // Check if the event spans multiple days
+            const startDay = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+            const endDay = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+            
+            const isMultiDay = endDay > startDay;
+            
+            if (isMultiDay) {
+                // Format for multi-day events: "Mo., 20.10.2025 bis 23.10.2025"
+                const startOptions = {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                };
+                
+                const endOptions = {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                };
+                
+                const startStr = startDate.toLocaleDateString('de-DE', startOptions);
+                const endStr = endDate.toLocaleDateString('de-DE', endOptions);
+                
+                return `${startStr} bis ${endStr}`;
+            } else {
+                // Format for single day events with time
+                const options = {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                return startDate.toLocaleDateString('de-DE', options);
+            }
         }
 
         function loadCalendarEvents(url, containerId) {
@@ -362,6 +399,7 @@
                             return {
                                 summary: event.summary,
                                 startDate: event.startDate.toJSDate(),
+                                endDate: event.endDate.toJSDate(),
                                 location: event.location,
                                 description: event.description
                             };
@@ -398,7 +436,7 @@
             const eventsHTML = events.map(event => `
                 <div class="event-item">
                     <div class="event-main">
-                        <div class="event-date">${formatDate(event.startDate)}</div>
+                        <div class="event-date">${formatDate(event.startDate, event.endDate)}</div>
                         <div class="event-title">${event.summary || 'Kein Titel'}</div>
                         ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
                     </div>
