@@ -95,11 +95,12 @@ function createICSEvent(game) {
   const endTime = addHoursToTime(game.time, 2);
   const dtEnd = formatDateForICS(game.date, endTime);
 
-  // Location: format as "Street; ZIP City" as requested
-  const location = `${game.venue.street}; ${game.venue.zip} ${game.venue.city}`;
+  // Location: format as "Street\, ZIP City" following Apple/iCalendar standards (RFC 5545)
+  const location = `${game.venue.street}\\, ${game.venue.zip} ${game.venue.city}`;
 
-  // Create a description with venue name and full address
-  const description = `Venue: ${game.venue.name || 'TBD'}\\nAddress: ${location}`;
+  // Create a description with venue name and full address (keep semicolon format for description)
+  const descriptionAddress = `${game.venue.street}; ${game.venue.zip} ${game.venue.city}`;
+  const description = `Venue: ${game.venue.name || 'TBD'}\\nAddress: ${descriptionAddress}`;
 
   // Add TBD indicator for games with placeholder times
   const timeIndicator = game.time === '23:59' ? ' (Zeit TBD)' : '';
