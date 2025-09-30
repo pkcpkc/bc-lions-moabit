@@ -162,7 +162,7 @@
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
             Updates.<br><br>
-            Zuletzt aktualisiert: Dienstag, 30. September 2025 um 20:41</p>
+            Zuletzt aktualisiert: Dienstag, 30. September 2025 um 20:49</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
@@ -384,6 +384,36 @@
             return date.toLocaleDateString('de-DE', options);
         }
 
+        function formatDateRange(startDate, endDate) {
+            // Check if it's a multi-day event (different dates, not just different times)
+            const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+            const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+            
+            if (startDateOnly.getTime() !== endDateOnly.getTime()) {
+                // Multi-day event: format as "Mo., 20.10.2025 bis Do., 24.10.2025"
+                const startOptions = {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                };
+                const endOptions = {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit'
+                };
+                
+                const startFormatted = startDate.toLocaleDateString('de-DE', startOptions);
+                const endFormatted = endDate.toLocaleDateString('de-DE', endOptions);
+                
+                return `${startFormatted} bis ${endFormatted}`;
+            } else {
+                // Single day event: use original formatting
+                return formatDate(startDate);
+            }
+        }
+
         function loadCalendarEvents(url, containerId) {
             fetch(url)
                 .then(response => response.text())
@@ -398,6 +428,7 @@
                             return {
                                 summary: event.summary,
                                 startDate: event.startDate.toJSDate(),
+                                endDate: event.endDate.toJSDate(),
                                 location: event.location,
                                 description: event.description
                             };
@@ -434,7 +465,7 @@
             const eventsHTML = events.map(event => `
                 <div class="event-item">
                     <div class="event-main">
-                        <div class="event-date">${formatDate(event.startDate)}</div>
+                        <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
                         <div class="event-title">${event.summary || 'Kein Titel'}</div>
                         ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
                     </div>
