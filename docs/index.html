@@ -162,7 +162,7 @@
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
             Updates.<br><br>
-            Zuletzt aktualisiert: Dienstag, 30. September 2025 um 20:49</p>
+            Zuletzt aktualisiert: Dienstag, 30. September 2025 um 21:08</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
@@ -188,7 +188,7 @@
         </div>
 
         <div class="events-container">
-            <h4>Nächste drei Termine - Jugendfahrplan</h4>
+            <h4>Alle kommenden Termine - Jugendfahrplan</h4>
             <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
         </div>
 
@@ -414,7 +414,7 @@
             }
         }
 
-        function loadCalendarEvents(url, containerId) {
+        function loadCalendarEvents(url, containerId, maxEvents = 3) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
@@ -442,7 +442,9 @@
                         today.setHours(0, 0, 0, 0);
                         const upcomingEvents = events.filter(event => event.startDate >= today);
 
-                        displayEvents(upcomingEvents.slice(0, 3), containerId); // Show next 3 events
+                        // Show specified number of events (-1 means all events)
+                        const eventsToShow = maxEvents === -1 ? upcomingEvents : upcomingEvents.slice(0, maxEvents);
+                        displayEvents(eventsToShow, containerId);
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
                         document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
@@ -480,8 +482,8 @@
             // Generate team sections dynamically
             generateTeamSections();
 
-            // Load static Jugendfahrplan events
-            loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events');
+            // Load static Jugendfahrplan events (show all upcoming)
+            loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events', -1);
 
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {
