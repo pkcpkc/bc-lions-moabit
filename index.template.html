@@ -11,6 +11,24 @@
             font-family: sans-serif;
             line-height: 1.6;
             margin: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(800px, 90vw);
+            height: min(800px, 60vh);
+            background-image: url('./bc-lions-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
         }
 
         h1,

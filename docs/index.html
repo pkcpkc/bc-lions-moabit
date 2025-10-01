@@ -11,6 +11,24 @@
             font-family: sans-serif;
             line-height: 1.6;
             margin: 20px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(800px, 90vw);
+            height: min(800px, 60vh);
+            background-image: url('./bc-lions-logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
         }
 
         h1,
@@ -162,7 +180,7 @@
         <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
             unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
             Updates.<br><br>
-            Zuletzt aktualisiert: Dienstag, 30. September 2025 um 21:08</p>
+            Zuletzt aktualisiert: Mittwoch, 1. Oktober 2025 um 20:21</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
