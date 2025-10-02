@@ -21,9 +21,9 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20251005T150000
 DTEND:20251005T170000
-SUMMARY:u14: RedHawks Potsdam 1 vs BC Lions Moabit 1 mix (Potsdam - Gagarinstraße)
-LOCATION:Gagarinstraße 5\, 14480 Potsdam
-DESCRIPTION:Venue: Potsdam - Gagarinstraße\nAddress: Gagarinstraße 5; 14480 Potsdam
+SUMMARY:u14: RedHawks Potsdam 1 vs BC Lions Moabit 1 mix (Potsdam - Esplanade)
+LOCATION:Esplanade 3\, 14469 Potsdam
+DESCRIPTION:Venue: Potsdam - Esplanade\nAddress: Esplanade 3; 14469 Potsdam
 UID:2791281@bc-lions-moabit
 END:VEVENT
 BEGIN:VEVENT
