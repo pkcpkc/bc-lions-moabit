@@ -434,7 +434,7 @@
             }
         }
 
-        function loadCalendarEvents(url, containerId, maxEvents = 3) {
+        function loadCalendarEvents(url, containerId, maxEvents = 3, teamId = null) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
@@ -450,7 +450,8 @@
                                 startDate: event.startDate.toJSDate(),
                                 endDate: event.endDate.toJSDate(),
                                 location: event.location,
-                                description: event.description
+                                description: event.description,
+                                teamId: teamId ? teamId.toUpperCase() : null
                             };
                         });
 
@@ -494,15 +495,20 @@
                 return;
             }
 
-            const eventsHTML = events.map(event => `
+            const eventsHTML = events.map(event => {
+                const title = event.summary || 'Kein Titel';
+                const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
+                
+                return `
                 <div class="event-item">
                     <div class="event-main">
                         <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
-                        <div class="event-title">${event.summary || 'Kein Titel'}</div>
+                        <div class="event-title">${displayTitle}</div>
                         ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
                     </div>
                 </div>
-            `).join('');
+            `;
+            }).join('');
 
             container.innerHTML = eventsHTML;
         }
@@ -525,7 +531,8 @@
                                     startDate: event.startDate.toJSDate(),
                                     endDate: event.endDate.toJSDate(),
                                     location: event.location,
-                                    description: event.description
+                                    description: event.description,
+                                    teamId: config.id.toUpperCase()
                                 };
                             });
                         } catch (error) {
@@ -598,7 +605,7 @@
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {
                 const icsFile = config.icsFilename.replace('docs/', './');
-                loadCalendarEvents(icsFile, `${config.id}-events`);
+                loadCalendarEvents(icsFile, `${config.id}-events`, 3, config.id);
             });
         });
     </script>

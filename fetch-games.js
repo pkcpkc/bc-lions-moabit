@@ -107,7 +107,7 @@ function createICSEvent(game) {
 
   // Add venue name in brackets to the title
   const venueInTitle = game.venue.name ? ` (${game.venue.name})` : '';
-  const summary = `${teamShortcut}: ${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
+  const summary = `${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
 
   return [
     'BEGIN:VEVENT',
