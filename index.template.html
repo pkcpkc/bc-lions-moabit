@@ -327,7 +327,7 @@
                     </div>
 
                     <div class="events-container">
-                        <h4>Termine der nächsten zwei Wochen</h4>
+                        <h4>Alle anstehenden Termine</h4>
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
@@ -434,7 +434,7 @@
             }
         }
 
-        function loadCalendarEvents(url, containerId, maxEvents = 3, teamId = null) {
+        function loadCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
@@ -458,22 +458,11 @@
                         // Sort events by date
                         events.sort((a, b) => a.startDate - b.startDate);
 
-                        // Filter events for the next two weeks or all upcoming events
+                        // Show all upcoming events
                         const today = new Date();
                         today.setHours(0, 0, 0, 0);
                         
-                        let eventsToShow;
-                        if (maxEvents === -1) {
-                            // Show all upcoming events (for Jugendfahrplan)
-                            eventsToShow = events.filter(event => event.startDate >= today);
-                        } else {
-                            // Show events from the next two weeks
-                            const twoWeeksFromNow = new Date(today);
-                            twoWeeksFromNow.setDate(today.getDate() + 14);
-                            eventsToShow = events.filter(event => 
-                                event.startDate >= today && event.startDate <= twoWeeksFromNow
-                            );
-                        }
+                        const eventsToShow = events.filter(event => event.startDate >= today);
                         
                         displayEvents(eventsToShow, containerId);
                     } catch (error) {
@@ -554,17 +543,13 @@
                     // Sort events by date
                     allEvents.sort((a, b) => a.startDate - b.startDate);
 
-                    // Filter events for the next two weeks
+                    // Show all upcoming events
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
-                    const twoWeeksFromNow = new Date(today);
-                    twoWeeksFromNow.setDate(today.getDate() + 14);
                     
-                    const nextTwoWeeksEvents = allEvents.filter(event => 
-                        event.startDate >= today && event.startDate <= twoWeeksFromNow
-                    );
+                    const upcomingEvents = allEvents.filter(event => event.startDate >= today);
 
-                    displayEvents(nextTwoWeeksEvents, containerId);
+                    displayEvents(upcomingEvents, containerId);
                 })
                 .catch(error => {
                     console.error('Error loading all team events:', error);
@@ -605,7 +590,7 @@
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {
                 const icsFile = config.icsFilename.replace('docs/', './');
-                loadCalendarEvents(icsFile, `${config.id}-events`, 3, config.id);
+                loadCalendarEvents(icsFile, `${config.id}-events`, -1, config.id);
             });
         });
     </script>
