@@ -189,11 +189,7 @@
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
-        <p class="last-updated"><small><em></em></small></p>
-        <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
-            unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
-            Updates.<br><br>
-            Zuletzt aktualisiert: {{LAST_UPDATED}}</p>
+        <p>Zuletzt aktualisiert: {{LAST_UPDATED}}</p>
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
@@ -240,7 +236,10 @@
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">
-            <h2>Anleitungen</h2>
+            <h2>Anleitung</h2>
+            <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
+            unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
+            Updates.</p>
             <div class="platform">
                 <h3>iOS (iPhone/iPad)</h3>
                 <ol>
@@ -328,7 +327,7 @@
                     </div>
 
                     <div class="events-container">
-                        <h4>Termine der nächsten zwei Wochen - ${config.name}</h4>
+                        <h4>Termine der nächsten zwei Wochen</h4>
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
