@@ -1,20 +1,12 @@
 name: Update Basketball Calendars
 
-# Run automatically every day at 6:00 AM UTC (8:00 AM CET)
+# Run automatically every Monday at 6:00 AM Berlin time (4:00 AM UTC)
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 4 * * 1'
   
   # Allow manual triggering from GitHub UI
   workflow_dispatch:
-  
-  # Run on push to main branch (for testing)
-  push:
-    branches: [ main ]
-    paths:
-      - 'teams/*.json'
-      - 'build.js'
-      - 'fetch-*.js'
 
 jobs:
   update-calendars:
