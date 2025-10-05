@@ -164,6 +164,19 @@
             text-decoration: none;
         }
 
+        .nav-link.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .calendar-section {
+            display: none;
+        }
+
+        .calendar-section.active {
+            display: block;
+        }
+
         .last-updated {
             text-align: center;
             color: #666;
@@ -184,33 +197,49 @@
         <nav class="navigation">
             <div class="nav-links" id="dynamic-nav-links">
                 <!-- Team navigation links will be generated dynamically -->
+                <a href="#alle-termine" class="nav-link">Alle Termine</a>
                 <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
                 <a href="#anleitung" class="nav-link">Anleitung</a>
             </div>
         </nav>
+
+        <!-- All events section -->
+        <div class="calendar-section active" id="alle-termine-section">
+            <div class="calendar-link" id="alle-termine">
+                <h3>Alle BC Lions Termine</h3>
+            </div>
+
+            <div class="events-container">
+                <h4>Alle Termine der nächsten zwei Wochen</h4>
+                <div id="alle-termine-events" class="loading">Lade Termine...</div>
+            </div>
+        </div>
 
         <!-- Team calendar sections will be generated dynamically -->
         <div id="team-calendars-container">
             <!-- Dynamic team sections will be inserted here -->
         </div>
 
-        <div class="calendar-link" id="jugendfahrplan">
-            <h3>Jugendfahrplan</h3>
-            <button class="copy-button"
-                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
-                kopieren</button>
-            <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
-            <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
-            <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan 2025 auf BC Lions
-                Webseite</a>
+        <div class="calendar-section" id="jugendfahrplan-section">
+            <div class="calendar-link" id="jugendfahrplan">
+                <h3>Jugendfahrplan</h3>
+                <button class="copy-button"
+                    onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
+                    kopieren</button>
+                <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
+                <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
+                <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan 2025 auf BC Lions
+                    Webseite</a>
+            </div>
+
+            <div class="events-container">
+                <h4>Alle kommenden Termine - Jugendfahrplan</h4>
+                <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
+            </div>
         </div>
 
-        <div class="events-container">
-            <h4>Alle kommenden Termine - Jugendfahrplan</h4>
-            <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
-        </div>
-
-        <div class="instructions" id="anleitung">
+        <div class="calendar-section" id="anleitung-section">
+            <div class="instructions" id="anleitung">
             <h2>Anleitungen</h2>
             <div class="platform">
                 <h3>iOS (iPhone/iPad)</h3>
@@ -249,6 +278,7 @@
                     <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
                 </ol>
             </div>
+            </div>
         </div>
     </div>
 
@@ -272,6 +302,10 @@
                 navLink.href = `#spielplan_${config.id}`;
                 navLink.className = 'nav-link team-nav-link';
                 navLink.textContent = config.name;
+                navLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showCalendarSection(`${config.id}-section`);
+                });
 
                 // Insert before Jugendfahrplan link
                 const jugendfahrplanLink = navContainer.querySelector('a[href="#jugendfahrplan"]');
@@ -279,6 +313,8 @@
 
                 // Create calendar section
                 const calendarSection = document.createElement('div');
+                calendarSection.className = 'calendar-section';
+                calendarSection.id = `${config.id}-section`;
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="spielplan_${config.id}">
                         <h3>${config.name}</h3>
@@ -292,13 +328,35 @@
                     </div>
 
                     <div class="events-container">
-                        <h4>Nächste drei Termine - ${config.name}</h4>
+                        <h4>Termine der nächsten zwei Wochen - ${config.name}</h4>
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
 
                 calendarContainer.appendChild(calendarSection);
             });
+        }
+
+        function showCalendarSection(sectionId) {
+            // Hide all calendar sections
+            const sections = document.querySelectorAll('.calendar-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Update navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add active class to the clicked nav link
+            const activeLink = document.querySelector(`a[href="#${sectionId.replace('-section', '')}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
 
         function copyToClipboard(text, event) {
@@ -400,13 +458,23 @@
                         // Sort events by date
                         events.sort((a, b) => a.startDate - b.startDate);
 
-                        // Filter upcoming events (from today)
+                        // Filter events for the next two weeks or all upcoming events
                         const today = new Date();
                         today.setHours(0, 0, 0, 0);
-                        const upcomingEvents = events.filter(event => event.startDate >= today);
-
-                        // Show specified number of events (-1 means all events)
-                        const eventsToShow = maxEvents === -1 ? upcomingEvents : upcomingEvents.slice(0, maxEvents);
+                        
+                        let eventsToShow;
+                        if (maxEvents === -1) {
+                            // Show all upcoming events (for Jugendfahrplan)
+                            eventsToShow = events.filter(event => event.startDate >= today);
+                        } else {
+                            // Show events from the next two weeks
+                            const twoWeeksFromNow = new Date(today);
+                            twoWeeksFromNow.setDate(today.getDate() + 14);
+                            eventsToShow = events.filter(event => 
+                                event.startDate >= today && event.startDate <= twoWeeksFromNow
+                            );
+                        }
+                        
                         displayEvents(eventsToShow, containerId);
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
@@ -440,10 +508,90 @@
             container.innerHTML = eventsHTML;
         }
 
+        function loadAllTeamEvents(containerId) {
+            const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                return fetch(icsFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        try {
+                            const jcalData = ICAL.parse(data);
+                            const comp = new ICAL.Component(jcalData);
+                            const vevents = comp.getAllSubcomponents('vevent');
+
+                            return vevents.map(vevent => {
+                                const event = new ICAL.Event(vevent);
+                                return {
+                                    summary: event.summary,
+                                    startDate: event.startDate.toJSDate(),
+                                    endDate: event.endDate.toJSDate(),
+                                    location: event.location,
+                                    description: event.description
+                                };
+                            });
+                        } catch (error) {
+                            console.error('Error parsing calendar:', error);
+                            return [];
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching calendar:', error);
+                        return [];
+                    });
+            });
+
+            Promise.all(allEventsPromises)
+                .then(eventArrays => {
+                    // Flatten all events into a single array
+                    const allEvents = eventArrays.flat();
+
+                    // Sort events by date
+                    allEvents.sort((a, b) => a.startDate - b.startDate);
+
+                    // Filter events for the next two weeks
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    const twoWeeksFromNow = new Date(today);
+                    twoWeeksFromNow.setDate(today.getDate() + 14);
+                    
+                    const nextTwoWeeksEvents = allEvents.filter(event => 
+                        event.startDate >= today && event.startDate <= twoWeeksFromNow
+                    );
+
+                    displayEvents(nextTwoWeeksEvents, containerId);
+                })
+                .catch(error => {
+                    console.error('Error loading all team events:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
+                });
+        }
+
         // Load events when page loads
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
             generateTeamSections();
+
+            // Add click handlers to existing navigation links
+            document.querySelector('a[href="#alle-termine"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                showCalendarSection('alle-termine-section');
+            });
+
+            document.querySelector('a[href="#jugendfahrplan"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                showCalendarSection('jugendfahrplan-section');
+            });
+
+            document.querySelector('a[href="#anleitung"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                showCalendarSection('anleitung-section');
+            });
+
+            // Set initial active state
+            showCalendarSection('alle-termine-section');
+
+            // Load all team events for the "Alle Termine" section
+            loadAllTeamEvents('alle-termine-events');
 
             // Load static Jugendfahrplan events (show all upcoming)
             loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events', -1);
