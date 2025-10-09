@@ -298,7 +298,7 @@
             CALENDAR_CONFIGS.forEach(config => {
                 // Create navigation link
                 const navLink = document.createElement('a');
-                navLink.href = `#spielplan_${config.id}`;
+                navLink.href = `#${config.id}`;
                 navLink.className = 'nav-link team-nav-link';
                 navLink.textContent = config.name;
                 navLink.addEventListener('click', (e) => {
@@ -336,7 +336,7 @@
             });
         }
 
-        function showCalendarSection(sectionId) {
+        function showCalendarSection(sectionId, updateUrl = true) {
             // Hide all calendar sections
             const sections = document.querySelectorAll('.calendar-section');
             sections.forEach(section => section.classList.remove('active'));
@@ -356,7 +356,63 @@
             if (activeLink) {
                 activeLink.classList.add('active');
             }
+
+            // Update URL and browser history
+            if (updateUrl) {
+                const route = sectionId.replace('-section', '');
+                const newUrl = window.location.pathname + '#' + route;
+                window.history.pushState({ section: sectionId }, '', newUrl);
+            }
         }
+
+        function handleRouting() {
+            // Get current hash from URL
+            const hash = window.location.hash.substring(1); // Remove the '#' character
+            
+            if (hash) {
+                // Check for direct section matches first (alle-termine, jugendfahrplan, anleitung)
+                let sectionId = hash + '-section';
+                let targetSection = document.getElementById(sectionId);
+                
+                if (targetSection) {
+                    showCalendarSection(sectionId, false);
+                    return;
+                }
+                
+                // Check for team sections (he1, he4, etc.)
+                sectionId = hash + '-section';
+                targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    showCalendarSection(sectionId, false);
+                    return;
+                }
+                
+                // Handle legacy format (spielplan_teamid)
+                if (hash.startsWith('spielplan_')) {
+                    const teamId = hash.replace('spielplan_', '');
+                    sectionId = teamId + '-section';
+                    targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        showCalendarSection(sectionId, false);
+                        // Update URL to new format
+                        window.history.replaceState({ section: sectionId }, '', window.location.pathname + '#' + teamId);
+                        return;
+                    }
+                }
+            }
+            
+            // Default to "alle-termine" if no valid hash
+            showCalendarSection('alle-termine-section', false);
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.section) {
+                showCalendarSection(event.state.section, false);
+            } else {
+                handleRouting();
+            }
+        });
 
         function copyToClipboard(text, event) {
             navigator.clipboard.writeText(text).then(function () {
@@ -578,8 +634,8 @@
                 showCalendarSection('anleitung-section');
             });
 
-            // Set initial active state
-            showCalendarSection('alle-termine-section');
+            // Handle initial routing based on URL
+            handleRouting();
 
             // Load all team events for the "Alle Termine" section
             loadAllTeamEvents('alle-termine-events');
