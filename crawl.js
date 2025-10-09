@@ -62,10 +62,10 @@ async function fetchCompetition(leagueId) {
 }
 
 function findTeam(match, teamName) {
-    if (match.homeTeam && match.homeTeam.teamname.includes(teamName)) {
+    if (match.homeTeam && match.homeTeam.teamname.startsWith(teamName)) {
         return match.homeTeam;
     }
-    if (match.guestTeam && match.guestTeam.teamname.includes(teamName)) {
+    if (match.guestTeam && match.guestTeam.teamname.startsWith(teamName)) {
         return match.guestTeam;
     }
     return null;
