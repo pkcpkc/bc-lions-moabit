@@ -156,17 +156,22 @@ async function main() {
         const competitionResults = await Promise.all(batch.map(league => fetchCompetition(league.ligaId)));
 
         batch.forEach((league, index) => {
+            if (league.liganame.toLowerCase().includes('pokal')) {
+                return; // Skip pokal leagues
+            }
             const competition = competitionResults[index];
             if (competition && competition.matches) {
                 for (const match of competition.matches) {
                     const team = findTeam(match, TEAM_NAME_TO_SEARCH);
-                    if (team) {
-                        teamsFound.set(league.ligaId, {
-                            teamName: team.teamname,
-                            competitionId: league.ligaId,
-                            competitionName: league.liganame,
-                        });
-                        break; // Found a team in this league, no need to check other matches
+                    if (team && team.teamPermanentId) {
+                        const compositeKey = `${team.teamPermanentId}-${league.ligaId}`;
+                        if (!teamsFound.has(compositeKey)) {
+                            teamsFound.set(compositeKey, {
+                                teamName: team.teamname,
+                                competitionId: league.ligaId,
+                                competitionName: league.liganame,
+                            });
+                        }
                     }
                 }
             }
