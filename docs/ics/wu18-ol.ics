@@ -1,0 +1,181 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BC Lions Moabit//Basketball Schedule//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20250920T120000
+DTEND:20250920T140000
+SUMMARY:BC Lions Moabit 1 vs BG Zehlendorf 1 (Gerhardtstraße)
+LOCATION:Gerhardtstraße 3\, 10557 Berlin
+DESCRIPTION:Venue: Gerhardtstraße\nAddress: Gerhardtstraße 3; 10557 Berlin
+UID:2748830@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250927T160000
+DTEND:20250927T180000
+SUMMARY:BASS Berlin 1 vs BC Lions Moabit 1 (Dessauerstraße, oben)
+LOCATION:Dessauerstraße 63\, 12249 Berlin
+DESCRIPTION:Venue: Dessauerstraße, oben\nAddress: Dessauerstraße 63; 12249 Berlin
+UID:2748835@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251003T100000
+DTEND:20251003T120000
+SUMMARY:BC Lions Moabit 1 vs Ummeldung 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748842@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251019T130000
+DTEND:20251019T150000
+SUMMARY:BC Lions Moabit 1 vs TuS Lichterfelde 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748853@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251108T150000
+DTEND:20251108T170000
+SUMMARY:Friedenauer TSC 1 vs BC Lions Moabit 1 (Münchener Straße, oben)
+LOCATION:Münchener Straße 49\, 10779 Berlin
+DESCRIPTION:Venue: Münchener Straße, oben\nAddress: Münchener Straße 49; 10779 Berlin
+UID:2748857@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251109T180000
+DTEND:20251109T200000
+SUMMARY:BC Lions Moabit 1 vs ALBA Berlin 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748954@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251115T120000
+DTEND:20251115T140000
+SUMMARY:BC Lions Moabit 1 vs BASS Berlin 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748865@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251116T130000
+DTEND:20251116T150000
+SUMMARY:VfB Hermsdorf 1 vs BC Lions Moabit 1 (Heidenheimer Straße)
+LOCATION:Heidenheimer Straße 53-55\, 13467 Berlin
+DESCRIPTION:Venue: Heidenheimer Straße\nAddress: Heidenheimer Straße 53-55; 13467 Berlin
+UID:2748849@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251122T140000
+DTEND:20251122T160000
+SUMMARY:VfL Lichtenrade 1 vs BC Lions Moabit 1 (Reichnerweg)
+LOCATION:Reichnerweg 36\, 12305 Berlin
+DESCRIPTION:Venue: Reichnerweg\nAddress: Reichnerweg 36; 12305 Berlin
+UID:2748869@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251129T100000
+DTEND:20251129T120000
+SUMMARY:BC Lions Moabit 1 vs ALBA Berlin 1 (Gerhardtstraße)
+LOCATION:Gerhardtstraße 3\, 10557 Berlin
+DESCRIPTION:Venue: Gerhardtstraße\nAddress: Gerhardtstraße 3; 10557 Berlin
+UID:2748876@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251206T120000
+DTEND:20251206T140000
+SUMMARY:BC Lions Moabit 1 vs CITY Basket Berlin 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748883@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251213T180000
+DTEND:20251213T200000
+SUMMARY:ALBA Berlin 2 vs BC Lions Moabit 1 (Adalbertstraße, unten)
+LOCATION:Adalbertstraße 53\, 10179 Berlin
+DESCRIPTION:Venue: Adalbertstraße, unten\nAddress: Adalbertstraße 53; 10179 Berlin
+UID:2748888@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260110T153000
+DTEND:20260110T173000
+SUMMARY:BG Zehlendorf 1 vs BC Lions Moabit 1 (Teltower Damm (alt))
+LOCATION:Teltower Damm 87\, 14167 Berlin
+DESCRIPTION:Venue: Teltower Damm (alt)\nAddress: Teltower Damm 87; 14167 Berlin
+UID:2748896@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260111T200000
+DTEND:20260111T220000
+SUMMARY:CITY Basket Berlin 1 vs BC Lions Moabit 1 (Schillerstraße, unten)
+LOCATION:Schillerstraße 121\, 10625 Berlin
+DESCRIPTION:Venue: Schillerstraße, unten\nAddress: Schillerstraße 121; 10625 Berlin
+UID:2748949@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260117T120000
+DTEND:20260117T140000
+SUMMARY:BC Lions Moabit 1 vs BASS Berlin 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748901@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260124T000000
+DTEND:20260124T000000
+SUMMARY:Ummeldung 1 vs BC Lions Moabit 1 (Zeit TBD) (N.N.)
+LOCATION:###\, 10437 Berlin
+DESCRIPTION:Venue: N.N.\nAddress: ###; 10437 Berlin
+UID:2748908@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260214T100000
+DTEND:20260214T120000
+SUMMARY:BC Lions Moabit 1 vs VfB Hermsdorf 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748915@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260215T090000
+DTEND:20260215T110000
+SUMMARY:ALBA Berlin 1 vs BC Lions Moabit 1 (Max-Schmeling-Halle A)
+LOCATION:Am Falkplatz 1\, 10437 Berlin
+DESCRIPTION:Venue: Max-Schmeling-Halle A\nAddress: Am Falkplatz 1; 10437 Berlin
+UID:2748942@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260221T150000
+DTEND:20260221T170000
+SUMMARY:TuS Lichterfelde 1 vs BC Lions Moabit 1 (Moltkestraße)
+LOCATION:Moltkestraße 25\, 12203 Berlin
+DESCRIPTION:Venue: Moltkestraße\nAddress: Moltkestraße 25; 12203 Berlin
+UID:2748919@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260228T100000
+DTEND:20260228T120000
+SUMMARY:BC Lions Moabit 1 vs Friedenauer TSC 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748923@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260307T120000
+DTEND:20260307T140000
+SUMMARY:BASS Berlin 2 vs BC Lions Moabit 1 (Dessauerstraße, oben)
+LOCATION:Dessauerstraße 63\, 12249 Berlin
+DESCRIPTION:Venue: Dessauerstraße, oben\nAddress: Dessauerstraße 63; 12249 Berlin
+UID:2748931@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260308T120000
+DTEND:20260308T140000
+SUMMARY:BC Lions Moabit 1 vs VfL Lichtenrade 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2748935@bc-lions-moabit
+END:VEVENT
+END:VCALENDAR
