@@ -80,6 +80,61 @@ function sanitizeForFilename(name) {
     return sanitized.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
+function shortcutForTeamId(teamId) {
+
+    let shortcut = teamId.replace('.json', '');
+
+    // Handle special case: mini-u11 / mini-u9
+    const miniMatch = shortcut.match(/^mini-(u\d+)/);
+    if (miniMatch) {
+        return miniMatch[1];
+    }
+
+    const parts = shortcut.split('-');
+
+    const genderMap = {
+        damen: 'da',
+        herren: 'he'
+    };
+
+    let shortcutParts = [];
+
+    // Gender or team prefix (damen, herren, mu12, wu14, etc.)
+    if (genderMap[parts[0]]) {
+        shortcutParts.push(genderMap[parts[0]]);
+        parts.shift();
+    } else if (/^[mw]u\d+/.test(parts[0])) {
+        shortcutParts.push(parts[0]);
+        parts.shift();
+    }
+
+    // Handle 'bbv-pokal' as one unit
+    if (parts[0] === 'bbv' && parts[1] === 'pokal') {
+        shortcutParts.push('pokal');
+        parts.splice(0, 2);
+    } else if (parts[0] === 'pokal') {
+        shortcutParts.push('pokal');
+        parts.shift();
+    }
+
+    // Handle leagues like bezirksliga, kreisliga, etc.
+    if (parts[0] && parts[0].includes('liga')) {
+        const leagueShortcut = parts[0][0] + 'l'; // first letter + 'l'
+        shortcutParts.push(leagueShortcut);
+        parts.shift();
+    }
+
+    // Remaining parts like 'a', 'b', 'c' (division)
+    parts.forEach(part => {
+        if (/^[a-zA-Z0-9]+$/.test(part)) {
+            shortcutParts.push(part.toLowerCase());
+        }
+    });
+
+    return shortcutParts.join('-');
+
+}
+
 async function main() {
     console.log("Starting crawl...");
     const berlinVerbandId = 3; // Berlin
@@ -114,7 +169,7 @@ async function main() {
     console.log(`Found ${teamsArray.length} BC Lions teams. Creating config files...`);
 
     teamsArray.forEach(team => {
-        const teamId = sanitizeForFilename(team.competitionName);
+        const teamId = shortcutForTeamId(sanitizeForFilename(team.competitionName));
         const config = {
             competitionId: team.competitionId,
             teamName: team.teamName,
