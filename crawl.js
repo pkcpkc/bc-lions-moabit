@@ -156,8 +156,9 @@ async function main() {
         const competitionResults = await Promise.all(batch.map(league => fetchCompetition(league.ligaId)));
 
         batch.forEach((league, index) => {
-            if (league.liganame.toLowerCase().includes('pokal')) {
-                return; // Skip pokal leagues
+            const leagueName = league.liganame.toLowerCase();
+            if (leagueName.includes('pokal') || leagueName.includes('testspiele')) {
+                return; // Skip pokal and testspiele leagues
             }
             const competition = competitionResults[index];
             if (competition && competition.matches) {
