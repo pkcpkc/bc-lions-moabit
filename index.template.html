@@ -83,7 +83,28 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 2px;
+        }
+
+        .calendar-link h3 {
+            margin: 2px 0 5px 0;
+        }
+
+        .calendar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .calendar-actions > * {
+            margin: 0;
+        }
+
+        .calendar-separator {
+            color: #666;
+            margin: 0 8px;
+            user-select: none;
         }
 
         .events-container {
@@ -99,6 +120,7 @@
             background-color: white;
             border-left: 3px solid #007bff;
             border-radius: 3px;
+            font-style: normal;
         }
 
         .event-main {
@@ -121,9 +143,18 @@
             color: #666;
             font-size: 12px;
             margin-top: 4px;
+            font-style: normal; /* Ensure not italic */
         }
 
-        .loading {
+        .event-location a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .event-location a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }        .loading {
             text-align: center;
             color: #666;
             font-style: italic;
@@ -138,24 +169,50 @@
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
-            margin: 20px 0;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-headline {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
             text-align: center;
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            line-height: 1.0;
         }
 
         .nav-link {
             color: #007bff;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 4px;
             transition: background-color 0.3s;
+            font-size: 14px;
+            line-height: 0.8;
         }
 
         .nav-link:hover {
@@ -191,11 +248,25 @@
         <h1>BC Lions Moabit - Termine</h1>
         <p>Zuletzt aktualisiert: {{LAST_UPDATED}}</p>
         <nav class="navigation">
-            <div class="nav-links" id="dynamic-nav-links">
-                <!-- Team navigation links will be generated dynamically -->
-                <a href="#alle-termine" class="nav-link">Alle Termine</a>
-                <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
-                <a href="#anleitung" class="nav-link">Anleitung</a>
+            <div class="nav-section">
+                <h4 class="nav-headline">Übersicht</h4>
+                <div class="nav-row">
+                    <a href="#alle-termine" class="nav-link">Alle Termine</a>
+                    <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
+                    <a href="#anleitung" class="nav-link">Anleitung</a>
+                </div>
+            </div>
+            <div class="nav-section">
+                <h4 class="nav-headline">Spielpläne</h4>
+                <div class="nav-row" id="team-nav-row">
+                    <!-- Team navigation links will be generated dynamically -->
+                </div>
+            </div>
+            <div class="nav-section">
+                <h4 class="nav-headline">Training</h4>
+                <div class="nav-row" id="training-nav-row">
+                    <!-- Training navigation links will be generated dynamically -->
+                </div>
             </div>
         </nav>
 
@@ -219,13 +290,17 @@
         <div class="calendar-section" id="jugendfahrplan-section">
             <div class="calendar-link" id="jugendfahrplan">
                 <h3>Jugendfahrplan</h3>
-                <button class="copy-button"
-                    onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
-                    kopieren</button>
-                <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
-                <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
-                <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan 2025 auf BC Lions
-                    Webseite</a>
+                <div class="calendar-actions">
+                    <button class="copy-button"
+                        onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
+                        kopieren</button>
+                    <span class="calendar-separator">|</span>
+                    <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
+                    <span class="calendar-separator">|</span>
+                    <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
+                    <span class="calendar-separator">|</span>
+                    <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan Webseite</a>
+                </div>
             </div>
 
             <div class="events-container">
@@ -284,14 +359,14 @@
     <script>
         // Team configuration data - will be dynamically populated
         const CALENDAR_CONFIGS = {{ CALENDAR_CONFIGS }};
+        const TRAINING_CONFIGS = {{ TRAINING_CONFIGS }};
 
         function generateTeamSections() {
-            const navContainer = document.getElementById('dynamic-nav-links');
+            const navContainer = document.getElementById('team-nav-row');
             const calendarContainer = document.getElementById('team-calendars-container');
 
             // Clear existing dynamic content
-            const existingNavLinks = navContainer.querySelectorAll('.team-nav-link');
-            existingNavLinks.forEach(link => link.remove());
+            navContainer.innerHTML = '';
             calendarContainer.innerHTML = '';
 
             // Generate navigation links and calendar sections for each team
@@ -306,9 +381,8 @@
                     showCalendarSection(`${config.id}-section`);
                 });
 
-                // Insert before Jugendfahrplan link
-                const jugendfahrplanLink = navContainer.querySelector('a[href="#jugendfahrplan"]');
-                navContainer.insertBefore(navLink, jugendfahrplanLink);
+                // Add to team nav row
+                navContainer.appendChild(navLink);
 
                 // Create calendar section
                 const calendarSection = document.createElement('div');
@@ -317,18 +391,82 @@
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="spielplan_${config.id}">
                         <h3>${config.name}</h3>
-                        <button class="copy-button"
-                            onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
-                            kopieren</button>
-                        <a href="webcal://${config.icsUrl.replace('https://', '')}">Kalender abonnieren</a>
-                        <a href="${config.icsUrl}">Kalender laden</a>
-                        <a href="${config.webUrl}">${config.name} auf Deutscher Basketball Bund
-                            Webseite</a>
+                        <div class="calendar-actions">
+                            <button class="copy-button"
+                                onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
+                                kopieren</button>
+                            <span class="calendar-separator">|</span>
+                            <a href="webcal://${config.icsUrl.replace('https://', '')}">Kalender abonnieren</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${config.icsUrl}">Kalender laden</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${config.webUrl}" target="_blank" rel="noopener noreferrer">DBB Webseite</a>
+                        </div>
                     </div>
 
                     <div class="events-container">
                         <h4>Alle anstehenden Termine</h4>
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
+                    </div>
+                `;
+
+                calendarContainer.appendChild(calendarSection);
+            });
+        }
+
+        function generateTrainingSections() {
+            const navContainer = document.getElementById('training-nav-row');
+            const calendarContainer = document.getElementById('team-calendars-container');
+
+            // Clear existing training nav content
+            navContainer.innerHTML = '';
+
+            // Generate navigation links and calendar sections for each training
+            TRAINING_CONFIGS.forEach(config => {
+                // Create navigation link
+                const navLink = document.createElement('a');
+                navLink.href = `#training-${config.id}`;
+                navLink.className = 'nav-link training-nav-link';
+                navLink.textContent = config.team;
+                navLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showCalendarSection(`training-${config.id}-section`);
+                });
+
+                // Add to training nav row
+                navContainer.appendChild(navLink);
+
+                // Create calendar section
+                const calendarSection = document.createElement('div');
+                calendarSection.className = 'calendar-section';
+                calendarSection.id = `training-${config.id}-section`;
+                
+                const encodedCalId = encodeURIComponent(config.calId);
+                const icsUrl = `https://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
+                const webcalUrl = `webcal://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
+                
+                calendarSection.innerHTML = `
+                    <div class="calendar-link" id="training_${config.id}">
+                        <h3>${config.team}</h3>
+                        <div class="calendar-actions">
+                            <button class="copy-button"
+                                onclick="copyToClipboard('${icsUrl}', event)">iCalender-URL
+                                kopieren</button>
+                            <span class="calendar-separator">|</span>
+                            <a href="${webcalUrl}">Kalender abonnieren</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${icsUrl}">Kalender laden</a>
+                        </div>
+                    </div>
+
+                    <div class="events-container">
+                        <iframe src="https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin" 
+                                style="border: 0" 
+                                width="100%" 
+                                height="600" 
+                                frameborder="0" 
+                                scrolling="no">
+                        </iframe>
                     </div>
                 `;
 
@@ -385,6 +523,16 @@
                 if (targetSection) {
                     showCalendarSection(sectionId, false);
                     return;
+                }
+                
+                // Check for training sections (training-boys, etc.)
+                if (hash.startsWith('training-')) {
+                    sectionId = hash + '-section';
+                    targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        showCalendarSection(sectionId, false);
+                        return;
+                    }
                 }
                 
                 // Handle legacy format (spielplan_teamid)
@@ -549,7 +697,7 @@
                     <div class="event-main">
                         <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
                         <div class="event-title">${displayTitle}</div>
-                        ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+                        ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
                     </div>
                 </div>
             `;
@@ -617,6 +765,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
             generateTeamSections();
+            
+            // Generate training sections dynamically
+            generateTrainingSections();
 
             // Add click handlers to existing navigation links
             document.querySelector('a[href="#alle-termine"]').addEventListener('click', (e) => {

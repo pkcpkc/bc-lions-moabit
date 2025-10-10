@@ -31,7 +31,7 @@ export function generateIndexHTML(quiet = false) {
             // Add to configs array
             const configData = {
                 id: id,
-                name: `Spielplan ${teamCategory}`,
+                name: `${teamCategory}`,
                 competitionId: config.competitionId,
                 teamName: config.teamName,
                 icsFilename: icsFilename,
@@ -49,6 +49,42 @@ export function generateIndexHTML(quiet = false) {
     // Sort teams alphabetically by name
     configs.sort((a, b) => a.name.localeCompare(b.name));
 
+    // Find all JSON config files in the trainings folder
+    const trainingFiles = glob.sync('trainings/*.json');
+    const trainingConfigs = [];
+
+    // Process each training config file
+    trainingFiles.forEach(trainingFile => {
+        try {
+            const trainingContent = readFileSync(trainingFile, 'utf8');
+            const trainingConfig = JSON.parse(trainingContent);
+            
+            // Validate required config fields
+            if (!trainingConfig.team || !trainingConfig.calId) {
+                console.warn(`Skipping ${trainingFile}: Missing required fields (team, calId)`);
+                return;
+            }
+
+            // Generate id from filename
+            const id = trainingFile.replace('trainings/', '').replace('.json', '');
+            
+            // Add to training configs array
+            const configData = {
+                id: id,
+                team: trainingConfig.team,
+                calId: trainingConfig.calId
+            };
+            
+            trainingConfigs.push(configData);
+
+        } catch (error) {
+            console.warn(`Error processing ${trainingFile}:`, error.message);
+        }
+    });
+
+    // Sort trainings alphabetically by team name
+    trainingConfigs.sort((a, b) => a.team.localeCompare(b.team));
+
     // Read the template
     const template = readFileSync('index.template.html', 'utf8');
 
@@ -63,13 +99,14 @@ export function generateIndexHTML(quiet = false) {
     // Replace placeholders (handle both with and without spaces)
     let html = template
         .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(configs, null, 8))
+        .replace(/\{\{\s*TRAINING_CONFIGS\s*\}\}/g, JSON.stringify(trainingConfigs, null, 8))
         .replace(/\{\{\s*LAST_UPDATED\s*\}\}/g, berlinTime);
 
     // Write the generated HTML
     writeFileSync('docs/index.html', html);
     
     if (!quiet) {
-        console.log(`Generated docs/index.html with ${configs.length} calendar configurations`);
+        console.log(`Generated docs/index.html with ${configs.length} calendar configurations and ${trainingConfigs.length} training configurations`);
     }
     
     return configs;

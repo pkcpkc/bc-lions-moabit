@@ -183,11 +183,6 @@ async function main() {
     );
 
     console.log(`Found ${bcLionsGames.length} games for ${TEAM_NAME}.`);
-    if (!isQuiet) {
-      bcLionsGames.forEach(game => {
-        console.log(`${game.date} ${game.time} - ${game.home} vs ${game.guest}`);
-      });
-    }
 
     // Step 4: Create ICS file
     if (bcLionsGames.length > 0) {
@@ -200,11 +195,6 @@ async function main() {
       if (!isQuiet) {
         console.log('No games found for BC Lions Moabit 1 mix');
       }
-    }
-
-    if (!isQuiet) {
-      console.log('\nAll games:');
-      console.log(JSON.stringify(results, null, 2));
     }
 
     // Generate the HTML file with current configurations
