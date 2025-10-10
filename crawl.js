@@ -83,11 +83,12 @@ function sanitizeForFilename(name) {
 function shortcutForTeamId(teamId) {
 
     let shortcut = teamId.replace('.json', '');
+    let isMini = false;
 
-    // Handle special case: mini-u11 / mini-u9
-    const miniMatch = shortcut.match(/^mini-(u\d+)/);
-    if (miniMatch) {
-        return miniMatch[1];
+    // Handle special case: mini leagues
+    if (shortcut.startsWith('mini-')) {
+        shortcut = shortcut.substring(5); // e.g. "mini-u11-fortgeschrittene-1" -> "u11-fortgeschrittene-1"
+        isMini = true;
     }
 
     const parts = shortcut.split('-');
@@ -103,7 +104,7 @@ function shortcutForTeamId(teamId) {
     if (genderMap[parts[0]]) {
         shortcutParts.push(genderMap[parts[0]]);
         parts.shift();
-    } else if (/^[mw]u\d+/.test(parts[0])) {
+    } else if (/^(?:m|w)?u\d+/.test(parts[0])) {
         shortcutParts.push(parts[0]);
         parts.shift();
     }
@@ -121,6 +122,12 @@ function shortcutForTeamId(teamId) {
     if (parts[0] && parts[0].includes('liga')) {
         const leagueShortcut = parts[0][0] + 'l'; // first letter + 'l'
         shortcutParts.push(leagueShortcut);
+        parts.shift();
+    }
+
+    // Abbreviate level for mini leagues
+    if (isMini && parts.length > 0 && /^[a-zA-Z]{3,}$/.test(parts[0])) {
+        shortcutParts.push(parts[0][0].toLowerCase());
         parts.shift();
     }
 
@@ -153,12 +160,13 @@ async function main() {
             if (competition && competition.matches) {
                 for (const match of competition.matches) {
                     const team = findTeam(match, TEAM_NAME_TO_SEARCH);
-                    if (team && !teamsFound.has(team.teamPermanentId)) {
-                        teamsFound.set(team.teamPermanentId, {
+                    if (team) {
+                        teamsFound.set(league.ligaId, {
                             teamName: team.teamname,
                             competitionId: league.ligaId,
                             competitionName: league.liganame,
                         });
+                        break; // Found a team in this league, no need to check other matches
                     }
                 }
             }
