@@ -83,7 +83,28 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 2px;
+        }
+
+        .calendar-link h3 {
+            margin: 2px 0 5px 0;
+        }
+
+        .calendar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            flex-wrap: wrap;
+        }
+
+        .calendar-actions > * {
+            margin: 0;
+        }
+
+        .calendar-separator {
+            color: #666;
+            margin: 0 8px;
+            user-select: none;
         }
 
         .events-container {
@@ -99,6 +120,7 @@
             background-color: white;
             border-left: 3px solid #007bff;
             border-radius: 3px;
+            font-style: normal;
         }
 
         .event-main {
@@ -121,9 +143,18 @@
             color: #666;
             font-size: 12px;
             margin-top: 4px;
+            font-style: normal; /* Ensure not italic */
         }
 
-        .loading {
+        .event-location a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .event-location a:hover {
+            color: #007bff;
+            text-decoration: underline;
+        }        .loading {
             text-align: center;
             color: #666;
             font-style: italic;
@@ -138,24 +169,50 @@
             background-color: #f8f9fa;
             padding: 15px;
             border-radius: 5px;
-            margin: 20px 0;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .nav-section {
+            margin-bottom: 15px;
+        }
+
+        .nav-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .nav-headline {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 10px 0;
             text-align: center;
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 15px;
             flex-wrap: wrap;
+        }
+
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            line-height: 1.0;
         }
 
         .nav-link {
             color: #007bff;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 4px;
             transition: background-color 0.3s;
+            font-size: 14px;
+            line-height: 0.8;
         }
 
         .nav-link:hover {
@@ -189,25 +246,51 @@
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
-        <p>Zuletzt aktualisiert: Donnerstag, 9. Oktober 2025 um 14:41</p>
+        <p>Zuletzt aktualisiert: Samstag, 11. Oktober 2025 um 13:23</p>
         <nav class="navigation">
-            <div class="nav-links" id="dynamic-nav-links">
-                <!-- Team navigation links will be generated dynamically -->
-                <a href="#alle-termine" class="nav-link">Alle Termine</a>
-                <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
-                <a href="#anleitung" class="nav-link">Anleitung</a>
+            <div class="nav-section">
+                <h4 class="nav-headline">Übersicht</h4>
+                <div class="nav-row">
+                    <a href="#wochenende" class="nav-link">Wochenende</a>
+                    <a href="#heimspiele" class="nav-link">Heimspiele</a>
+                    <a href="#anleitung" class="nav-link">Anleitung</a>
+                </div>
+            </div>
+            <div class="nav-section">
+                <h4 class="nav-headline">Spielpläne</h4>
+                <div class="nav-row" id="team-nav-row">
+                    <!-- Team navigation links will be generated dynamically -->
+                </div>
+            </div>
+            <div class="nav-section">
+                <h4 class="nav-headline">Termine</h4>
+                <div class="nav-row" id="schedule-nav-row">
+                    <!-- Schedule navigation links will be generated dynamically -->
+                </div>
             </div>
         </nav>
 
-        <!-- All events section -->
-        <div class="calendar-section active" id="alle-termine-section">
-            <div class="calendar-link" id="alle-termine">
-                <h3>Alle BC Lions Termine</h3>
+        <!-- Weekend events section -->
+        <div class="calendar-section active" id="wochenende-section">
+            <div class="calendar-link" id="wochenende">
+                <h3>BC Lions Wochenende</h3>
             </div>
 
             <div class="events-container">
-                <h4>Alle Termine der nächsten zwei Wochen</h4>
-                <div id="alle-termine-events" class="loading">Lade Termine...</div>
+                <h4>Alle Spiele am kommenden Wochenende</h4>
+                <div id="wochenende-events" class="loading">Lade Termine...</div>
+            </div>
+        </div>
+
+        <!-- Home games section -->
+        <div class="calendar-section" id="heimspiele-section">
+            <div class="calendar-link" id="heimspiele">
+                <h3>BC Lions Heimspiele</h3>
+            </div>
+
+            <div class="events-container">
+                <h4>Alle Heimspiele am kommenden Wochenende</h4>
+                <div id="heimspiele-events" class="loading">Lade Termine...</div>
             </div>
         </div>
 
@@ -216,23 +299,7 @@
             <!-- Dynamic team sections will be inserted here -->
         </div>
 
-        <div class="calendar-section" id="jugendfahrplan-section">
-            <div class="calendar-link" id="jugendfahrplan">
-                <h3>Jugendfahrplan</h3>
-                <button class="copy-button"
-                    onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
-                    kopieren</button>
-                <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
-                <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
-                <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan 2025 auf BC Lions
-                    Webseite</a>
-            </div>
 
-            <div class="events-container">
-                <h4>Alle kommenden Termine - Jugendfahrplan</h4>
-                <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
-            </div>
-        </div>
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">
@@ -285,95 +352,248 @@
         // Team configuration data - will be dynamically populated
         const CALENDAR_CONFIGS = [
         {
-                "id": "he1",
-                "name": "Spielplan HE1",
-                "competitionId": "50395",
-                "teamName": "BC Lions Moabit 1",
-                "icsFilename": "docs/ics/he1.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he1.ics",
-                "webUrl": "https://www.basketball-bund.net/static/#/liga/50395"
+                "id": "da-bl",
+                "name": "DA-BL",
+                "competitionId": 50852,
+                "teamName": "BC Lions Moabit 2",
+                "icsFilename": "docs/ics/da-bl.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/da-bl.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50852"
         },
         {
-                "id": "he4",
-                "name": "Spielplan HE4",
-                "competitionId": "50457",
+                "id": "da-ol",
+                "name": "DA-OL",
+                "competitionId": 50388,
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/da-ol.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/da-ol.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50388"
+        },
+        {
+                "id": "he-bl-a",
+                "name": "HE-BL-A",
+                "competitionId": 50595,
+                "teamName": "BC Lions Moabit 2",
+                "icsFilename": "docs/ics/he-bl-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-bl-a.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50595"
+        },
+        {
+                "id": "he-bl-c",
+                "name": "HE-BL-C",
+                "competitionId": 50597,
+                "teamName": "BC Lions Moabit 3",
+                "icsFilename": "docs/ics/he-bl-c.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-bl-c.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50597"
+        },
+        {
+                "id": "he-kl-a",
+                "name": "HE-KL-A",
+                "competitionId": 50457,
                 "teamName": "BC Lions Moabit 4",
-                "icsFilename": "docs/ics/he4.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he4.ics",
+                "icsFilename": "docs/ics/he-kl-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-kl-a.ics",
                 "webUrl": "https://www.basketball-bund.net/static/#/liga/50457"
         },
         {
-                "id": "he5",
-                "name": "Spielplan HE5",
-                "competitionId": "50459",
+                "id": "he-kl-b",
+                "name": "HE-KL-B",
+                "competitionId": 50458,
+                "teamName": "BC Lions Moabit 6",
+                "icsFilename": "docs/ics/he-kl-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-kl-b.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50458"
+        },
+        {
+                "id": "he-kl-c",
+                "name": "HE-KL-C",
+                "competitionId": 50459,
                 "teamName": "BC Lions Moabit 5",
-                "icsFilename": "docs/ics/he5.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he5.ics",
+                "icsFilename": "docs/ics/he-kl-c.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-kl-c.ics",
                 "webUrl": "https://www.basketball-bund.net/static/#/liga/50459"
         },
         {
-                "id": "mu16",
-                "name": "Spielplan MU16",
-                "competitionId": "51779",
-                "teamName": "BC Lions Moabit 2 mix",
-                "icsFilename": "docs/ics/mu16.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu16.ics",
-                "webUrl": "https://www.basketball-bund.net/static/#/liga/51779"
+                "id": "he-ll-b",
+                "name": "HE-LL-B",
+                "competitionId": 50395,
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/he-ll-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/he-ll-b.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50395"
         },
         {
-                "id": "mu18",
-                "name": "Spielplan MU18",
-                "competitionId": "50401",
+                "id": "mu12-ll-b",
+                "name": "mU12-LL-B",
+                "competitionId": 50422,
                 "teamName": "BC Lions Moabit 1 mix",
-                "icsFilename": "docs/ics/mu18.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu18.ics",
-                "webUrl": "https://www.basketball-bund.net/static/#/liga/50401"
-        },
-        {
-                "id": "u11",
-                "name": "Spielplan U11",
-                "competitionId": "50470",
-                "teamName": "BC Lions Moabit 1 mix",
-                "icsFilename": "docs/ics/u11.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/u11.ics",
-                "webUrl": "https://www.basketball-bund.net/static/#/liga/50470"
-        },
-        {
-                "id": "u12",
-                "name": "Spielplan U12",
-                "competitionId": "50422",
-                "teamName": "BC Lions Moabit 1 mix",
-                "icsFilename": "docs/ics/u12.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/u12.ics",
+                "icsFilename": "docs/ics/mu12-ll-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu12-ll-b.ics",
                 "webUrl": "https://www.basketball-bund.net/static/#/liga/50422"
         },
         {
-                "id": "u14",
-                "name": "Spielplan U14",
-                "competitionId": "51848",
+                "id": "mu14-bl-a",
+                "name": "mU14-BL-A",
+                "competitionId": 50606,
+                "teamName": "BC Lions Moabit 2 mix",
+                "icsFilename": "docs/ics/mu14-bl-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu14-bl-a.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50606"
+        },
+        {
+                "id": "mu14-ol-a",
+                "name": "mU14-OL-A",
+                "competitionId": 51848,
                 "teamName": "BC Lions Moabit 1 mix",
-                "icsFilename": "docs/ics/u14.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/u14.ics",
+                "icsFilename": "docs/ics/mu14-ol-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu14-ol-a.ics",
                 "webUrl": "https://www.basketball-bund.net/static/#/liga/51848"
         },
         {
-                "id": "wu16",
-                "name": "Spielplan WU16",
-                "competitionId": "50406",
+                "id": "mu16-bl-b",
+                "name": "mU16-BL-B",
+                "competitionId": 50603,
+                "teamName": "BC Lions Moabit 1 mix",
+                "icsFilename": "docs/ics/mu16-bl-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu16-bl-b.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50603"
+        },
+        {
+                "id": "mu16-kl",
+                "name": "mU16-KL",
+                "competitionId": 51779,
+                "teamName": "BC Lions Moabit 2 mix",
+                "icsFilename": "docs/ics/mu16-kl.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu16-kl.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/51779"
+        },
+        {
+                "id": "mu18-ll-b",
+                "name": "mU18-LL-B",
+                "competitionId": 50401,
+                "teamName": "BC Lions Moabit 1 mix",
+                "icsFilename": "docs/ics/mu18-ll-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu18-ll-b.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50401"
+        },
+        {
+                "id": "mu20-ll-a",
+                "name": "mU20-LL-A",
+                "competitionId": 50398,
+                "teamName": "BC Lions Moabit 1 mix",
+                "icsFilename": "docs/ics/mu20-ll-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/mu20-ll-a.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50398"
+        },
+        {
+                "id": "u11-f-1",
+                "name": "U11-F-1",
+                "competitionId": 50470,
+                "teamName": "BC Lions Moabit 1 mix",
+                "icsFilename": "docs/ics/u11-f-1.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/u11-f-1.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50470"
+        },
+        {
+                "id": "u9-a-2",
+                "name": "U9-A-2",
+                "competitionId": 50493,
+                "teamName": "BC Lions Moabit 1 mix",
+                "icsFilename": "docs/ics/u9-a-2.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/u9-a-2.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50493"
+        },
+        {
+                "id": "wu12-bl",
+                "name": "wU12-BL",
+                "competitionId": 50618,
                 "teamName": "BC Lions Moabit 1",
-                "icsFilename": "docs/ics/wu16.ics",
-                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu16.ics",
+                "icsFilename": "docs/ics/wu12-bl.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu12-bl.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50618"
+        },
+        {
+                "id": "wu14-ll-a",
+                "name": "wU14-LL-A",
+                "competitionId": 50415,
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/wu14-ll-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu14-ll-a.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50415"
+        },
+        {
+                "id": "wu16-ll-a",
+                "name": "wU16-LL-A",
+                "competitionId": 50406,
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/wu16-ll-a.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu16-ll-a.ics",
                 "webUrl": "https://www.basketball-bund.net/static/#/liga/50406"
+        },
+        {
+                "id": "wu18-ll-b",
+                "name": "wU18-LL-B",
+                "competitionId": 50403,
+                "teamName": "BC Lions Moabit 2",
+                "icsFilename": "docs/ics/wu18-ll-b.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu18-ll-b.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50403"
+        },
+        {
+                "id": "wu18-ol",
+                "name": "wU18-OL",
+                "competitionId": 50365,
+                "teamName": "BC Lions Moabit 1",
+                "icsFilename": "docs/ics/wu18-ol.ics",
+                "icsUrl": "https://pkcpkc.github.io/bc-lions-moabit/ics/wu18-ol.ics",
+                "webUrl": "https://www.basketball-bund.net/static/#/liga/50365"
+        }
+];
+        const SCHEDULE_CONFIGS = [
+        {
+                "id": "Kalender",
+                "label": "BC Lions",
+                "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com"
+        },
+        {
+                "id": "Damen",
+                "label": "Damen",
+                "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com"
+        },
+        {
+                "id": "Herren",
+                "label": "Herren",
+                "calId": "53009b789daac422a9a04fb042c6d22471052464ec60da06415958dccaf5ea02@group.calendar.google.com"
+        },
+        {
+                "id": "mU14-mU20 copy",
+                "label": "mU14-mU20",
+                "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com"
+        },
+        {
+                "id": "U11-U12",
+                "label": "U11/U12",
+                "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com"
+        },
+        {
+                "id": "U8-U10",
+                "label": "U8-U10",
+                "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com"
+        },
+        {
+                "id": "wU12-wU18",
+                "label": "wU12-wU18",
+                "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com"
         }
 ];
 
         function generateTeamSections() {
-            const navContainer = document.getElementById('dynamic-nav-links');
+            const navContainer = document.getElementById('team-nav-row');
             const calendarContainer = document.getElementById('team-calendars-container');
 
             // Clear existing dynamic content
-            const existingNavLinks = navContainer.querySelectorAll('.team-nav-link');
-            existingNavLinks.forEach(link => link.remove());
+            navContainer.innerHTML = '';
             calendarContainer.innerHTML = '';
 
             // Generate navigation links and calendar sections for each team
@@ -388,9 +608,8 @@
                     showCalendarSection(`${config.id}-section`);
                 });
 
-                // Insert before Jugendfahrplan link
-                const jugendfahrplanLink = navContainer.querySelector('a[href="#jugendfahrplan"]');
-                navContainer.insertBefore(navLink, jugendfahrplanLink);
+                // Add to team nav row
+                navContainer.appendChild(navLink);
 
                 // Create calendar section
                 const calendarSection = document.createElement('div');
@@ -398,19 +617,87 @@
                 calendarSection.id = `${config.id}-section`;
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="spielplan_${config.id}">
-                        <h3>${config.name}</h3>
-                        <button class="copy-button"
-                            onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
-                            kopieren</button>
-                        <a href="webcal://${config.icsUrl.replace('https://', '')}">Kalender abonnieren</a>
-                        <a href="${config.icsUrl}">Kalender laden</a>
-                        <a href="${config.webUrl}">${config.name} auf Deutscher Basketball Bund
-                            Webseite</a>
+                        <h3>Spielplan: ${config.name}</h3>
+                        <div class="calendar-actions">
+                            <button class="copy-button"
+                                onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
+                                kopieren</button>
+                            <span class="calendar-separator">|</span>
+                            <a href="webcal://${config.icsUrl.replace('https://', '')}">Kalender abonnieren</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${config.icsUrl}">Kalender laden</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${config.webUrl}" target="_blank" rel="noopener noreferrer">DBB Webseite</a>
+                        </div>
                     </div>
 
                     <div class="events-container">
                         <h4>Alle anstehenden Termine</h4>
                         <div id="${config.id}-events" class="loading">Lade Termine...</div>
+                    </div>
+                `;
+
+                calendarContainer.appendChild(calendarSection);
+            });
+        }
+
+        function generateScheduleSections() {
+            const navContainer = document.getElementById('schedule-nav-row');
+            const calendarContainer = document.getElementById('team-calendars-container');
+
+            // Clear existing schedule nav content
+            navContainer.innerHTML = '';
+
+            // Generate navigation links and calendar sections for each schedule
+            SCHEDULE_CONFIGS.forEach(config => {
+                // Create navigation link
+                const navLink = document.createElement('a');
+                navLink.href = `#schedule-${config.id}`;
+                navLink.className = 'nav-link schedule-nav-link';
+                navLink.textContent = config.label;
+                navLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showCalendarSection(`schedule-${config.id}-section`);
+                });
+
+                // Add to schedule nav row
+                navContainer.appendChild(navLink);
+
+                // Create calendar section
+                const calendarSection = document.createElement('div');
+                calendarSection.className = 'calendar-section';
+                calendarSection.id = `schedule-${config.id}-section`;
+                
+                const encodedCalId = encodeURIComponent(config.calId);
+                const icsUrl = `https://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
+                const webcalUrl = `webcal://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
+                
+                const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
+                
+                calendarSection.innerHTML = `
+                    <div class="calendar-link" id="schedule_${config.id}">
+                        <h3>Training: ${config.label}</h3>
+                        <div class="calendar-actions">
+                            <button class="copy-button"
+                                onclick="copyToClipboard('${icsUrl}', event)">iCalender-URL
+                                kopieren</button>
+                            <span class="calendar-separator">|</span>
+                            <a href="${webcalUrl}">Kalender abonnieren</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${icsUrl}">Kalender laden</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">Kalender</a>
+                        </div>
+                    </div>
+
+                    <div class="events-container">
+                        <iframe src="https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin" 
+                                style="border: 0" 
+                                width="100%" 
+                                height="600" 
+                                frameborder="0" 
+                                scrolling="no">
+                        </iframe>
                     </div>
                 `;
 
@@ -452,7 +739,7 @@
             const hash = window.location.hash.substring(1); // Remove the '#' character
             
             if (hash) {
-                // Check for direct section matches first (alle-termine, jugendfahrplan, anleitung)
+                // Check for direct section matches first (wochenende, heimspiele, anleitung)
                 let sectionId = hash + '-section';
                 let targetSection = document.getElementById(sectionId);
                 
@@ -469,6 +756,16 @@
                     return;
                 }
                 
+                // Check for schedule sections (schedule-boys, etc.)
+                if (hash.startsWith('schedule-')) {
+                    sectionId = hash + '-section';
+                    targetSection = document.getElementById(sectionId);
+                    if (targetSection) {
+                        showCalendarSection(sectionId, false);
+                        return;
+                    }
+                }
+                
                 // Handle legacy format (spielplan_teamid)
                 if (hash.startsWith('spielplan_')) {
                     const teamId = hash.replace('spielplan_', '');
@@ -483,8 +780,8 @@
                 }
             }
             
-            // Default to "alle-termine" if no valid hash
-            showCalendarSection('alle-termine-section', false);
+            // Default to "wochenende" if no valid hash
+            showCalendarSection('wochenende-section', false);
         }
 
         // Handle browser back/forward buttons
@@ -631,7 +928,7 @@
                     <div class="event-main">
                         <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
                         <div class="event-title">${displayTitle}</div>
-                        ${event.location ? `<div class="event-location">📍 ${event.location}</div>` : ''}
+                        ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
                     </div>
                 </div>
             `;
@@ -695,20 +992,163 @@
                 });
         }
 
+        function loadWeekendTeamEvents(containerId) {
+            const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                return fetch(icsFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        try {
+                            const jcalData = ICAL.parse(data);
+                            const comp = new ICAL.Component(jcalData);
+                            const vevents = comp.getAllSubcomponents('vevent');
+
+                            return vevents.map(vevent => {
+                                const event = new ICAL.Event(vevent);
+                                return {
+                                    summary: event.summary,
+                                    startDate: event.startDate.toJSDate(),
+                                    endDate: event.endDate.toJSDate(),
+                                    location: event.location,
+                                    description: event.description,
+                                    teamId: config.id.toUpperCase()
+                                };
+                            });
+                        } catch (error) {
+                            console.error('Error parsing calendar:', error);
+                            return [];
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching calendar:', error);
+                        return [];
+                    });
+            });
+
+            Promise.all(allEventsPromises)
+                .then(eventArrays => {
+                    // Flatten all events into a single array
+                    const allEvents = eventArrays.flat();
+
+                    // Sort events by date
+                    allEvents.sort((a, b) => a.startDate - b.startDate);
+
+                    // Get weekend events (Saturday and Sunday of the upcoming weekend)
+                    const today = new Date();
+                    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+                    
+                    // Calculate days until next Saturday
+                    const daysUntilSaturday = dayOfWeek === 0 ? 6 : (6 - dayOfWeek);
+                    
+                    const nextSaturday = new Date(today);
+                    nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+                    nextSaturday.setHours(0, 0, 0, 0);
+                    
+                    const nextSunday = new Date(nextSaturday);
+                    nextSunday.setDate(nextSaturday.getDate() + 1);
+                    nextSunday.setHours(23, 59, 59, 999);
+
+                    // Filter events for the upcoming weekend
+                    const weekendEvents = allEvents.filter(event => 
+                        event.startDate >= nextSaturday && event.startDate <= nextSunday
+                    );
+
+                    displayEvents(weekendEvents, containerId);
+                })
+                .catch(error => {
+                    console.error('Error loading weekend team events:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Wochenend-Termine</div>';
+                });
+        }
+
+        function loadWeekendHomeGames(containerId) {
+            const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                return fetch(icsFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        try {
+                            const jcalData = ICAL.parse(data);
+                            const comp = new ICAL.Component(jcalData);
+                            const vevents = comp.getAllSubcomponents('vevent');
+
+                            return vevents.map(vevent => {
+                                const event = new ICAL.Event(vevent);
+                                return {
+                                    summary: event.summary,
+                                    startDate: event.startDate.toJSDate(),
+                                    endDate: event.endDate.toJSDate(),
+                                    location: event.location,
+                                    description: event.description,
+                                    teamId: config.id.toUpperCase()
+                                };
+                            });
+                        } catch (error) {
+                            console.error('Error parsing calendar:', error);
+                            return [];
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching calendar:', error);
+                        return [];
+                    });
+            });
+
+            Promise.all(allEventsPromises)
+                .then(eventArrays => {
+                    // Flatten all events into a single array
+                    const allEvents = eventArrays.flat();
+
+                    // Sort events by date
+                    allEvents.sort((a, b) => a.startDate - b.startDate);
+
+                    // Get weekend events (Saturday and Sunday of the upcoming weekend)
+                    const today = new Date();
+                    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+                    
+                    // Calculate days until next Saturday
+                    const daysUntilSaturday = dayOfWeek === 0 ? 6 : (6 - dayOfWeek);
+                    
+                    const nextSaturday = new Date(today);
+                    nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+                    nextSaturday.setHours(0, 0, 0, 0);
+                    
+                    const nextSunday = new Date(nextSaturday);
+                    nextSunday.setDate(nextSaturday.getDate() + 1);
+                    nextSunday.setHours(23, 59, 59, 999);
+
+                    // Filter for weekend home games (BC Lions Moabit is the home team)
+                    const homeGames = allEvents.filter(event => {
+                        const isWeekend = event.startDate >= nextSaturday && event.startDate <= nextSunday;
+                        const isHomeGame = event.summary && event.summary.startsWith('BC Lions Moabit');
+                        return isWeekend && isHomeGame;
+                    });
+
+                    displayEvents(homeGames, containerId);
+                })
+                .catch(error => {
+                    console.error('Error loading weekend home games:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Heimspiele</div>';
+                });
+        }
+
         // Load events when page loads
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
             generateTeamSections();
+            
+            // Generate schedule sections dynamically
+            generateScheduleSections();
 
             // Add click handlers to existing navigation links
-            document.querySelector('a[href="#alle-termine"]').addEventListener('click', (e) => {
+            document.querySelector('a[href="#wochenende"]').addEventListener('click', (e) => {
                 e.preventDefault();
-                showCalendarSection('alle-termine-section');
+                showCalendarSection('wochenende-section');
             });
 
-            document.querySelector('a[href="#jugendfahrplan"]').addEventListener('click', (e) => {
+            document.querySelector('a[href="#heimspiele"]').addEventListener('click', (e) => {
                 e.preventDefault();
-                showCalendarSection('jugendfahrplan-section');
+                showCalendarSection('heimspiele-section');
             });
 
             document.querySelector('a[href="#anleitung"]').addEventListener('click', (e) => {
@@ -719,11 +1159,13 @@
             // Handle initial routing based on URL
             handleRouting();
 
-            // Load all team events for the "Alle Termine" section
-            loadAllTeamEvents('alle-termine-events');
+            // Load weekend team events for the "Wochenende" section
+            loadWeekendTeamEvents('wochenende-events');
+            
+            // Load home games for the "Heimspiele" section
+            loadWeekendHomeGames('heimspiele-events');
 
-            // Load static Jugendfahrplan events (show all upcoming)
-            loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events', -1);
+
 
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {

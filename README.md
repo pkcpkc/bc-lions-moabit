@@ -1,18 +1,22 @@
 # BC Lions Moabit - Dynamic Calendar System
 
-This system automatically generates basketball team calendars with client-side dynamic rendering. It fetches game data from basketball-bund.net and generates both ICS calendar files and a responsive HTML page with dynamic team sections.
+This system automatically generates basketball team calendars and training schedules with client-side dynamic rendering. It fetches game data from basketball-bund.net and integrates with Google Calendar for training schedules, generating both ICS calendar files and a responsive HTML page with dynamic sections.
 
 ## Architecture
 
-- **Client-Side Rendering**: HTML page dynamically creates team sections using JavaScript
+- **Client-Side Rendering**: HTML page dynamically creates team and training sections using JavaScript
 - **Template**: `index.template.html` - Static template with dynamic placeholders
-- **Builder**: `build-html.js` - Generates HTML with embedded JSON configuration
+- **Builder**: `build-html.js` - Generates HTML with embedded JSON configurations for teams and training
 - **Fetcher**: `fetch-games.js` - Downloads games and generates ICS files with team prefixes
-- **Configurations**: `teams/*.json` files with explicit team IDs
+- **Configurations**: 
+  - `teams/*.json` files with explicit team IDs for game schedules
+  - `schedule/*.json` files with Google Calendar IDs for training schedules
 
 ## Configuration Format
 
-Each JSON config file should contain:
+### Team Configurations (`teams/*.json`)
+
+Each team JSON config file should contain:
 
 ```json
 {
@@ -27,6 +31,22 @@ Each JSON config file should contain:
 - **teamName**: The exact team name to filter for
 
 **Note**: ICS filename is automatically generated as `docs/ics/${teamId}.ics`
+
+### Schedule Configurations (`schedule/*.json`)
+
+Each schedule JSON config file should contain:
+
+```json
+{
+    "label": "BC Lions Boys",
+    "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com"
+}
+```
+
+- **label**: Display name for the schedule group
+- **calId**: Google Calendar ID for the training schedule
+
+**Note**: Schedule calendars use Google Calendar embeds and automatic iCal generation
 
 ## Usage
 
@@ -73,10 +93,10 @@ node build-html.js --quiet      # Silent operation
 
 ### Client-Side (Runtime) 
 3. JavaScript dynamically creates:
-   - Navigation links for each team (alphabetically sorted)
-   - Calendar sections with download/subscribe buttons  
-   - Event previews loaded from ICS files
-4. Static Jugendfahrplan section remains unchanged
+   - **Übersicht**: Main navigation (Alle Termine, Jugendfahrplan, Anleitung)
+   - **Spielpläne**: Team calendar sections with download/subscribe buttons and event previews
+   - **Training**: Google Calendar embedded views with subscription options
+4. Three-section navigation layout with condensed, organized UI
 
 ## Key Features
 
@@ -85,8 +105,21 @@ All calendar entries are prefixed with the team ID for easy identification:
 - `u11: BC Lions Moabit 1 mix vs Team X (Venue)`
 - `u12: Team Y vs BC Lions Moabit 1 mix (Venue)`
 
-### Dynamic Team Sections
-Teams are automatically sorted alphabetically and rendered client-side, making it easy to add new teams without template changes.
+### Three-Section Navigation
+- **Übersicht**: Main sections (Alle Termine, Jugendfahrplan, Anleitung)
+- **Spielpläne**: All team game schedules (alphabetically sorted)
+- **Training**: Google Calendar embedded training schedules
+
+### Enhanced User Experience
+- **Clickable locations**: Event locations link to Google Maps
+- **Condensed layout**: Optimized spacing for better information density
+- **Horizontal action bars**: Copy, subscribe, and download buttons with " | " separators
+- **Responsive design**: Works on desktop and mobile devices
+
+### Dynamic Content Generation
+- **Teams**: Automatically sorted alphabetically and rendered client-side
+- **Training**: Google Calendar embeds with automatic iCal subscription links
+- **Events**: Real-time loading from ICS files with proper date formatting
 
 ### Last Updated Timestamp
 The generated HTML includes a Berlin timezone timestamp showing when the calendars were last updated:
@@ -94,12 +127,20 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
 - Displays in German format: "Sonntag, 28. September 2025 um 13:48"
 - Updates every time the build script runs
 
-### Automatic File Generation
-- ICS files: `docs/ics/${teamId}.ics`
-- Team names: `Spielplan ${teamId.toUpperCase()}`
-- Navigation IDs: `spielplan_${teamId}`
+### Google Calendar Integration
+- **Embedded calendars**: Full Google Calendar view for training schedules
+- **Automatic URL encoding**: Proper handling of Google Calendar IDs
+- **Multiple access methods**: Copy URL, subscribe via webcal, or download iCal
 
-## Adding New Teams
+### Automatic File Generation
+- **Team ICS files**: `docs/ics/${teamId}.ics`
+- **Team names**: `${teamId.toUpperCase()}` (e.g., "U12", "HE1")
+- **Training URLs**: Automatically generated from Google Calendar IDs
+- **Navigation IDs**: Clean routing with `#training-${id}` and `#${teamId}` patterns
+
+## Adding New Content
+
+### Adding New Teams
 
 1. Create a new JSON config file in the teams folder (e.g., `teams/u15.json`):
    ```json
@@ -110,18 +151,33 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
    }
    ```
 2. Run `node fetch-games.js u15.json`
-3. The team will automatically appear in the HTML (sorted alphabetically)
+3. The team will automatically appear in the "Spielpläne" section (sorted alphabetically)
+
+### Adding New Schedule Groups
+
+1. Create a new JSON config file in the schedule folder (e.g., `schedule/girls.json`):
+   ```json
+   {
+       "label": "BC Lions Girls",
+       "calId": "your-google-calendar-id@group.calendar.google.com"
+   }
+   ```
+2. Run `node build-html.js`
+3. The schedule group will automatically appear in the "Training" section with embedded Google Calendar
 
 ## Template System
 
-The template uses client-side JavaScript generation with one placeholder:
+The template uses client-side JavaScript generation with three placeholders:
 
 - `{{CALENDAR_CONFIGS}}` - JSON array with team configurations
+- `{{SCHEDULE_CONFIGS}}` - JSON array with schedule configurations
+- `{{LAST_UPDATED}}` - Timestamp of last build
 
 Dynamic sections are created by JavaScript:
-- Team navigation links
-- Calendar sections with proper URLs
-- Event loading and display
+- **Three-section navigation**: Übersicht, Spielpläne, Training
+- **Team calendar sections**: With download/subscribe buttons and event previews
+- **Schedule calendar sections**: With embedded Google Calendar and subscription options
+- **Event loading and display**: Real-time ICS parsing with proper formatting
 
 ## Project Structure
 
@@ -131,31 +187,48 @@ bc-lions-moabit/
 │   └── workflows/
 │       └── update-calendars.yml  # GitHub Actions automation
 ├── teams/                    # Team configuration files
-│   ├── u11.json             # U11 team config with teamId
-│   └── u12.json             # U12 team config with teamId
+│   ├── da-bl.json           # Damen Bezirksliga team config
+│   ├── he-bl-a.json         # Herren Bezirksliga A team config
+│   ├── u11-f-1.json         # U11 team config
+│   └── ...                  # Additional team configs
+├── schedule/                # Schedule configuration files
+│   ├── boys.json            # Boys training Google Calendar config
+│   ├── u11-u12.json         # U11/U12 training Google Calendar config
+│   └── ...                  # Additional schedule configs
 ├── docs/
 │   ├── index.html           # Generated main page (client-side rendering)
+│   ├── bc-lions-logo.png    # Logo for background watermark
 │   └── ics/                 # Generated calendar files
-│       ├── u11.ics          # U11 calendar with "u11:" prefixes
-│       ├── u12.ics          # U12 calendar with "u12:" prefixes
-│       └── jugendfahrplan.ics
+│       ├── da-bl.ics        # Team calendars with prefixes
+│       ├── he-bl-a.ics      # 
+│       ├── jugendfahrplan.ics # Youth development schedule
+│       └── ...              # Additional team ICS files
 ├── index.template.html      # Template for HTML generation
-├── build-html.js           # HTML generator with JSON embedding
+├── build-html.js           # HTML generator with team and schedule configs
 ├── fetch-games.js          # Game fetcher with team prefix support
 ├── fetch-all.js            # Process all teams at once
 ├── build.js                # Complete build: fetch all + generate HTML
+├── crawl.js                # Basketball federation crawler for team discovery
 └── README.md               # This file
 ```
 
 ## Recent Changes
 
+### v3.0 - Training Integration & UI Enhancements
+- **New Feature**: Google Calendar integration for training schedules
+- **Enhanced Navigation**: Three-section layout (Übersicht, Spielpläne, Training)
+- **UI Improvements**: Condensed layout, clickable locations, horizontal action bars
+- **Schedule Configs**: New `schedule/*.json` files for Google Calendar integration
+- **Embedded Calendars**: Full Google Calendar views for training schedules
+- **Better UX**: Improved spacing, responsive design, cleaner typography
+
 ### v2.0 - Client-Side Dynamic Rendering
 - **Breaking Change**: Moved from server-side HTML generation to client-side dynamic rendering
 - **Removed**: `generateHTML.js` (functionality integrated into `build-html.js`)
 - **Config Format**: Added explicit `teamId` field, removed `icsFilename` (auto-generated)
-- **Team Prefixes**: All ICS calendar entries now prefixed with team ID (e.g., `u11:`, `u12:`)
+- **Team Prefixes**: All ICS calendar entries now prefixed with team ID (e.g., `da-bl:`, `he1:`)
 - **Alphabetical Sorting**: Teams automatically sorted alphabetically in navigation
-- **Simplified Architecture**: Single JSON placeholder in template, JavaScript handles the rest
+- **Simplified Architecture**: JSON placeholders in template, JavaScript handles the rest
 
 ### Migration from v1.x
 If you have old config files, update them:

@@ -1,0 +1,213 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BC Lions Moabit//Basketball Schedule//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20250920T180000
+DTEND:20250920T200000
+SUMMARY:BC Lions Moabit 2 vs VfL Lichtenrade 1 (Gerhardtstraße)
+LOCATION:Gerhardtstraße 3\, 10557 Berlin
+DESCRIPTION:Venue: Gerhardtstraße\nAddress: Gerhardtstraße 3; 10557 Berlin
+UID:2755205@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250928T150000
+DTEND:20250928T170000
+SUMMARY:Friedenauer TSC 3 vs BC Lions Moabit 2 (Pöppelmannstraße)
+LOCATION:Pöppelmannstraße 2\, 12157 Berlin
+DESCRIPTION:Venue: Pöppelmannstraße\nAddress: Pöppelmannstraße 2; 12157 Berlin
+UID:2755229@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251004T160000
+DTEND:20251004T180000
+SUMMARY:BC Lions Moabit 2 vs DBV Charlottenburg 4 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755285@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251011T140000
+DTEND:20251011T160000
+SUMMARY:BC Lions Moabit 2 vs Weddinger Wiesel 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755337@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251018T120000
+DTEND:20251018T140000
+SUMMARY:BC Lions Moabit 2 vs Nachmeldung 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755608@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251025T170000
+DTEND:20251025T190000
+SUMMARY:Türkiyemspor Berlin 3 vs BC Lions Moabit 2 (Nostitzstraße (oben))
+LOCATION:Nostitzstraße 60\, 10961 Berlin
+DESCRIPTION:Venue: Nostitzstraße (oben)\nAddress: Nostitzstraße 60; 10961 Berlin
+UID:2755615@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251108T180000
+DTEND:20251108T200000
+SUMMARY:BC Lions Moabit 2 vs BASS Südwest 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755345@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251115T160000
+DTEND:20251115T180000
+SUMMARY:BC Lions Moabit 2 vs TuS Neukölln 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755373@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251123T180000
+DTEND:20251123T200000
+SUMMARY:BC Lichterfelde 1 vs BC Lions Moabit 2 (Moltkestraße)
+LOCATION:Moltkestraße 25\, 12203 Berlin
+DESCRIPTION:Venue: Moltkestraße\nAddress: Moltkestraße 25; 12203 Berlin
+UID:2755402@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251129T140000
+DTEND:20251129T160000
+SUMMARY:BC Lions Moabit 2 vs SV Neukölln 09 1 (Gerhardtstraße)
+LOCATION:Gerhardtstraße 3\, 10557 Berlin
+DESCRIPTION:Venue: Gerhardtstraße\nAddress: Gerhardtstraße 3; 10557 Berlin
+UID:2755429@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251207T180000
+DTEND:20251207T200000
+SUMMARY:ALBA Berlin 4 vs BC Lions Moabit 2 (Max-Schmeling-Halle A)
+LOCATION:Am Falkplatz 1\, 10437 Berlin
+DESCRIPTION:Venue: Max-Schmeling-Halle A\nAddress: Am Falkplatz 1; 10437 Berlin
+UID:2755261@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251207T000000
+DTEND:20251207T000000
+SUMMARY:Nachmeldung 3 vs BC Lions Moabit 2 (Zeit TBD) (N.N.)
+LOCATION:###\, 10437 Berlin
+DESCRIPTION:Venue: N.N.\nAddress: ###; 10437 Berlin
+UID:2755457@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251213T140000
+DTEND:20251213T160000
+SUMMARY:BC Lions Moabit 2 vs Nachmeldung 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755483@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260111T000000
+DTEND:20260111T000000
+SUMMARY:Nachmeldung 2 vs BC Lions Moabit 2 (Zeit TBD) (N.N.)
+LOCATION:###\, 10437 Berlin
+DESCRIPTION:Venue: N.N.\nAddress: ###; 10437 Berlin
+UID:2755504@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260117T160000
+DTEND:20260117T180000
+SUMMARY:BC Lions Moabit 2 vs Türkiyemspor Berlin 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755519@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260125T160000
+DTEND:20260125T180000
+SUMMARY:VfL Lichtenrade 1 vs BC Lions Moabit 2 (Reichnerweg)
+LOCATION:Reichnerweg 36\, 12305 Berlin
+DESCRIPTION:Venue: Reichnerweg\nAddress: Reichnerweg 36; 12305 Berlin
+UID:2755531@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260131T120000
+DTEND:20260131T140000
+SUMMARY:BC Lions Moabit 2 vs Nachmeldung 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755594@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260208T000000
+DTEND:20260208T000000
+SUMMARY:Nachmeldung 1 vs BC Lions Moabit 2 (Zeit TBD) (N.N.)
+LOCATION:###\, 10437 Berlin
+DESCRIPTION:Venue: N.N.\nAddress: ###; 10437 Berlin
+UID:2755601@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260214T140000
+DTEND:20260214T160000
+SUMMARY:BC Lions Moabit 2 vs Friedenauer TSC 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755537@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260221T180000
+DTEND:20260221T200000
+SUMMARY:BC Lions Moabit 2 vs ALBA Berlin 4 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755545@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260301T160000
+DTEND:20260301T180000
+SUMMARY:DBV Charlottenburg 4 vs BC Lions Moabit 2 (Goethestraße)
+LOCATION:Goethestraße 19\, 10625 Berlin
+DESCRIPTION:Venue: Goethestraße\nAddress: Goethestraße 19; 10625 Berlin
+UID:2755551@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260307T160000
+DTEND:20260307T180000
+SUMMARY:Weddinger Wiesel 3 vs BC Lions Moabit 2 (Wiesenstraße)
+LOCATION:Wiesenstraße 56\, 13357 Berlin
+DESCRIPTION:Venue: Wiesenstraße\nAddress: Wiesenstraße 56; 13357 Berlin
+UID:2755564@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260314T160000
+DTEND:20260314T180000
+SUMMARY:BASS Südwest 2 vs BC Lions Moabit 2 (Seydlitzstraße)
+LOCATION:Seydlitzstraße 30\, 12249 Berlin
+DESCRIPTION:Venue: Seydlitzstraße\nAddress: Seydlitzstraße 30; 12249 Berlin
+UID:2755566@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260321T194500
+DTEND:20260321T214500
+SUMMARY:TuS Neukölln 3 vs BC Lions Moabit 2 (Albert-Schweitzer-Platz)
+LOCATION:Karl-Marx-Straße 14\, 12043 Berlin
+DESCRIPTION:Venue: Albert-Schweitzer-Platz\nAddress: Karl-Marx-Straße 14; 12043 Berlin
+UID:2755573@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260418T160000
+DTEND:20260418T180000
+SUMMARY:BC Lions Moabit 2 vs BC Lichterfelde 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2755580@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260425T100000
+DTEND:20260425T120000
+SUMMARY:SV Neukölln 09 1 vs BC Lions Moabit 2 (Hertastraße)
+LOCATION:Hertastraße 1b\, 12051 Berlin
+DESCRIPTION:Venue: Hertastraße\nAddress: Hertastraße 1b; 12051 Berlin
+UID:2755587@bc-lions-moabit
+END:VEVENT
+END:VCALENDAR

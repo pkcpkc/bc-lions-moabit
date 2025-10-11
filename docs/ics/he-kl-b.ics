@@ -1,0 +1,181 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//BC Lions Moabit//Basketball Schedule//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20250920T180000
+DTEND:20250920T200000
+SUMMARY:Mitte SuperSonics 2 vs BC Lions Moabit 6 (Putbusser Straße)
+LOCATION:Putbusser Straße 1\, 13355 Berlin
+DESCRIPTION:Venue: Putbusser Straße\nAddress: Putbusser Straße 1; 13355 Berlin
+UID:2751039@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20250928T160000
+DTEND:20250928T180000
+SUMMARY:BC Lions Moabit 6 vs DBV Charlottenburg 9 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751101@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251005T170000
+DTEND:20251005T190000
+SUMMARY:Berliner SV 92 1 vs BC Lions Moabit 6 (Emser Straße, oben)
+LOCATION:Emser Straße 52\, 10719 Berlin
+DESCRIPTION:Venue: Emser Straße, oben\nAddress: Emser Straße 52; 10719 Berlin
+UID:2751225@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251012T180000
+DTEND:20251012T200000
+SUMMARY:BC Lions Moabit 6 vs BG Zehlendorf 6 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751277@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251019T170000
+DTEND:20251019T190000
+SUMMARY:BC Lions Moabit 6 vs Berlin Tiger 2 (Blücherstraße (rechts))
+LOCATION:Blücherstraße 46\, 10961 Berlin
+DESCRIPTION:Venue: Blücherstraße (rechts)\nAddress: Blücherstraße 46; 10961 Berlin
+UID:2751180@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251108T170000
+DTEND:20251108T190000
+SUMMARY:Weddinger Wiesel 4 vs BC Lions Moabit 6 (Wiesenstraße)
+LOCATION:Wiesenstraße 56\, 13357 Berlin
+DESCRIPTION:Venue: Wiesenstraße\nAddress: Wiesenstraße 56; 13357 Berlin
+UID:2751331@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251116T160000
+DTEND:20251116T180000
+SUMMARY:BC Lions Moabit 6 vs BASS Südwest 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751383@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251123T140000
+DTEND:20251123T160000
+SUMMARY:TSC Berlin 1 vs BC Lions Moabit 6 (Paster-Behrens-Straße)
+LOCATION:Paster-Behrens-Straße 81\, 12359 Berlin
+DESCRIPTION:Venue: Paster-Behrens-Straße\nAddress: Paster-Behrens-Straße 81; 12359 Berlin
+UID:2751419@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251130T180000
+DTEND:20251130T200000
+SUMMARY:BC Lions Moabit 6 vs TSC Spandau 3 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751479@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251207T140000
+DTEND:20251207T160000
+SUMMARY:VfL Lichtenrade 2 vs BC Lions Moabit 6 (Reichnerweg)
+LOCATION:Reichnerweg 36\, 12305 Berlin
+DESCRIPTION:Venue: Reichnerweg\nAddress: Reichnerweg 36; 12305 Berlin
+UID:2751515@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20251214T140000
+DTEND:20251214T160000
+SUMMARY:BC Lions Moabit 6 vs KSV Ajax 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751575@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260111T140000
+DTEND:20260111T160000
+SUMMARY:BC Lions Moabit 6 vs Mitte SuperSonics 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751620@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260117T160000
+DTEND:20260117T180000
+SUMMARY:DBV Charlottenburg 9 vs BC Lions Moabit 6 (Leistikowstraße)
+LOCATION:Leistikowstraße 7\, 14050 Berlin
+DESCRIPTION:Venue: Leistikowstraße\nAddress: Leistikowstraße 7; 14050 Berlin
+UID:2751682@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260125T190000
+DTEND:20260125T210000
+SUMMARY:Berlin Tiger 2 vs BC Lions Moabit 6 (Nostitzstraße (unten))
+LOCATION:Nostitzstraße 60\, 10961 Berlin
+DESCRIPTION:Venue: Nostitzstraße (unten)\nAddress: Nostitzstraße 60; 10961 Berlin
+UID:2751763@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260215T160000
+DTEND:20260215T180000
+SUMMARY:BC Lions Moabit 6 vs Berliner SV 92 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751806@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260221T173000
+DTEND:20260221T193000
+SUMMARY:BG Zehlendorf 6 vs BC Lions Moabit 6 (Teltower Damm (alt))
+LOCATION:Teltower Damm 87\, 14167 Berlin
+DESCRIPTION:Venue: Teltower Damm (alt)\nAddress: Teltower Damm 87; 14167 Berlin
+UID:2751843@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260301T140000
+DTEND:20260301T160000
+SUMMARY:BC Lions Moabit 6 vs Weddinger Wiesel 4 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751863@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260308T180000
+DTEND:20260308T200000
+SUMMARY:BASS Südwest 3 vs BC Lions Moabit 6 (Seydlitzstraße)
+LOCATION:Seydlitzstraße 30\, 12249 Berlin
+DESCRIPTION:Venue: Seydlitzstraße\nAddress: Seydlitzstraße 30; 12249 Berlin
+UID:2751875@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260315T140000
+DTEND:20260315T160000
+SUMMARY:BC Lions Moabit 6 vs TSC Berlin 1 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751883@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260321T194500
+DTEND:20260321T214500
+SUMMARY:TSC Spandau 3 vs BC Lions Moabit 6 (Staakener Feldstraße)
+LOCATION:Staakener Feldstraße 6-8\, 13591 Berlin
+DESCRIPTION:Venue: Staakener Feldstraße\nAddress: Staakener Feldstraße 6-8; 13591 Berlin
+UID:2751897@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260418T140000
+DTEND:20260418T160000
+SUMMARY:BC Lions Moabit 6 vs VfL Lichtenrade 2 (Alt-Moabit)
+LOCATION:Alt-Moabit 10\, 10557 Berlin
+DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
+UID:2751905@bc-lions-moabit
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260425T143000
+DTEND:20260425T163000
+SUMMARY:KSV Ajax 1 vs BC Lions Moabit 6 (Rahnsdorfer Straße)
+LOCATION:Rahnsdorfer Straße 35\, 12587 Berlin
+DESCRIPTION:Venue: Rahnsdorfer Straße\nAddress: Rahnsdorfer Straße 35; 12587 Berlin
+UID:2751919@bc-lions-moabit
+END:VEVENT
+END:VCALENDAR

@@ -47,6 +47,11 @@ async function fetchJSON(url) {
 function formatDateForICS(dateStr, timeStr) {
   let day, month, year;
 
+  // Check if dateStr is null or undefined
+  if (!dateStr) {
+    throw new Error('Date string is null or undefined');
+  }
+
   // Check if date is in YYYY-MM-DD format or DD.MM.YYYY format
   if (dateStr.includes('-')) {
     // YYYY-MM-DD format
@@ -146,6 +151,14 @@ async function main() {
 
     // Step 2: For each match, fetch matchInfo
     for (const m of matches) {
+      // Skip matches without a date
+      if (!m.kickoffDate) {
+        if (!isQuiet) {
+          console.log(`Skipping match ${m.matchId}: no kickoffDate`);
+        }
+        continue;
+      }
+
       const matchInfoData = await fetchJSON(MATCH_URL(m.matchId));
       const spielfeld = matchInfoData.data.matchInfo?.spielfeld || {};
 
@@ -169,12 +182,7 @@ async function main() {
       game.home.includes(TEAM_NAME) || game.guest.includes(TEAM_NAME)
     );
 
-    if (!isQuiet) {
-      console.log(`Found ${bcLionsGames.length} games for ${TEAM_NAME}:`);
-      bcLionsGames.forEach(game => {
-        console.log(`${game.date} ${game.time} - ${game.home} vs ${game.guest}`);
-      });
-    }
+    console.log(`Found ${bcLionsGames.length} games for ${TEAM_NAME}.`);
 
     // Step 4: Create ICS file
     if (bcLionsGames.length > 0) {
@@ -187,11 +195,6 @@ async function main() {
       if (!isQuiet) {
         console.log('No games found for BC Lions Moabit 1 mix');
       }
-    }
-
-    if (!isQuiet) {
-      console.log('\nAll games:');
-      console.log(JSON.stringify(results, null, 2));
     }
 
     // Generate the HTML file with current configurations
