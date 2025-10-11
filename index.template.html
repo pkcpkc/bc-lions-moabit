@@ -264,8 +264,8 @@
             </div>
             <div class="nav-section">
                 <h4 class="nav-headline">Training</h4>
-                <div class="nav-row" id="training-nav-row">
-                    <!-- Training navigation links will be generated dynamically -->
+                <div class="nav-row" id="schedule-nav-row">
+                    <!-- Schedule navigation links will be generated dynamically -->
                 </div>
             </div>
         </nav>
@@ -359,7 +359,7 @@
     <script>
         // Team configuration data - will be dynamically populated
         const CALENDAR_CONFIGS = {{ CALENDAR_CONFIGS }};
-        const TRAINING_CONFIGS = {{ TRAINING_CONFIGS }};
+        const SCHEDULE_CONFIGS = {{ SCHEDULE_CONFIGS }};
 
         function generateTeamSections() {
             const navContainer = document.getElementById('team-nav-row');
@@ -414,40 +414,42 @@
             });
         }
 
-        function generateTrainingSections() {
-            const navContainer = document.getElementById('training-nav-row');
+        function generateScheduleSections() {
+            const navContainer = document.getElementById('schedule-nav-row');
             const calendarContainer = document.getElementById('team-calendars-container');
 
-            // Clear existing training nav content
+            // Clear existing schedule nav content
             navContainer.innerHTML = '';
 
-            // Generate navigation links and calendar sections for each training
-            TRAINING_CONFIGS.forEach(config => {
+            // Generate navigation links and calendar sections for each schedule
+            SCHEDULE_CONFIGS.forEach(config => {
                 // Create navigation link
                 const navLink = document.createElement('a');
-                navLink.href = `#training-${config.id}`;
-                navLink.className = 'nav-link training-nav-link';
-                navLink.textContent = config.team;
+                navLink.href = `#schedule-${config.id}`;
+                navLink.className = 'nav-link schedule-nav-link';
+                navLink.textContent = config.label;
                 navLink.addEventListener('click', (e) => {
                     e.preventDefault();
-                    showCalendarSection(`training-${config.id}-section`);
+                    showCalendarSection(`schedule-${config.id}-section`);
                 });
 
-                // Add to training nav row
+                // Add to schedule nav row
                 navContainer.appendChild(navLink);
 
                 // Create calendar section
                 const calendarSection = document.createElement('div');
                 calendarSection.className = 'calendar-section';
-                calendarSection.id = `training-${config.id}-section`;
+                calendarSection.id = `schedule-${config.id}-section`;
                 
                 const encodedCalId = encodeURIComponent(config.calId);
                 const icsUrl = `https://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
                 const webcalUrl = `webcal://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
                 
+                const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
+                
                 calendarSection.innerHTML = `
-                    <div class="calendar-link" id="training_${config.id}">
-                        <h3>${config.team}</h3>
+                    <div class="calendar-link" id="schedule_${config.id}">
+                        <h3>${config.label}</h3>
                         <div class="calendar-actions">
                             <button class="copy-button"
                                 onclick="copyToClipboard('${icsUrl}', event)">iCalender-URL
@@ -456,6 +458,8 @@
                             <a href="${webcalUrl}">Kalender abonnieren</a>
                             <span class="calendar-separator">|</span>
                             <a href="${icsUrl}">Kalender laden</a>
+                            <span class="calendar-separator">|</span>
+                            <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">Kalender</a>
                         </div>
                     </div>
 
@@ -525,8 +529,8 @@
                     return;
                 }
                 
-                // Check for training sections (training-boys, etc.)
-                if (hash.startsWith('training-')) {
+                // Check for schedule sections (schedule-boys, etc.)
+                if (hash.startsWith('schedule-')) {
                     sectionId = hash + '-section';
                     targetSection = document.getElementById(sectionId);
                     if (targetSection) {
@@ -766,8 +770,8 @@
             // Generate team sections dynamically
             generateTeamSections();
             
-            // Generate training sections dynamically
-            generateTrainingSections();
+            // Generate schedule sections dynamically
+            generateScheduleSections();
 
             // Add click handlers to existing navigation links
             document.querySelector('a[href="#alle-termine"]').addEventListener('click', (e) => {
