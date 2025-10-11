@@ -91,13 +91,11 @@ class BasketballAnimation {
                     this.opponentTimer = null;
                 }
                 
+                // Hide score immediately before showing game over message
+                this.hideScore();
+                
                 // Show game over message only once
                 this.showGameOverMessage();
-                
-                // Hide score after a delay
-                setTimeout(() => {
-                    this.hideScore();
-                }, 3000);
             }
             
             return true;
