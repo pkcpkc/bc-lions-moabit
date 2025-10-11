@@ -32,7 +32,7 @@ export function generateIndexHTML(quiet = false) {
             }
             
             const id = config.teamId;
-            const icsFilename = `docs/ics/${config.teamId}.ics`;
+            const icsFilename = `docs/ics/spiele/${config.teamId}.ics`;
             
             // Add to configs array
             const configData = {
@@ -41,7 +41,7 @@ export function generateIndexHTML(quiet = false) {
                 competitionId: config.competitionId,
                 teamName: config.teamName,
                 icsFilename: icsFilename,
-                icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/${config.teamId}.ics`,
+                icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/spiele/${config.teamId}.ics`,
                 webUrl: `https://www.basketball-bund.net/static/#/liga/${config.competitionId}`
             };
             
@@ -90,6 +90,12 @@ export function generateIndexHTML(quiet = false) {
 
     // Sort schedules alphabetically by label name
     scheduleConfigs.sort((a, b) => a.label.localeCompare(b.label));
+
+    // Update schedule configs with ICS file paths (files should be downloaded separately)
+    scheduleConfigs.forEach(config => {
+        config.icsFilename = `docs/ics/termine/${config.id}.ics`;
+        config.icsUrl = `https://pkcpkc.github.io/bc-lions-moabit/ics/termine/${config.id}.ics`;
+    });
 
     // Read the template
     const template = readFileSync('index.template.html', 'utf8');

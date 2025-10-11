@@ -114,6 +114,8 @@
             border-radius: 5px;
         }
 
+
+
         .event-item {
             margin: 5px 0;
             padding: 8px 12px;
@@ -441,34 +443,31 @@
                 
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="schedule_${config.id}">
-                        <h3>Training: ${config.label}</h3>
+                        <h3>Termine: ${config.label}</h3>
                         <div class="calendar-actions">
                             <button class="copy-button"
-                                onclick="copyToClipboard('${icsUrl}', event)">iCalender-URL
+                                onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
                                 kopieren</button>
                             <span class="calendar-separator">|</span>
-                            <a href="${webcalUrl}">Kalender abonnieren</a>
+                            <a href="webcal://${config.icsUrl.replace('https://', '')}">Kalender abonnieren</a>
                             <span class="calendar-separator">|</span>
-                            <a href="${icsUrl}">Kalender laden</a>
+                            <a href="${config.icsUrl}">Kalender laden</a>
                             <span class="calendar-separator">|</span>
                             <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">Kalender</a>
                         </div>
                     </div>
 
                     <div class="events-container">
-                        <iframe src="https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin" 
-                                style="border: 0" 
-                                width="100%" 
-                                height="600" 
-                                frameborder="0" 
-                                scrolling="no">
-                        </iframe>
+                        <h4>Alle anstehenden Termine</h4>
+                        <div id="schedule-${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
 
                 calendarContainer.appendChild(calendarSection);
             });
         }
+
+
 
         function showCalendarSection(sectionId, updateUrl = true) {
             // Hide all calendar sections
@@ -688,11 +687,14 @@
                 const title = event.summary || 'Kein Titel';
                 const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
                 
+                // Make BC Lions team names bold
+                const formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
+                
                 return `
                 <div class="event-item">
                     <div class="event-main">
                         <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
-                        <div class="event-title">${displayTitle}</div>
+                        <div class="event-title">${formattedTitle}</div>
                         ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
                     </div>
                 </div>
@@ -936,6 +938,12 @@
             CALENDAR_CONFIGS.forEach(config => {
                 const icsFile = config.icsFilename.replace('docs/', './');
                 loadCalendarEvents(icsFile, `${config.id}-events`, -1, config.id);
+            });
+
+            // Load events for dynamically configured schedule calendars
+            SCHEDULE_CONFIGS.forEach(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                loadCalendarEvents(icsFile, `schedule-${config.id}-events`, -1, config.label);
             });
         });
     </script>

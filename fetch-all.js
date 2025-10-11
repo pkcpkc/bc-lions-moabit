@@ -78,7 +78,6 @@ async function processConfigs() {
         console.log(`✅ Fetched data for ${configFiles.length} teams`);
     } else {
         console.log('🎉 All configurations processed!');
-        console.log('📄 Generated docs/index.html with updated calendar data');
     }
 }
 

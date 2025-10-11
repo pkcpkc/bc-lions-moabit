@@ -6,6 +6,7 @@
   },
   "scripts": {
     "fetch-all": "node fetch-all.js",
+    "download-termine": "node download-termine.js",
     "build-html": "node build-html.js",
     "build": "node build.js"
   }

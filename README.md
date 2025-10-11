@@ -30,7 +30,7 @@ Each team JSON config file should contain:
 - **competitionId**: The ID from the basketball-bund.net website
 - **teamName**: The exact team name to filter for
 
-**Note**: ICS filename is automatically generated as `docs/ics/${teamId}.ics`
+**Note**: ICS filename is automatically generated as `docs/ics/spiele/${teamId}.ics`
 
 ### Schedule Configurations (`schedule/*.json`)
 
@@ -52,20 +52,30 @@ Each schedule JSON config file should contain:
 
 ### Complete Build (Recommended)
 ```bash
-# Fetch games for all teams AND generate HTML in one command
+# Full build process: fetch games, download termine, generate HTML
 npm run build
 # or
 node build.js
 ```
 
-This is the **recommended workflow** as it ensures your HTML page always has the latest game data by automatically running both fetch and build operations in sequence.
+This is the **recommended workflow** as it ensures your HTML page has the latest data by automatically running:
+1. **Fetch games** for all configured teams
+2. **Download termine ICS files** from Google Calendar  
+3. **Generate HTML** with updated data
+
+The termine ICS files are downloaded only once per build cycle, improving efficiency.
 
 ### Individual Operations
 ```bash
 # Fetch games for all configured teams (without HTML generation)
 npm run fetch-all
 
-# Fetch games for a specific team and update HTML
+# Download termine ICS files from Google Calendar
+npm run download-termine
+# or
+node download-termine.js
+
+# Fetch games for a specific team (without HTML generation)
 node fetch-games.js u11.json
 node fetch-games.js u12.json
 node fetch-games.js u15.json    # Works with any team config file
@@ -133,10 +143,11 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
 - **Multiple access methods**: Copy URL, subscribe via webcal, or download iCal
 
 ### Automatic File Generation
-- **Team ICS files**: `docs/ics/${teamId}.ics`
+- **Team ICS files (Spielpläne)**: `docs/ics/spiele/${teamId}.ics`
+- **Schedule ICS files (Termine)**: `docs/ics/termine/${id}.ics` (downloaded during build)
 - **Team names**: `${teamId.toUpperCase()}` (e.g., "U12", "HE1")
 - **Training URLs**: Automatically generated from Google Calendar IDs
-- **Navigation IDs**: Clean routing with `#training-${id}` and `#${teamId}` patterns
+- **Navigation IDs**: Clean routing with `#schedule-${id}` and `#${teamId}` patterns
 
 ## Adding New Content
 
@@ -199,15 +210,20 @@ bc-lions-moabit/
 │   ├── index.html           # Generated main page (client-side rendering)
 │   ├── bc-lions-logo.png    # Logo for background watermark
 │   └── ics/                 # Generated calendar files
-│       ├── da-bl.ics        # Team calendars with prefixes
-│       ├── he-bl-a.ics      # 
-│       ├── jugendfahrplan.ics # Youth development schedule
-│       └── ...              # Additional team ICS files
+│       ├── spiele/          # Team game schedules (Spielpläne)
+│       │   ├── da-bl.ics    # Team calendars with prefixes
+│       │   ├── he-bl-a.ics  # 
+│       │   └── ...          # Additional team ICS files
+│       └── termine/         # Training schedules (Termine)
+│           ├── Damen.ics    # Downloaded from Google Calendar
+│           ├── Herren.ics   # 
+│           └── ...          # Additional training ICS files
 ├── index.template.html      # Template for HTML generation
 ├── build-html.js           # HTML generator with team and schedule configs
+├── download-termine.js     # Downloads termine ICS files from Google Calendar
 ├── fetch-games.js          # Game fetcher with team prefix support
 ├── fetch-all.js            # Process all teams at once
-├── build.js                # Complete build: fetch all + generate HTML
+├── build.js                # Complete build: fetch + download + generate HTML
 ├── crawl.js                # Basketball federation crawler for team discovery
 └── README.md               # This file
 ```

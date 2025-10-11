@@ -67,9 +67,15 @@ async function buildAll() {
         }
         await runScript('fetch-all.js', [], isQuiet);
 
-        // Step 2: Generate HTML with updated data
+        // Step 2: Download termine ICS files
         if (!isQuiet) {
-            console.log('🔨 Step 2: Building HTML with fresh data...');
+            console.log('🗓️  Step 2: Downloading termine ICS files...');
+        }
+        await runScript('download-termine.js', [], isQuiet);
+
+        // Step 3: Generate HTML with updated data
+        if (!isQuiet) {
+            console.log('🔨 Step 3: Building HTML with fresh data...');
         }
         await runScript('build-html.js', [], isQuiet);
 

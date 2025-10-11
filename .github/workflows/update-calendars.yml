@@ -50,7 +50,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add docs/index.html docs/ics/*.ics
+        git add docs/index.html docs/ics/spiele/*.ics docs/ics/termine/*.ics
         git commit -m "🤖 Auto-update: Basketball calendars updated $(date +'%Y-%m-%d %H:%M UTC')"
         git push
     

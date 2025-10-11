@@ -1,7 +1,6 @@
 // Save as fetch-games.js
 import fetch from "node-fetch";
 import { writeFileSync, readFileSync } from "fs";
-import { generateIndexHTML } from "./build-html.js";
 
 // Check for quiet mode
 const isQuiet = process.argv.includes('--quiet');
@@ -36,7 +35,7 @@ const teamShortcut = config.teamId;
 const COMPETITION_URL = `https://www.basketball-bund.net/rest/competition/spielplan/id/${config.competitionId}`;
 const MATCH_URL = (id) => `https://www.basketball-bund.net/rest/match/id/${id}/matchInfo`;
 const TEAM_NAME = config.teamName;
-const ICS_FILENAME = `docs/ics/${config.teamId}.ics`;
+const ICS_FILENAME = `docs/ics/spiele/${config.teamId}.ics`;
 
 async function fetchJSON(url) {
   const res = await fetch(url);
@@ -197,15 +196,7 @@ async function main() {
       }
     }
 
-    // Generate the HTML file with current configurations
-    try {
-      if (!isQuiet) {
-        console.log('\nGenerating index.html...');
-      }
-      generateIndexHTML(isQuiet);
-    } catch (htmlError) {
-      console.error('Error generating HTML:', htmlError);
-    }
+
 
   } catch (err) {
     console.error("Error:", err);
