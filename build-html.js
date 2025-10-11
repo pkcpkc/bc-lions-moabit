@@ -100,19 +100,10 @@ export function generateIndexHTML() {
     // Read the template
     const template = readFileSync('index.template.html', 'utf8');
 
-    // Generate Berlin time timestamp
-    const now = new Date();
-    const berlinTime = now.toLocaleString('de-DE', {
-        timeZone: 'Europe/Berlin',
-        dateStyle: 'full',
-        timeStyle: 'short'
-    });
-
     // Replace placeholders (handle both with and without spaces)
     let html = template
         .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(configs, null, 8))
-        .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(termineConfigs, null, 8))
-        .replace(/\{\{\s*LAST_UPDATED\s*\}\}/g, berlinTime);
+        .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(termineConfigs, null, 8));
 
     // Write the generated HTML
     writeFileSync('docs/index.html', html);

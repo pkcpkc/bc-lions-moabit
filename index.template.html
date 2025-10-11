@@ -248,7 +248,7 @@
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
-        <p>Zuletzt aktualisiert: {{LAST_UPDATED}}</p>
+        <p id="last-updated">Zuletzt aktualisiert: <span id="last-updated-date">Wird geladen...</span></p>
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
@@ -960,8 +960,64 @@
                 });
         }
 
+        // Function to get and display last modified date
+        function updateLastModifiedDate() {
+            // Make a HEAD request to get the Last-Modified header
+            fetch(window.location.href, { method: 'HEAD' })
+                .then(response => {
+                    const lastModified = response.headers.get('Last-Modified');
+                    if (lastModified) {
+                        const date = new Date(lastModified);
+                        const options = {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            timeZone: 'Europe/Berlin'
+                        };
+                        const formattedDate = date.toLocaleDateString('de-DE', options);
+                        document.getElementById('last-updated-date').textContent = formattedDate;
+                    } else {
+                        // Fallback: use current date if no Last-Modified header
+                        const now = new Date();
+                        const options = {
+                            weekday: 'long',
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            timeZone: 'Europe/Berlin'
+                        };
+                        const formattedDate = now.toLocaleDateString('de-DE', options);
+                        document.getElementById('last-updated-date').textContent = formattedDate;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching last modified date:', error);
+                    // Fallback: use current date
+                    const now = new Date();
+                    const options = {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        timeZone: 'Europe/Berlin'
+                    };
+                    const formattedDate = now.toLocaleDateString('de-DE', options);
+                    document.getElementById('last-updated-date').textContent = formattedDate;
+                });
+        }
+
         // Load events when page loads
         document.addEventListener('DOMContentLoaded', function () {
+            // Update last modified date
+            updateLastModifiedDate();
+            
             // Generate team sections dynamically
             generateTeamSections();
             

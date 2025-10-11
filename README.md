@@ -344,11 +344,9 @@ graph LR
     
     E --> F[{{CALENDAR_CONFIGS}}]
     E --> G[{{SCHEDULE_CONFIGS}}] 
-    E --> H[{{LAST_UPDATED}}]
     
     F --> I[Client-Side JS<br/>Dynamic Rendering]
     G --> I
-    H --> I
     
     I --> J[🎯 Final Website<br/>Three-Section Layout]
     
@@ -360,7 +358,9 @@ graph LR
 **Template Placeholders:**
 - `{{CALENDAR_CONFIGS}}` - JSON array with team configurations
 - `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations
-- `{{LAST_UPDATED}}` - Timestamp of last build
+
+**Client-Side Features:**
+- **Dynamic Last Updated**: Automatically displays file modification date from HTTP headers
 
 **Dynamic sections are created by JavaScript:**
 - **Three-section navigation**: Übersicht, Spielpläne, Training
