@@ -97,7 +97,7 @@
             flex-wrap: wrap;
         }
 
-        .calendar-actions>* {
+        .calendar-actions > * {
             margin: 0;
         }
 
@@ -145,8 +145,7 @@
             color: #666;
             font-size: 12px;
             margin-top: 4px;
-            font-style: normal;
-            /* Ensure not italic */
+            font-style: normal; /* Ensure not italic */
         }
 
         .event-location a {
@@ -157,9 +156,7 @@
         .event-location a:hover {
             color: #007bff;
             text-decoration: underline;
-        }
-
-        .loading {
+        }        .loading {
             text-align: center;
             color: #666;
             font-style: italic;
@@ -251,7 +248,7 @@
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
-        <p>Zuletzt aktualisiert: Samstag, 11. Oktober 2025 um 20:11</p>
+        <p>Zuletzt aktualisiert: Samstag, 11. Oktober 2025 um 20:19</p>
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
@@ -308,48 +305,47 @@
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">
-                <h2>Anleitung</h2>
-                <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung
-                    siehe
-                    unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
-                    Updates.</p>
-                <div class="platform">
-                    <h3>iOS (iPhone/iPad)</h3>
-                    <ol>
-                        <li>Kopieren Sie den obigen Link.</li>
-                        <li>Öffnen Sie die "Einstellungen" App.</li>
-                        <li>Gehen Sie zu "Kalender" -> "Accounts" -> "Account hinzufügen".</li>
-                        <li>Wählen Sie "Andere" -> "Kalenderabo hinzufügen".</li>
-                        <li>Fügen Sie den Link ein und folgen Sie den Anweisungen.</li>
-                    </ol>
-                </div>
-                <div class="platform">
-                    <h3>macOS</h3>
-                    <ol>
-                        <li>Öffnen Sie die "Kalender" App.</li>
-                        <li>Wählen Sie "Ablage" -> "Neues Kalenderabonnement".</li>
-                        <li>Fügen Sie den Link ein und klicken Sie auf "Abonnieren".</li>
-                    </ol>
-                </div>
-                <div class="platform">
-                    <h3>Android</h3>
-                    <p>Die einfachste Methode ist, den Kalender über Ihren Google-Account hinzuzufügen:</p>
-                    <ol>
-                        <li>Öffnen Sie den Google Kalender im Webbrowser auf einem Computer.</li>
-                        <li>Klicken Sie neben "Weitere Kalender" auf das "+"-Symbol und wählen Sie "Per URL".</li>
-                        <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
-                        <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät
-                            synchronisiert.</li>
-                    </ol>
-                </div>
-                <div class="platform">
-                    <h3>Windows</h3>
-                    <ol>
-                        <li>Öffnen Sie die "Kalender" App.</li>
-                        <li>Klicken Sie auf "Kalender hinzufügen" -> "Aus dem Web".</li>
-                        <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
-                    </ol>
-                </div>
+            <h2>Anleitung</h2>
+            <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
+            unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
+            Updates.</p>
+            <div class="platform">
+                <h3>iOS (iPhone/iPad)</h3>
+                <ol>
+                    <li>Kopieren Sie den obigen Link.</li>
+                    <li>Öffnen Sie die "Einstellungen" App.</li>
+                    <li>Gehen Sie zu "Kalender" -> "Accounts" -> "Account hinzufügen".</li>
+                    <li>Wählen Sie "Andere" -> "Kalenderabo hinzufügen".</li>
+                    <li>Fügen Sie den Link ein und folgen Sie den Anweisungen.</li>
+                </ol>
+            </div>
+            <div class="platform">
+                <h3>macOS</h3>
+                <ol>
+                    <li>Öffnen Sie die "Kalender" App.</li>
+                    <li>Wählen Sie "Ablage" -> "Neues Kalenderabonnement".</li>
+                    <li>Fügen Sie den Link ein und klicken Sie auf "Abonnieren".</li>
+                </ol>
+            </div>
+            <div class="platform">
+                <h3>Android</h3>
+                <p>Die einfachste Methode ist, den Kalender über Ihren Google-Account hinzuzufügen:</p>
+                <ol>
+                    <li>Öffnen Sie den Google Kalender im Webbrowser auf einem Computer.</li>
+                    <li>Klicken Sie neben "Weitere Kalender" auf das "+"-Symbol und wählen Sie "Per URL".</li>
+                    <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
+                    <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät
+                        synchronisiert.</li>
+                </ol>
+            </div>
+            <div class="platform">
+                <h3>Windows</h3>
+                <ol>
+                    <li>Öffnen Sie die "Kalender" App.</li>
+                    <li>Klicken Sie auf "Kalender hinzufügen" -> "Aus dem Web".</li>
+                    <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
+                </ol>
+            </div>
             </div>
         </div>
     </div>
@@ -687,16 +683,13 @@
                 const calendarSection = document.createElement('div');
                 calendarSection.className = 'calendar-section';
                 calendarSection.id = `schedule-${config.id}-section`;
-
+                
                 const encodedCalId = encodeURIComponent(config.calId);
                 const icsUrl = `https://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
                 const webcalUrl = `webcal://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
-
+                
                 const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
-
-                // Dynamic header based on whether it's BC Lions termine
-                const termineHeader = config.label === 'BC Lions' ? 'Alle Termine' : 'Termine des nächsten Monats';
-
+                
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="schedule_${config.id}">
                         <h3>Termine: ${config.label}</h3>
@@ -714,7 +707,7 @@
                     </div>
 
                     <div class="events-container">
-                        <h4>${termineHeader}</h4>
+                        <h4>Termine des nächsten Monats</h4>
                         <div id="schedule-${config.id}-events" class="loading">Lade Termine...</div>
                     </div>
                 `;
@@ -757,17 +750,17 @@
         function handleRouting() {
             // Get current hash from URL
             const hash = window.location.hash.substring(1); // Remove the '#' character
-
+            
             if (hash) {
                 // Check for direct section matches first (spiele, heimspiele, anleitung)
                 let sectionId = hash + '-section';
                 let targetSection = document.getElementById(sectionId);
-
+                
                 if (targetSection) {
                     showCalendarSection(sectionId, false);
                     return;
                 }
-
+                
                 // Check for team sections (he1, he4, etc.)
                 sectionId = hash + '-section';
                 targetSection = document.getElementById(sectionId);
@@ -775,7 +768,7 @@
                     showCalendarSection(sectionId, false);
                     return;
                 }
-
+                
                 // Check for schedule sections (schedule-boys, etc.)
                 if (hash.startsWith('schedule-')) {
                     sectionId = hash + '-section';
@@ -785,7 +778,7 @@
                         return;
                     }
                 }
-
+                
                 // Handle legacy format (spielplan_teamid)
                 if (hash.startsWith('spielplan_')) {
                     const teamId = hash.replace('spielplan_', '');
@@ -799,13 +792,13 @@
                     }
                 }
             }
-
+            
             // Default to "spiele" if no valid hash
             showCalendarSection('spiele-section', false);
         }
 
         // Handle browser back/forward buttons
-        window.addEventListener('popstate', function (event) {
+        window.addEventListener('popstate', function(event) {
             if (event.state && event.state.section) {
                 showCalendarSection(event.state.section, false);
             } else {
@@ -863,7 +856,7 @@
             // Check if it's a multi-day event (different dates, not just different times)
             const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
             const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
-
+            
             if (startDateOnly.getTime() !== endDateOnly.getTime()) {
                 // Multi-day event: format as "Mo., 20.10.2025 bis Do., 24.10.2025"
                 const startOptions = {
@@ -878,10 +871,10 @@
                     month: '2-digit',
                     day: '2-digit'
                 };
-
+                
                 const startFormatted = startDate.toLocaleDateString('de-DE', startOptions);
                 const endFormatted = endDate.toLocaleDateString('de-DE', endOptions);
-
+                
                 return `${startFormatted} bis ${endFormatted}`;
             } else {
                 // Single day event: use original formatting
@@ -917,9 +910,9 @@
                         // Show all upcoming events for team schedules
                         const today = new Date();
                         today.setHours(0, 0, 0, 0);
-
+                        
                         const eventsToShow = events.filter(event => event.startDate >= today);
-
+                        
                         displayEvents(eventsToShow, containerId);
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
@@ -943,40 +936,30 @@
                         const vevents = comp.getAllSubcomponents('vevent');
 
                         const allEvents = [];
-
-                        // Define date range: next 1 month (unless it's BC Lions termine)
+                        
+                        // Define date range: next 1 month
                         const today = new Date();
                         today.setHours(0, 0, 0, 0);
-
-                        // Exception: Show ALL events for BC Lions termine
-                        const isBCLionsTermine = teamId === 'BC Lions';
-
+                        
                         const oneMonthFromNow = new Date(today);
                         oneMonthFromNow.setMonth(today.getMonth() + 1); // 1 month from now
                         oneMonthFromNow.setHours(23, 59, 59, 999);
 
                         vevents.forEach(vevent => {
                             const event = new ICAL.Event(vevent);
-
+                            
                             // Handle recurring events properly
                             if (event.isRecurring()) {
                                 const iterator = event.iterator();
                                 let next;
-
-                                // For BC Lions termine, expand all recurring events (no date limit)
-                                // For other termine, expand only within 1 month
-                                while ((next = iterator.next())) {
+                                
+                                // Expand recurring events within our date range
+                                while ((next = iterator.next()) && next.toJSDate() <= oneMonthFromNow) {
                                     const eventDate = next.toJSDate();
-
-                                    // Apply date filtering based on whether it's BC Lions termine
-                                    const isWithinRange = isBCLionsTermine ?
-                                        eventDate >= today && eventDate <= oneMonthFromNow :
-                                        (eventDate >= today && eventDate <= oneMonthFromNow);
-
-                                    if (isWithinRange) {
+                                    if (eventDate >= today) {
                                         const endTime = new Date(eventDate);
                                         endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
-
+                                        
                                         allEvents.push({
                                             summary: event.summary,
                                             startDate: eventDate,
@@ -986,22 +969,11 @@
                                             teamId: teamId ? teamId.toUpperCase() : null
                                         });
                                     }
-
-                                    // For non-BC Lions termine, stop when we reach the date limit
-                                    if (eventDate > oneMonthFromNow) {
-                                        break;
-                                    }
                                 }
                             } else {
                                 // Non-recurring event
                                 const eventDate = event.startDate.toJSDate();
-
-                                // Apply date filtering based on whether it's BC Lions termine
-                                const isWithinRange = isBCLionsTermine ?
-                                    eventDate >= today :
-                                    (eventDate >= today && eventDate <= oneMonthFromNow);
-
-                                if (isWithinRange) {
+                                if (eventDate >= today && eventDate <= oneMonthFromNow) {
                                     allEvents.push({
                                         summary: event.summary,
                                         startDate: eventDate,
@@ -1016,8 +988,8 @@
 
                         // Sort events by date
                         allEvents.sort((a, b) => a.startDate - b.startDate);
-
-                        displayEvents(allEvents, containerId, isBCLionsTermine);
+                        
+                        displayEvents(allEvents, containerId);
                     } catch (error) {
                         console.error('Error parsing calendar:', error);
                         document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
@@ -1029,24 +1001,21 @@
                 });
         }
 
-        function displayEvents(events, containerId, isBCLionsTermine = false) {
+        function displayEvents(events, containerId) {
             const container = document.getElementById(containerId);
 
             if (events.length === 0) {
-                const noEventsMessage = isBCLionsTermine ?
-                    '<div>Keine Termine vorhanden</div>' :
-                    '<div>Keine Termine im nächsten Monat</div>';
-                container.innerHTML = noEventsMessage;
+                container.innerHTML = '<div>Keine Termine im nächsten Monat</div>';
                 return;
             }
 
             const eventsHTML = events.map(event => {
                 const title = event.summary || 'Kein Titel';
                 const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
-
+                
                 // Make BC Lions team names bold
                 const formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
-
+                
                 return `
                 <div class="event-item">
                     <div class="event-main">
@@ -1105,7 +1074,7 @@
                     // Show all upcoming events
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
-
+                    
                     const upcomingEvents = allEvents.filter(event => event.startDate >= today);
 
                     displayEvents(upcomingEvents, containerId);
@@ -1160,13 +1129,13 @@
                     // Get upcoming events in the next 7 days
                     const today = new Date();
                     today.setHours(0, 0, 0, 0); // Start of today
-
+                    
                     const sevenDaysFromNow = new Date(today);
                     sevenDaysFromNow.setDate(today.getDate() + 7);
                     sevenDaysFromNow.setHours(23, 59, 59, 999); // End of 7th day
 
                     // Filter events for the next 7 days (including today)
-                    const upcomingEvents = allEvents.filter(event =>
+                    const upcomingEvents = allEvents.filter(event => 
                         event.startDate >= today && event.startDate <= sevenDaysFromNow
                     );
 
@@ -1222,7 +1191,7 @@
                     // Get upcoming events in the next 7 days
                     const today = new Date();
                     today.setHours(0, 0, 0, 0); // Start of today
-
+                    
                     const sevenDaysFromNow = new Date(today);
                     sevenDaysFromNow.setDate(today.getDate() + 7);
                     sevenDaysFromNow.setHours(23, 59, 59, 999); // End of 7th day
@@ -1246,7 +1215,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
             generateTeamSections();
-
+            
             // Generate schedule sections dynamically
             generateScheduleSections();
 
@@ -1271,7 +1240,7 @@
 
             // Load upcoming team events for the next 7 days
             loadUpcomingTeamEvents('spiele-events');
-
+            
             // Load home games for the "Heimspiele" section
             loadUpcomingHomeGames('heimspiele-events');
 
