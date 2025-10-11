@@ -1,4 +1,4 @@
-name: Update Termine and Build HTML
+name: Update Termine and Spiele
 
 on:
   schedule:
@@ -12,7 +12,7 @@ on:
         type: boolean
 
 jobs:
-  update-termine:
+  update-termine-and-spiele:
     runs-on: ubuntu-latest
     
     steps:
@@ -33,6 +33,12 @@ jobs:
         echo "Starting termine download..."
         node download-termine.js
         echo "Termine download completed"
+      
+    - name: Fetch all team games
+      run: |
+        echo "Starting spiele fetch for all teams..."
+        node fetch-all.js
+        echo "Spiele fetch completed"
         
     - name: Build HTML
       run: |
@@ -58,7 +64,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
-        git commit -m "Update termine and rebuild HTML - $(date '+%Y-%m-%d %H:%M:%S')"
+        git commit -m "Update termine and spiele, rebuild HTML - $(date '+%Y-%m-%d %H:%M:%S')"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,7 +73,9 @@ jobs:
       run: |
         echo "## Update Summary" >> $GITHUB_STEP_SUMMARY
         echo "- ✅ Downloaded latest termine from Google Calendar" >> $GITHUB_STEP_SUMMARY
-        echo "- ✅ Rebuilt HTML with updated termine data" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Fetched latest games from basketball-bund.net for all teams" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Generated ICS files for all team schedules" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Rebuilt HTML with updated termine and spiele data" >> $GITHUB_STEP_SUMMARY
         if [[ "${{ steps.check_changes.outputs.changes }}" == "true" || "${{ github.event.inputs.force_update }}" == "true" ]]; then
           echo "- ✅ Committed and pushed changes to repository" >> $GITHUB_STEP_SUMMARY
         else

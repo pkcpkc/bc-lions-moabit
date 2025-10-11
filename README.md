@@ -235,17 +235,35 @@ graph LR
 ## How It Works
 
 ### Server-Side (Build Time)
-1. **build-html.js** scans `teams/*.json` files and embeds their configuration as JSON in the HTML template
+1. **build-html.js** scans `teams/*.json` and `termine/*.json` files and embeds their configurations as JSON in the HTML template
 2. **fetch-games.js** fetches games from basketball-bund.net API and generates ICS files with team ID prefixes (e.g., `u11: Team A vs Team B`)
+3. **download-termine.js** downloads training calendars from Google Calendar and saves as ICS files
 
 ### Client-Side (Runtime) 
-3. JavaScript dynamically creates:
-   - **Übersicht**: Main navigation (Alle Termine, Jugendfahrplan, Anleitung)
-   - **Spielpläne**: Team calendar sections with download/subscribe buttons and event previews
-   - **Training**: Google Calendar embedded views with subscription options
-4. Three-section navigation layout with condensed, organized UI
+4. JavaScript dynamically creates:
+   - **Übersicht**: Main navigation (Spiele, Heimspiele, Anleitung) with 7-day event previews
+   - **Spielpläne**: Team calendar sections with download/subscribe buttons and unlimited event display
+   - **Termine**: Training calendar sections with 1-month event display and recurring event expansion
+5. **Dynamic Features**:
+   - Real-time last modified date from HTTP headers
+   - ICAL.js parsing with proper recurring event handling
+   - Smart date filtering (7 days for games, 1 month for training)
+   - Three-section navigation layout with URL routing
 
 ## Key Features
+
+### Smart Event Handling
+
+**Different Display Logic for Different Content:**
+- **Spielpläne (Games)**: Shows all upcoming games (unlimited timeframe)
+- **Termine (Training)**: Shows events for next month with proper recurring event expansion
+- **Übersicht Spiele**: Shows games for next 7 days across all teams
+- **Heimspiele**: Shows home games for next 7 days (BC Lions Moabit as home team)
+
+**Recurring Event Support:**
+- Uses ICAL.js iterator to properly expand recurring training sessions
+- Handles weekly training schedules, camps, and recurring events
+- Ensures all instances within the timeframe are displayed
 
 ### Team ID Prefixes in Calendar Entries
 All calendar entries are prefixed with the team ID for easy identification:
@@ -286,11 +304,12 @@ This eliminates the major bottleneck of sequential match detail requests.
 - **Training**: Google Calendar embeds with automatic iCal subscription links
 - **Events**: Real-time loading from ICS files with proper date formatting
 
-### Last Updated Timestamp
-The generated HTML includes a Berlin timezone timestamp showing when the calendars were last updated:
-- Automatically generated during build process
+### Dynamic Last Updated Display
+The website dynamically shows when the HTML file was last modified:
+- Uses JavaScript to fetch HTTP Last-Modified header from the web server
 - Displays in German format: "Sonntag, 28. September 2025 um 13:48"
-- Updates every time the build script runs
+- Updates automatically based on actual file modification time (not build time)
+- Includes fallback to current date if Last-Modified header is unavailable
 
 ### Google Calendar Integration
 - **Embedded calendars**: Full Google Calendar view for training schedules
@@ -342,25 +361,31 @@ graph LR
     D[termine/*.json] --> B
     B --> E[docs/index.html]
     
-    E --> F[{{CALENDAR_CONFIGS}}]
-    E --> G[{{SCHEDULE_CONFIGS}}] 
+    E --> F["CALENDAR_CONFIGS<br/>Placeholder"]
+    E --> G["SCHEDULE_CONFIGS<br/>Placeholder"] 
     
     F --> I[Client-Side JS<br/>Dynamic Rendering]
     G --> I
+    E --> H[Dynamic Last Updated<br/>JavaScript Function]
+    H --> I
     
     I --> J[🎯 Final Website<br/>Three-Section Layout]
     
     style B fill:#e1f5fe
     style I fill:#fff3e0
     style J fill:#e8f5e8
+    style H fill:#e8f5e8
 ```
 
 **Template Placeholders:**
-- `{{CALENDAR_CONFIGS}}` - JSON array with team configurations
-- `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations
+- `{{CALENDAR_CONFIGS}}` - JSON array with team configurations (22 teams)
+- `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations (7 training schedules)
 
 **Client-Side Features:**
-- **Dynamic Last Updated**: Automatically displays file modification date from HTTP headers
+- **Dynamic Last Updated**: Automatically displays file modification date from HTTP Last-Modified headers
+- **Recurring Events**: Proper expansion of recurring training events using ICAL.js iterator
+- **Smart Date Filtering**: 7 days for games overview, 1 month for training termine
+- **Real-time Loading**: Dynamic ICS file parsing and event display
 
 **Dynamic sections are created by JavaScript:**
 - **Three-section navigation**: Übersicht, Spielpläne, Training
@@ -404,6 +429,14 @@ bc-lions-moabit/
 ```
 
 ## Recent Changes
+
+### v4.0 - Automation & Enhanced Event Handling
+- **GitHub Actions**: Automated workflows for updating termine and spiele
+- **Daily Auto-Updates**: Termine automatically updated daily at 10:00 AM UTC
+- **Dynamic Last Updated**: JavaScript-based file modification date display (replaces static timestamp)
+- **Recurring Events**: Proper handling of recurring training events with ICAL.js iterator
+- **Smart Timeframes**: 7 days for game overviews, 1 month for training termine
+- **Improved Event Filtering**: Separate functions for team games vs. training schedules
 
 ### v3.0 - Training Integration & UI Enhancements
 - **New Feature**: Google Calendar integration for training schedules
