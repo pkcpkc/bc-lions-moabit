@@ -3,12 +3,9 @@ import { readFileSync } from 'fs';
 import { glob } from 'glob';
 import { spawn } from 'child_process';
 
-// Check for quiet mode
-const isQuiet = process.argv.includes('--quiet');
-
-if (!isQuiet) {
-    console.log('Fetching games for all configured teams...\n');
-}
+console.log('🏀 BC Lions Moabit - Fetch All Teams');
+console.log('===================================\n');
+console.log('Fetching games for all configured teams in parallel...\n');
 
 // Find all JSON config files in the teams folder
 const configFiles = glob.sync('teams/*.json');
@@ -19,65 +16,96 @@ if (configFiles.length === 0) {
     process.exit(1);
 }
 
-if (!isQuiet) {
-    console.log(`Found ${configFiles.length} configuration files:`);
-    configFiles.forEach(file => {
-        try {
-            const config = JSON.parse(readFileSync(file, 'utf8'));
-            console.log(`  - ${file}: ${config.teamName} (League ${config.competitionId})`);
-        } catch (error) {
-            console.log(`  - ${file}: Error reading config`);
-        }
+console.log(`📋 Found ${configFiles.length} team configuration files:`);
+configFiles.forEach(file => {
+    try {
+        const config = JSON.parse(readFileSync(file, 'utf8'));
+        console.log(`  - ${file.replace('teams/', '')}: ${config.teamName} (League ${config.competitionId})`);
+    } catch (error) {
+        console.log(`  - ${file.replace('teams/', '')}: ❌ Error reading config - ${error.message}`);
+    }
+});
+console.log('');
+
+// Process a single config file
+async function processConfig(configFile, index, total) {
+    const fileName = configFile.replace('teams/', '');
+    const args = ['fetch-games.js', fileName];
+    
+    return new Promise((resolve, reject) => {
+        const child = spawn('node', args, {
+            stdio: 'pipe'
+        });
+        
+        let output = '';
+        let errorOutput = '';
+        
+        child.stdout.on('data', (data) => output += data);
+        child.stderr.on('data', (data) => errorOutput += data);
+        
+        child.on('close', (code) => {
+            if (code === 0) {
+                // Extract game count from output
+                const gameMatch = output.match(/Found (\d+) games for (.+)\./);
+                const progressInfo = gameMatch ? `${gameMatch[1]} games for ${gameMatch[2]}` : 'Completed';
+                
+                console.log(`✅ [${index + 1}/${total}] ${fileName} - ${progressInfo}`);
+                resolve({ configFile, success: true, output: progressInfo });
+            } else {
+                const error = errorOutput.trim() || output.trim() || `Exit code ${code}`;
+                console.error(`❌ [${index + 1}/${total}] ${fileName} - ${error}`);
+                resolve({ configFile, success: false, error }); // Resolve instead of reject to continue processing others
+            }
+        });
+        
+        child.on('error', (error) => {
+            console.error(`❌ [${index + 1}/${total}] ${fileName} - Spawn error: ${error.message}`);
+            resolve({ configFile, success: false, error: error.message });
+        });
     });
-    console.log('');
 }
 
-// Process each config file sequentially
+// Process all config files in parallel
 async function processConfigs() {
-    for (const configFile of configFiles) {
-        if (!isQuiet) {
-            console.log(`Processing ${configFile}...`);
-        }
-        
-        try {
-            await new Promise((resolve, reject) => {
-                const fileName = configFile.replace('teams/', '');
-                const args = isQuiet ? ['fetch-games.js', fileName, '--quiet'] : ['fetch-games.js', fileName];
-                const child = spawn('node', args, {
-                    stdio: isQuiet ? 'pipe' : 'inherit'
-                });
-                
-                let output = '';
-                if (isQuiet) {
-                    child.stdout.on('data', (data) => output += data);
-                    child.stderr.on('data', (data) => output += data);
-                }
-                
-                child.on('close', (code) => {
-                    if (code === 0) {
-                        resolve();
-                    } else {
-                        if (isQuiet && output) {
-                            console.error(output); // Show output on error
-                        }
-                        reject(new Error(`fetch-games.js failed for ${configFile} with code ${code}`));
-                    }
-                });
-            });
-            
-            if (!isQuiet) {
-                console.log(`✅ Successfully processed ${configFile}\n`);
-            }
-            
-        } catch (error) {
-            console.error(`❌ Failed to process ${configFile}: ${error.message}\n`);
-        }
+    console.log(`🚀 Processing ${configFiles.length} teams in parallel...\n`);
+    
+    const startTime = Date.now();
+    
+    // Create promises for all teams
+    const promises = configFiles.map((configFile, index) => 
+        processConfig(configFile, index, configFiles.length)
+    );
+    
+    // Wait for all to complete
+    const results = await Promise.all(promises);
+    
+    // Collect statistics
+    const successful = results.filter(r => r.success);
+    const failed = results.filter(r => !r.success);
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+    
+    // Calculate total games
+    const totalGames = successful.reduce((sum, result) => {
+        const gameMatch = result.output.match(/(\d+) games/);
+        return sum + (gameMatch ? parseInt(gameMatch[1]) : 0);
+    }, 0);
+    
+    console.log(`\n🎉 Parallel processing completed in ${duration}s!`);
+    console.log(`📊 Results: ${successful.length} successful, ${failed.length} failed`);
+    if (totalGames > 0) {
+        console.log(`📈 Total games processed: ${totalGames}`);
     }
     
-    if (isQuiet) {
-        console.log(`✅ Fetched data for ${configFiles.length} teams`);
-    } else {
-        console.log('🎉 All configurations processed!');
+    if (failed.length > 0) {
+        console.log(`\n❌ Failed teams:`);
+        failed.forEach(result => {
+            console.log(`  - ${result.configFile}: ${result.error}`);
+        });
+    }
+    
+    // Exit with error code if any teams failed
+    if (failed.length > 0) {
+        process.exit(1);
     }
 }
 

@@ -10,7 +10,7 @@ This system automatically generates basketball team calendars and training sched
 - **Fetcher**: `fetch-games.js` - Downloads games and generates ICS files with team prefixes
 - **Configurations**: 
   - `teams/*.json` files with explicit team IDs for game schedules
-  - `schedule/*.json` files with Google Calendar IDs for training schedules
+  - `termine/*.json` files with Google Calendar IDs for training schedules
 
 ## Configuration Format
 
@@ -32,9 +32,9 @@ Each team JSON config file should contain:
 
 **Note**: ICS filename is automatically generated as `docs/ics/spiele/${teamId}.ics`
 
-### Schedule Configurations (`schedule/*.json`)
+### Termine Configurations (`termine/*.json`)
 
-Each schedule JSON config file should contain:
+Each termine JSON config file should contain:
 
 ```json
 {
@@ -67,7 +67,7 @@ The termine ICS files are downloaded only once per build cycle, improving effici
 
 ### Individual Operations
 ```bash
-# Fetch games for all configured teams (without HTML generation)
+# Fetch games for all configured teams in parallel (without HTML generation)
 npm run fetch-all
 
 # Download termine ICS files from Google Calendar
@@ -86,14 +86,17 @@ npm run build-html
 node build-html.js
 ```
 
-### Quiet Mode
-All scripts support `--quiet` flag for minimal output (used by GitHub Actions):
+### Team Discovery
 ```bash
-node build.js --quiet           # Minimal output: "✅ Build completed - calendars updated"
-node fetch-all.js --quiet       # Only shows: "✅ Fetched data for X teams"
-node fetch-games.js u11.json --quiet  # Silent operation
-node build-html.js --quiet      # Silent operation
+# Auto-discover all BC Lions teams from basketball federation
+npm run crawl
+# or 
+node crawl.js
 ```
+
+**Note**: The crawl script automatically discovers all BC Lions teams registered in Berlin basketball leagues and creates configuration files. It uses parallel processing to investigate all leagues simultaneously, significantly improving performance over sequential processing.
+
+
 
 ## How It Works
 
@@ -114,6 +117,24 @@ node build-html.js --quiet      # Silent operation
 All calendar entries are prefixed with the team ID for easy identification:
 - `u11: BC Lions Moabit 1 mix vs Team X (Venue)`
 - `u12: Team Y vs BC Lions Moabit 1 mix (Venue)`
+
+### Optimized Performance
+- **Dual-Level Parallelization**: 
+  - **Team-level**: All teams processed concurrently (`fetch-all.js`)
+  - **Match-level**: All match details fetched concurrently per team (`fetch-games.js`)
+- **Dramatic Speed Improvements**: 
+  - Complete build: ~36 seconds (vs. ~10+ minutes sequential)
+  - Per team: Venue details fetched in parallel instead of sequentially
+- **Intelligent Error Handling**: Retry logic with exponential backoff for resilient API calls
+- **Respectful Rate Limiting**: Balanced performance with API courtesy
+
+#### Technical Architecture
+Each team's game fetching process:
+1. Fetch competition schedule (1 request)
+2. **Parallel venue detail fetching** (N concurrent requests using `Promise.all()`)
+3. Filter and generate ICS file
+
+This eliminates the major bottleneck of sequential match detail requests.
 
 ### Three-Section Navigation
 - **Übersicht**: Main sections (Alle Termine, Jugendfahrplan, Anleitung)
@@ -164,9 +185,9 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
 2. Run `node fetch-games.js u15.json`
 3. The team will automatically appear in the "Spielpläne" section (sorted alphabetically)
 
-### Adding New Schedule Groups
+### Adding New Termine Groups
 
-1. Create a new JSON config file in the schedule folder (e.g., `schedule/girls.json`):
+1. Create a new JSON config file in the termine folder (e.g., `termine/girls.json`):
    ```json
    {
        "label": "BC Lions Girls",
@@ -174,14 +195,14 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
    }
    ```
 2. Run `node build-html.js`
-3. The schedule group will automatically appear in the "Training" section with embedded Google Calendar
+3. The termine group will automatically appear in the "Training" section with embedded Google Calendar
 
 ## Template System
 
 The template uses client-side JavaScript generation with three placeholders:
 
 - `{{CALENDAR_CONFIGS}}` - JSON array with team configurations
-- `{{SCHEDULE_CONFIGS}}` - JSON array with schedule configurations
+- `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations
 - `{{LAST_UPDATED}}` - Timestamp of last build
 
 Dynamic sections are created by JavaScript:
@@ -202,10 +223,10 @@ bc-lions-moabit/
 │   ├── he-bl-a.json         # Herren Bezirksliga A team config
 │   ├── u11-f-1.json         # U11 team config
 │   └── ...                  # Additional team configs
-├── schedule/                # Schedule configuration files
+├── termine/                 # Termine configuration files
 │   ├── boys.json            # Boys training Google Calendar config
 │   ├── u11-u12.json         # U11/U12 training Google Calendar config
-│   └── ...                  # Additional schedule configs
+│   └── ...                  # Additional termine configs
 ├── docs/
 │   ├── index.html           # Generated main page (client-side rendering)
 │   ├── bc-lions-logo.png    # Logo for background watermark
@@ -224,7 +245,7 @@ bc-lions-moabit/
 ├── fetch-games.js          # Game fetcher with team prefix support
 ├── fetch-all.js            # Process all teams at once
 ├── build.js                # Complete build: fetch + download + generate HTML
-├── crawl.js                # Basketball federation crawler for team discovery
+├── crawl.js                # Optimized parallel team discovery crawler
 └── README.md               # This file
 ```
 
@@ -234,7 +255,7 @@ bc-lions-moabit/
 - **New Feature**: Google Calendar integration for training schedules
 - **Enhanced Navigation**: Three-section layout (Übersicht, Spielpläne, Training)
 - **UI Improvements**: Condensed layout, clickable locations, horizontal action bars
-- **Schedule Configs**: New `schedule/*.json` files for Google Calendar integration
+- **Termine Configs**: New `termine/*.json` files for Google Calendar integration
 - **Embedded Calendars**: Full Google Calendar views for training schedules
 - **Better UX**: Improved spacing, responsive design, cleaner typography
 

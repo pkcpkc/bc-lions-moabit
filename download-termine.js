@@ -6,52 +6,48 @@ import fetch from 'node-fetch';
 /**
  * Downloads ICS files for termine from Google Calendar
  */
-async function downloadTermineIcsFiles(quiet = false) {
-    if (!quiet) {
-        console.log('🗓️  Downloading ICS files for termine...');
-    }
+async function downloadTermineIcsFiles() {
+    console.log('🗓️  Downloading ICS files for termine...');
 
-    // Find all JSON config files in the schedule folder
-    const scheduleFiles = glob.sync('schedule/*.json');
-    const scheduleConfigs = [];
+    // Find all JSON config files in the termine folder
+    const termineFiles = glob.sync('termine/*.json');
+    const termineConfigs = [];
 
-    // Process each schedule config file
-    scheduleFiles.forEach(scheduleFile => {
+    // Process each termine config file
+    termineFiles.forEach(termineFile => {
         try {
-            const scheduleContent = readFileSync(scheduleFile, 'utf8');
-            const scheduleConfig = JSON.parse(scheduleContent);
+            const termineContent = readFileSync(termineFile, 'utf8');
+            const termineConfig = JSON.parse(termineContent);
             
             // Validate required config fields
-            if (!scheduleConfig.label || !scheduleConfig.calId) {
-                console.warn(`Skipping ${scheduleFile}: Missing required fields (label, calId)`);
+            if (!termineConfig.label || !termineConfig.calId) {
+                console.warn(`Skipping ${termineFile}: Missing required fields (label, calId)`);
                 return;
             }
 
             // Generate id from filename
-            const id = scheduleFile.replace('schedule/', '').replace('.json', '');
+            const id = termineFile.replace('termine/', '').replace('.json', '');
             
-            // Add to schedule configs array
+            // Add to termine configs array
             const configData = {
                 id: id,
-                label: scheduleConfig.label,
-                calId: scheduleConfig.calId
+                label: termineConfig.label,
+                calId: termineConfig.calId
             };
             
-            scheduleConfigs.push(configData);
+            termineConfigs.push(configData);
 
         } catch (error) {
-            console.warn(`Error processing ${scheduleFile}:`, error.message);
+            console.warn(`Error processing ${termineFile}:`, error.message);
         }
     });
 
-    if (!quiet) {
-        console.log(`Found ${scheduleConfigs.length} schedule configurations`);
-    }
+    console.log(`Found ${termineConfigs.length} termine configurations`);
 
     let downloadedCount = 0;
     let errorCount = 0;
 
-    for (const config of scheduleConfigs) {
+    for (const config of termineConfigs) {
         try {
             const icsUrl = `https://calendar.google.com/calendar/ical/${encodeURIComponent(config.calId)}/public/basic.ics`;
             const response = await fetch(icsUrl);
@@ -66,32 +62,24 @@ async function downloadTermineIcsFiles(quiet = false) {
             writeFileSync(icsFilename, icsContent);
             downloadedCount++;
             
-            if (!quiet) {
-                console.log(`  ✅ Downloaded: ${config.label} -> ${icsFilename}`);
-            }
+            console.log(`  ✅ Downloaded: ${config.label} -> ${icsFilename}`);
         } catch (error) {
             errorCount++;
             console.warn(`  ❌ Error downloading ICS for ${config.label}:`, error.message);
         }
     }
 
-    if (!quiet) {
-        console.log(`📥 Downloaded ${downloadedCount} ICS files (${errorCount} errors)`);
-    }
+    console.log(`📥 Downloaded ${downloadedCount} ICS files (${errorCount} errors)`);
 
-    return { downloadedCount, errorCount, totalConfigs: scheduleConfigs.length };
+    return { downloadedCount, errorCount, totalConfigs: termineConfigs.length };
 }
 
 // Run the function if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-    const isQuiet = process.argv.includes('--quiet');
-    
     try {
-        const result = await downloadTermineIcsFiles(isQuiet);
+        const result = await downloadTermineIcsFiles();
         
-        if (!isQuiet) {
-            console.log('✅ Termine ICS download completed successfully!');
-        }
+        console.log('✅ Termine ICS download completed successfully!');
         
         // Exit with error code if there were any failures
         if (result.errorCount > 0) {

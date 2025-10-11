@@ -7,15 +7,19 @@ const TEAM_NAME_TO_SEARCH = "BC Lions Moabit";
 const API_URL = "https://www.basketball-bund.net/rest/wam/liga/list";
 const COMPETITION_URL = "https://www.basketball-bund.net/rest/competition/spielplan/id";
 
-async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+
+
+async function fetchWithRetry(url, options, retries = 3, delay = 500) {
     for (let i = 0; i < retries; i++) {
         try {
-            return await fetch(url, options);
+            const response = await fetch(url, options);
+            return response;
         } catch (error) {
             if (i < retries - 1) {
-                await new Promise(resolve => setTimeout(resolve, delay * (i + 1)));
+                console.warn(`    Retry ${i + 1}/${retries} for ${url.split('/').pop()}`);
+                await new Promise(resolve => setTimeout(resolve, delay * Math.pow(2, i))); // Exponential backoff
             } else {
-                throw error;
+                throw new Error(`Network error after ${retries} retries: ${error.message}`);
             }
         }
     }
@@ -49,16 +53,21 @@ async function fetchLeagues(verbandId) {
 }
 
 async function fetchCompetition(leagueId) {
-    const response = await fetchWithRetry(`${COMPETITION_URL}/${leagueId}`);
-    if (!response.ok) {
-        // A 404 is okay here, it just means the league has no schedule yet
-        if (response.status === 404) {
-            return null;
+    try {
+        const response = await fetchWithRetry(`${COMPETITION_URL}/${leagueId}`);
+        if (!response.ok) {
+            // A 404 is okay here, it just means the league has no schedule yet
+            if (response.status === 404) {
+                return null;
+            }
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
-        throw new Error(`Failed to fetch competition for league ${leagueId}: ${response.status}`);
+        const data = await response.json();
+        return data.data;
+    } catch (error) {
+        // Re-throw with more context for debugging
+        throw new Error(`Competition fetch failed: ${error.message}`);
     }
-    const data = await response.json();
-    return data.data;
 }
 
 function findTeam(match, teamName) {
@@ -142,45 +151,88 @@ function shortcutForTeamId(teamId) {
 
 }
 
-async function main() {
-    console.log("Starting crawl...");
-    const berlinVerbandId = 3; // Berlin
-    const leagues = await fetchLeagues(berlinVerbandId);
-    console.log(`Found ${leagues.length} leagues in Berlin. Searching for BC Lions teams...`);
+async function investigateLeague(league, index, total) {
+    const leagueName = league.liganame.toLowerCase();
+    if (leagueName.includes('pokal') || leagueName.includes('testspiele')) {
+        return []; // Skip pokal and testspiele leagues
+    }
 
-    const teamsFound = new Map();
-    const batchSize = 20;
-
-    for (let i = 0; i < leagues.length; i += batchSize) {
-        const batch = leagues.slice(i, i + batchSize);
-        const competitionResults = await Promise.all(batch.map(league => fetchCompetition(league.ligaId)));
-
-        batch.forEach((league, index) => {
-            const leagueName = league.liganame.toLowerCase();
-            if (leagueName.includes('pokal') || leagueName.includes('testspiele')) {
-                return; // Skip pokal and testspiele leagues
-            }
-            const competition = competitionResults[index];
-            if (competition && competition.matches) {
-                for (const match of competition.matches) {
-                    const team = findTeam(match, TEAM_NAME_TO_SEARCH);
-                    if (team && team.teamPermanentId) {
-                        const compositeKey = `${team.teamPermanentId}-${league.ligaId}`;
-                        if (!teamsFound.has(compositeKey)) {
-                            teamsFound.set(compositeKey, {
-                                teamName: team.teamname,
-                                competitionId: league.ligaId,
-                                competitionName: league.liganame,
-                            });
-                        }
-                    }
+    try {
+        const competition = await fetchCompetition(league.ligaId);
+        const teams = [];
+        
+        if (competition && competition.matches) {
+            for (const match of competition.matches) {
+                const team = findTeam(match, TEAM_NAME_TO_SEARCH);
+                if (team && team.teamPermanentId) {
+                    const compositeKey = `${team.teamPermanentId}-${league.ligaId}`;
+                    teams.push({
+                        compositeKey,
+                        teamName: team.teamname,
+                        competitionId: league.ligaId,
+                        competitionName: league.liganame,
+                    });
                 }
             }
-        });
+        }
+        
+        // Progress reporting
+        if ((index + 1) % 50 === 0 || index + 1 === total) {
+            console.log(`  Processed ${index + 1}/${total} leagues...`);
+        }
+        
+        return teams;
+    } catch (error) {
+        console.warn(`  Warning: Failed to process league ${league.liganame} (ID: ${league.ligaId}): ${error.message}`);
+        return [];
+    }
+}
+
+async function main() {
+    console.log("🏀 Starting BC Lions team discovery crawl...");
+    const berlinVerbandId = 3; // Berlin
+    
+    console.log("📥 Fetching all Berlin leagues...");
+    const leagues = await fetchLeagues(berlinVerbandId);
+    console.log(`📋 Found ${leagues.length} leagues in Berlin`);
+    console.log("🔍 Investigating all leagues in parallel for BC Lions teams...");
+    const startTime = Date.now();
+    
+    // Create promises for all league investigations
+    const investigationPromises = leagues.map((league, index) => 
+        investigateLeague(league, index, leagues.length)
+    );
+    
+    // Wait for all investigations to complete
+    const allTeamResults = await Promise.all(investigationPromises);
+    
+    // Flatten results and remove duplicates
+    const teamsFound = new Map();
+    for (const teamArray of allTeamResults) {
+        for (const team of teamArray) {
+            if (!teamsFound.has(team.compositeKey)) {
+                teamsFound.set(team.compositeKey, {
+                    teamName: team.teamName,
+                    competitionId: team.competitionId,
+                    competitionName: team.competitionName,
+                });
+            }
+        }
     }
 
     const teamsArray = Array.from(teamsFound.values());
-    console.log(`Found ${teamsArray.length} BC Lions teams. Creating config files...`);
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+    
+    console.log(`✅ Investigation complete in ${duration}s. Found ${teamsArray.length} BC Lions teams.`);
+
+    if (teamsArray.length === 0) {
+        console.log("⚠️  No BC Lions teams found. Exiting without creating files.");
+        return;
+    }
+
+    console.log("📝 Creating configuration files...");
+    let createdFiles = 0;
+    let skippedFiles = 0;
 
     teamsArray.forEach(team => {
         const teamId = shortcutForTeamId(sanitizeForFilename(team.competitionName));
@@ -190,11 +242,19 @@ async function main() {
             teamId: teamId
         };
         const filename = `teams/${teamId}.json`;
-        writeFileSync(filename, JSON.stringify(config, null, 2));
-        console.log(`Created config file: ${filename}`);
+        
+        try {
+            writeFileSync(filename, JSON.stringify(config, null, 2));
+            console.log(`  ✅ Created: ${filename} (${team.teamName})`);
+            createdFiles++;
+        } catch (error) {
+            console.error(`  ❌ Failed to create ${filename}: ${error.message}`);
+            skippedFiles++;
+        }
     });
 
-    console.log("Done.");
+    console.log(`🎉 Crawl completed successfully!`);
+    console.log(`📊 Summary: ${createdFiles} files created, ${skippedFiles} errors`);
 }
 
 main();

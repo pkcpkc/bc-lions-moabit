@@ -5,7 +5,7 @@ import { glob } from 'glob';
 /**
  * Generates the index.html file with embedded calendar configurations
  */
-export function generateIndexHTML(quiet = false) {
+export function generateIndexHTML() {
     // Find all JSON config files in the teams folder
     const configFiles = glob.sync('teams/*.json');
 
@@ -55,44 +55,44 @@ export function generateIndexHTML(quiet = false) {
     // Sort teams alphabetically by name
     configs.sort((a, b) => a.name.localeCompare(b.name));
 
-    // Find all JSON config files in the schedule folder
-    const scheduleFiles = glob.sync('schedule/*.json');
-    const scheduleConfigs = [];
+    // Find all JSON config files in the termine folder
+    const termineFiles = glob.sync('termine/*.json');
+    const termineConfigs = [];
 
-    // Process each schedule config file
-    scheduleFiles.forEach(scheduleFile => {
+    // Process each termine config file
+    termineFiles.forEach(termineFile => {
         try {
-            const scheduleContent = readFileSync(scheduleFile, 'utf8');
-            const scheduleConfig = JSON.parse(scheduleContent);
+            const termineContent = readFileSync(termineFile, 'utf8');
+            const termineConfig = JSON.parse(termineContent);
             
             // Validate required config fields
-            if (!scheduleConfig.label || !scheduleConfig.calId) {
-                console.warn(`Skipping ${scheduleFile}: Missing required fields (label, calId)`);
+            if (!termineConfig.label || !termineConfig.calId) {
+                console.warn(`Skipping ${termineFile}: Missing required fields (label, calId)`);
                 return;
             }
 
             // Generate id from filename
-            const id = scheduleFile.replace('schedule/', '').replace('.json', '');
+            const id = termineFile.replace('termine/', '').replace('.json', '');
             
-            // Add to schedule configs array
+            // Add to termine configs array
             const configData = {
                 id: id,
-                label: scheduleConfig.label,
-                calId: scheduleConfig.calId
+                label: termineConfig.label,
+                calId: termineConfig.calId
             };
             
-            scheduleConfigs.push(configData);
+            termineConfigs.push(configData);
 
         } catch (error) {
-            console.warn(`Error processing ${scheduleFile}:`, error.message);
+            console.warn(`Error processing ${termineFile}:`, error.message);
         }
     });
 
-    // Sort schedules alphabetically by label name
-    scheduleConfigs.sort((a, b) => a.label.localeCompare(b.label));
+    // Sort termine alphabetically by label name
+    termineConfigs.sort((a, b) => a.label.localeCompare(b.label));
 
-    // Update schedule configs with ICS file paths (files should be downloaded separately)
-    scheduleConfigs.forEach(config => {
+    // Update termine configs with ICS file paths (files should be downloaded separately)
+    termineConfigs.forEach(config => {
         config.icsFilename = `docs/ics/termine/${config.id}.ics`;
         config.icsUrl = `https://pkcpkc.github.io/bc-lions-moabit/ics/termine/${config.id}.ics`;
     });
@@ -111,33 +111,25 @@ export function generateIndexHTML(quiet = false) {
     // Replace placeholders (handle both with and without spaces)
     let html = template
         .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(configs, null, 8))
-        .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(scheduleConfigs, null, 8))
+        .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(termineConfigs, null, 8))
         .replace(/\{\{\s*LAST_UPDATED\s*\}\}/g, berlinTime);
 
     // Write the generated HTML
     writeFileSync('docs/index.html', html);
     
-    if (!quiet) {
-        console.log(`Generated docs/index.html with ${configs.length} calendar configurations and ${scheduleConfigs.length} schedule configurations`);
-    }
+    console.log(`Generated docs/index.html with ${configs.length} calendar configurations and ${termineConfigs.length} termine configurations`);
     
     return configs;
 }
 
 // Run the function if this file is executed directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const isQuiet = process.argv.includes('--quiet');
-  
-  if (!isQuiet) {
-    console.log('Generating index.html from available configurations...');
-  }
+  console.log('Generating index.html from available configurations...');
   
   try {
-    generateIndexHTML(isQuiet);
+    generateIndexHTML();
     
-    if (!isQuiet) {
-      console.log('HTML generation completed successfully!');
-    }
+    console.log('HTML generation completed successfully!');
   } catch (error) {
     console.error('Error generating HTML:', error);
     process.exit(1);

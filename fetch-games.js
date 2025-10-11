@@ -2,8 +2,7 @@
 import fetch from "node-fetch";
 import { writeFileSync, readFileSync } from "fs";
 
-// Check for quiet mode
-const isQuiet = process.argv.includes('--quiet');
+
 
 // Read config file from command line argument
 if (process.argv.length < 3) {
@@ -37,10 +36,24 @@ const MATCH_URL = (id) => `https://www.basketball-bund.net/rest/match/id/${id}/m
 const TEAM_NAME = config.teamName;
 const ICS_FILENAME = `docs/ics/spiele/${config.teamId}.ics`;
 
-async function fetchJSON(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
-  return res.json();
+async function fetchJSON(url, retries = 3) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        if (res.status >= 500 && i < retries - 1) {
+          // Retry on server errors
+          await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+          continue;
+        }
+        throw new Error(`Failed to fetch ${url}: ${res.status}`);
+      }
+      return res.json();
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+    }
+  }
 }
 
 function formatDateForICS(dateStr, timeStr) {
@@ -143,38 +156,64 @@ function createICSFile(games) {
 async function main() {
   try {
     // Step 1: Get competition matches
+    console.log(`Fetching match schedule for ${TEAM_NAME}...`);
     const competition = await fetchJSON(COMPETITION_URL);
     const matches = competition.data.matches;
 
-    const results = [];
+    console.log(`Found ${matches.length} matches in competition. Fetching venue details in parallel...`);
 
-    // Step 2: For each match, fetch matchInfo
-    for (const m of matches) {
+    // Step 2: For each match, fetch matchInfo in parallel
+    const matchPromises = matches.map(async (m) => {
       // Skip matches without a date
       if (!m.kickoffDate) {
-        if (!isQuiet) {
-          console.log(`Skipping match ${m.matchId}: no kickoffDate`);
-        }
-        continue;
+        console.log(`Skipping match ${m.matchId}: no kickoffDate`);
+        return null;
       }
 
-      const matchInfoData = await fetchJSON(MATCH_URL(m.matchId));
-      const spielfeld = matchInfoData.data.matchInfo?.spielfeld || {};
+      try {
+        const matchInfoData = await fetchJSON(MATCH_URL(m.matchId));
+        const spielfeld = matchInfoData.data.matchInfo?.spielfeld || {};
 
-      results.push({
-        date: m.kickoffDate,
-        time: m.kickoffTime,
-        home: m.homeTeam.teamname,
-        guest: m.guestTeam.teamname,
-        matchId: m.matchId,
-        venue: {
-          name: spielfeld.bezeichnung || null,
-          street: spielfeld.strasse || null,
-          zip: spielfeld.plz || null,
-          city: spielfeld.ort || null,
-        },
-      });
-    }
+        return {
+          date: m.kickoffDate,
+          time: m.kickoffTime,
+          home: m.homeTeam.teamname,
+          guest: m.guestTeam.teamname,
+          matchId: m.matchId,
+          venue: {
+            name: spielfeld.bezeichnung || null,
+            street: spielfeld.strasse || null,
+            zip: spielfeld.plz || null,
+            city: spielfeld.ort || null,
+          },
+        };
+      } catch (error) {
+        console.warn(`Warning: Failed to fetch match info for ${m.matchId}: ${error.message}`);
+        // Return basic match info without venue details
+        return {
+          date: m.kickoffDate,
+          time: m.kickoffTime,
+          home: m.homeTeam.teamname,
+          guest: m.guestTeam.teamname,
+          matchId: m.matchId,
+          venue: {
+            name: null,
+            street: null,
+            zip: null,
+            city: null,
+          },
+        };
+      }
+    });
+
+    // Wait for all match info requests to complete
+    const matchResults = await Promise.all(matchPromises);
+    
+    // Filter out null results (skipped matches)
+    const results = matchResults.filter(result => result !== null);
+    
+    const skippedCount = matches.length - results.length;
+    console.log(`Processed ${results.length} matches${skippedCount > 0 ? ` (${skippedCount} skipped)` : ''}`);
 
     // Step 3: Filter for BC Lions Moabit 1 mix games
     const bcLionsGames = results.filter(game =>
@@ -187,13 +226,9 @@ async function main() {
     if (bcLionsGames.length > 0) {
       const icsContent = createICSFile(bcLionsGames);
       writeFileSync(ICS_FILENAME, icsContent);
-      if (!isQuiet) {
-        console.log(`\nICS file created: ${ICS_FILENAME}`);
-      }
+      console.log(`\nICS file created: ${ICS_FILENAME}`);
     } else {
-      if (!isQuiet) {
-        console.log('No games found for BC Lions Moabit 1 mix');
-      }
+      console.log('No games found for BC Lions Moabit 1 mix');
     }
 
 
