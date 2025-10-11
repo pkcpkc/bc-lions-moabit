@@ -251,8 +251,8 @@
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
                 <div class="nav-row">
-                    <a href="#alle-termine" class="nav-link">Alle Termine</a>
-                    <a href="#jugendfahrplan" class="nav-link">Jugendfahrplan</a>
+                    <a href="#wochenende" class="nav-link">Wochenende</a>
+                    <a href="#heimspiele" class="nav-link">Heimspiele</a>
                     <a href="#anleitung" class="nav-link">Anleitung</a>
                 </div>
             </div>
@@ -263,22 +263,34 @@
                 </div>
             </div>
             <div class="nav-section">
-                <h4 class="nav-headline">Training</h4>
+                <h4 class="nav-headline">Termine</h4>
                 <div class="nav-row" id="schedule-nav-row">
                     <!-- Schedule navigation links will be generated dynamically -->
                 </div>
             </div>
         </nav>
 
-        <!-- All events section -->
-        <div class="calendar-section active" id="alle-termine-section">
-            <div class="calendar-link" id="alle-termine">
-                <h3>Alle BC Lions Termine</h3>
+        <!-- Weekend events section -->
+        <div class="calendar-section active" id="wochenende-section">
+            <div class="calendar-link" id="wochenende">
+                <h3>BC Lions Wochenende</h3>
             </div>
 
             <div class="events-container">
-                <h4>Alle Termine der nächsten zwei Wochen</h4>
-                <div id="alle-termine-events" class="loading">Lade Termine...</div>
+                <h4>Alle Spiele am kommenden Wochenende</h4>
+                <div id="wochenende-events" class="loading">Lade Termine...</div>
+            </div>
+        </div>
+
+        <!-- Home games section -->
+        <div class="calendar-section" id="heimspiele-section">
+            <div class="calendar-link" id="heimspiele">
+                <h3>BC Lions Heimspiele</h3>
+            </div>
+
+            <div class="events-container">
+                <h4>Alle Heimspiele am kommenden Wochenende</h4>
+                <div id="heimspiele-events" class="loading">Lade Termine...</div>
             </div>
         </div>
 
@@ -287,27 +299,7 @@
             <!-- Dynamic team sections will be inserted here -->
         </div>
 
-        <div class="calendar-section" id="jugendfahrplan-section">
-            <div class="calendar-link" id="jugendfahrplan">
-                <h3>Jugendfahrplan</h3>
-                <div class="calendar-actions">
-                    <button class="copy-button"
-                        onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics', event)">iCalender-URL
-                        kopieren</button>
-                    <span class="calendar-separator">|</span>
-                    <a href="webcal://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender abonnieren</a>
-                    <span class="calendar-separator">|</span>
-                    <a href="https://pkcpkc.github.io/bc-lions-moabit/ics/jugendfahrplan.ics">Kalender laden</a>
-                    <span class="calendar-separator">|</span>
-                    <a href="https://www.bclions-moabit.de/post/der-jugendkalender-2025">Jugendfahrplan Webseite</a>
-                </div>
-            </div>
 
-            <div class="events-container">
-                <h4>Alle kommenden Termine - Jugendfahrplan</h4>
-                <div id="jugendfahrplan-events" class="loading">Lade Termine...</div>
-            </div>
-        </div>
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">
@@ -390,7 +382,7 @@
                 calendarSection.id = `${config.id}-section`;
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="spielplan_${config.id}">
-                        <h3>${config.name}</h3>
+                        <h3>Spielplan: ${config.name}</h3>
                         <div class="calendar-actions">
                             <button class="copy-button"
                                 onclick="copyToClipboard('${config.icsUrl}', event)">iCalender-URL
@@ -449,7 +441,7 @@
                 
                 calendarSection.innerHTML = `
                     <div class="calendar-link" id="schedule_${config.id}">
-                        <h3>${config.label}</h3>
+                        <h3>Training: ${config.label}</h3>
                         <div class="calendar-actions">
                             <button class="copy-button"
                                 onclick="copyToClipboard('${icsUrl}', event)">iCalender-URL
@@ -512,7 +504,7 @@
             const hash = window.location.hash.substring(1); // Remove the '#' character
             
             if (hash) {
-                // Check for direct section matches first (alle-termine, jugendfahrplan, anleitung)
+                // Check for direct section matches first (wochenende, heimspiele, anleitung)
                 let sectionId = hash + '-section';
                 let targetSection = document.getElementById(sectionId);
                 
@@ -553,8 +545,8 @@
                 }
             }
             
-            // Default to "alle-termine" if no valid hash
-            showCalendarSection('alle-termine-section', false);
+            // Default to "wochenende" if no valid hash
+            showCalendarSection('wochenende-section', false);
         }
 
         // Handle browser back/forward buttons
@@ -765,6 +757,146 @@
                 });
         }
 
+        function loadWeekendTeamEvents(containerId) {
+            const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                return fetch(icsFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        try {
+                            const jcalData = ICAL.parse(data);
+                            const comp = new ICAL.Component(jcalData);
+                            const vevents = comp.getAllSubcomponents('vevent');
+
+                            return vevents.map(vevent => {
+                                const event = new ICAL.Event(vevent);
+                                return {
+                                    summary: event.summary,
+                                    startDate: event.startDate.toJSDate(),
+                                    endDate: event.endDate.toJSDate(),
+                                    location: event.location,
+                                    description: event.description,
+                                    teamId: config.id.toUpperCase()
+                                };
+                            });
+                        } catch (error) {
+                            console.error('Error parsing calendar:', error);
+                            return [];
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching calendar:', error);
+                        return [];
+                    });
+            });
+
+            Promise.all(allEventsPromises)
+                .then(eventArrays => {
+                    // Flatten all events into a single array
+                    const allEvents = eventArrays.flat();
+
+                    // Sort events by date
+                    allEvents.sort((a, b) => a.startDate - b.startDate);
+
+                    // Get weekend events (Saturday and Sunday of the upcoming weekend)
+                    const today = new Date();
+                    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+                    
+                    // Calculate days until next Saturday
+                    const daysUntilSaturday = dayOfWeek === 0 ? 6 : (6 - dayOfWeek);
+                    
+                    const nextSaturday = new Date(today);
+                    nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+                    nextSaturday.setHours(0, 0, 0, 0);
+                    
+                    const nextSunday = new Date(nextSaturday);
+                    nextSunday.setDate(nextSaturday.getDate() + 1);
+                    nextSunday.setHours(23, 59, 59, 999);
+
+                    // Filter events for the upcoming weekend
+                    const weekendEvents = allEvents.filter(event => 
+                        event.startDate >= nextSaturday && event.startDate <= nextSunday
+                    );
+
+                    displayEvents(weekendEvents, containerId);
+                })
+                .catch(error => {
+                    console.error('Error loading weekend team events:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Wochenend-Termine</div>';
+                });
+        }
+
+        function loadWeekendHomeGames(containerId) {
+            const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+                const icsFile = config.icsFilename.replace('docs/', './');
+                return fetch(icsFile)
+                    .then(response => response.text())
+                    .then(data => {
+                        try {
+                            const jcalData = ICAL.parse(data);
+                            const comp = new ICAL.Component(jcalData);
+                            const vevents = comp.getAllSubcomponents('vevent');
+
+                            return vevents.map(vevent => {
+                                const event = new ICAL.Event(vevent);
+                                return {
+                                    summary: event.summary,
+                                    startDate: event.startDate.toJSDate(),
+                                    endDate: event.endDate.toJSDate(),
+                                    location: event.location,
+                                    description: event.description,
+                                    teamId: config.id.toUpperCase()
+                                };
+                            });
+                        } catch (error) {
+                            console.error('Error parsing calendar:', error);
+                            return [];
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching calendar:', error);
+                        return [];
+                    });
+            });
+
+            Promise.all(allEventsPromises)
+                .then(eventArrays => {
+                    // Flatten all events into a single array
+                    const allEvents = eventArrays.flat();
+
+                    // Sort events by date
+                    allEvents.sort((a, b) => a.startDate - b.startDate);
+
+                    // Get weekend events (Saturday and Sunday of the upcoming weekend)
+                    const today = new Date();
+                    const dayOfWeek = today.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+                    
+                    // Calculate days until next Saturday
+                    const daysUntilSaturday = dayOfWeek === 0 ? 6 : (6 - dayOfWeek);
+                    
+                    const nextSaturday = new Date(today);
+                    nextSaturday.setDate(today.getDate() + daysUntilSaturday);
+                    nextSaturday.setHours(0, 0, 0, 0);
+                    
+                    const nextSunday = new Date(nextSaturday);
+                    nextSunday.setDate(nextSaturday.getDate() + 1);
+                    nextSunday.setHours(23, 59, 59, 999);
+
+                    // Filter for weekend home games (BC Lions Moabit is the home team)
+                    const homeGames = allEvents.filter(event => {
+                        const isWeekend = event.startDate >= nextSaturday && event.startDate <= nextSunday;
+                        const isHomeGame = event.summary && event.summary.startsWith('BC Lions Moabit');
+                        return isWeekend && isHomeGame;
+                    });
+
+                    displayEvents(homeGames, containerId);
+                })
+                .catch(error => {
+                    console.error('Error loading weekend home games:', error);
+                    document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Heimspiele</div>';
+                });
+        }
+
         // Load events when page loads
         document.addEventListener('DOMContentLoaded', function () {
             // Generate team sections dynamically
@@ -774,14 +906,14 @@
             generateScheduleSections();
 
             // Add click handlers to existing navigation links
-            document.querySelector('a[href="#alle-termine"]').addEventListener('click', (e) => {
+            document.querySelector('a[href="#wochenende"]').addEventListener('click', (e) => {
                 e.preventDefault();
-                showCalendarSection('alle-termine-section');
+                showCalendarSection('wochenende-section');
             });
 
-            document.querySelector('a[href="#jugendfahrplan"]').addEventListener('click', (e) => {
+            document.querySelector('a[href="#heimspiele"]').addEventListener('click', (e) => {
                 e.preventDefault();
-                showCalendarSection('jugendfahrplan-section');
+                showCalendarSection('heimspiele-section');
             });
 
             document.querySelector('a[href="#anleitung"]').addEventListener('click', (e) => {
@@ -792,11 +924,13 @@
             // Handle initial routing based on URL
             handleRouting();
 
-            // Load all team events for the "Alle Termine" section
-            loadAllTeamEvents('alle-termine-events');
+            // Load weekend team events for the "Wochenende" section
+            loadWeekendTeamEvents('wochenende-events');
+            
+            // Load home games for the "Heimspiele" section
+            loadWeekendHomeGames('heimspiele-events');
 
-            // Load static Jugendfahrplan events (show all upcoming)
-            loadCalendarEvents('./ics/jugendfahrplan.ics', 'jugendfahrplan-events', -1);
+
 
             // Load events for dynamically configured team calendars
             CALENDAR_CONFIGS.forEach(config => {
