@@ -248,7 +248,7 @@
 <body>
     <div class="container">
         <h1>BC Lions Moabit - Termine</h1>
-        <p>Zuletzt aktualisiert: Samstag, 11. Oktober 2025 um 20:19</p>
+        <p>Zuletzt aktualisiert: Samstag, 11. Oktober 2025 um 20:22</p>
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
@@ -973,7 +973,6 @@
                             } else {
                                 // Non-recurring event
                                 const eventDate = event.startDate.toJSDate();
-                                if (eventDate >= today && eventDate <= oneMonthFromNow) {
                                     allEvents.push({
                                         summary: event.summary,
                                         startDate: eventDate,
@@ -982,7 +981,6 @@
                                         description: event.description,
                                         teamId: teamId ? teamId.toUpperCase() : null
                                     });
-                                }
                             }
                         });
 

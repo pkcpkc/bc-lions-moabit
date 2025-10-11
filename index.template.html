@@ -724,7 +724,6 @@
                             } else {
                                 // Non-recurring event
                                 const eventDate = event.startDate.toJSDate();
-                                if (eventDate >= today && eventDate <= oneMonthFromNow) {
                                     allEvents.push({
                                         summary: event.summary,
                                         startDate: eventDate,
@@ -733,7 +732,6 @@
                                         description: event.description,
                                         teamId: teamId ? teamId.toUpperCase() : null
                                     });
-                                }
                             }
                         });
 

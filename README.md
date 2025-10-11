@@ -135,20 +135,48 @@ node crawl.js
 
 ## GitHub Actions (Automated Updates)
 
-The repository includes a GitHub Action for automated termine updates and HTML rebuilding. This allows you to update the website directly from GitHub.com without local development setup.
+The repository includes two GitHub Actions for automated updates and HTML rebuilding. This allows you to update the website directly from GitHub.com without local development setup.
+
+### Available Workflows
+
+#### 1. Update Termine and Build HTML
+- **Purpose**: Updates training schedules from Google Calendar
+- **Steps**: `download-termine.js` → `build-html.js`
+- **Updates**: Training calendars and termine sections
+- **Schedule**: Runs automatically daily at 10:00 AM UTC
+
+#### 2. Update Spiele and Build HTML  
+- **Purpose**: Updates game schedules from basketball-bund.net
+- **Steps**: `fetch-all.js` → `build-html.js`
+- **Updates**: All team game schedules and spielplan sections
+
+### Automatic Scheduling
+
+The **"Update Termine and Build HTML"** workflow runs automatically every day at **10:00 AM UTC** to keep training schedules up-to-date. No manual intervention required.
 
 ### Manual Execution
 
+You can also trigger workflows manually:
+
 1. **Navigate to Actions Tab**: Go to your repository on GitHub.com → Actions tab
-2. **Select Workflow**: Click "Update Termine and Build HTML" from the workflow list
+2. **Select Workflow**: Choose either:
+   - "Update Termine and Build HTML" (for training schedules)
+   - "Update Spiele and Build HTML" (for game schedules)
 3. **Run Workflow**: Click "Run workflow" button
 4. **Optional Force Update**: Check "Force update" to commit changes even if no changes are detected
 
-### What the Action Does
+### What Each Action Does
 
-The GitHub Action performs these steps:
+**Update Termine Workflow:**
 1. **Setup Environment**: Installs Node.js 18 and project dependencies
 2. **Download Termine**: Runs `download-termine.js` to fetch latest training calendars from Google Calendar
+3. **Build HTML**: Runs `build-html.js` to regenerate the website with updated data
+4. **Auto-Commit**: Automatically commits and pushes changes if updates are detected
+5. **Summary Report**: Provides execution summary in the GitHub Actions interface
+
+**Update Spiele Workflow:**
+1. **Setup Environment**: Installs Node.js 18 and project dependencies
+2. **Fetch All Games**: Runs `fetch-all.js` to fetch latest games from basketball-bund.net for all teams
 3. **Build HTML**: Runs `build-html.js` to regenerate the website with updated data
 4. **Auto-Commit**: Automatically commits and pushes changes if updates are detected
 5. **Summary Report**: Provides execution summary in the GitHub Actions interface
@@ -156,14 +184,17 @@ The GitHub Action performs these steps:
 ### Benefits
 
 - **No Local Setup Required**: Update calendars directly from GitHub.com
+- **Separate Control**: Update training schedules and game schedules independently
 - **Automatic Deployment**: Changes are immediately visible on GitHub Pages (if configured)
 - **Smart Updates**: Only commits when actual changes are detected
 - **Audit Trail**: All updates tracked in git history with timestamps
 - **Manual Control**: Trigger updates on-demand when needed
 
-### Workflow File
+### Workflow Files
 
-The action is defined in `.github/workflows/update-termine.yml` and can be customized as needed.
+The actions are defined in:
+- `.github/workflows/update-termine.yml` - Training schedule updates
+- `.github/workflows/update-spiele.yml` - Game schedule updates
 
 ## Execution Patterns
 
