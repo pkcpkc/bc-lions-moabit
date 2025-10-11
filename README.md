@@ -12,6 +12,43 @@ This system automatically generates basketball team calendars and training sched
   - `teams/*.json` files with explicit team IDs for game schedules
   - `termine/*.json` files with Google Calendar IDs for training schedules
 
+## Script Execution Flow
+
+The following diagram shows how the scripts work together in the build process:
+
+```mermaid
+graph TD
+    A[🚀 build.js<br/>Main Orchestrator] --> B[📥 fetch-all.js<br/>Process All Teams]
+    A --> C[🗓️ download-termine.js<br/>Download Training Calendars]
+    A --> D[🔨 build-html.js<br/>Generate Final HTML]
+    
+    B --> E[📊 fetch-games.js<br/>Individual Team Processing]
+    E --> F[🏀 basketball-bund.net API<br/>Fetch Game Data]
+    E --> G[📝 Generate ICS Files<br/>docs/ics/spiele/*.ics]
+    
+    C --> H[📅 Google Calendar API<br/>Download Training ICS]
+    C --> I[📝 Save Training ICS<br/>docs/ics/termine/*.ics]
+    
+    D --> J[📋 Read teams/*.json<br/>Team Configurations]
+    D --> K[📋 Read termine/*.json<br/>Training Configurations]
+    D --> L[🎯 Generate docs/index.html<br/>Final Website]
+    
+    M[🔍 crawl.js<br/>Team Discovery] -.-> N[📝 Create teams/*.json<br/>Auto-generate Configs]
+    N -.-> J
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style M fill:#fce4ec
+```
+
+**Script Dependencies:**
+- `build.js` → `fetch-all.js` → `fetch-games.js` (parallel execution)
+- `build.js` → `download-termine.js` (parallel with fetch-all.js)
+- `build.js` → `build-html.js` (after data collection)
+- `crawl.js` → Independent discovery tool (optional)
+
 ## Configuration Format
 
 ### Team Configurations (`teams/*.json`)
@@ -96,7 +133,73 @@ node crawl.js
 
 **Note**: The crawl script automatically discovers all BC Lions teams registered in Berlin basketball leagues and creates configuration files. It uses parallel processing to investigate all leagues simultaneously, significantly improving performance over sequential processing.
 
+## GitHub Actions (Automated Updates)
 
+The repository includes a GitHub Action for automated termine updates and HTML rebuilding. This allows you to update the website directly from GitHub.com without local development setup.
+
+### Manual Execution
+
+1. **Navigate to Actions Tab**: Go to your repository on GitHub.com → Actions tab
+2. **Select Workflow**: Click "Update Termine and Build HTML" from the workflow list
+3. **Run Workflow**: Click "Run workflow" button
+4. **Optional Force Update**: Check "Force update" to commit changes even if no changes are detected
+
+### What the Action Does
+
+The GitHub Action performs these steps:
+1. **Setup Environment**: Installs Node.js 18 and project dependencies
+2. **Download Termine**: Runs `download-termine.js` to fetch latest training calendars from Google Calendar
+3. **Build HTML**: Runs `build-html.js` to regenerate the website with updated data
+4. **Auto-Commit**: Automatically commits and pushes changes if updates are detected
+5. **Summary Report**: Provides execution summary in the GitHub Actions interface
+
+### Benefits
+
+- **No Local Setup Required**: Update calendars directly from GitHub.com
+- **Automatic Deployment**: Changes are immediately visible on GitHub Pages (if configured)
+- **Smart Updates**: Only commits when actual changes are detected
+- **Audit Trail**: All updates tracked in git history with timestamps
+- **Manual Control**: Trigger updates on-demand when needed
+
+### Workflow File
+
+The action is defined in `.github/workflows/update-termine.yml` and can be customized as needed.
+
+## Execution Patterns
+
+### Parallel Processing Architecture
+The system uses aggressive parallelization for maximum performance:
+
+```mermaid
+graph LR
+    A[build.js] --> B[Step 1: fetch-all.js]
+    A --> C[Step 2: download-termine.js] 
+    A --> D[Step 3: build-html.js]
+    
+    B --> E[Team 1<br/>fetch-games.js]
+    B --> F[Team 2<br/>fetch-games.js] 
+    B --> G[Team N<br/>fetch-games.js]
+    
+    E --> H[Match 1 API]
+    E --> I[Match 2 API]
+    E --> J[Match N API]
+    
+    C --> K[Calendar 1 Download]
+    C --> L[Calendar 2 Download]
+    C --> M[Calendar N Download]
+    
+    style B fill:#e3f2fd
+    style C fill:#f1f8e9
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+    style G fill:#fff3e0
+```
+
+**Performance Benefits:**
+- **Team Level**: All 22 teams processed simultaneously
+- **Match Level**: Individual team's matches fetched in parallel
+- **Calendar Level**: All 7 training calendars downloaded concurrently
+- **Total Build Time**: ~13-35 seconds for 424 games across 22 teams
 
 ## How It Works
 
@@ -201,11 +304,34 @@ The generated HTML includes a Berlin timezone timestamp showing when the calenda
 
 The template uses client-side JavaScript generation with three placeholders:
 
+```mermaid
+graph LR
+    A[index.template.html] --> B[build-html.js]
+    C[teams/*.json] --> B
+    D[termine/*.json] --> B
+    B --> E[docs/index.html]
+    
+    E --> F[{{CALENDAR_CONFIGS}}]
+    E --> G[{{SCHEDULE_CONFIGS}}] 
+    E --> H[{{LAST_UPDATED}}]
+    
+    F --> I[Client-Side JS<br/>Dynamic Rendering]
+    G --> I
+    H --> I
+    
+    I --> J[🎯 Final Website<br/>Three-Section Layout]
+    
+    style B fill:#e1f5fe
+    style I fill:#fff3e0
+    style J fill:#e8f5e8
+```
+
+**Template Placeholders:**
 - `{{CALENDAR_CONFIGS}}` - JSON array with team configurations
 - `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations
 - `{{LAST_UPDATED}}` - Timestamp of last build
 
-Dynamic sections are created by JavaScript:
+**Dynamic sections are created by JavaScript:**
 - **Three-section navigation**: Übersicht, Spielpläne, Training
 - **Team calendar sections**: With download/subscribe buttons and event previews
 - **Schedule calendar sections**: With embedded Google Calendar and subscription options
@@ -215,9 +341,6 @@ Dynamic sections are created by JavaScript:
 
 ```
 bc-lions-moabit/
-├── .github/
-│   └── workflows/
-│       └── update-calendars.yml  # GitHub Actions automation
 ├── teams/                    # Team configuration files
 │   ├── da-bl.json           # Damen Bezirksliga team config
 │   ├── he-bl-a.json         # Herren Bezirksliga A team config
@@ -284,25 +407,6 @@ If you have old config files, update them:
     "teamName": "BC Lions Moabit 1 mix"
 }
 ```
-
-## Automation
-
-### GitHub Actions
-The repository includes a GitHub Actions workflow that automatically:
-- Runs daily at 6:00 AM UTC (8:00 AM CET)
-- Fetches latest game data for all teams
-- Updates HTML and ICS files
-- Commits and pushes changes if data has been updated
-
-**Manual Triggers:**
-- Push to main branch (when config files or build scripts change)
-- Manual workflow dispatch from GitHub UI (Actions tab)
-
-**Workflow file:** `.github/workflows/update-calendars.yml`
-
-**Note:** The workflow uses the default `GITHUB_TOKEN` with write permissions to commit changes. No additional setup required.
-
-This ensures your basketball calendars stay up-to-date automatically without manual intervention.
 
 ## Dependencies
 
