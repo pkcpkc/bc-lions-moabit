@@ -78,7 +78,7 @@ function generateTeamSections() {
         calendarSection.innerHTML = `
             <div class="calendar-link" id="spielplan_${config.id}">
                 <h3>Spielplan: ${config.name}</h3>
-                ${createCalendarActionsHTML(config.icsUrl, config.webUrl, 'DBB Webseite')}
+                ${createCalendarActionsHTML(config.icsUrl, config.webUrl, 'DBB Seite')}
             </div>
 
             <div class="events-container">
