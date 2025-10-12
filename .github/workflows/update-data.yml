@@ -11,6 +11,9 @@ on:
         default: false
         type: boolean
 
+permissions:
+  contents: write
+
 jobs:
   update-termine-and-spiele:
     runs-on: ubuntu-latest
@@ -65,7 +68,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git commit -m "Update termine and spiele, rebuild HTML - $(date '+%Y-%m-%d %H:%M:%S')"
-        git push
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
