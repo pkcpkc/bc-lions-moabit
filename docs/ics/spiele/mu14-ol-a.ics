@@ -1,85 +1,107 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//BC Lions Moabit//Basketball Schedule//EN
+PRODID:-//BC Lions Moabit//Basketball Calendar//DE
+X-WR-CALNAME:BC Lions Moabit 1 mix - Spielplan
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
+UID:2791245@bc-lions-moabit
 DTSTART:20250927T090000
 DTEND:20250927T110000
 SUMMARY:Weddinger Wiesel 1 vs BC Lions Moabit 1 mix (Wiesenstraße)
 LOCATION:Wiesenstraße 56\, 13357 Berlin
 DESCRIPTION:Venue: Wiesenstraße\nAddress: Wiesenstraße 56; 13357 Berlin
-UID:2791245@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791263@bc-lions-moabit
 DTSTART:20251003T140000
 DTEND:20251003T160000
 SUMMARY:BC Lions Moabit 1 mix vs TuS Lichterfelde 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10\, 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
-UID:2791263@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791281@bc-lions-moabit
 DTSTART:20251005T150000
 DTEND:20251005T170000
 SUMMARY:RedHawks Potsdam 1 vs BC Lions Moabit 1 mix (Potsdam - Esplanade)
 LOCATION:Esplanade 3\, 14469 Potsdam
 DESCRIPTION:Venue: Potsdam - Esplanade\nAddress: Esplanade 3; 14469 Potsdam
-UID:2791281@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791299@bc-lions-moabit
 DTSTART:20251012T120000
 DTEND:20251012T140000
 SUMMARY:BC Lions Moabit 1 mix vs ALBA Berlin 2 (Alt-Moabit)
 LOCATION:Alt-Moabit 10\, 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
-UID:2791299@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791227@bc-lions-moabit
 DTSTART:20251019T150000
 DTEND:20251019T170000
 SUMMARY:BC Lions Moabit 1 mix vs DBV Charlottenburg 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10\, 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
-UID:2791227@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791317@bc-lions-moabit
 DTSTART:20251109T140000
 DTEND:20251109T160000
 SUMMARY:DBV Charlottenburg 1 vs BC Lions Moabit 1 mix (Leistikowstraße)
 LOCATION:Leistikowstraße 7\, 14050 Berlin
 DESCRIPTION:Venue: Leistikowstraße\nAddress: Leistikowstraße 7; 14050 Berlin
-UID:2791317@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791335@bc-lions-moabit
 DTSTART:20251116T120000
 DTEND:20251116T140000
 SUMMARY:BC Lions Moabit 1 mix vs Weddinger Wiesel 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10\, 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
-UID:2791335@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791389@bc-lions-moabit
 DTSTART:20251122T120000
 DTEND:20251122T140000
 SUMMARY:ALBA Berlin 2 vs BC Lions Moabit 1 mix (Knaackstraße)
 LOCATION:Knaackstraße 67\, 10435 Berlin
 DESCRIPTION:Venue: Knaackstraße\nAddress: Knaackstraße 67; 10435 Berlin
-UID:2791389@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791353@bc-lions-moabit
 DTSTART:20251123T150000
 DTEND:20251123T170000
 SUMMARY:TuS Lichterfelde 1 vs BC Lions Moabit 1 mix (Moltkestraße)
 LOCATION:Moltkestraße 25\, 12203 Berlin
 DESCRIPTION:Venue: Moltkestraße\nAddress: Moltkestraße 25; 12203 Berlin
-UID:2791353@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
+UID:2791373@bc-lions-moabit
 DTSTART:20251130T120000
 DTEND:20251130T140000
 SUMMARY:BC Lions Moabit 1 mix vs RedHawks Potsdam 1 (Alt-Moabit)
 LOCATION:Alt-Moabit 10\, 10557 Berlin
 DESCRIPTION:Venue: Alt-Moabit\nAddress: Alt-Moabit 10; 10557 Berlin
-UID:2791373@bc-lions-moabit
+DTSTAMP:20251012T163617Z
+STATUS:CONFIRMED
 END:VEVENT
+
 END:VCALENDAR

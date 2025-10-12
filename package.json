@@ -1,14 +1,27 @@
 {
+  "name": "bc-lions-moabit",
+  "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "node-fetch": "^3.3.2",
-    "glob": "^10.3.10"
+    "glob": "^10.3.10",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@vitest/ui": "^1.6.1",
+    "c8": "^8.0.1",
+    "vitest": "^1.6.1"
   },
   "scripts": {
-    "fetch-all": "node fetch-all.js",
-    "download-termine": "node download-termine.js",
-    "build-html": "node build-html.js",
-    "build": "node build.js",
-    "crawl": "node crawl.js"
+    "fetch-games-batch": "node src/fetch-games-batch.js",
+    "fetch-games": "node src/fetch-games-single.js",
+    "download-termine": "node src/download-termine.js",
+    "build-html": "node src/build-html.js",
+    "build": "node src/build.js",
+    "crawl": "node src/crawl.js",
+    "test": "vitest --run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui",
+    "dev": "node --watch src/fetch-games-batch.js"
   }
 }
