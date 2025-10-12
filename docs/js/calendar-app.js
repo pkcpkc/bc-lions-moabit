@@ -2,6 +2,53 @@
 const CALENDAR_CONFIGS = window.CALENDAR_CONFIGS || [];
 const SCHEDULE_CONFIGS = window.SCHEDULE_CONFIGS || [];
 
+// Constants
+const DATE_RANGES = {
+    NEXT_MONTH: 1,
+    NEXT_WEEK: 7
+};
+
+const ERROR_MESSAGES = {
+    PARSE_ERROR: 'Fehler beim Laden der Termine',
+    FETCH_ERROR: 'Fehler beim Laden der Termine',
+    GAMES_ERROR: 'Fehler beim Laden der Spiele',
+    HOME_GAMES_ERROR: 'Fehler beim Laden der Heimspiele',
+    UPCOMING_ERROR: 'Fehler beim Laden der kommenden Termine'
+};
+
+const UI_FEEDBACK = {
+    COPY_SUCCESS: 'Kopiert!',
+    COPY_SUCCESS_COLOR: '#28a745',
+    COPY_DEFAULT_COLOR: '#007bff',
+    COPY_TIMEOUT: 2000
+};
+
+// Helper function to create navigation links
+function createNavLink(href, className, textContent, clickHandler) {
+    const navLink = document.createElement('a');
+    navLink.href = href;
+    navLink.className = className;
+    navLink.textContent = textContent;
+    navLink.addEventListener('click', clickHandler);
+    return navLink;
+}
+
+// Helper function to create calendar actions HTML
+function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
+    const webcalUrl = `webcal://${icsUrl.replace('https://', '')}`;
+    return `
+        <div class="calendar-actions">
+            <button class="copy-button"
+                onclick="copyToClipboard('${icsUrl}', event)">iCal-URL
+                kopieren</button>
+            <span class="calendar-separator">|</span>
+            <a href="${webcalUrl}">Abonnieren</a>
+            <span class="calendar-separator">|</span>
+            <a href="${additionalUrl}" target="_blank" rel="noopener noreferrer">${additionalText}</a>
+        </div>
+    `;
+}
+
 function generateTeamSections() {
     const navContainer = document.getElementById('team-nav-row');
     const calendarContainer = document.getElementById('team-calendars-container');
@@ -13,16 +60,15 @@ function generateTeamSections() {
     // Generate navigation links and calendar sections for each team
     CALENDAR_CONFIGS.forEach(config => {
         // Create navigation link
-        const navLink = document.createElement('a');
-        navLink.href = `#${config.id}`;
-        navLink.className = 'nav-link team-nav-link';
-        navLink.textContent = config.name;
-        navLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showCalendarSection(`${config.id}-section`);
-        });
-
-        // Add to team nav row
+        const navLink = createNavLink(
+            `#${config.id}`,
+            'nav-link team-nav-link',
+            config.name,
+            (e) => {
+                e.preventDefault();
+                showCalendarSection(`${config.id}-section`);
+            }
+        );
         navContainer.appendChild(navLink);
 
         // Create calendar section
@@ -32,15 +78,7 @@ function generateTeamSections() {
         calendarSection.innerHTML = `
             <div class="calendar-link" id="spielplan_${config.id}">
                 <h3>Spielplan: ${config.name}</h3>
-                <div class="calendar-actions">
-                    <button class="copy-button"
-                        onclick="copyToClipboard('${config.icsUrl}', event)">iCal-URL
-                        kopieren</button>
-                    <span class="calendar-separator">|</span>
-                    <a href="webcal://${config.icsUrl.replace('https://', '')}">Abonnieren</a>
-                    <span class="calendar-separator">|</span>
-                    <a href="${config.webUrl}" target="_blank" rel="noopener noreferrer">DBB Webseite</a>
-                </div>
+                ${createCalendarActionsHTML(config.icsUrl, config.webUrl, 'DBB Webseite')}
             </div>
 
             <div class="events-container">
@@ -63,16 +101,15 @@ function generateScheduleSections() {
     // Generate navigation links and calendar sections for each schedule
     SCHEDULE_CONFIGS.forEach(config => {
         // Create navigation link
-        const navLink = document.createElement('a');
-        navLink.href = `#schedule-${config.id}`;
-        navLink.className = 'nav-link schedule-nav-link';
-        navLink.textContent = config.label;
-        navLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showCalendarSection(`schedule-${config.id}-section`);
-        });
-
-        // Add to schedule nav row
+        const navLink = createNavLink(
+            `#schedule-${config.id}`,
+            'nav-link schedule-nav-link',
+            config.label,
+            (e) => {
+                e.preventDefault();
+                showCalendarSection(`schedule-${config.id}-section`);
+            }
+        );
         navContainer.appendChild(navLink);
 
         // Create calendar section
@@ -81,23 +118,12 @@ function generateScheduleSections() {
         calendarSection.id = `schedule-${config.id}-section`;
         
         const encodedCalId = encodeURIComponent(config.calId);
-        const icsUrl = `https://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
-        const webcalUrl = `webcal://calendar.google.com/calendar/ical/${encodedCalId}/public/basic.ics`;
-        
         const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
         
         calendarSection.innerHTML = `
             <div class="calendar-link" id="schedule_${config.id}">
                 <h3>Termine: ${config.label}</h3>
-                <div class="calendar-actions">
-                    <button class="copy-button"
-                        onclick="copyToClipboard('${config.icsUrl}', event)">iCal-URL
-                        kopieren</button>
-                    <span class="calendar-separator">|</span>
-                    <a href="webcal://${config.icsUrl.replace('https://', '')}">Abonnieren</a>
-                    <span class="calendar-separator">|</span>
-                    <a href="${calendarUrl}" target="_blank" rel="noopener noreferrer">Kalender</a>
-                </div>
+                ${createCalendarActionsHTML(config.icsUrl, calendarUrl, 'Kalender')}
             </div>
 
             <div class="events-container">
@@ -210,19 +236,22 @@ window.addEventListener('popstate', function(event) {
     }
 });
 
-function copyToClipboard(text, event) {
-    navigator.clipboard.writeText(text).then(function () {
-        // Show success feedback
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = 'Kopiert!';
-        button.style.backgroundColor = '#28a745';
+// Helper function to show copy feedback
+function showCopyFeedback(button) {
+    const originalText = button.textContent;
+    button.textContent = UI_FEEDBACK.COPY_SUCCESS;
+    button.style.backgroundColor = UI_FEEDBACK.COPY_SUCCESS_COLOR;
 
-        setTimeout(function () {
-            button.textContent = originalText;
-            button.style.backgroundColor = '#007bff';
-        }, 2000);
-    }).catch(function (err) {
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.backgroundColor = UI_FEEDBACK.COPY_DEFAULT_COLOR;
+    }, UI_FEEDBACK.COPY_TIMEOUT);
+}
+
+function copyToClipboard(text, event) {
+    navigator.clipboard.writeText(text).then(() => {
+        showCopyFeedback(event.target);
+    }).catch(() => {
         // Fallback for older browsers
         const textArea = document.createElement('textarea');
         textArea.value = text;
@@ -230,17 +259,8 @@ function copyToClipboard(text, event) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-
-        // Show success feedback
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = 'Kopiert!';
-        button.style.backgroundColor = '#28a745';
-
-        setTimeout(function () {
-            button.textContent = originalText;
-            button.style.backgroundColor = '#007bff';
-        }, 2000);
+        
+        showCopyFeedback(event.target);
     });
 }
 
@@ -286,120 +306,158 @@ function formatDateRange(startDate, endDate) {
     }
 }
 
-// Load team events (Spielplan) - shows all upcoming events
-function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetch(url)
+// Common function to get date ranges
+function getDateRange(rangeType) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const endDate = new Date(today);
+    
+    switch (rangeType) {
+        case 'week':
+            endDate.setDate(today.getDate() + DATE_RANGES.NEXT_WEEK);
+            break;
+        case 'month':
+            endDate.setMonth(today.getMonth() + DATE_RANGES.NEXT_MONTH);
+            break;
+        default:
+            // No end date for 'all' events
+            return { start: today, end: null };
+    }
+    
+    endDate.setHours(23, 59, 59, 999);
+    return { start: today, end: endDate };
+}
+
+// Common function to parse ICS data
+function parseIcsData(data, teamId = null) {
+    try {
+        const jcalData = ICAL.parse(data);
+        const comp = new ICAL.Component(jcalData);
+        const vevents = comp.getAllSubcomponents('vevent');
+
+        return vevents.map(vevent => {
+            const event = new ICAL.Event(vevent);
+            return {
+                summary: event.summary,
+                startDate: event.startDate.toJSDate(),
+                endDate: event.endDate.toJSDate(),
+                location: event.location,
+                description: event.description,
+                teamId: teamId ? teamId.toUpperCase() : null
+            };
+        });
+    } catch (error) {
+        console.error('Error parsing calendar:', error);
+        return [];
+    }
+}
+
+// Common function to parse ICS data with recurring events
+function parseIcsDataWithRecurring(data, dateRange, teamId = null) {
+    try {
+        const jcalData = ICAL.parse(data);
+        const comp = new ICAL.Component(jcalData);
+        const vevents = comp.getAllSubcomponents('vevent');
+
+        const allEvents = [];
+
+        vevents.forEach(vevent => {
+            const event = new ICAL.Event(vevent);
+            
+            // Handle recurring events properly
+            if (event.isRecurring() && dateRange.end) {
+                const iterator = event.iterator();
+                let next;
+                
+                // Expand recurring events within our date range
+                while ((next = iterator.next()) && next.toJSDate() <= dateRange.end) {
+                    const eventDate = next.toJSDate();
+                    if (eventDate >= dateRange.start) {
+                        const endTime = new Date(eventDate);
+                        endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
+                        
+                        allEvents.push({
+                            summary: event.summary,
+                            startDate: eventDate,
+                            endDate: endTime,
+                            location: event.location,
+                            description: event.description,
+                            teamId: teamId ? teamId.toUpperCase() : null
+                        });
+                    }
+                }
+            } else {
+                // Non-recurring event
+                const eventDate = event.startDate.toJSDate();
+                allEvents.push({
+                    summary: event.summary,
+                    startDate: eventDate,
+                    endDate: event.endDate.toJSDate(),
+                    location: event.location,
+                    description: event.description,
+                    teamId: teamId ? teamId.toUpperCase() : null
+                });
+            }
+        });
+
+        return allEvents;
+    } catch (error) {
+        console.error('Error parsing calendar:', error);
+        return [];
+    }
+}
+
+// Common function to filter events by date range
+function filterEventsByDateRange(events, rangeType) {
+    const dateRange = getDateRange(rangeType);
+    
+    return events.filter(event => {
+        if (rangeType === 'all') {
+            return event.startDate >= dateRange.start;
+        }
+        return event.startDate >= dateRange.start && event.startDate <= dateRange.end;
+    });
+}
+
+// Common function to fetch and parse calendar data
+function fetchAndParseCalendar(url, rangeType = 'all', teamId = null, useRecurring = false) {
+    return fetch(url)
         .then(response => response.text())
         .then(data => {
-            try {
-                const jcalData = ICAL.parse(data);
-                const comp = new ICAL.Component(jcalData);
-                const vevents = comp.getAllSubcomponents('vevent');
-
-                const events = vevents.map(vevent => {
-                    const event = new ICAL.Event(vevent);
-                    return {
-                        summary: event.summary,
-                        startDate: event.startDate.toJSDate(),
-                        endDate: event.endDate.toJSDate(),
-                        location: event.location,
-                        description: event.description,
-                        teamId: teamId ? teamId.toUpperCase() : null
-                    };
-                });
-
-                // Sort events by date
-                events.sort((a, b) => a.startDate - b.startDate);
-
-                // Show all upcoming events for team schedules
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                
-                const eventsToShow = events.filter(event => event.startDate >= today);
-                
-                displayEvents(eventsToShow, containerId);
-            } catch (error) {
-                console.error('Error parsing calendar:', error);
-                document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Spiele</div>';
+            if (useRecurring && rangeType !== 'all') {
+                const dateRange = getDateRange(rangeType);
+                return parseIcsDataWithRecurring(data, dateRange, teamId);
+            } else {
+                const events = parseIcsData(data, teamId);
+                return filterEventsByDateRange(events, rangeType);
             }
-        })
-        .catch(error => {
-            console.error('Error fetching calendar:', error);
-            document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Spiele</div>';
         });
 }
 
-// Load termine events - shows events for next 4 weeks only
-function loadCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            try {
-                const jcalData = ICAL.parse(data);
-                const comp = new ICAL.Component(jcalData);
-                const vevents = comp.getAllSubcomponents('vevent');
-
-                const allEvents = [];
-                
-                // Define date range: next 1 month
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                
-                const oneMonthFromNow = new Date(today);
-                oneMonthFromNow.setMonth(today.getMonth() + 1); // 1 month from now
-                oneMonthFromNow.setHours(23, 59, 59, 999);
-
-                vevents.forEach(vevent => {
-                    const event = new ICAL.Event(vevent);
-                    
-                    // Handle recurring events properly
-                    if (event.isRecurring()) {
-                        const iterator = event.iterator();
-                        let next;
-                        
-                        // Expand recurring events within our date range
-                        while ((next = iterator.next()) && next.toJSDate() <= oneMonthFromNow) {
-                            const eventDate = next.toJSDate();
-                            if (eventDate >= today) {
-                                const endTime = new Date(eventDate);
-                                endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
-                                
-                                allEvents.push({
-                                    summary: event.summary,
-                                    startDate: eventDate,
-                                    endDate: endTime,
-                                    location: event.location,
-                                    description: event.description,
-                                    teamId: teamId ? teamId.toUpperCase() : null
-                                });
-                            }
-                        }
-                    } else {
-                        // Non-recurring event
-                        const eventDate = event.startDate.toJSDate();
-                            allEvents.push({
-                                summary: event.summary,
-                                startDate: eventDate,
-                                endDate: event.endDate.toJSDate(),
-                                location: event.location,
-                                description: event.description,
-                                teamId: teamId ? teamId.toUpperCase() : null
-                            });
-                    }
-                });
-
-                // Sort events by date
-                allEvents.sort((a, b) => a.startDate - b.startDate);
-                
-                displayEvents(allEvents, containerId);
-            } catch (error) {
-                console.error('Error parsing calendar:', error);
-                document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
-            }
+// Load team events (Spielplan) - shows all upcoming events
+function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
+    fetchAndParseCalendar(url, 'all', teamId)
+        .then(events => {
+            events.sort((a, b) => a.startDate - b.startDate);
+            displayEvents(events, containerId);
         })
         .catch(error => {
-            console.error('Error fetching calendar:', error);
-            document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
+            console.error('Error loading team calendar:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.GAMES_ERROR}</div>`;
+        });
+}
+
+// Load termine events - shows events for next month only
+function loadCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
+    fetchAndParseCalendar(url, 'month', teamId, true)
+        .then(events => {
+            events.sort((a, b) => a.startDate - b.startDate);
+            displayEvents(events, containerId);
+        })
+        .catch(error => {
+            console.error('Error loading calendar events:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
         });
 }
 
@@ -432,238 +490,94 @@ function displayEvents(events, containerId) {
     container.innerHTML = eventsHTML;
 }
 
-function loadAllTeamEvents(containerId) {
+// Common function to load multiple team events with filtering
+function loadMultipleTeamEvents(containerId, rangeType = 'all', filterFunction = null) {
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
         const icsFile = config.icsFilename.replace('docs/', './');
-        return fetch(icsFile)
-            .then(response => response.text())
-            .then(data => {
-                try {
-                    const jcalData = ICAL.parse(data);
-                    const comp = new ICAL.Component(jcalData);
-                    const vevents = comp.getAllSubcomponents('vevent');
-
-                    return vevents.map(vevent => {
-                        const event = new ICAL.Event(vevent);
-                        return {
-                            summary: event.summary,
-                            startDate: event.startDate.toJSDate(),
-                            endDate: event.endDate.toJSDate(),
-                            location: event.location,
-                            description: event.description,
-                            teamId: config.id.toUpperCase()
-                        };
-                    });
-                } catch (error) {
-                    console.error('Error parsing calendar:', error);
-                    return [];
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching calendar:', error);
-                return [];
-            });
+        return fetchAndParseCalendar(icsFile, rangeType, config.id);
     });
 
     Promise.all(allEventsPromises)
         .then(eventArrays => {
             // Flatten all events into a single array
-            const allEvents = eventArrays.flat();
+            let allEvents = eventArrays.flat();
+            
+            // Apply additional filtering if provided
+            if (filterFunction) {
+                allEvents = allEvents.filter(filterFunction);
+            }
 
             // Sort events by date
             allEvents.sort((a, b) => a.startDate - b.startDate);
 
-            // Show all upcoming events
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            
-            const upcomingEvents = allEvents.filter(event => event.startDate >= today);
-
-            displayEvents(upcomingEvents, containerId);
+            displayEvents(allEvents, containerId);
         })
         .catch(error => {
-            console.error('Error loading all team events:', error);
-            document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Termine</div>';
+            console.error('Error loading team events:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
         });
+}
+
+function loadAllTeamEvents(containerId) {
+    loadMultipleTeamEvents(containerId, 'all');
 }
 
 function loadUpcomingTeamEvents(containerId) {
-    const allEventsPromises = CALENDAR_CONFIGS.map(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        return fetch(icsFile)
-            .then(response => response.text())
-            .then(data => {
-                try {
-                    const jcalData = ICAL.parse(data);
-                    const comp = new ICAL.Component(jcalData);
-                    const vevents = comp.getAllSubcomponents('vevent');
-
-                    return vevents.map(vevent => {
-                        const event = new ICAL.Event(vevent);
-                        return {
-                            summary: event.summary,
-                            startDate: event.startDate.toJSDate(),
-                            endDate: event.endDate.toJSDate(),
-                            location: event.location,
-                            description: event.description,
-                            teamId: config.id.toUpperCase()
-                        };
-                    });
-                } catch (error) {
-                    console.error('Error parsing calendar:', error);
-                    return [];
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching calendar:', error);
-                return [];
-            });
-    });
-
-    Promise.all(allEventsPromises)
-        .then(eventArrays => {
-            // Flatten all events into a single array
-            const allEvents = eventArrays.flat();
-
-            // Sort events by date
-            allEvents.sort((a, b) => a.startDate - b.startDate);
-
-            // Get upcoming events in the next 7 days
-            const today = new Date();
-            today.setHours(0, 0, 0, 0); // Start of today
-            
-            const sevenDaysFromNow = new Date(today);
-            sevenDaysFromNow.setDate(today.getDate() + 7);
-            sevenDaysFromNow.setHours(23, 59, 59, 999); // End of 7th day
-
-            // Filter events for the next 7 days (including today)
-            const upcomingEvents = allEvents.filter(event => 
-                event.startDate >= today && event.startDate <= sevenDaysFromNow
-            );
-
-            displayEvents(upcomingEvents, containerId);
-        })
-        .catch(error => {
-            console.error('Error loading upcoming team events:', error);
-            document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der kommenden Termine</div>';
-        });
+    loadMultipleTeamEvents(containerId, 'week');
 }
 
 function loadUpcomingHomeGames(containerId) {
-    const allEventsPromises = CALENDAR_CONFIGS.map(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        return fetch(icsFile)
-            .then(response => response.text())
-            .then(data => {
-                try {
-                    const jcalData = ICAL.parse(data);
-                    const comp = new ICAL.Component(jcalData);
-                    const vevents = comp.getAllSubcomponents('vevent');
+    // Filter function to check for home games
+    const homeGameFilter = (event) => {
+        return event.summary && event.summary.startsWith('BC Lions Moabit');
+    };
+    
+    loadMultipleTeamEvents(containerId, 'week', homeGameFilter);
+}
 
-                    return vevents.map(vevent => {
-                        const event = new ICAL.Event(vevent);
-                        return {
-                            summary: event.summary,
-                            startDate: event.startDate.toJSDate(),
-                            endDate: event.endDate.toJSDate(),
-                            location: event.location,
-                            description: event.description,
-                            teamId: config.id.toUpperCase()
-                        };
-                    });
-                } catch (error) {
-                    console.error('Error parsing calendar:', error);
-                    return [];
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching calendar:', error);
-                return [];
-            });
-    });
-
-    Promise.all(allEventsPromises)
-        .then(eventArrays => {
-            // Flatten all events into a single array
-            const allEvents = eventArrays.flat();
-
-            // Sort events by date
-            allEvents.sort((a, b) => a.startDate - b.startDate);
-
-            // Get upcoming events in the next 7 days
-            const today = new Date();
-            today.setHours(0, 0, 0, 0); // Start of today
-            
-            const sevenDaysFromNow = new Date(today);
-            sevenDaysFromNow.setDate(today.getDate() + 7);
-            sevenDaysFromNow.setHours(23, 59, 59, 999); // End of 7th day
-
-            // Filter for upcoming home games (BC Lions Moabit is the home team)
-            const homeGames = allEvents.filter(event => {
-                const isUpcoming = event.startDate >= today && event.startDate <= sevenDaysFromNow;
-                const isHomeGame = event.summary && event.summary.startsWith('BC Lions Moabit');
-                return isUpcoming && isHomeGame;
-            });
-
-            displayEvents(homeGames, containerId);
-        })
-        .catch(error => {
-            console.error('Error loading upcoming home games:', error);
-            document.getElementById(containerId).innerHTML = '<div class="error">Fehler beim Laden der Heimspiele</div>';
-        });
+// Helper function to format date for last modified display
+function formatLastModifiedDate(date) {
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        timeZone: 'Europe/Berlin'
+    };
+    return date.toLocaleDateString('de-DE', options);
 }
 
 // Function to get and display last modified date
 function updateLastModifiedDate() {
+    const setLastModifiedDate = (date) => {
+        const formattedDate = formatLastModifiedDate(date);
+        document.getElementById('last-updated-date').textContent = formattedDate;
+    };
+
     // Make a HEAD request to get the Last-Modified header
     fetch(window.location.href, { method: 'HEAD' })
         .then(response => {
             const lastModified = response.headers.get('Last-Modified');
-            if (lastModified) {
-                const date = new Date(lastModified);
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    timeZone: 'Europe/Berlin'
-                };
-                const formattedDate = date.toLocaleDateString('de-DE', options);
-                document.getElementById('last-updated-date').textContent = formattedDate;
-            } else {
-                // Fallback: use current date if no Last-Modified header
-                const now = new Date();
-                const options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit',
-                    timeZone: 'Europe/Berlin'
-                };
-                const formattedDate = now.toLocaleDateString('de-DE', options);
-                document.getElementById('last-updated-date').textContent = formattedDate;
-            }
+            const date = lastModified ? new Date(lastModified) : new Date();
+            setLastModifiedDate(date);
         })
         .catch(error => {
             console.error('Error fetching last modified date:', error);
-            // Fallback: use current date
-            const now = new Date();
-            const options = {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'Europe/Berlin'
-            };
-            const formattedDate = now.toLocaleDateString('de-DE', options);
-            document.getElementById('last-updated-date').textContent = formattedDate;
+            setLastModifiedDate(new Date());
         });
+}
+
+// Helper function to add click handler for navigation links
+function addNavClickHandler(selector, sectionId) {
+    const element = document.querySelector(selector);
+    if (element) {
+        element.addEventListener('click', (e) => {
+            e.preventDefault();
+            showCalendarSection(sectionId);
+        });
+    }
 }
 
 // Initialize app when page loads
@@ -678,20 +592,9 @@ function initializeCalendarApp() {
     generateScheduleSections();
 
     // Add click handlers to existing navigation links
-    document.querySelector('a[href="#spiele"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        showCalendarSection('spiele-section');
-    });
-
-    document.querySelector('a[href="#heimspiele"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        showCalendarSection('heimspiele-section');
-    });
-
-    document.querySelector('a[href="#anleitung"]').addEventListener('click', (e) => {
-        e.preventDefault();
-        showCalendarSection('anleitung-section');
-    });
+    addNavClickHandler('a[href="#spiele"]', 'spiele-section');
+    addNavClickHandler('a[href="#heimspiele"]', 'heimspiele-section');
+    addNavClickHandler('a[href="#anleitung"]', 'anleitung-section');
 
     // Handle initial routing based on URL
     handleRouting();
