@@ -396,7 +396,7 @@ class BasketballAnimation {
         if (distance < 150) {
             celebrationEmoji = '1️⃣'; // Free throw - very close
             points = 1;
-        } else if (distance < 500) {
+        } else if (distance < 450) {
             celebrationEmoji = '2️⃣'; // Field goal - medium distance
             points = 2;
         } else {
