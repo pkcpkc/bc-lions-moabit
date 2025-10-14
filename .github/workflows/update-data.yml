@@ -34,7 +34,7 @@ jobs:
     - name: Run tests
       run: |
         echo "Running comprehensive test suite..."
-        npm test -- --run
+        npm test
         echo "All tests passed ✅"
       
     - name: Run complete build process
