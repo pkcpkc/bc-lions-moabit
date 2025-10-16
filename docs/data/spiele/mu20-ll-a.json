@@ -1,0 +1,234 @@
+{
+  "teamName": "BC Lions Moabit 1 mix",
+  "teamId": "mu20-ll-a",
+  "competitionId": 50398,
+  "lastUpdated": "2025-10-16T17:39:05.386Z",
+  "events": [
+    {
+      "summary": "Basket Dragons Marzahn 1 (aK) vs BC Lions Moabit 1 mix",
+      "startDate": "2025-09-28T16:00:00.000Z",
+      "endDate": "2025-09-28T18:00:00.000Z",
+      "venueName": "Liebensteiner Straße",
+      "location": "Liebensteiner Straße 24, 12687, Berlin",
+      "game": {
+        "home": "Basket Dragons Marzahn 1 (aK)",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749101,
+        "result": {
+          "homeScore": 79,
+          "guestScore": 82,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Friedenauer TSC 2",
+      "startDate": "2025-10-05T14:00:00.000Z",
+      "endDate": "2025-10-05T16:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Friedenauer TSC 2",
+        "matchId": 2749171,
+        "result": {
+          "homeScore": 105,
+          "guestScore": 76,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "Nachmeldung 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-10-12T21:59:00.000Z",
+      "endDate": "2025-10-12T23:59:00.000Z",
+      "venueName": "N.N.",
+      "location": "###, 10437, Berlin",
+      "game": {
+        "home": "Nachmeldung 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749260
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Berlin Baskets 1",
+      "startDate": "2025-11-08T19:00:00.000Z",
+      "endDate": "2025-11-08T21:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Berlin Baskets 1",
+        "matchId": 2749310
+      }
+    },
+    {
+      "summary": "BG Zehlendorf 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-11-16T14:30:00.000Z",
+      "endDate": "2025-11-16T16:30:00.000Z",
+      "venueName": "Teltower Damm (alt)",
+      "location": "Teltower Damm 87, 14167, Berlin",
+      "game": {
+        "home": "BG Zehlendorf 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749347
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Nachmeldung 3",
+      "startDate": "2025-11-23T17:00:00.000Z",
+      "endDate": "2025-11-23T19:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Nachmeldung 3",
+        "matchId": 2749406
+      }
+    },
+    {
+      "summary": "Weddinger Wiesel 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-11-29T14:00:00.000Z",
+      "endDate": "2025-11-29T16:00:00.000Z",
+      "venueName": "Wiesenstraße",
+      "location": "Wiesenstraße 56, 13357, Berlin",
+      "game": {
+        "home": "Weddinger Wiesel 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749483
+      }
+    },
+    {
+      "summary": "TSC Spandau 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-12-06T14:45:00.000Z",
+      "endDate": "2025-12-06T16:45:00.000Z",
+      "venueName": "Staakener Feldstraße",
+      "location": "Staakener Feldstraße 6-8, 13591, Berlin",
+      "game": {
+        "home": "TSC Spandau 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749503
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Basket Dragons Marzahn 1 (aK)",
+      "startDate": "2025-12-14T17:00:00.000Z",
+      "endDate": "2025-12-14T19:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Basket Dragons Marzahn 1 (aK)",
+        "matchId": 2749541
+      }
+    },
+    {
+      "summary": "Friedenauer TSC 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-01-11T18:00:00.000Z",
+      "endDate": "2026-01-11T20:00:00.000Z",
+      "venueName": "Münchener Straße, oben",
+      "location": "Münchener Straße 49, 10779, Berlin",
+      "game": {
+        "home": "Friedenauer TSC 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749611
+      }
+    },
+    {
+      "summary": "RSV Eintracht 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-01-18T12:00:00.000Z",
+      "endDate": "2026-01-18T14:00:00.000Z",
+      "venueName": "Teltow - Elbestraße",
+      "location": "Elbestraße 34, 14513, Teltow",
+      "game": {
+        "home": "RSV Eintracht 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749641
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Nachmeldung 1",
+      "startDate": "2026-01-24T19:00:00.000Z",
+      "endDate": "2026-01-24T21:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Nachmeldung 1",
+        "matchId": 2749699
+      }
+    },
+    {
+      "summary": "Berlin Baskets 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-02-14T16:00:00.000Z",
+      "endDate": "2026-02-14T18:00:00.000Z",
+      "venueName": "Mittelstraße",
+      "location": "Mittelstraße 11, 13055, Berlin",
+      "game": {
+        "home": "Berlin Baskets 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749749
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs BG Zehlendorf 2",
+      "startDate": "2026-02-22T17:00:00.000Z",
+      "endDate": "2026-02-22T19:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "BG Zehlendorf 2",
+        "matchId": 2749786
+      }
+    },
+    {
+      "summary": "Nachmeldung 3 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-03-01T22:59:00.000Z",
+      "endDate": "2026-03-02T00:59:00.000Z",
+      "venueName": "N.N.",
+      "location": "###, 10437, Berlin",
+      "game": {
+        "home": "Nachmeldung 3",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2749845
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Weddinger Wiesel 1",
+      "startDate": "2026-03-07T19:00:00.000Z",
+      "endDate": "2026-03-07T21:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Weddinger Wiesel 1",
+        "matchId": 2749922
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs TSC Spandau 1",
+      "startDate": "2026-03-15T11:00:00.000Z",
+      "endDate": "2026-03-15T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "TSC Spandau 1",
+        "matchId": 2749060
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs RSV Eintracht 1",
+      "startDate": "2026-03-22T17:00:00.000Z",
+      "endDate": "2026-03-22T19:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "RSV Eintracht 1",
+        "matchId": 2749202
+      }
+    }
+  ]
+}

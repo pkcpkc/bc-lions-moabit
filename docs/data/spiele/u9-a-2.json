@@ -1,0 +1,239 @@
+{
+  "teamName": "BC Lions Moabit 1 mix",
+  "teamId": "u9-a-2",
+  "competitionId": 50493,
+  "lastUpdated": "2025-10-16T17:39:05.573Z",
+  "events": [
+    {
+      "summary": "BC Lions Moabit 1 mix vs FREIBEUTER 2010 1",
+      "startDate": "2025-09-27T08:00:00.000Z",
+      "endDate": "2025-09-27T10:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "FREIBEUTER 2010 1",
+        "matchId": 2752810,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 20,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "Berlin Tiger 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-10-04T09:00:00.000Z",
+      "endDate": "2025-10-04T11:00:00.000Z",
+      "venueName": "Nostitzstraße (unten)",
+      "location": "Nostitzstraße 60, 10961, Berlin",
+      "game": {
+        "home": "Berlin Tiger 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2752862,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "Einheit Pankow 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-10-12T09:00:00.000Z",
+      "endDate": "2025-10-12T11:00:00.000Z",
+      "venueName": "Hauptstraße (Halle 2)",
+      "location": "Hauptstraße 66, 13127, Berlin",
+      "game": {
+        "home": "Einheit Pankow 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2752960,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Viktoria Mitte 1",
+      "startDate": "2025-11-08T11:00:00.000Z",
+      "endDate": "2025-11-08T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Viktoria Mitte 1",
+        "matchId": 2753014
+      }
+    },
+    {
+      "summary": "Weddinger Wiesel 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-11-15T10:00:00.000Z",
+      "endDate": "2025-11-15T12:00:00.000Z",
+      "venueName": "Putbusser Straße",
+      "location": "Putbusser Straße 1, 13355, Berlin",
+      "game": {
+        "home": "Weddinger Wiesel 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753050
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs BASS Berlin 1 (wbl.)",
+      "startDate": "2025-11-22T09:00:00.000Z",
+      "endDate": "2025-11-22T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "BASS Berlin 1 (wbl.)",
+        "matchId": 2753102
+      }
+    },
+    {
+      "summary": "DBV Charlottenburg 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-11-30T13:00:00.000Z",
+      "endDate": "2025-11-30T15:00:00.000Z",
+      "venueName": "Schillerstraße, oben",
+      "location": "Schillerstraße 121, 10625, Berlin",
+      "game": {
+        "home": "DBV Charlottenburg 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753139
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs VfB Hermsdorf 1",
+      "startDate": "2025-12-06T09:00:00.000Z",
+      "endDate": "2025-12-06T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "VfB Hermsdorf 1",
+        "matchId": 2753192
+      }
+    },
+    {
+      "summary": "FREIBEUTER 2010 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2025-12-13T09:00:00.000Z",
+      "endDate": "2025-12-13T11:00:00.000Z",
+      "venueName": "Pufendorfstraße",
+      "location": "Pufendorfstraße 10, 10249, Berlin",
+      "game": {
+        "home": "FREIBEUTER 2010 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753210
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Berlin Tiger 1",
+      "startDate": "2026-01-10T09:00:00.000Z",
+      "endDate": "2026-01-10T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Berlin Tiger 1",
+        "matchId": 2753264
+      }
+    },
+    {
+      "summary": "SV Empor Berlin 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-01-17T09:00:00.000Z",
+      "endDate": "2026-01-17T11:00:00.000Z",
+      "venueName": "Wichertstraße",
+      "location": "Wichertstraße 25, 10439, Berlin",
+      "game": {
+        "home": "SV Empor Berlin 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753334
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Einheit Pankow 2",
+      "startDate": "2026-01-24T09:00:00.000Z",
+      "endDate": "2026-01-24T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Einheit Pankow 2",
+        "matchId": 2753362
+      }
+    },
+    {
+      "summary": "Viktoria Mitte 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-02-15T08:30:00.000Z",
+      "endDate": "2026-02-15T10:30:00.000Z",
+      "venueName": "Adalbertstraße, oben",
+      "location": "Adalbertstraße 53, 10179, Berlin",
+      "game": {
+        "home": "Viktoria Mitte 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753416
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs Weddinger Wiesel 1",
+      "startDate": "2026-02-21T09:00:00.000Z",
+      "endDate": "2026-02-21T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "Weddinger Wiesel 1",
+        "matchId": 2753448
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs DBV Charlottenburg 2",
+      "startDate": "2026-03-07T09:00:00.000Z",
+      "endDate": "2026-03-07T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "DBV Charlottenburg 2",
+        "matchId": 2753517
+      }
+    },
+    {
+      "summary": "VfB Hermsdorf 1 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-03-15T10:15:00.000Z",
+      "endDate": "2026-03-15T12:15:00.000Z",
+      "venueName": "Heidenheimer Straße",
+      "location": "Heidenheimer Straße 53-55, 13467, Berlin",
+      "game": {
+        "home": "VfB Hermsdorf 1",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2752792
+      }
+    },
+    {
+      "summary": "BASS Berlin 1 (wbl.) vs BC Lions Moabit 1 mix",
+      "startDate": "2026-03-15T11:00:00.000Z",
+      "endDate": "2026-03-15T13:00:00.000Z",
+      "venueName": "Dessauerstraße, unten",
+      "location": "Dessauerstraße 63, 12249, Berlin",
+      "game": {
+        "home": "BASS Berlin 1 (wbl.)",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753489
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs SV Empor Berlin 1",
+      "startDate": "2026-03-21T09:00:00.000Z",
+      "endDate": "2026-03-21T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "SV Empor Berlin 1",
+        "matchId": 2752933
+      }
+    }
+  ]
+}

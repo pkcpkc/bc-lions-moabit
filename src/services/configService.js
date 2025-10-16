@@ -32,6 +32,7 @@ export class ConfigService {
                         ...config,
                         icsFilename: `docs/ics/spiele/${config.teamId}.ics`,
                         icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/spiele/${config.teamId}.ics`,
+                        jsonUrl: `https://pkcpkc.github.io/bc-lions-moabit/data/${config.teamId}.json`,
                         webUrl: `https://www.basketball-bund.net/static/#/liga/${config.competitionId}`
                     });
                     

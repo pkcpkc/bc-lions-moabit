@@ -26,6 +26,7 @@ export class HTMLService {
                     name: displayName,
                     competitionId: config.competitionId,
                     teamName: config.teamName,
+                    jsonUrl: config.jsonUrl,
                     icsFilename: config.icsFilename,
                     icsUrl: config.icsUrl,
                     webUrl: config.webUrl

@@ -1,0 +1,239 @@
+{
+  "teamName": "BC Lions Moabit 1",
+  "teamId": "da-ol",
+  "competitionId": 50388,
+  "lastUpdated": "2025-10-16T17:39:03.438Z",
+  "events": [
+    {
+      "summary": "BC Lions Moabit 1 vs BG Zehlendorf 2",
+      "startDate": "2025-09-28T16:00:00.000Z",
+      "endDate": "2025-09-28T18:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "BG Zehlendorf 2",
+        "matchId": 2749139,
+        "result": {
+          "homeScore": 29,
+          "guestScore": 51,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "CITY Basket Berlin 2 vs BC Lions Moabit 1",
+      "startDate": "2025-10-05T16:30:00.000Z",
+      "endDate": "2025-10-05T18:30:00.000Z",
+      "venueName": "Schillerstraße, oben",
+      "location": "Schillerstraße 121, 10625, Berlin",
+      "game": {
+        "home": "CITY Basket Berlin 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749189,
+        "result": {
+          "homeScore": 78,
+          "guestScore": 29,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs BBC 90 Köpenick 1",
+      "startDate": "2025-10-11T14:00:00.000Z",
+      "endDate": "2025-10-11T16:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "BBC 90 Köpenick 1",
+        "matchId": 2749284,
+        "result": {
+          "homeScore": 66,
+          "guestScore": 36,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs DBV Charlottenburg 2",
+      "startDate": "2025-10-18T12:00:00.000Z",
+      "endDate": "2025-10-18T14:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "DBV Charlottenburg 2",
+        "matchId": 2749381
+      }
+    },
+    {
+      "summary": "Vgg. Adler 1912 1 vs BC Lions Moabit 1",
+      "startDate": "2025-11-09T13:30:00.000Z",
+      "endDate": "2025-11-09T15:30:00.000Z",
+      "venueName": "Manteuffelstraße 79",
+      "location": "Manteuffelstraße 79, 10999, Berlin",
+      "game": {
+        "home": "Vgg. Adler 1912 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749331
+      }
+    },
+    {
+      "summary": "Einheit Pankow 1 vs BC Lions Moabit 1",
+      "startDate": "2025-11-23T17:00:00.000Z",
+      "endDate": "2025-11-23T19:00:00.000Z",
+      "venueName": "Hauptstraße (Halle 1)",
+      "location": "Hauptstraße 66, 13127, Berlin",
+      "game": {
+        "home": "Einheit Pankow 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749428
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Weddinger Wiesel 2",
+      "startDate": "2025-11-29T15:00:00.000Z",
+      "endDate": "2025-11-29T17:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Weddinger Wiesel 2",
+        "matchId": 2749476
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs TuS Neukölln 2",
+      "startDate": "2025-12-06T15:00:00.000Z",
+      "endDate": "2025-12-06T17:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "TuS Neukölln 2",
+        "matchId": 2749525
+      }
+    },
+    {
+      "summary": "BG Zehlendorf 2 vs BC Lions Moabit 1",
+      "startDate": "2025-12-14T14:30:00.000Z",
+      "endDate": "2025-12-14T16:30:00.000Z",
+      "venueName": "Teltower Damm (neu)",
+      "location": "Teltower Damm 87, 14167, Berlin",
+      "game": {
+        "home": "BG Zehlendorf 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749572
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs CITY Basket Berlin 2",
+      "startDate": "2026-01-10T13:00:00.000Z",
+      "endDate": "2026-01-10T15:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "CITY Basket Berlin 2",
+        "matchId": 2749619
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs FREIBEUTER 2010 1",
+      "startDate": "2026-01-17T17:00:00.000Z",
+      "endDate": "2026-01-17T19:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "FREIBEUTER 2010 1",
+        "matchId": 2749668
+      }
+    },
+    {
+      "summary": "BBC 90 Köpenick 1 vs BC Lions Moabit 1",
+      "startDate": "2026-01-25T17:00:00.000Z",
+      "endDate": "2026-01-25T19:00:00.000Z",
+      "venueName": "Helmholtzstraße",
+      "location": "Helmholtzstraße 37, 12459, Berlin",
+      "game": {
+        "home": "BBC 90 Köpenick 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749713
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Vgg. Adler 1912 1",
+      "startDate": "2026-02-14T15:00:00.000Z",
+      "endDate": "2026-02-14T17:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Vgg. Adler 1912 1",
+        "matchId": 2749763
+      }
+    },
+    {
+      "summary": "DBV Charlottenburg 2 vs BC Lions Moabit 1",
+      "startDate": "2026-02-22T15:00:00.000Z",
+      "endDate": "2026-02-22T17:00:00.000Z",
+      "venueName": "Goethestraße",
+      "location": "Goethestraße 19, 10625, Berlin",
+      "game": {
+        "home": "DBV Charlottenburg 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749813
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Einheit Pankow 1",
+      "startDate": "2026-02-28T13:00:00.000Z",
+      "endDate": "2026-02-28T15:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Einheit Pankow 1",
+        "matchId": 2749861
+      }
+    },
+    {
+      "summary": "Weddinger Wiesel 2 vs BC Lions Moabit 1",
+      "startDate": "2026-03-08T17:00:00.000Z",
+      "endDate": "2026-03-08T19:00:00.000Z",
+      "venueName": "Wiesenstraße",
+      "location": "Wiesenstraße 56, 13357, Berlin",
+      "game": {
+        "home": "Weddinger Wiesel 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749908
+      }
+    },
+    {
+      "summary": "TuS Neukölln 2 vs BC Lions Moabit 1",
+      "startDate": "2026-03-14T16:30:00.000Z",
+      "endDate": "2026-03-14T18:30:00.000Z",
+      "venueName": "Albert-Schweitzer-Platz",
+      "location": "Karl-Marx-Straße 14, 12043, Berlin",
+      "game": {
+        "home": "TuS Neukölln 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749089
+      }
+    },
+    {
+      "summary": "FREIBEUTER 2010 1 vs BC Lions Moabit 1",
+      "startDate": "2026-03-22T15:00:00.000Z",
+      "endDate": "2026-03-22T17:00:00.000Z",
+      "venueName": "Pufendorfstraße",
+      "location": "Pufendorfstraße 10, 10249, Berlin",
+      "game": {
+        "home": "FREIBEUTER 2010 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2749234
+      }
+    }
+  ]
+}

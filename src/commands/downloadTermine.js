@@ -1,10 +1,14 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import ICAL from 'ical.js';
 import { HttpClient } from '../services/httpClient.js';
 import { TermineService } from '../services/termineService.js';
 import { ConfigService } from '../services/configService.js';
 import { Logger } from '../services/logger.js';
 import { config } from '../config/index.js';
+
+// Constants for output paths
+const TERMINE_JSON_DIR = 'docs/data/termine';
 
 export class DownloadTermineCommand {
     constructor(dependencies = {}) {
@@ -54,6 +58,74 @@ export class DownloadTermineCommand {
         }
     }
 
+    async parseIcsToJson(icsContent, termineConfig) {
+        try {
+            const jcalData = ICAL.parse(icsContent);
+            const comp = new ICAL.Component(jcalData);
+            const vevents = comp.getAllSubcomponents('vevent');
+
+            const allEvents = [];
+            const now = new Date();
+            const oneMonthLater = new Date();
+            oneMonthLater.setMonth(now.getMonth() + 1);
+
+            vevents.forEach(vevent => {
+                const event = new ICAL.Event(vevent);
+
+                // Handle recurring events properly
+                if (event.isRecurring()) {
+                    const iterator = event.iterator();
+                    let next;
+
+                    // Expand recurring events within our date range (next month)
+                    while ((next = iterator.next()) && next.toJSDate() <= oneMonthLater) {
+                        const eventDate = next.toJSDate();
+                        if (eventDate >= now) {
+                            const endTime = new Date(eventDate);
+                            endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
+
+                            allEvents.push({
+                                summary: event.summary,
+                                startDate: eventDate.toISOString(),
+                                endDate: endTime.toISOString(),
+                                location: event.location || '',
+                                description: event.description || ''
+                            });
+                        }
+                    }
+                } else {
+                    // Non-recurring event
+                    const eventDate = event.startDate.toJSDate();
+                    allEvents.push({
+                        summary: event.summary,
+                        startDate: eventDate.toISOString(),
+                        endDate: event.endDate.toJSDate().toISOString(),
+                        location: event.location || '',
+                        description: event.description || ''
+                    });
+                }
+            });
+
+            return {
+                label: termineConfig.label,
+                id: termineConfig.id,
+                calId: termineConfig.calId,
+                lastUpdated: new Date().toISOString(),
+                events: allEvents
+            };
+
+        } catch (error) {
+            this.logger.error(`Failed to parse ICS content for ${termineConfig.label}:`, error.message);
+            return {
+                label: termineConfig.label,
+                id: termineConfig.id,
+                calId: termineConfig.calId,
+                lastUpdated: new Date().toISOString(),
+                events: []
+            };
+        }
+    }
+
     async execute() {
         try {
             this.logger.info('🗓️  Starting termine download process...');
@@ -66,8 +138,9 @@ export class DownloadTermineCommand {
                 return { downloadedCount: 0, errorCount: 0, totalConfigs: 0 };
             }
 
-            // Ensure output directory exists
+            // Ensure output directories exist
             await fs.mkdir(config.paths.termineOutputDir, { recursive: true });
+            await fs.mkdir(TERMINE_JSON_DIR, { recursive: true });
 
             // Clean existing termine files to avoid stale content
             await this.cleanExistingTermine();
@@ -82,11 +155,17 @@ export class DownloadTermineCommand {
                     
                     const icsContent = await this.termineService.downloadCalendar(termineConfig.calId);
                     
-                    // Save to file (HttpClient returns text for calendar URLs)
+                    // Save ICS file
                     await fs.writeFile(termineConfig.icsFilename, icsContent, 'utf8');
+                    
+                    // Parse ICS content to JSON and save JSON file
+                    const jsonData = await this.parseIcsToJson(icsContent, termineConfig);
+                    const jsonFilename = path.join(TERMINE_JSON_DIR, `${termineConfig.id}.json`);
+                    await fs.writeFile(jsonFilename, JSON.stringify(jsonData, null, 2), 'utf8');
                     
                     downloadedCount++;
                     this.logger.info(`✅ Downloaded: ${termineConfig.label} -> ${termineConfig.icsFilename}`);
+                    this.logger.info(`✅ Created JSON: ${jsonFilename}`);
                     
                 } catch (error) {
                     errorCount++;

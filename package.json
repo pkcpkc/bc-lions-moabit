@@ -4,6 +4,7 @@
   "type": "module",
   "dependencies": {
     "glob": "^10.3.10",
+    "ical.js": "^2.2.1",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {

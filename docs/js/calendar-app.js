@@ -92,7 +92,52 @@ function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
     `;
 }
 
-// Helper function to extract game results from event title
+// Enhanced function to extract game results from structured JSON data
+function extractGameResultFromData(gameData, title) {
+    if (gameData.result && gameData.result.isFinished) {
+        const result = gameData.result;
+
+        if (result.homeScore !== null && result.guestScore !== null) {
+            // Determine if BC Lions won based on team position
+            let isWin = null;
+            const lionTeam = [gameData.home, gameData.guest].find(team =>
+                team && team.toLowerCase().includes('bc lions moabit')
+            );
+
+            if (lionTeam) {
+                if (lionTeam === gameData.home) {
+                    isWin = result.homeScore > result.guestScore;
+                } else {
+                    isWin = result.guestScore > result.homeScore;
+                }
+            }
+
+            return {
+                hasResult: true,
+                homeScore: result.homeScore,
+                guestScore: result.guestScore,
+                isWin,
+                isFinished: true,
+                scoreText: `${result.homeScore}:${result.guestScore}`,
+                scoreDiff: Math.abs(result.homeScore - result.guestScore)
+            };
+        } else {
+            return {
+                hasResult: true,
+                homeScore: null,
+                guestScore: null,
+                isWin: null,
+                isFinished: true,
+                scoreText: 'Beendet',
+                scoreDiff: 0
+            };
+        }
+    }
+
+    return { hasResult: false };
+}
+
+// Legacy: Helper function to extract game results from event title
 function extractGameResult(title) {
     // Match score pattern like "85:78" or "(Beendet)" - flexible with whitespace
     const scoreMatch = title.match(/(\d+):(\d+)/);
@@ -447,25 +492,62 @@ function formatDateRange(startDate, endDate) {
 
 
 // Common function to parse ICS data
-function parseIcsData(data, teamId = null) {
+// Parse JSON data from docs/data files
+function parseJsonData(data, teamId = null) {
     try {
-        const jcalData = ICAL.parse(data);
-        const comp = new ICAL.Component(jcalData);
-        const vevents = comp.getAllSubcomponents('vevent');
+        // Handle both team game data and termine data formats
+        let events = [];
 
-        return vevents.map(vevent => {
-            const event = new ICAL.Event(vevent);
-            return {
-                summary: event.summary,
-                startDate: event.startDate.toJSDate(),
-                endDate: event.endDate.toJSDate(),
-                location: event.location,
-                description: event.description,
-                teamId: teamId ? teamId.toUpperCase() : null
-            };
-        });
+        if (data.games) {
+            // Team games format
+            events = data.games.map(game => {
+                const gameDate = new Date(`${game.date}T${game.time}:00`);
+                const endDate = new Date(gameDate);
+                endDate.setHours(gameDate.getHours() + 2); // Assume 2-hour duration
+
+                // Create game title with result if available
+                let summary = `${game.home} vs ${game.guest}`;
+                if (game.result && game.result.isFinished) {
+                    if (game.result.homeScore !== null && game.result.guestScore !== null) {
+                        summary += ` ${game.result.homeScore}:${game.result.guestScore}`;
+                    } else {
+                        summary += ' (Beendet)';
+                    }
+                }
+
+                // Add venue info if available
+                const location = game.venue ? `${game.venue.name} (${game.venue.street}, ${game.venue.zip} ${game.venue.city})` : '';
+
+                return {
+                    summary,
+                    startDate: gameDate,
+                    endDate: endDate,
+                    location,
+                    description: `Match ID: ${game.matchId}`,
+                    teamId: teamId ? teamId.toUpperCase() : null,
+                    gameData: game // Include original game data for enhanced processing
+                };
+            });
+        } else if (data.events) {
+            // Termine format
+            events = data.events.map(event => {
+                const startDate = new Date(event.startDate);
+                const endDate = new Date(event.endDate);
+
+                return {
+                    summary: event.summary,
+                    startDate: startDate,
+                    endDate: endDate,
+                    location: event.location || '',
+                    description: event.description || '',
+                    teamId: teamId ? teamId.toUpperCase() : null
+                };
+            });
+        }
+
+        return events;
     } catch (error) {
-        console.error('Error parsing calendar:', error);
+        console.error('Error parsing JSON data:', error);
         return [];
     }
 }
@@ -527,17 +609,17 @@ function parseIcsDataWithRecurring(data, dateRange, teamId = null) {
 
 
 
-// Common function to fetch and parse calendar data
-function fetchAndParseCalendar(url, rangeTypeFilter = RANGE_TYPES.ALL, teamId = null) {
+// Common function to fetch and parse JSON data
+function fetchAndParseJSON(url, rangeTypeFilter = RANGE_TYPES.ALL, teamId = null) {
     return fetch(url)
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            const events = parseIcsData(data, teamId);
+            const events = parseJsonData(data, teamId);
             return rangeTypeFilter(events);
         });
 }
 
-// Load team events (Spielplan) - shows all upcoming events
+// Load team events (Spielplan) - shows all upcoming events from ICS files
 function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
     fetchAndParseCalendar(url, RANGE_TYPES.FUTURE, teamId)
         .then(events => {
@@ -550,9 +632,22 @@ function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null)
         });
 }
 
-// Load termine events - shows events for next month only
-function loadCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetchAndParseCalendar(url, RANGE_TYPES.MONTH, teamId)
+// Load team events from JSON (Spielplan) - shows all upcoming events
+function loadTeamCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
+    fetchAndParseJSON(url, RANGE_TYPES.FUTURE, teamId)
+        .then(events => {
+            events.sort((a, b) => a.startDate - b.startDate);
+            displayEvents(events, containerId);
+        })
+        .catch(error => {
+            console.error('Error loading team calendar:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.GAMES_ERROR}</div>`;
+        });
+}
+
+// Load termine events from JSON - shows events for next month only
+function loadCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
+    fetchAndParseJSON(url, RANGE_TYPES.MONTH, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
             displayEvents(events, containerId);
@@ -575,8 +670,10 @@ function displayEvents(events, containerId) {
         const title = event.summary || 'Kein Titel';
         const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
 
-        // Extract game result from title if present
-        const gameResult = extractGameResult(displayTitle);
+        // Extract game result from title if present, or use structured data from JSON
+        const gameResult = event.gameData
+            ? extractGameResultFromData(event.gameData, displayTitle)
+            : extractGameResult(displayTitle);
 
         // Make BC Lions team names bold
         let formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
@@ -705,10 +802,9 @@ function loadRecentResults(containerId) {
     console.log('🔍 loadRecentResults gestartet für Container:', containerId);
     console.log('📅 Suche Ergebnisse der letzten Woche');
 
-    // Custom load for recent results with different sorting
+    // Custom load for recent results with different sorting - use JSON
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        return fetchAndParseCalendar(icsFile, RANGE_TYPES.PAST_WEEK, config.id);
+        return fetchAndParseJSON(config.jsonUrl, RANGE_TYPES.PAST_WEEK, config.id);
     });
 
     Promise.all(allEventsPromises)
@@ -756,7 +852,7 @@ function initializeCalendarApp() {
     // Load home games for the "Heimspiele" section
     loadUpcomingHomeGames('heimspiele-events');
 
-    // Load events for dynamically configured team calendars
+    // Load events for dynamically configured team calendars (using ICS files)
     CALENDAR_CONFIGS.forEach(config => {
         const icsFile = config.icsFilename.replace('docs/', './');
         loadTeamCalendarEvents(icsFile, `${config.id}-events`, -1, config.id);
@@ -764,8 +860,7 @@ function initializeCalendarApp() {
 
     // Load events for dynamically configured schedule calendars
     SCHEDULE_CONFIGS.forEach(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        loadCalendarEvents(icsFile, `schedule-${config.id}-events`, -1, config.label);
+        loadCalendarEventsFromJSON(config.jsonUrl, `schedule-${config.id}-events`, -1, config.label);
     });
 }
 
