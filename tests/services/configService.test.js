@@ -65,7 +65,8 @@ describe('ConfigService', () => {
                 teamName: 'Team One',
                 teamId: 'team-1',
                 icsFilename: 'docs/ics/spiele/team-1.ics',
-                icsUrl: 'https://pkcpkc.github.io/bc-lions-moabit/ics/spiele/team-1.ics',
+                icsUrl: './ics/spiele/team-1.ics',
+                jsonUrl: './data/spiele/team-1.json',
                 webUrl: 'https://www.basketball-bund.net/static/#/liga/12345'
             });
         });
@@ -165,11 +166,11 @@ describe('ConfigService', () => {
             expect(result).toHaveLength(2);
             expect(result[0]).toEqual({
                 id: 'calendar1',
-                file: 'calendar1.json',
                 label: 'Calendar One',
                 calId: 'cal1@example.com',
                 icsFilename: 'docs/ics/termine/calendar1.ics',
-                icsUrl: 'https://pkcpkc.github.io/bc-lions-moabit/ics/termine/calendar1.ics'
+                icsUrl: './ics/termine/calendar1.ics',
+                jsonUrl: './data/termine/calendar1.json'
             });
         });
 

@@ -43,7 +43,8 @@ export class TermineService {
             label: config.label,
             calId: config.calId,
             icsFilename: `docs/ics/termine/${id}.ics`,
-            icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/termine/${id}.ics`
+            icsUrl: `./ics/termine/${id}.ics`,
+            jsonUrl: `./data/termine/${id}.json`
         };
     }
 }

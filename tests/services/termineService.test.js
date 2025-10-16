@@ -211,7 +211,8 @@ describe('TermineService', () => {
                 label: 'Test Calendar',
                 calId: 'test@example.com',
                 icsFilename: 'docs/ics/termine/test.ics',
-                icsUrl: 'https://pkcpkc.github.io/bc-lions-moabit/ics/termine/test.ics'
+                icsUrl: './ics/termine/test.ics',
+                jsonUrl: './data/termine/test.json'
             });
         });
 
@@ -228,7 +229,8 @@ describe('TermineService', () => {
                 label: 'Mixed Youth Calendar',
                 calId: 'youth@example.com',
                 icsFilename: 'docs/ics/termine/mU14-mU20.ics',
-                icsUrl: 'https://pkcpkc.github.io/bc-lions-moabit/ics/termine/mU14-mU20.ics'
+                icsUrl: './ics/termine/mU14-mU20.ics',
+                jsonUrl: './data/termine/mU14-mU20.json'
             });
         });
 
@@ -263,7 +265,8 @@ describe('TermineService', () => {
                 label: 'Spëcîàl Çälêndär',
                 calId: 'special+chars%test@example.com',
                 icsFilename: 'docs/ics/termine/special.ics',
-                icsUrl: 'https://pkcpkc.github.io/bc-lions-moabit/ics/termine/special.ics'
+                icsUrl: './ics/termine/special.ics',
+                jsonUrl: './data/termine/special.json'
             });
         });
     });

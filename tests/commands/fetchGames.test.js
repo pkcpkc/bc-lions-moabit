@@ -159,19 +159,20 @@ describe('FetchGamesCommand', () => {
     });
 
     describe('createEmptyResult', () => {
-        it('should create proper empty result', () => {
+        it('should create proper empty result', async () => {
             const teamConfig = {
                 teamName: 'BC Lions Moabit 1',
                 teamId: 'he-bl-a'
             };
 
-            const result = fetchCommand.createEmptyResult(teamConfig);
+            const result = await fetchCommand.createEmptyResult(teamConfig);
 
             expect(result).toEqual({
                 teamName: 'BC Lions Moabit 1',
                 teamId: 'he-bl-a',
                 gamesFound: 0,
                 filename: null,
+                jsonFilename: expect.stringContaining('he-bl-a.json'),
                 success: true
             });
         });

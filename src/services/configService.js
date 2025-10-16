@@ -31,8 +31,8 @@ export class ConfigService {
                         file,
                         ...config,
                         icsFilename: `docs/ics/spiele/${config.teamId}.ics`,
-                        icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/spiele/${config.teamId}.ics`,
-                        jsonUrl: `https://pkcpkc.github.io/bc-lions-moabit/data/${config.teamId}.json`,
+                        icsUrl: `./ics/spiele/${config.teamId}.ics`,
+                        jsonUrl: `./data/spiele/${config.teamId}.json`,
                         webUrl: `https://www.basketball-bund.net/static/#/liga/${config.competitionId}`
                     });
                     
@@ -78,11 +78,11 @@ export class ConfigService {
                     
                     configs.push({
                         id,
-                        file,
                         label: config.label,
                         calId: config.calId,
                         icsFilename: `docs/ics/termine/${id}.ics`,
-                        icsUrl: `https://pkcpkc.github.io/bc-lions-moabit/ics/termine/${id}.ics`
+                        icsUrl: `./ics/termine/${id}.ics`,
+                        jsonUrl: `./data/termine/${id}.json`
                     });
                     
                 } catch (error) {

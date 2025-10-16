@@ -773,7 +773,7 @@ function initializeCalendarApp() {
 
     // Load events for dynamically configured schedule calendars
     SCHEDULE_CONFIGS.forEach(config => {
-        const jsonFile = `./data/termine/${config.file}`;
+        const jsonFile = config.jsonUrl;
         loadCalendarEventsFromJSON(jsonFile, `schedule-${config.id}-events`, -1, config.label);
     });
 }
