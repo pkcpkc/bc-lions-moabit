@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2025-10-16T17:39:06.875Z",
+  "lastUpdated": "2025-10-16T19:24:14.428Z",
   "events": [
     {
       "summary": "Damen 2",
@@ -58,13 +58,6 @@
       "startDate": "2025-11-11T19:00:00.000Z",
       "endDate": "2025-11-11T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2025-10-16T18:00:00.000Z",
-      "endDate": "2025-10-16T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {

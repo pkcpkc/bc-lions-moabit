@@ -29,7 +29,7 @@ const RANGE_TYPES = {
         });
     },
     // Legacy support for existing code
-    WEEK: (events) => {
+    NEXT_WEEK: (events) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const endDate = new Date(today);
@@ -39,7 +39,7 @@ const RANGE_TYPES = {
             event.startDate >= today && event.startDate <= endDate
         );
     },
-    MONTH: (events) => {
+    NEXT_MONTH: (events) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const endDate = new Date(today);
@@ -222,8 +222,8 @@ function formatResultBadge(gameResult) {
     } else if (gameResult.isFinished) {
         return `<span class="result-badge result-finished">Beendet</span>`;
     } else {
-        // No result available - show "Ausstehend" in grey
-        return `<span class="result-badge result-pending">Ausstehend</span>`;
+        // No result available - omit the badge entirely
+        return '';
     }
 }
 
@@ -491,59 +491,30 @@ function formatDateRange(startDate, endDate) {
 
 
 
-// Common function to parse ICS data
 // Parse JSON data from docs/data files
 function parseJsonData(data, teamId = null) {
     try {
-        // Handle both team game data and termine data formats
-        let events = [];
-
-        if (data.games) {
-            // Team games format
-            events = data.games.map(game => {
-                const gameDate = new Date(`${game.date}T${game.time}:00`);
-                const endDate = new Date(gameDate);
-                endDate.setHours(gameDate.getHours() + 2); // Assume 2-hour duration
-
-                // Create game title with result if available
-                let summary = `${game.home} vs ${game.guest}`;
-                if (game.result && game.result.isFinished) {
-                    if (game.result.homeScore !== null && game.result.guestScore !== null) {
-                        summary += ` ${game.result.homeScore}:${game.result.guestScore}`;
-                    } else {
-                        summary += ' (Beendet)';
-                    }
-                }
-
-                // Add venue info if available
-                const location = game.venue ? `${game.venue.name} (${game.venue.street}, ${game.venue.zip} ${game.venue.city})` : '';
-
-                return {
-                    summary,
-                    startDate: gameDate,
-                    endDate: endDate,
-                    location,
-                    description: `Match ID: ${game.matchId}`,
-                    teamId: teamId ? teamId.toUpperCase() : null,
-                    gameData: game // Include original game data for enhanced processing
-                };
-            });
-        } else if (data.events) {
-            // Termine format
-            events = data.events.map(event => {
-                const startDate = new Date(event.startDate);
-                const endDate = new Date(event.endDate);
-
-                return {
-                    summary: event.summary,
-                    startDate: startDate,
-                    endDate: endDate,
-                    location: event.location || '',
-                    description: event.description || '',
-                    teamId: teamId ? teamId.toUpperCase() : null
-                };
-            });
+        if (!data.events || !Array.isArray(data.events)) {
+            console.warn('No events array found in JSON data');
+            return [];
         }
+
+        // Handle both spiele and termine data formats - both use same events structure
+        const events = data.events.map(event => {
+            const startDate = new Date(event.startDate);
+            const endDate = new Date(event.endDate);
+
+            return {
+                summary: event.summary,
+                startDate: startDate,
+                endDate: endDate,
+                location: event.location || '',
+                description: event.description || '',
+                venueName: event.venueName || '', // Optional field from spiele data
+                teamId: teamId ? teamId.toUpperCase() : null,
+                gameData: event.game || null // Include game data if available (from spiele)
+            };
+        });
 
         return events;
     } catch (error) {
@@ -552,60 +523,7 @@ function parseJsonData(data, teamId = null) {
     }
 }
 
-// Common function to parse ICS data with recurring events
-function parseIcsDataWithRecurring(data, dateRange, teamId = null) {
-    try {
-        const jcalData = ICAL.parse(data);
-        const comp = new ICAL.Component(jcalData);
-        const vevents = comp.getAllSubcomponents('vevent');
 
-        const allEvents = [];
-
-        vevents.forEach(vevent => {
-            const event = new ICAL.Event(vevent);
-
-            // Handle recurring events properly
-            if (event.isRecurring() && dateRange.end) {
-                const iterator = event.iterator();
-                let next;
-
-                // Expand recurring events within our date range
-                while ((next = iterator.next()) && next.toJSDate() <= dateRange.end) {
-                    const eventDate = next.toJSDate();
-                    if (eventDate >= dateRange.start) {
-                        const endTime = new Date(eventDate);
-                        endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
-
-                        allEvents.push({
-                            summary: event.summary,
-                            startDate: eventDate,
-                            endDate: endTime,
-                            location: event.location,
-                            description: event.description,
-                            teamId: teamId ? teamId.toUpperCase() : null
-                        });
-                    }
-                }
-            } else {
-                // Non-recurring event
-                const eventDate = event.startDate.toJSDate();
-                allEvents.push({
-                    summary: event.summary,
-                    startDate: eventDate,
-                    endDate: event.endDate.toJSDate(),
-                    location: event.location,
-                    description: event.description,
-                    teamId: teamId ? teamId.toUpperCase() : null
-                });
-            }
-        });
-
-        return allEvents;
-    } catch (error) {
-        console.error('Error parsing calendar:', error);
-        return [];
-    }
-}
 
 
 
@@ -619,18 +537,7 @@ function fetchAndParseJSON(url, rangeTypeFilter = RANGE_TYPES.ALL, teamId = null
         });
 }
 
-// Load team events (Spielplan) - shows all upcoming events from ICS files
-function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetchAndParseCalendar(url, RANGE_TYPES.FUTURE, teamId)
-        .then(events => {
-            events.sort((a, b) => a.startDate - b.startDate);
-            displayEvents(events, containerId);
-        })
-        .catch(error => {
-            console.error('Error loading team calendar:', error);
-            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.GAMES_ERROR}</div>`;
-        });
-}
+
 
 // Load team events from JSON (Spielplan) - shows all upcoming events
 function loadTeamCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
@@ -647,7 +554,7 @@ function loadTeamCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId
 
 // Load termine events from JSON - shows events for next month only
 function loadCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
-    fetchAndParseJSON(url, RANGE_TYPES.MONTH, teamId)
+    fetchAndParseJSON(url, RANGE_TYPES.NEXT_MONTH, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
             displayEvents(events, containerId);
@@ -668,7 +575,12 @@ function displayEvents(events, containerId) {
 
     const eventsHTML = events.map(event => {
         const title = event.summary || 'Kein Titel';
-        const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
+        let displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
+        
+        // Add venueName in brackets if available
+        if (event.venueName) {
+            displayTitle += ` (${event.venueName})`;
+        }
 
         // Extract game result from title if present, or use structured data from JSON
         const gameResult = event.gameData
@@ -703,8 +615,8 @@ function displayEvents(events, containerId) {
 // Common function to load multiple team events with filtering
 function loadMultipleTeamEvents(containerId, rangeTypeFilter = RANGE_TYPES.ALL, filterFunction = null) {
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        return fetchAndParseCalendar(icsFile, rangeTypeFilter, config.id);
+        const jsonFile = `./data/spiele/${config.id}.json`;
+        return fetchAndParseJSON(jsonFile, rangeTypeFilter, config.id);
     });
 
     Promise.all(allEventsPromises)
@@ -733,7 +645,7 @@ function loadAllTeamEvents(containerId) {
 }
 
 function loadUpcomingTeamEvents(containerId) {
-    loadMultipleTeamEvents(containerId, RANGE_TYPES.WEEK);
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.NEXT_WEEK);
 }
 
 function loadUpcomingHomeGames(containerId) {
@@ -744,7 +656,7 @@ function loadUpcomingHomeGames(containerId) {
         );
     };
 
-    loadMultipleTeamEvents(containerId, RANGE_TYPES.WEEK, homeGameFilter);
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.NEXT_WEEK, homeGameFilter);
 }
 
 // Helper function to format date for last modified display
@@ -804,7 +716,8 @@ function loadRecentResults(containerId) {
 
     // Custom load for recent results with different sorting - use JSON
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
-        return fetchAndParseJSON(config.jsonUrl, RANGE_TYPES.PAST_WEEK, config.id);
+        const jsonFile = `./data/spiele/${config.id}.json`;
+        return fetchAndParseJSON(jsonFile, RANGE_TYPES.PAST_WEEK, config.id);
     });
 
     Promise.all(allEventsPromises)
@@ -852,15 +765,16 @@ function initializeCalendarApp() {
     // Load home games for the "Heimspiele" section
     loadUpcomingHomeGames('heimspiele-events');
 
-    // Load events for dynamically configured team calendars (using ICS files)
+    // Load events for dynamically configured team calendars (using JSON files)
     CALENDAR_CONFIGS.forEach(config => {
-        const icsFile = config.icsFilename.replace('docs/', './');
-        loadTeamCalendarEvents(icsFile, `${config.id}-events`, -1, config.id);
+        const jsonFile = `./data/spiele/${config.id}.json`;
+        loadTeamCalendarEventsFromJSON(jsonFile, `${config.id}-events`, -1, config.id);
     });
 
     // Load events for dynamically configured schedule calendars
     SCHEDULE_CONFIGS.forEach(config => {
-        loadCalendarEventsFromJSON(config.jsonUrl, `schedule-${config.id}-events`, -1, config.label);
+        const jsonFile = `./data/termine/${config.file}`;
+        loadCalendarEventsFromJSON(jsonFile, `schedule-${config.id}-events`, -1, config.label);
     });
 }
 

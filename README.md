@@ -1,647 +1,273 @@
 # BC Lions Moabit - Dynamic Calendar System
 
-A modular, enterprise-grade basketball team calendar system that automatically generates game schedules and training calendars with **live game results**. Features dependency injection, comprehensive testing, and automated CI/CD workflows.
+Automated basketball team calendar system with **game results** and comprehensive test coverage.
 
-**🔄 Fully Automated**: GitHub Actions automatically update all data daily at 10:00 AM UTC, ensuring your website always shows the latest games, training schedules, and **live game results** without manual intervention.
+🔄 **Fully Automated**: GitHub Actions update all data daily at 10:00 UTC.
 
-## 🏀 Key Features
-
-- **Live Game Results**: Automatically displays game scores in calendar events when available
-- **Multi-Team Support**: Covers all age groups and leagues (22+ teams)
-- **Venue Information**: Complete addresses and venue details
-- **Smart Formatting**: Different formats for upcoming, finished, and TBD games
-- **Robust API Integration**: Handles Basketball-Bund API with retry logic
-- **Enterprise Architecture**: Modular design with comprehensive testing (228+ tests)
-
-## Architecture
-
-The system uses a modern modular architecture with dependency injection, service-oriented design, and comprehensive testing:
+## System Architecture
 
 ```mermaid
 graph TB
-    subgraph "Commands Layer"
-        A[CrawlCommand]
-        B[FetchGamesCommand]
-        C[BuildHtmlCommand]
-        D[DownloadTermineCommand]
+    subgraph "Frontend Layer"
+        A[calendar-app.js<br/>📱 51 Tests]
+        A1[Game Results Extraction]
+        A2[Date Filtering Logic] 
+        A3[URL Routing System]
+        A4[DOM Management]
+    end
+    
+    subgraph "Backend Services"
+        B[API Integration<br/>🏀 Basketball-Bund]
+        C[Data Processing<br/>📊 177 Tests]
+        D[File Generation<br/>📝 ICS + HTML]
+    end
+    
+    subgraph "Automation Layer"
+        E[GitHub Actions<br/>⏰ Daily at 10:00 UTC]
+        F[GitHub Pages<br/>🌐 Live Website]
+    end
+    
+    A --> A1
+    A --> A2
+    A --> A3
+    A --> A4
+    
+    B --> C
+    C --> D
+    E --> B
+    D --> F
+    
+    subgraph "Quality Assurance"
+        G[Frontend Tests: 51 ✅]
+        H[Backend Tests: 177 ✅]
+        I[Total Coverage: 228 ✅]
+    end
+```
+
+## Component Architecture
+
+```mermaid
+graph TB
+    subgraph "Command Layer"
+        CMD1[CrawlCommand<br/>Team Discovery]
+        CMD2[FetchGamesCommand<br/>Game Data Retrieval]
+        CMD3[BuildHtmlCommand<br/>Website Generation]
+        CMD4[DownloadTermineCommand<br/>Calendar Download]
     end
 
-    subgraph "Services Layer"
-        E[HttpClient]
-        F[CrawlService]
-        G[TeamDiscoveryService]
-        H[GamesFetchService]
-        I[IcsGeneratorService]
-        J[Logger]
+    subgraph "Service Layer"
+        SVC1[HttpClient<br/>• Retry Logic<br/>• Rate Limiting<br/>• Timeout Handling]
+        SVC2[CrawlService<br/>• League Investigation<br/>• Team Detection<br/>• Parallel Processing]
+        SVC3[GamesService<br/>• Match Processing<br/>• Score Extraction<br/>• Team Filtering]
+        SVC4[IcsService<br/>• Calendar Generation<br/>• Event Formatting<br/>• Metadata Handling]
+        SVC5[HtmlService<br/>• Template Processing<br/>• Config Injection<br/>• Asset Management]
+        SVC6[Logger<br/>• Structured Logging<br/>• Performance Tracking<br/>• Error Reporting]
     end
 
     subgraph "Data Layer"
-        K[teams/*.json]
-        L[termine/*.json]
-        M[docs/ics/spiele/*.ics]
-        N[docs/ics/termine/*.ics]
+        DATA1[teams/*.json<br/>Team Configurations]
+        DATA2[termine/*.json<br/>Training Schedules]
+        DATA3[docs/ics/spiele/*.ics<br/>Game Calendars]
+        DATA4[docs/ics/termine/*.ics<br/>Training Calendars]
+        DATA5[docs/index.html<br/>Generated Website]
     end
 
-    subgraph "Output"
-        O[docs/index.html]
-        P[GitHub Pages]
+    subgraph "External APIs"
+        API1[Basketball-Bund API<br/>Game Data & Results]
+        API2[Google Calendar API<br/>Training Schedules]
     end
 
-    A --> F
-    B --> H
-    C --> O
-    D --> N
-    
-    F --> G
-    F --> E
-    H --> I
-    H --> E
-    
-    B --> M
-    D --> N
-    
-    K --> C
-    L --> C
-    M --> O
-    N --> O
-    O --> P
-    
-    E -.-> J
-    F -.-> J
-    G -.-> J
-    H -.-> J
-    I -.-> J
+    CMD1 --> SVC2
+    CMD2 --> SVC3
+    CMD3 --> SVC5
+    CMD4 --> SVC4
+
+    SVC2 --> SVC1
+    SVC3 --> SVC1
+    SVC4 --> SVC1
+    SVC5 --> SVC1
+
+    SVC1 --> API1
+    SVC1 --> API2
+
+    SVC2 --> DATA1
+    SVC3 --> DATA3
+    SVC4 --> DATA4
+    SVC5 --> DATA5
+
+    SVC1 -.-> SVC6
+    SVC2 -.-> SVC6
+    SVC3 -.-> SVC6
+    SVC4 -.-> SVC6
+    SVC5 -.-> SVC6
 ```
 
-## Script Execution Flow
-
-The system orchestrates multiple services through a main build process:
+## Processing Flow
 
 ```mermaid
-graph LR
-    subgraph "Main Build Process"
-        A[🚀 src/build.js<br/>Main Orchestrator] --> B[📥 src/fetch-games-batch.js<br/>Process All Teams]
-        A --> C[🗓️ src/download-termine.js<br/>Download Training Calendars]
-        A --> D[🔨 src/build-html.js<br/>Generate Final HTML]
+flowchart TD
+    START([GitHub Actions Trigger<br/>Daily 10:00 UTC]) --> SETUP[Setup Environment<br/>Node.js 18 + Dependencies]
+    
+    SETUP --> TESTS{Run Test Suite<br/>228 Tests}
+    TESTS -->|❌ Fail| ABORT([❌ Abort Build<br/>Notify Failure])
+    TESTS -->|✅ Pass| PARALLEL[Parallel Processing Phase]
+    
+    subgraph PARALLEL [Parallel Data Collection]
+        direction TB
+        P1[📅 Download Training Calendars<br/>7 Google Calendar ICS files]
+        P2[🏀 Fetch Game Data<br/>22 Teams × ~20 Games each]
+        P3[🔍 Process Match Details<br/>API calls for scores & venues]
     end
-
-    subgraph "Team Processing"
-        B --> E[📊 src/fetch-games-single.js<br/>Individual Team Processing]
-        E --> F[🏀 basketball-bund.net API<br/>Fetch Game Data]
-        E --> G[📝 Generate ICS Files<br/>docs/ics/spiele/*.ics]
+    
+    PARALLEL --> PROCESS[Data Processing & Generation]
+    
+    subgraph PROCESS [File Generation]
+        direction TB
+        GEN1[Generate Team ICS Files<br/>22 × spiele/*.ics]
+        GEN2[Process Training ICS Files<br/>7 × termine/*.ics] 
+        GEN3[Extract Game Results<br/>Score parsing & win/loss logic]
+        GEN4[Create HTML Template<br/>Inject configs & generate docs/index.html]
     end
-
-    subgraph "Training Calendars"
-        C --> H[📅 Google Calendar API<br/>Download Training ICS]
-        C --> I[📝 Save Training ICS<br/>docs/ics/termine/*.ics]
+    
+    PROCESS --> VALIDATE{Validate Changes<br/>git diff check}
+    VALIDATE -->|No Changes| SKIP([⏭️ Skip Commit<br/>No updates needed])
+    VALIDATE -->|Changes Found| COMMIT[📝 Auto-Commit & Push<br/>Update repository]
+    
+    COMMIT --> DEPLOY[🚀 GitHub Pages Deploy<br/>Live website update]
+    DEPLOY --> SUCCESS([✅ Build Complete<br/>Website Updated])
+    
+    subgraph ERROR_HANDLING [Error Handling]
+        direction TB
+        ERR1[HTTP Retry Logic<br/>3 attempts with backoff]
+        ERR2[API Timeout Handling<br/>30s per request]
+        ERR3[Graceful Degradation<br/>Continue with available data]
     end
-
-    subgraph "HTML Generation"
-        D --> J[📋 Read teams/*.json<br/>Team Configurations]
-        D --> K[📋 Read termine/*.json<br/>Training Configurations]
-        D --> L[🎯 Generate docs/index.html<br/>Final Website]
-    end
-
-    subgraph "Team Discovery"
-        M[🔍 src/crawl.js<br/>Team Discovery] -.-> N[📝 Create teams/*.json<br/>Auto-generate Configs]
-        N -.-> J
-    end
+    
+    PARALLEL -.-> ERROR_HANDLING
+    PROCESS -.-> ERROR_HANDLING
 ```
 
-## 🎯 Game Results Integration
+## 🏀 Key Features
 
-The system automatically fetches and displays live game results from the Basketball-Bund API:
+- **Live Game Results**: Automatic display of scores in calendar events
+- **22+ Teams**: All age groups and leagues covered
+- **Smart Formatting**: Different formats for upcoming/finished games
+- **Robust API**: Basketball-Bund integration with retry logic
+- **Enterprise Testing**: 228 tests with 100% success rate
 
-### Calendar Event Formats
+## Quick Start
 
-**Upcoming Games:**
-```
-BC Lions Moabit 1 vs Team B (Sporthalle Alt-Moabit)
-```
+```bash
+# Complete build
+npm run build
 
-**Games with Results:**
-```
-BC Lions Moabit 1 vs Team B 85:78 (Sporthalle Alt-Moabit)
-```
+# Run tests only
+npm test
 
-**Finished Games (no score available):**
-```
-BC Lions Moabit 1 vs Team B (Beendet) (Sporthalle Alt-Moabit)
-```
+# Frontend tests
+npm test tests/frontend/
 
-### Technical Implementation
-
-- **API Integration**: Fetches match details from `/match/id/{matchId}/matchInfo`
-- **Result Parsing**: Handles `result: "71:92"` format from Basketball-Bund API
-- **Graceful Fallback**: Shows events without results when API data unavailable
-- **Smart Detection**: Uses `ergebnisbestaetigt` flag to identify finished games
-
-**Service Dependencies:**
-
-- All commands use dependency injection for testability
-- HttpClient service handles all API communication with retry logic
-- Logger service provides structured logging across all components
-- Services are loosely coupled and easily mockable for testing
-
-## Service Architecture
-
-```mermaid
-graph TB
-    subgraph "Core Services"
-        A[HttpClient<br/>• Timeout handling<br/>• Retry logic<br/>• Rate limiting]
-        B[Logger<br/>• Structured logging<br/>• Log levels<br/>• Console output]
-    end
-
-    subgraph "Business Services"
-        C[CrawlService<br/>• Team discovery<br/>• League investigation<br/>• Parallel processing]
-        D[TeamDiscoveryService<br/>• Team config creation<br/>• ID sanitization<br/>• File naming]
-        E[GamesFetchService<br/>• Game data fetching<br/>• Match processing<br/>• Team filtering]
-        F[IcsGeneratorService<br/>• ICS file generation<br/>• Event formatting<br/>• Calendar metadata]
-    end
-
-    subgraph "Data Flow"
-        G[Teams Config] --> H[ICS Files]
-        I[Termine Config] --> J[Training ICS]
-        H --> K[HTML Generation]
-        J --> K
-    end
-
-    A --> C
-    A --> E
-    B --> C
-    B --> D
-    B --> E
-    B --> F
-    C --> D
-    E --> F
+# With coverage report
+npm run test:coverage
 ```
 
-## Configuration Format
+## Current Statistics
 
-### Team Configurations (`teams/*.json`)
+| Metric | Value |
+|--------|-------|
+| Active Teams | 22 teams |
+| Total Tests | 228 (100% ✅) |
+| Frontend Tests | 51 (100% ✅) |
+| API Calls per Build | ~450+ |
+| Build Time | 2-3 minutes |
+| Game Results Tracked | 12+ completed games |
 
-Each team JSON config file contains:
+## Test Architecture
+
+### Frontend Tests (`tests/frontend/`)
+
+- **calendar-app.test.js**: Core functions, data processing (22 tests)
+- **calendar-app-dom.test.js**: DOM manipulation, HTML generation (14 tests)
+- **calendar-app-routing.test.js**: URL routing, navigation (15 tests)
+
+### Backend Tests (`tests/`)
+
+- **Commands**: Build, Crawl, FetchGames (5 files)
+- **Services**: HTTP, ICS, Games, Config (9 files)
+
+## Technical Stack
+
+- **Frontend**: Vanilla JS with comprehensive DOM/Browser API mocking
+- **Backend**: Node.js with service-oriented architecture
+- **Testing**: Vitest for all tests
+- **CI/CD**: GitHub Actions with automatic updates
+- **Deployment**: GitHub Pages with daily data updates
+
+## Configuration Examples
+
+### Team Configuration (`teams/he1.json`)
 
 ```json
 {
-    "teamId": "u12",
+    "teamId": "he1",
     "competitionId": "50422",
-    "teamName": "BC Lions Moabit 1 mix"
+    "teamName": "BC Lions Moabit 1"
 }
 ```
 
-- **teamId**: Unique identifier for the team (used for prefixes and file generation)
-- **competitionId**: The ID from the basketball-bund.net website
-- **teamName**: The exact team name to filter for
-
-**Note**: ICS filename is automatically generated as `docs/ics/spiele/${teamId}.ics`
-
-## 📊 Current Status (Last Build)
-
-Based on the latest build results:
-
-- **Teams Active**: 22 teams across all age groups
-- **Total Games**: 424 games scheduled
-- **Games with Results**: 12+ games completed
-- **Test Coverage**: 228 tests passing (100%)
-- **API Calls**: ~450+ successful API requests per build
-- **Build Performance**: ~2-3 minutes complete rebuild
-
-### Recent Game Results Examples
-
-- BC Lions Moabit 1 mix vs Einheit Pankow 2: **71:92**
-- BC Lions Moabit 1 vs ALBA Berlin 14: **52:81**  
-- BC Lions Moabit 1 vs BSC Füchse 94: **57:45** ✅
-- BC Lions Moabit 1 vs CITY Basket Berlin 2: **61:46** ✅
-
-### Termine Configurations (`termine/*.json`)
-
-Each termine JSON config file contains:
+### Training Configuration (`termine/boys.json`)
 
 ```json
 {
     "label": "BC Lions Boys",
-    "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com"
+    "calId": "example@group.calendar.google.com"
 }
 ```
 
-- **label**: Display name for the schedule group
-- **calId**: Google Calendar ID for the training schedule
+## Game Result Examples
 
-**Note**: Schedule calendars use Google Calendar embeds and automatic iCal generation
+The system automatically extracts and displays game results:
 
-## Usage
-
-### Complete Build (Recommended)
-```bash
-# Full build process: fetch games, download termine, generate HTML
-npm run build
-# or
-node src/build.js
-```
-
-This is the **recommended workflow** as it ensures your HTML page has the latest data by automatically running:
-1. **Fetch games** for all configured teams (parallel processing)
-2. **Download termine ICS files** from Google Calendar (concurrent downloads)
-3. **Generate HTML** with updated data
-
-### Individual Operations
-```bash
-# Fetch games for all configured teams in parallel
-npm run fetch-games-batch
-# or
-node src/fetch-games-batch.js
-
-# Download termine ICS files from Google Calendar
-npm run download-termine
-# or
-node src/download-termine.js
-
-# Fetch games for a specific team
-npm run fetch-games u11.json
-# or
-node src/fetch-games-single.js u11.json
-
-# Generate HTML only (with current data)
-npm run build-html
-# or
-node src/build-html.js
-```
-
-### Team Discovery
-```bash
-# Auto-discover all BC Lions teams from basketball federation
-npm run crawl
-# or 
-node src/crawl.js
-```
-
-**Note**: The crawl command uses the modular CrawlService with parallel league investigation for maximum performance.
-
-### Testing
-```bash
-# Run all tests
-npm test
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run tests with coverage
-npm run test:coverage
-
-# Run tests with UI
-npm run test:ui
-```
-
-## GitHub Actions (Automated Updates)
-
-The repository includes a unified GitHub Actions workflow for automated updates and HTML rebuilding.
-
-### Unified Workflow: "Update Termine and Spiele"
-
-- **Purpose**: Complete website update with both training schedules and game data  
-- **Steps**: `download-termine.js` → `fetch-games-batch.js` → `build-html.js`
-- **Updates**: All training calendars, team game schedules, and regenerated HTML
-- **Schedule**: Runs automatically **daily at 10:00 AM UTC**
-- **Testing**: Includes comprehensive test suite execution before build
-- **Permissions**: Includes write permissions to commit and push changes automatically
-
-### Automatic Scheduling
-
-The workflow runs automatically every day at **10:00 AM UTC** to keep both training schedules and game data up-to-date. No manual intervention required!
-
-### Manual Execution
-
-You can trigger the workflow manually:
-
-1. **Navigate to Actions Tab**: Go to your repository on GitHub.com → Actions tab
-2. **Select Workflow**: Choose "Update Termine and Spiele"
-3. **Run Workflow**: Click "Run workflow" button
-4. **Optional Force Update**: Check "Force update even if no changes detected"
-
-### What the Unified Workflow Does
-
-**Complete Update Process:**
-1. **Setup Environment**: Installs Node.js 18 and project dependencies with npm cache
-2. **Run Tests**: Executes comprehensive test suite (34 tests) to ensure reliability
-3. **Download Termine**: Runs `download-termine.js` to fetch latest training calendars
-4. **Fetch All Games**: Runs `fetch-games-batch.js` for all 22+ teams (parallel processing)
-5. **Build HTML**: Runs `build-html.js` to regenerate the complete website
-6. **Check Changes**: Smart detection of actual file changes using git diff
-7. **Auto-Commit**: Automatically commits and pushes changes only if updates are detected
-8. **Summary Report**: Provides detailed execution summary in GitHub Actions interface
-
-## Execution Patterns
-
-### Parallel Processing Architecture
-
-The system uses aggressive parallelization with service-oriented architecture:
-
-```mermaid
-graph LR
-    subgraph "Build Orchestration"
-        A[build.js] --> B[Step 1: fetch-games-batch.js]
-        A --> C[Step 2: download-termine.js] 
-        A --> D[Step 3: build-html.js]
-    end
-    
-    subgraph "Team Processing Services"
-        B --> E[Team 1<br/>FetchGamesCommand]
-        B --> F[Team 2<br/>FetchGamesCommand] 
-        B --> G[Team N<br/>FetchGamesCommand]
-    end
-    
-    subgraph "HTTP Service Layer"
-        E --> H[HttpClient<br/>Match 1 API]
-        E --> I[HttpClient<br/>Match 2 API]
-        E --> J[HttpClient<br/>Match N API]
-    end
-    
-    subgraph "Calendar Services"
-        C --> K[Calendar 1<br/>Download Service]
-        C --> L[Calendar 2<br/>Download Service]
-        C --> M[Calendar N<br/>Download Service]
-    end
-```
-
-**Performance Benefits:**
-- **Team Level**: All 22 teams processed simultaneously
-- **Match Level**: Individual team's matches fetched in parallel using `Promise.all()`
-- **Calendar Level**: All 7 training calendars downloaded concurrently
-- **Service Level**: Dependency injection enables efficient resource sharing
-- **Total Build Time**: ~13-35 seconds for 424 games across 22 teams
-- **Testing**: 34 comprehensive tests ensure reliability at all levels
-
-## How It Works
-
-### Server-Side (Build Time)
-1. **BuildHtmlCommand** scans `teams/*.json` and `termine/*.json` files and embeds configurations as JSON
-2. **FetchGamesCommand** uses GamesFetchService to fetch games from basketball-bund.net API
-3. **IcsGeneratorService** generates ICS files with team ID prefixes (e.g., `u11: Team A vs Team B`)
-4. **DownloadTermineCommand** downloads training calendars from Google Calendar
-
-### Client-Side (Runtime) 
-5. JavaScript dynamically creates:
-   - **Übersicht**: Main navigation (Spiele, Heimspiele, Anleitung) with 7-day event previews
-   - **Spielpläne**: Team calendar sections with download/subscribe buttons
-   - **Termine**: Training calendar sections with 1-month event display and recurring events
-6. **Dynamic Features**:
-   - Real-time last modified date from HTTP headers
-   - ICAL.js parsing with proper recurring event handling
-   - Smart date filtering (7 days for games, 1 month for training)
-   - Three-section navigation layout with URL routing
-
-## Key Features
-
-### Service-Oriented Architecture
-- **Dependency Injection**: All services are injectable for testing and flexibility
-- **Loose Coupling**: Services communicate through well-defined interfaces
-- **Comprehensive Testing**: 34 tests covering all critical components
-- **Structured Logging**: Consistent logging across all services
-- **Error Handling**: Robust error handling with retry logic and timeouts
-
-### Smart Event Handling
-
-**Different Display Logic for Different Content:**
-- **Spielpläne (Games)**: Shows all upcoming games (unlimited timeframe)
-- **Termine (Training)**: Shows events for next month with proper recurring event expansion
-- **Übersicht Spiele**: Shows games for next 7 days across all teams
-- **Heimspiele**: Shows home games for next 7 days (BC Lions as home team)
-
-**Recurring Event Support:**
-- Uses ICAL.js iterator to properly expand recurring training sessions
-- Handles weekly training schedules, camps, and recurring events
-- Ensures all instances within the timeframe are displayed
-
-### Team ID Prefixes in Calendar Entries
-All calendar entries are prefixed with the team ID for easy identification:
-- `u11: BC Lions Moabit 1 mix vs Team X (Venue)`
-- `u12: Team Y vs BC Lions Moabit 1 mix (Venue)`
-
-### Optimized Performance
-- **Dual-Level Parallelization**: 
-  - **Team-level**: All teams processed concurrently
-  - **Match-level**: All match details fetched concurrently per team
-- **Service Efficiency**: HttpClient service handles connection pooling and rate limiting
-- **Dramatic Speed Improvements**: Complete build ~36 seconds (vs. ~10+ minutes sequential)
-- **Intelligent Error Handling**: Retry logic with exponential backoff for resilient API calls
-
-### Three-Section Navigation
-- **Übersicht**: Main sections (Spiele, Heimspiele, Anleitung)
-- **Spielpläne**: All team game schedules (alphabetically sorted)
-- **Training**: Google Calendar embedded training schedules
-
-### Enhanced User Experience
-- **Clickable locations**: Event locations link to Google Maps
-- **Condensed layout**: Optimized spacing for better information density
-- **Horizontal action bars**: Copy, subscribe, and download buttons
-- **Responsive design**: Works on desktop and mobile devices
-
-### Dynamic Content Generation
-- **Teams**: Automatically sorted alphabetically and rendered client-side
-- **Training**: Google Calendar embeds with automatic iCal subscription links
-- **Events**: Real-time loading from ICS files with proper date formatting
-
-### Dynamic Last Updated Display
-The website dynamically shows when the HTML file was last modified:
-- Uses JavaScript to fetch HTTP Last-Modified header from the web server
-- Displays in German format: "Sonntag, 28. September 2025 um 13:48"
-- Updates automatically based on actual file modification time
-
-### Google Calendar Integration
-- **Embedded calendars**: Full Google Calendar view for training schedules
-- **Automatic URL encoding**: Proper handling of Google Calendar IDs
-- **Multiple access methods**: Copy URL, subscribe via webcal, or download iCal
-
-### Automatic File Generation
-- **Team ICS files (Spielpläne)**: `docs/ics/spiele/${teamId}.ics`
-- **Schedule ICS files (Termine)**: `docs/ics/termine/${id}.ics`
-- **Team names**: `${teamId.toUpperCase()}` (e.g., "U12", "HE1")
-- **Training URLs**: Automatically generated from Google Calendar IDs
-
-## Adding New Content
-
-### Adding New Teams
-
-1. Create a new JSON config file in the teams folder (e.g., `teams/u15.json`):
-   ```json
-   {
-       "teamId": "u15",
-       "competitionId": "12345",
-       "teamName": "BC Lions Moabit 1 mix"
-   }
-   ```
-2. Run `npm run fetch-games u15.json`
-3. The team will automatically appear in the "Spielpläne" section (sorted alphabetically)
-
-### Adding New Termine Groups
-
-1. Create a new JSON config file in the termine folder (e.g., `termine/girls.json`):
-   ```json
-   {
-       "label": "BC Lions Girls",
-       "calId": "your-google-calendar-id@group.calendar.google.com"
-   }
-   ```
-2. Run `npm run build-html`
-3. The termine group will automatically appear in the "Training" section
-
-## Template System
-
-The template uses client-side JavaScript generation with service-driven architecture:
-
-```mermaid
-graph LR
-    subgraph "Build Services"
-        A[index.template.html] --> B[BuildHtmlCommand]
-        C[teams/*.json] --> B
-        D[termine/*.json] --> B
-        B --> E[docs/index.html]
-    end
-    
-    subgraph "Client Services"
-        E --> F["CALENDAR_CONFIGS<br/>JSON Placeholder"]
-        E --> G["SCHEDULE_CONFIGS<br/>JSON Placeholder"] 
-        
-        F --> I[Client-Side JS<br/>Dynamic Rendering]
-        G --> I
-        E --> H[Dynamic Last Updated<br/>HTTP Headers]
-        H --> I
-    end
-    
-    subgraph "Output"
-        I --> J[🎯 Final Website<br/>Three-Section Layout]
-    end
-```
-
-**Template Placeholders:**
-- `{{CALENDAR_CONFIGS}}` - JSON array with team configurations (22 teams)
-- `{{SCHEDULE_CONFIGS}}` - JSON array with termine configurations (7 training schedules)
-
-**Client-Side Features:**
-- **Dynamic Last Updated**: Automatically displays file modification date from HTTP headers
-- **Recurring Events**: Proper expansion using ICAL.js iterator
-- **Smart Date Filtering**: 7 days for games overview, 1 month for training termine
-- **Real-time Loading**: Dynamic ICS file parsing and event display
+- **Victory**: BC Lions Moabit 1 vs Team A **85:78** ✅
+- **Loss**: Team B vs BC Lions Moabit 1 **92:71** ❌
+- **Finished**: BC Lions Moabit 1 vs Team C **(Finished)** 🏁
 
 ## Project Structure
 
-```
+```text
 bc-lions-moabit/
-├── src/                         # Source code with modular architecture
-│   ├── commands/                # Command layer
-│   │   ├── crawl.js            # CrawlCommand - team discovery
-│   │   ├── fetchGames.js       # FetchGamesCommand - game fetching
-│   │   └── buildHtml.js        # BuildHtmlCommand - HTML generation
-│   ├── services/               # Service layer
-│   │   ├── httpClient.js       # HTTP client with retry logic
-│   │   ├── crawlService.js     # Team discovery service
-│   │   ├── teamDiscoveryService.js # Team config creation
-│   │   ├── gamesFetchService.js # Game data fetching
-│   │   ├── icsGeneratorService.js # ICS file generation
-│   │   └── logger.js           # Structured logging service
-│   ├── config/                 # Configuration
-│   │   └── index.js            # Application configuration
-│   ├── build.js                # Main build orchestrator
-│   ├── fetch-games-batch.js    # Batch processing entry point
-│   ├── fetch-games-single.js   # Single team processing entry point
-│   ├── download-termine.js     # Training calendar downloader
-│   ├── build-html.js           # HTML generation entry point
-│   └── crawl.js                # Team discovery entry point
-├── teams/                      # Team configuration files
-│   ├── da-bl.json             # Damen Bezirksliga team config
-│   ├── he-bl-a.json           # Herren Bezirksliga A team config
-│   └── ...                    # Additional team configs (22 total)
-├── termine/                   # Training configuration files
-│   ├── boys.json              # Boys training Google Calendar config
-│   ├── u11-u12.json           # U11/U12 training Google Calendar config
-│   └── ...                    # Additional termine configs (7 total)
-├── docs/                      # Generated output and static assets
-│   ├── index.html             # Generated main page (client-side rendering)
-│   ├── bc-lions-logo.png      # Logo for background watermark
-│   ├── js/
-│   │   ├── calendar-app.js    # Client-side calendar application
-│   │   ├── basketball-animation.js # Interactive basketball game
-│   │   └── ical.min.js        # ICS parsing library
-│   └── ics/                   # Generated calendar files
-│       ├── spiele/            # Team game schedules (Spielpläne)
-│       │   ├── da-bl.ics      # Team calendars with prefixes
-│       │   ├── he-bl-a.ics    # 
-│       │   └── ...            # Additional team ICS files (22 total)
-│       └── termine/           # Training schedules (Termine)
-│           ├── Damen.ics      # Downloaded from Google Calendar
-│           ├── Herren.ics     # 
-│           └── ...            # Additional training ICS files (7 total)
-├── tests/                     # Comprehensive test suite
-│   ├── commands/              # Command tests
-│   ├── services/              # Service tests
-│   └── integration/           # Integration tests
-├── index.template.html        # HTML template with placeholders
-├── vitest.config.js          # Test configuration
-├── package.json              # Dependencies and scripts
-└── README.md                 # This file
+├── src/                    # Backend source code
+│   ├── commands/          # Command layer (CRUD operations)
+│   ├── services/          # Service layer (business logic)
+│   └── config/           # Configuration management
+├── docs/                  # Frontend & generated files
+│   ├── js/               # Client-side JavaScript
+│   ├── ics/              # Generated calendar files
+│   └── index.html        # Generated website
+├── teams/                 # Team configuration files
+├── termine/              # Training configuration files
+├── tests/                # Comprehensive test suite
+│   ├── frontend/         # Frontend tests (51 tests)
+│   ├── commands/         # Command tests
+│   └── services/         # Service tests
+└── .github/workflows/    # CI/CD automation
 ```
-
-## Recent Changes
-
-### v5.0 - Service-Oriented Architecture & Comprehensive Testing
-- **Breaking Change**: Complete refactor to service-oriented architecture
-- **Dependency Injection**: All components use dependency injection for testability
-- **Comprehensive Testing**: 34 tests covering all critical components and edge cases
-- **Modular Services**: Separate services for HTTP, logging, team discovery, games fetching
-- **Enhanced Error Handling**: Structured error handling across all services
-- **Configuration Management**: Centralized configuration with environment support
-- **Performance Monitoring**: Built-in performance tracking and logging
-
-### v4.0 - Automation & Enhanced Event Handling
-- **GitHub Actions**: Automated workflows for updating termine and spiele
-- **Daily Auto-Updates**: Termine automatically updated daily at 10:00 AM UTC
-- **Dynamic Last Updated**: JavaScript-based file modification date display
-- **Recurring Events**: Proper handling of recurring training events with ICAL.js iterator
-- **Smart Timeframes**: 7 days for game overviews, 1 month for training termine
-- **Improved Event Filtering**: Separate functions for team games vs. training schedules
-
-### v3.0 - Training Integration & UI Enhancements
-- **New Feature**: Google Calendar integration for training schedules
-- **Enhanced Navigation**: Three-section layout (Übersicht, Spielpläne, Training)
-- **UI Improvements**: Condensed layout, clickable locations, horizontal action bars
-- **Termine Configs**: New `termine/*.json` files for Google Calendar integration
-- **Embedded Calendars**: Full Google Calendar views for training schedules
-- **Better UX**: Improved spacing, responsive design, cleaner typography
-
-### v2.0 - Client-Side Dynamic Rendering
-- **Breaking Change**: Moved from server-side HTML generation to client-side dynamic rendering
-- **Config Format**: Added explicit `teamId` field, removed `icsFilename` (auto-generated)
-- **Team Prefixes**: All ICS calendar entries now prefixed with team ID
-- **Alphabetical Sorting**: Teams automatically sorted alphabetically in navigation
-- **Simplified Architecture**: JSON placeholders in template, JavaScript handles rendering
 
 ## Dependencies
 
-- `node-fetch` - For API requests
-- `glob` - For finding configuration files
-- `vitest` - Testing framework
-- `c8` - Code coverage
-- `@vitest/ui` - Test UI
+```json
+{
+  "dependencies": {
+    "glob": "^10.3.10",
+    "ical.js": "^2.2.1", 
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^1.6.1",
+    "@vitest/ui": "^1.6.1",
+    "vitest": "^1.6.1"
+  }
+}
+```
 
 Install with: `npm install`
-
-## Testing
-
-The system includes comprehensive testing with **228 tests** covering:
-
-- **Unit Tests**: All services and commands including new game results features
-- **Integration Tests**: End-to-end workflows with real API responses
-- **Error Handling**: Edge cases and API failure scenarios
-- **Performance Tests**: Timing and resource usage optimization
-- **Mock Services**: Complete dependency injection testing
-- **Game Results**: Parsing various API response formats and score extraction
-
-Run tests with:
-
-```bash
-npm test                 # Run all tests
-npm run test:watch      # Watch mode
-npm run test:coverage   # With coverage report
-npm run test:ui         # Interactive test UI
-```

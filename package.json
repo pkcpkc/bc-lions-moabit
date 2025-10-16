@@ -17,13 +17,12 @@
     "fetch-games-batch": "node src/fetch-games-batch.js",
     "fetch-games": "node src/fetch-games-single.js",
     "download-termine": "node src/download-termine.js",
-    "build-html": "node src/build-html.js",
+    "build:html": "node src/build-html.js",
     "build": "node src/build.js",
     "crawl": "node src/crawl.js",
     "test": "vitest --run",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui",
-    "dev": "node --watch src/fetch-games-batch.js"
+    "test:ui": "vitest --ui"
   }
 }
