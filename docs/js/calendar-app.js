@@ -78,16 +78,15 @@ function createNavLink(href, className, textContent, clickHandler) {
 
 // Helper function to create calendar actions HTML
 function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
-    const webcalUrl = `webcal://${icsUrl.replace('https://', '')}`;
+    const webcalUrl = `webcal://pkcpkc.github.io/bc-lions-moabit/${icsUrl.replace('https://', '')}`;
     return `
         <div class="calendar-actions">
-            <button class="copy-button"
-                onclick="copyToClipboard('${icsUrl}', event)">iCal-URL
-                kopieren</button>
-            <span class="calendar-separator">|</span>
             <a href="${webcalUrl}">Abonnieren</a>
             <span class="calendar-separator">|</span>
-            <a href="${additionalUrl}" target="_blank" rel="noopener noreferrer">${additionalText}</a>
+            <a href="${additionalUrl}" target="_blank" rel="noopener noreferrer">${additionalText}</a><span class="calendar-separator">|</span>
+            <button class="copy-button"
+                onclick="copyToClipboard('https://://pkcpkc.github.io/bc-lions-moabit/${icsUrl}', event)">iCal-URL
+                kopieren</button>
         </div>
     `;
 }
@@ -576,7 +575,7 @@ function displayEvents(events, containerId) {
     const eventsHTML = events.map(event => {
         const title = event.summary || 'Kein Titel';
         let displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
-        
+
         // Add venueName in brackets if available
         if (event.venueName) {
             displayTitle += ` (${event.venueName})`;

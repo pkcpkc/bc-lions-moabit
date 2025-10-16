@@ -69,8 +69,7 @@ class BasketballAnimation {
             // Show opponent scoring animation
             this.showOpponentScoringEffect(points);
             
-            // Schedule next opponent score after 1-3 seconds
-            const nextScoreDelay = (Math.random() * 2 + 1) * 1000; // 1000-3000ms
+            const nextScoreDelay = (Math.random() * 2 + 1) * 300;
             this.opponentTimer = setTimeout(scoreOpponent, nextScoreDelay);
         };
         
