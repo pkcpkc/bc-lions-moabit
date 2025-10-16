@@ -85,7 +85,7 @@ function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
             <span class="calendar-separator">|</span>
             <a href="${additionalUrl}" target="_blank" rel="noopener noreferrer">${additionalText}</a><span class="calendar-separator">|</span>
             <button class="copy-button"
-                onclick="copyToClipboard('https://://pkcpkc.github.io/bc-lions-moabit/${icsUrl}', event)">iCal-URL
+                onclick="copyToClipboard('https://pkcpkc.github.io/bc-lions-moabit/${icsUrl}', event)">iCal-URL
                 kopieren</button>
         </div>
     `;
