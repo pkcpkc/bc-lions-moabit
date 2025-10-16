@@ -135,25 +135,39 @@
 
         .event-main {
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .event-date-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2px;
+            gap: 10px;
         }
 
         .event-date {
             font-weight: bold;
             color: #007bff;
             font-size: 14px;
+            flex-shrink: 0;
         }
 
         .event-title {
             font-size: 14px;
             margin: 2px 0;
             color: #333;
+            flex-grow: 1;
         }
 
         .event-location {
             color: #666;
             font-size: 12px;
             margin-top: 4px;
-            font-style: normal; /* Ensure not italic */
+            font-style: normal;
+            align-self: flex-start;
         }
 
         .event-location a {
@@ -164,7 +178,80 @@
         .event-location a:hover {
             color: #007bff;
             text-decoration: underline;
-        }        .loading {
+        }
+
+        /* Game Result Styles */
+        .event-item.has-result {
+            border-left-color: #28a745;
+        }
+
+        .event-item.has-pending {
+            border-left-color: #e0e0e0;
+        }
+
+        .score-highlight {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+
+        .score-highlight.win {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .score-highlight.loss {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .score-highlight.finished {
+            background-color: #e2e3e5;
+            color: #495057;
+            border: 1px solid #d6d8db;
+        }
+
+        .game-result {
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-left: auto;
+        }
+
+        .result-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 14px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .result-badge.result-win {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .result-badge.result-loss {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .result-badge.result-finished {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .result-badge.result-pending {
+            background-color: #e0e0e0;
+            color: #666;
+            border: 1px solid #ccc;
+        }
+
+        .loading {
             text-align: center;
             color: #666;
             font-style: italic;
@@ -274,6 +361,7 @@
                 <div class="nav-row">
                     <a href="#spiele" class="nav-link">Spiele</a>
                     <a href="#heimspiele" class="nav-link">Heimspiele</a>
+                    <a href="#ergebnisse" class="nav-link">Ergebnisse</a>
                     <a href="#anleitung" class="nav-link">Anleitung</a>
                 </div>
             </div>
@@ -320,7 +408,15 @@
             <!-- Dynamic team sections will be inserted here -->
         </div>
 
-
+        <!-- Recent Results section -->
+        <div class="calendar-section" id="ergebnisse-section">
+            <div class="calendar-link" id="ergebnisse">
+                <h3>Ergebnisse der letzten Woche</h3>
+            </div>
+            <div id="ergebnisse-events" class="event-list">
+                <!-- Recent results will be populated by JavaScript -->
+            </div>
+        </div>
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">

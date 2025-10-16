@@ -170,7 +170,8 @@ describe('GamesService', () => {
                     street: 'Hauptstr. 1',
                     zip: '10115',
                     city: 'Berlin'
-                }
+                },
+                result: null
             });
         });
 
@@ -213,6 +214,154 @@ describe('GamesService', () => {
                 'Could not fetch details for match 12345:',
                 'Network error'
             );
+            expect(result[0].result).toBeNull();
+        });
+
+        it('should include result data when available', async () => {
+            const games = [{
+                matchId: '12345',
+                kickoffDate: '2024-01-15',
+                kickoffTime: '18:00',
+                homeTeam: { teamname: 'BC Lions Moabit 1' },
+                guestTeam: { teamname: 'Team B' }
+            }];
+
+            const mockMatchDetails = {
+                data: {
+                    result: "85:78",
+                    ergebnisbestaetigt: true,
+                    matchInfo: {
+                        spielfeld: {
+                            bezeichnung: 'Sporthalle',
+                            strasse: 'Hauptstr. 1',
+                            plz: '10115',
+                            ort: 'Berlin'
+                        }
+                    }
+                }
+            };
+
+            mockHttpClient.getWithRetry.mockResolvedValue(mockMatchDetails);
+
+            const result = await gamesService.enrichGamesWithDetails(games);
+
+            expect(result).toHaveLength(1);
+            expect(result[0].result).toEqual({
+                homeScore: 85,
+                guestScore: 78,
+                isFinished: true
+            });
+        });
+    });
+
+    describe('extractResult', () => {
+        it('should extract result from game.result string', () => {
+            const matchInfo = {};
+            const game = {
+                result: "85:78"
+            };
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toEqual({
+                homeScore: 85,
+                guestScore: 78,
+                isFinished: true
+            });
+        });
+
+        it('should extract result with homeScore and guestScore in matchInfo', () => {
+            const matchInfo = {
+                homeScore: 85,
+                guestScore: 78
+            };
+            const game = {};
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toEqual({
+                homeScore: 85,
+                guestScore: 78,
+                isFinished: true
+            });
+        });
+
+        it('should handle alternative score field names', () => {
+            const matchInfo = {
+                homeResult: 92,
+                guestResult: 89
+            };
+            const game = {};
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toEqual({
+                homeScore: 92,
+                guestScore: 89,
+                isFinished: true
+            });
+        });
+
+        it('should return null when no scores available', () => {
+            const matchInfo = {};
+            const game = {};
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toBeNull();
+        });
+
+        it('should handle finished games without scores', () => {
+            const matchInfo = {};
+            const game = {
+                ergebnisbestaetigt: true
+            };
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toEqual({
+                homeScore: null,
+                guestScore: null,
+                isFinished: true
+            });
+        });
+
+        it('should handle scores from game.result string with spaces', () => {
+            const matchInfo = {};
+            const game = {
+                result: " 77 : 82 "
+            };
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toEqual({
+                homeScore: 77,
+                guestScore: 82,
+                isFinished: true
+            });
+        });
+
+        it('should handle invalid result format', () => {
+            const matchInfo = {};
+            const game = {
+                result: "invalid-format"
+            };
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toBeNull();
+        });
+
+        it('should return null for partial scores', () => {
+            const matchInfo = {
+                homeScore: 85,
+                // Missing guestScore
+            };
+            const game = {};
+
+            const result = gamesService.extractResult(matchInfo, game);
+
+            expect(result).toBeNull();
         });
     });
 });

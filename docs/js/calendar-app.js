@@ -2,10 +2,53 @@
 const CALENDAR_CONFIGS = window.CALENDAR_CONFIGS || [];
 const SCHEDULE_CONFIGS = window.SCHEDULE_CONFIGS || [];
 
-// Constants
-const DATE_RANGES = {
-    NEXT_MONTH: 1,
-    NEXT_WEEK: 7
+// Range Type Enum with built-in filtering logic
+const RANGE_TYPES = {
+    ALL: (events) => events, // No filtering
+    FUTURE: (events) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return events.filter(event => event.startDate >= today);
+    },
+    PAST_WEEK: (events) => {
+        const now = new Date();
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(now.getDate() - 7);
+        return events.filter(event => {
+            const eventDate = new Date(event.startDate);
+            return eventDate >= oneWeekAgo && eventDate <= now;
+        });
+    },
+    PAST_MONTH: (events) => {
+        const now = new Date();
+        const oneMonthAgo = new Date();
+        oneMonthAgo.setDate(now.getDate() - 30);
+        return events.filter(event => {
+            const eventDate = new Date(event.startDate);
+            return eventDate >= oneMonthAgo && eventDate <= now;
+        });
+    },
+    // Legacy support for existing code
+    WEEK: (events) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const endDate = new Date(today);
+        endDate.setDate(today.getDate() + 7);
+        endDate.setHours(23, 59, 59, 999);
+        return events.filter(event =>
+            event.startDate >= today && event.startDate <= endDate
+        );
+    },
+    MONTH: (events) => {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const endDate = new Date(today);
+        endDate.setMonth(today.getMonth() + 30);
+        endDate.setHours(23, 59, 59, 999);
+        return events.filter(event =>
+            event.startDate >= today && event.startDate <= endDate
+        );
+    }
 };
 
 const ERROR_MESSAGES = {
@@ -47,6 +90,96 @@ function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
             <a href="${additionalUrl}" target="_blank" rel="noopener noreferrer">${additionalText}</a>
         </div>
     `;
+}
+
+// Helper function to extract game results from event title
+function extractGameResult(title) {
+    // Match score pattern like "85:78" or "(Beendet)" - flexible with whitespace
+    const scoreMatch = title.match(/(\d+):(\d+)/);
+    const finishedMatch = title.match(/\(Beendet\)/);
+
+    if (scoreMatch) {
+        const homeScore = parseInt(scoreMatch[1]);
+        const guestScore = parseInt(scoreMatch[2]);
+
+        // Determine if BC Lions Moabit won based on their position in the title
+        let isWin = null;
+        if (title.includes('BC Lions Moabit')) {
+            const vsIndex = title.indexOf(' vs ');
+            const lionIndex = title.indexOf('BC Lions Moabit');
+
+            if (vsIndex !== -1 && lionIndex !== -1) {
+                // BC Lions is home team (before "vs")
+                if (lionIndex < vsIndex) {
+                    isWin = homeScore > guestScore;
+                }
+                // BC Lions is guest team (after "vs") 
+                else {
+                    isWin = guestScore > homeScore;
+                }
+            }
+        }
+
+        return {
+            hasResult: true,
+            homeScore,
+            guestScore,
+            isWin,
+            isFinished: true,
+            scoreText: `${homeScore}:${guestScore}`,
+            scoreDiff: Math.abs(homeScore - guestScore)
+        };
+    }
+
+    if (finishedMatch) {
+        return {
+            hasResult: true,
+            homeScore: null,
+            guestScore: null,
+            isWin: null,
+            isFinished: true,
+            scoreText: 'Beendet',
+            scoreDiff: 0
+        };
+    }
+
+    return { hasResult: false };
+}
+
+// Helper function to format title without result (since we have badges)
+function formatTitleWithResult(title, gameResult) {
+    if (gameResult.homeScore !== null && gameResult.guestScore !== null) {
+        // Remove the score from the title since we now show it in the badge
+        const scorePattern = new RegExp(`\\s${gameResult.scoreText}(\\s|$)`);
+        return title.replace(scorePattern, ' ').trim();
+    } else if (gameResult.isFinished) {
+        // Remove "Beendet" text since we show it in the badge
+        return title.replace(/\s*\(Beendet\)\s*/, ' ').trim();
+    }
+    return title;
+}
+
+// Helper function to format result badge (always returns a badge)
+function formatResultBadge(gameResult) {
+    if (gameResult.homeScore != null && gameResult.guestScore != null) {
+        const resultClass = gameResult.isWin ? 'result-win' : 'result-loss';
+        let resultText;
+
+        if (gameResult.isWin === null) {
+            resultText = gameResult.scoreText;
+            return `<span class="result-badge result-finished">${resultText}</span>`;
+        } else {
+            const winLossText = gameResult.isWin ? 'SIEG' : 'NIEDERLAGE';
+            resultText = `${winLossText} ${gameResult.scoreText}`;
+        }
+
+        return `<span class="result-badge ${resultClass}">${resultText}</span>`;
+    } else if (gameResult.isFinished) {
+        return `<span class="result-badge result-finished">Beendet</span>`;
+    } else {
+        // No result available - show "Ausstehend" in grey
+        return `<span class="result-badge result-pending">Ausstehend</span>`;
+    }
 }
 
 function generateTeamSections() {
@@ -116,10 +249,10 @@ function generateScheduleSections() {
         const calendarSection = document.createElement('div');
         calendarSection.className = 'calendar-section';
         calendarSection.id = `schedule-${config.id}-section`;
-        
+
         const encodedCalId = encodeURIComponent(config.calId);
         const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
-        
+
         calendarSection.innerHTML = `
             <div class="calendar-link" id="schedule_${config.id}">
                 <h3>Termine: ${config.label}</h3>
@@ -147,7 +280,7 @@ function showCalendarSection(sectionId, updateUrl = true) {
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
-        
+
         // Smooth scroll to the headline of the section
         const headline = targetSection.querySelector('h3');
         if (headline) {
@@ -180,17 +313,22 @@ function showCalendarSection(sectionId, updateUrl = true) {
 function handleRouting() {
     // Get current hash from URL
     const hash = window.location.hash.substring(1); // Remove the '#' character
-    
+
     if (hash) {
-        // Check for direct section matches first (spiele, heimspiele, anleitung)
+        // Check for direct section matches first (spiele, heimspiele, ergebnisse, anleitung)
         let sectionId = hash + '-section';
         let targetSection = document.getElementById(sectionId);
-        
+
         if (targetSection) {
             showCalendarSection(sectionId, false);
+
+            // Load recent results when routing to results section
+            if (sectionId === 'ergebnisse-section') {
+                loadRecentResults('ergebnisse-events');
+            }
             return;
         }
-        
+
         // Check for team sections (he1, he4, etc.)
         sectionId = hash + '-section';
         targetSection = document.getElementById(sectionId);
@@ -198,7 +336,7 @@ function handleRouting() {
             showCalendarSection(sectionId, false);
             return;
         }
-        
+
         // Check for schedule sections (schedule-boys, etc.)
         if (hash.startsWith('schedule-')) {
             sectionId = hash + '-section';
@@ -208,7 +346,7 @@ function handleRouting() {
                 return;
             }
         }
-        
+
         // Handle legacy format (spielplan_teamid)
         if (hash.startsWith('spielplan_')) {
             const teamId = hash.replace('spielplan_', '');
@@ -222,13 +360,13 @@ function handleRouting() {
             }
         }
     }
-    
+
     // Default to "spiele" if no valid hash
     showCalendarSection('spiele-section', false);
 }
 
 // Handle browser back/forward buttons
-window.addEventListener('popstate', function(event) {
+window.addEventListener('popstate', function (event) {
     if (event.state && event.state.section) {
         showCalendarSection(event.state.section, false);
     } else {
@@ -259,7 +397,7 @@ function copyToClipboard(text, event) {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        
+
         showCopyFeedback(event.target);
     });
 }
@@ -280,7 +418,7 @@ function formatDateRange(startDate, endDate) {
     // Check if it's a multi-day event (different dates, not just different times)
     const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
     const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
-    
+
     if (startDateOnly.getTime() !== endDateOnly.getTime()) {
         // Multi-day event: format as "Mo., 20.10.2025 bis Do., 24.10.2025"
         const startOptions = {
@@ -295,10 +433,10 @@ function formatDateRange(startDate, endDate) {
             month: '2-digit',
             day: '2-digit'
         };
-        
+
         const startFormatted = startDate.toLocaleDateString('de-DE', startOptions);
         const endFormatted = endDate.toLocaleDateString('de-DE', endOptions);
-        
+
         return `${startFormatted} bis ${endFormatted}`;
     } else {
         // Single day event: use original formatting
@@ -306,28 +444,7 @@ function formatDateRange(startDate, endDate) {
     }
 }
 
-// Common function to get date ranges
-function getDateRange(rangeType) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    const endDate = new Date(today);
-    
-    switch (rangeType) {
-        case 'week':
-            endDate.setDate(today.getDate() + DATE_RANGES.NEXT_WEEK);
-            break;
-        case 'month':
-            endDate.setMonth(today.getMonth() + DATE_RANGES.NEXT_MONTH);
-            break;
-        default:
-            // No end date for 'all' events
-            return { start: today, end: null };
-    }
-    
-    endDate.setHours(23, 59, 59, 999);
-    return { start: today, end: endDate };
-}
+
 
 // Common function to parse ICS data
 function parseIcsData(data, teamId = null) {
@@ -364,19 +481,19 @@ function parseIcsDataWithRecurring(data, dateRange, teamId = null) {
 
         vevents.forEach(vevent => {
             const event = new ICAL.Event(vevent);
-            
+
             // Handle recurring events properly
             if (event.isRecurring() && dateRange.end) {
                 const iterator = event.iterator();
                 let next;
-                
+
                 // Expand recurring events within our date range
                 while ((next = iterator.next()) && next.toJSDate() <= dateRange.end) {
                     const eventDate = next.toJSDate();
                     if (eventDate >= dateRange.start) {
                         const endTime = new Date(eventDate);
                         endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
-                        
+
                         allEvents.push({
                             summary: event.summary,
                             startDate: eventDate,
@@ -408,36 +525,21 @@ function parseIcsDataWithRecurring(data, dateRange, teamId = null) {
     }
 }
 
-// Common function to filter events by date range
-function filterEventsByDateRange(events, rangeType) {
-    const dateRange = getDateRange(rangeType);
-    
-    return events.filter(event => {
-        if (rangeType === 'all') {
-            return event.startDate >= dateRange.start;
-        }
-        return event.startDate >= dateRange.start && event.startDate <= dateRange.end;
-    });
-}
+
 
 // Common function to fetch and parse calendar data
-function fetchAndParseCalendar(url, rangeType = 'all', teamId = null, useRecurring = false) {
+function fetchAndParseCalendar(url, rangeTypeFilter = RANGE_TYPES.ALL, teamId = null) {
     return fetch(url)
         .then(response => response.text())
         .then(data => {
-            if (useRecurring && rangeType !== 'all') {
-                const dateRange = getDateRange(rangeType);
-                return parseIcsDataWithRecurring(data, dateRange, teamId);
-            } else {
-                const events = parseIcsData(data, teamId);
-                return filterEventsByDateRange(events, rangeType);
-            }
+            const events = parseIcsData(data, teamId);
+            return rangeTypeFilter(events);
         });
 }
 
 // Load team events (Spielplan) - shows all upcoming events
 function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetchAndParseCalendar(url, 'all', teamId)
+    fetchAndParseCalendar(url, RANGE_TYPES.FUTURE, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
             displayEvents(events, containerId);
@@ -450,7 +552,7 @@ function loadTeamCalendarEvents(url, containerId, maxEvents = -1, teamId = null)
 
 // Load termine events - shows events for next month only
 function loadCalendarEvents(url, containerId, maxEvents = -1, teamId = null) {
-    fetchAndParseCalendar(url, 'month', teamId, true)
+    fetchAndParseCalendar(url, RANGE_TYPES.MONTH, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
             displayEvents(events, containerId);
@@ -465,21 +567,32 @@ function displayEvents(events, containerId) {
     const container = document.getElementById(containerId);
 
     if (events.length === 0) {
-        container.innerHTML = '<div>Keine Termine im nächsten Monat</div>';
+        container.innerHTML = '<div>Keine Termine</div>';
         return;
     }
 
     const eventsHTML = events.map(event => {
         const title = event.summary || 'Kein Titel';
         const displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
-        
+
+        // Extract game result from title if present
+        const gameResult = extractGameResult(displayTitle);
+
         // Make BC Lions team names bold
-        const formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
-        
+        let formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
+
+        // Highlight game results
+        if (gameResult.hasResult) {
+            formattedTitle = formatTitleWithResult(formattedTitle, gameResult);
+        }
+
         return `
-        <div class="event-item">
+        <div class="event-item ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
             <div class="event-main">
-                <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
+                <div class="event-date-line">
+                    <span class="event-date">${formatDateRange(event.startDate, event.endDate)}</span>
+                    <span class="game-result">${formatResultBadge(gameResult)}</span>
+                </div>
                 <div class="event-title">${formattedTitle}</div>
                 ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
             </div>
@@ -491,20 +604,20 @@ function displayEvents(events, containerId) {
 }
 
 // Common function to load multiple team events with filtering
-function loadMultipleTeamEvents(containerId, rangeType = 'all', filterFunction = null) {
+function loadMultipleTeamEvents(containerId, rangeTypeFilter = RANGE_TYPES.ALL, filterFunction = null) {
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
         const icsFile = config.icsFilename.replace('docs/', './');
-        return fetchAndParseCalendar(icsFile, rangeType, config.id);
+        return fetchAndParseCalendar(icsFile, rangeTypeFilter, config.id);
     });
 
     Promise.all(allEventsPromises)
         .then(eventArrays => {
             // Flatten all events into a single array
             let allEvents = eventArrays.flat();
-            
+
             // Apply additional filtering if provided
             if (filterFunction) {
-                allEvents = allEvents.filter(filterFunction);
+                allEvents = filterFunction(allEvents);
             }
 
             // Sort events by date
@@ -519,20 +632,22 @@ function loadMultipleTeamEvents(containerId, rangeType = 'all', filterFunction =
 }
 
 function loadAllTeamEvents(containerId) {
-    loadMultipleTeamEvents(containerId, 'all');
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.FUTURE);
 }
 
 function loadUpcomingTeamEvents(containerId) {
-    loadMultipleTeamEvents(containerId, 'week');
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.WEEK);
 }
 
 function loadUpcomingHomeGames(containerId) {
     // Filter function to check for home games
-    const homeGameFilter = (event) => {
-        return event.summary && event.summary.startsWith('BC Lions Moabit');
+    const homeGameFilter = (events) => {
+        return events.filter(event =>
+            event.summary && event.summary.startsWith('BC Lions Moabit')
+        );
     };
-    
-    loadMultipleTeamEvents(containerId, 'week', homeGameFilter);
+
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.WEEK, homeGameFilter);
 }
 
 // Helper function to format date for last modified display
@@ -576,24 +691,60 @@ function addNavClickHandler(selector, sectionId) {
         element.addEventListener('click', (e) => {
             e.preventDefault();
             showCalendarSection(sectionId);
+
+            // Load recent results when the results section is shown
+            if (sectionId === 'ergebnisse-section') {
+                loadRecentResults('ergebnisse-events');
+            }
         });
     }
+}
+
+// Function to load recent results (last week's events with game results, latest first)
+function loadRecentResults(containerId) {
+    console.log('🔍 loadRecentResults gestartet für Container:', containerId);
+    console.log('📅 Suche Ergebnisse der letzten Woche');
+
+    // Custom load for recent results with different sorting
+    const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+        const icsFile = config.icsFilename.replace('docs/', './');
+        return fetchAndParseCalendar(icsFile, RANGE_TYPES.PAST_WEEK, config.id);
+    });
+
+    Promise.all(allEventsPromises)
+        .then(eventArrays => {
+            // Flatten all events into a single array
+            let allEvents = eventArrays.flat();
+
+            // Sort results by date descending (newest first) for results section
+            allEvents.sort((a, b) => b.startDate - a.startDate);
+
+            displayEvents(allEvents, containerId);
+        })
+        .catch(error => {
+            console.error('❌ Fehler beim Laden der Ergebnisse:', error);
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = '<div>Fehler beim Laden der Ergebnisse</div>';
+            }
+        });
 }
 
 // Initialize app when page loads
 function initializeCalendarApp() {
     // Update last modified date
     updateLastModifiedDate();
-    
+
     // Generate team sections dynamically
     generateTeamSections();
-    
+
     // Generate schedule sections dynamically
     generateScheduleSections();
 
     // Add click handlers to existing navigation links
     addNavClickHandler('a[href="#spiele"]', 'spiele-section');
     addNavClickHandler('a[href="#heimspiele"]', 'heimspiele-section');
+    addNavClickHandler('a[href="#ergebnisse"]', 'ergebnisse-section');
     addNavClickHandler('a[href="#anleitung"]', 'anleitung-section');
 
     // Handle initial routing based on URL
@@ -601,7 +752,7 @@ function initializeCalendarApp() {
 
     // Load upcoming team events for the next 7 days
     loadUpcomingTeamEvents('spiele-events');
-    
+
     // Load home games for the "Heimspiele" section
     loadUpcomingHomeGames('heimspiele-events');
 

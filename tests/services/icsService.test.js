@@ -92,6 +92,57 @@ describe('ICSService', () => {
             const result = icsService.createSummary(game);
             expect(result).toBe('BC Lions Moabit 1 vs Team B');
         });
+
+        it('should include result score when available', () => {
+            const game = {
+                home: 'BC Lions Moabit 1',
+                guest: 'Team B',
+                time: '18:00',
+                venue: { name: 'Sporthalle' },
+                result: {
+                    homeScore: 85,
+                    guestScore: 78,
+                    isFinished: true
+                }
+            };
+
+            const result = icsService.createSummary(game);
+            expect(result).toBe('BC Lions Moabit 1 vs Team B 85:78 (Sporthalle)');
+        });
+
+        it('should show finished indicator without scores', () => {
+            const game = {
+                home: 'BC Lions Moabit 1',
+                guest: 'Team B',
+                time: '18:00',
+                venue: { name: 'Sporthalle' },
+                result: {
+                    homeScore: null,
+                    guestScore: null,
+                    isFinished: true
+                }
+            };
+
+            const result = icsService.createSummary(game);
+            expect(result).toBe('BC Lions Moabit 1 vs Team B (Beendet) (Sporthalle)');
+        });
+
+        it('should handle both result and TBD time', () => {
+            const game = {
+                home: 'BC Lions Moabit 1',
+                guest: 'Team B',
+                time: '23:59',
+                venue: { name: 'Sporthalle' },
+                result: {
+                    homeScore: 92,
+                    guestScore: 88,
+                    isFinished: true
+                }
+            };
+
+            const result = icsService.createSummary(game);
+            expect(result).toBe('BC Lions Moabit 1 vs Team B 92:88 (Zeit TBD) (Sporthalle)');
+        });
     });
 
     describe('createLocation', () => {
@@ -153,6 +204,87 @@ describe('ICSService', () => {
             expect(result).toContain('END:VCALENDAR');
             expect(result).toContain('X-WR-CALNAME:Empty Calendar');
             expect(mockLogger.warn).toHaveBeenCalledWith('No games provided for ICS generation');
+        });
+
+        it('should include result scores in generated ICS', () => {
+            const games = [{
+                date: '2024-01-15',
+                time: '18:00',
+                home: 'BC Lions Moabit 1',
+                guest: 'Team B',
+                matchId: '12345',
+                venue: {
+                    name: 'Sporthalle',
+                    street: 'Hauptstr. 1',
+                    zip: '10115',
+                    city: 'Berlin'
+                },
+                result: {
+                    homeScore: 92,
+                    guestScore: 85,
+                    isFinished: true
+                }
+            }];
+
+            const result = icsService.generateICS(games, 'Test Calendar');
+            
+            expect(result).toContain('SUMMARY:BC Lions Moabit 1 vs Team B 92:85 (Sporthalle)');
+        });
+    });
+
+    describe('formatResult', () => {
+        it('should format result with scores', () => {
+            const result = {
+                homeScore: 85,
+                guestScore: 78,
+                isFinished: true
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe(' 85:78');
+        });
+
+        it('should format finished game without scores', () => {
+            const result = {
+                homeScore: null,
+                guestScore: null,
+                isFinished: true
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe(' (Beendet)');
+        });
+
+        it('should return empty string for null result', () => {
+            const formatted = icsService.formatResult(null);
+            expect(formatted).toBe('');
+        });
+
+        it('should return empty string for undefined result', () => {
+            const formatted = icsService.formatResult(undefined);
+            expect(formatted).toBe('');
+        });
+
+        it('should handle zero scores', () => {
+            const result = {
+                homeScore: 0,
+                guestScore: 0,
+                isFinished: true
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe(' 0:0');
+        });
+
+        it('should handle partial result data', () => {
+            const result = {
+                homeScore: 85,
+                guestScore: null,
+                isFinished: true
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe(' (Beendet)');
         });
     });
 });

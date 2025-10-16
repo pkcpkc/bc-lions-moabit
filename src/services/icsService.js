@@ -122,7 +122,10 @@ export class ICSService {
         // Add venue name in brackets to the title
         const venueInTitle = game.venue?.name ? ` (${game.venue.name})` : '';
         
-        return `${game.home} vs ${game.guest}${timeIndicator}${venueInTitle}`;
+        // Add result if available
+        const resultText = this.formatResult(game.result);
+        
+        return `${game.home} vs ${game.guest}${resultText}${timeIndicator}${venueInTitle}`;
     }
 
     createLocation(game) {
@@ -146,6 +149,22 @@ export class ICSService {
 
     getCurrentTimestamp() {
         return new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    }
+
+    formatResult(result) {
+        if (!result) {
+            return '';
+        }
+
+        if (result.homeScore !== null && result.guestScore !== null) {
+            return ` ${result.homeScore}:${result.guestScore}`;
+        }
+
+        if (result.isFinished) {
+            return ' (Beendet)';
+        }
+
+        return '';
     }
 
     async saveICS(content, filename) {

@@ -59,6 +59,10 @@ export class GamesService {
             try {
                 const details = await this.fetchMatchDetails(game.matchId);
                 const spielfeld = details.data?.matchInfo?.spielfeld || {};
+                const matchInfo = details.data?.matchInfo || {};
+                
+                // Extract score information if available - pass the full details.data which contains result
+                const result = this.extractResult(matchInfo, details.data);
 
                 return {
                     date: game.kickoffDate,
@@ -72,6 +76,7 @@ export class GamesService {
                         zip: spielfeld.plz || null,
                         city: spielfeld.ort || null,
                     },
+                    result: result,
                 };
             } catch (error) {
                 this.logger.warn(`Could not fetch details for match ${game.matchId}:`, error.message);
@@ -88,6 +93,7 @@ export class GamesService {
                         zip: null,
                         city: null,
                     },
+                    result: null,
                 };
             }
         });
@@ -105,5 +111,68 @@ export class GamesService {
         }
 
         return validGames;
+    }
+
+    extractResult(matchInfo, game) {
+        // Check for result in the main match data first (the actual API structure)
+        let homeScore = null;
+        let guestScore = null;
+
+        // Parse result from the main game object (format: "71:92")
+        if (game.result && typeof game.result === 'string' && game.result.includes(':')) {
+            const scores = game.result.split(':');
+            if (scores.length === 2) {
+                const parsedHomeScore = parseInt(scores[0].trim());
+                const parsedGuestScore = parseInt(scores[1].trim());
+                if (!isNaN(parsedHomeScore) && !isNaN(parsedGuestScore)) {
+                    homeScore = parsedHomeScore;
+                    guestScore = parsedGuestScore;
+                }
+            }
+        }
+
+        // Fallback: Check various possible properties in matchInfo for score information
+        if (homeScore === null || guestScore === null) {
+            const matchInfoHomeScore = matchInfo.homeScore || 
+                                      matchInfo.homeResult || 
+                                      matchInfo.homePoints ||
+                                      null;
+                              
+            const matchInfoGuestScore = matchInfo.guestScore || 
+                                       matchInfo.guestResult || 
+                                       matchInfo.guestPoints ||
+                                       null;
+
+            if (matchInfoHomeScore !== null && matchInfoHomeScore !== undefined && 
+                matchInfoGuestScore !== null && matchInfoGuestScore !== undefined) {
+                homeScore = parseInt(matchInfoHomeScore);
+                guestScore = parseInt(matchInfoGuestScore);
+            }
+        }
+
+        // Return result if both scores are available
+        if (homeScore !== null && guestScore !== null) {
+            return {
+                homeScore: homeScore,
+                guestScore: guestScore,
+                isFinished: true
+            };
+        }
+
+        // Check if the match is finished but no score available
+        const isFinished = game.ergebnisbestaetigt === true ||
+                          matchInfo.status === 'finished' || 
+                          matchInfo.matchStatus === 'finished' ||
+                          matchInfo.isFinished === true;
+
+        if (isFinished) {
+            return {
+                homeScore: null,
+                guestScore: null,
+                isFinished: true
+            };
+        }
+
+        return null;
     }
 }

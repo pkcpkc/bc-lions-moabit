@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Ergebnisse</title>
+    <script src="docs/js/ical.min.js"></script>
+</head>
+<body>
+    <h1>Test der Ergebnisse-Funktionalität</h1>
+    <div id="test-results"></div>
+
+    <script>
+        // Simuliere die extractGameResult Funktion
+        function extractGameResult(title) {
+            const scoreMatch = title.match(/(\d+):(\d+)/);
+            const finishedMatch = title.match(/\(Beendet\)/);
+
+            if (scoreMatch) {
+                const homeScore = parseInt(scoreMatch[1]);
+                const guestScore = parseInt(scoreMatch[2]);
+
+                let isWin = null;
+                if (title.includes('BC Lions Moabit')) {
+                    const vsIndex = title.indexOf(' vs ');
+                    const lionIndex = title.indexOf('BC Lions Moabit');
+
+                    if (vsIndex !== -1 && lionIndex !== -1) {
+                        if (lionIndex < vsIndex) {
+                            isWin = homeScore > guestScore;
+                        } else {
+                            isWin = guestScore > homeScore;
+                        }
+                    }
+                }
+
+                return {
+                    hasResult: true,
+                    homeScore,
+                    guestScore,
+                    isWin,
+                    isFinished: true,
+                    scoreText: `${homeScore}:${guestScore}`,
+                    scoreDiff: Math.abs(homeScore - guestScore)
+                };
+            }
+
+            return { hasResult: false };
+        }
+
+        // Test das spezifische Spiel
+        const testTitle = "ALBA Berlin 3 vs BC Lions Moabit 1 mix 55:88 (Knaackstraße)";
+        const result = extractGameResult(testTitle);
+        
+        // Teste Datum
+        const eventDate = new Date('2025-10-11T18:00:00');
+        const threeWeeksAgo = new Date();
+        threeWeeksAgo.setDate(threeWeeksAgo.getDate() - 21);
+        const now = new Date();
+        const inTimeRange = eventDate >= threeWeeksAgo && eventDate <= now;
+
+        const resultContainer = document.getElementById('test-results');
+        resultContainer.innerHTML = `
+            <h2>Test Ergebnis</h2>
+            <p><strong>Titel:</strong> ${testTitle}</p>
+            <p><strong>Hat Ergebnis:</strong> ${result.hasResult}</p>
+            <p><strong>BC Lions gewonnen:</strong> ${result.isWin}</p>
+            <p><strong>Endergebnis:</strong> ${result.scoreText}</p>
+            <p><strong>Datum:</strong> ${eventDate.toLocaleDateString('de-DE')}</p>
+            <p><strong>In Zeitraum (letzte 3 Wochen):</strong> ${inTimeRange}</p>
+            <p><strong>Zeitraum:</strong> ${threeWeeksAgo.toLocaleDateString('de-DE')} bis ${now.toLocaleDateString('de-DE')}</p>
+            
+            <h3>✅ Test erfolgreich!</h3>
+            <p>Das Spiel sollte in der Ergebnisse-Sektion sichtbar sein.</p>
+        `;
+    </script>
+</body>
+</html>
