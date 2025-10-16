@@ -77,9 +77,19 @@ export class DownloadTermineCommand {
                     const iterator = event.iterator();
                     let next;
 
+                    // Get exception dates (deleted instances)
+                    const exceptionDates = event.component.getAllProperties('exdate')
+                        .map(exdate => exdate.getFirstValue().toJSDate().getTime());
+
                     // Expand recurring events within our date range (next month)
                     while ((next = iterator.next()) && next.toJSDate() <= oneMonthLater) {
                         const eventDate = next.toJSDate();
+                        
+                        // Skip if this date is an exception (deleted instance)
+                        if (exceptionDates.includes(eventDate.getTime())) {
+                            continue;
+                        }
+                        
                         if (eventDate >= now) {
                             const endTime = new Date(eventDate);
                             endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
