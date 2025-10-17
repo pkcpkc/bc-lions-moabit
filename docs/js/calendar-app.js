@@ -574,7 +574,7 @@ function displayEvents(events, containerId) {
 
     const eventsHTML = events.map(event => {
         const title = event.summary || 'Kein Titel';
-        let displayTitle = event.teamId ? `${event.teamId}: ${title}` : title;
+        let displayTitle = title;
 
         // Add venueName in brackets if available
         if (event.venueName) {
@@ -597,10 +597,11 @@ function displayEvents(events, containerId) {
         return `
         <div class="event-item ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
             <div class="event-main">
-                <div class="event-date-line">
-                    <span class="event-date">${formatDateRange(event.startDate, event.endDate)}</span>
+                <div class="event-header-line">
+                    ${event.teamId ? `<span class="team-id">${event.teamId}</span>` : ''}
                     <span class="game-result">${formatResultBadge(gameResult)}</span>
                 </div>
+                <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
                 <div class="event-title">${formattedTitle}</div>
                 ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
             </div>
