@@ -2,7 +2,7 @@
   "label": "mU14-mU20",
   "id": "mU14-mU20",
   "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-  "lastUpdated": "2025-10-17T10:25:34.070Z",
+  "lastUpdated": "2025-10-18T10:22:37.887Z",
   "events": [
     {
       "summary": "mU16-1",
@@ -57,6 +57,13 @@
       "summary": "Athletik Jugend",
       "startDate": "2025-11-10T17:30:00.000Z",
       "endDate": "2025-11-10T19:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jugend",
+      "startDate": "2025-11-17T17:30:00.000Z",
+      "endDate": "2025-11-17T19:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
@@ -174,13 +181,6 @@
     },
     {
       "summary": "mU14-1 und mU18-1",
-      "startDate": "2025-10-17T16:30:00.000Z",
-      "endDate": "2025-10-17T18:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 und mU18-1",
       "startDate": "2025-10-24T16:30:00.000Z",
       "endDate": "2025-10-24T18:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
@@ -205,13 +205,6 @@
       "startDate": "2025-11-14T17:30:00.000Z",
       "endDate": "2025-11-14T19:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU20",
-      "startDate": "2025-10-17T16:30:00.000Z",
-      "endDate": "2025-10-17T18:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
