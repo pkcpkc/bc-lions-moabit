@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1",
   "teamId": "da-ol",
   "competitionId": 50388,
-  "lastUpdated": "2025-10-18T10:21:41.231Z",
+  "lastUpdated": "2025-10-19T10:21:32.388Z",
   "events": [
     {
       "summary": "BC Lions Moabit 1 vs BG Zehlendorf 2",
@@ -64,7 +64,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "DBV Charlottenburg 2",
-        "matchId": 2749381
+        "matchId": 2749381,
+        "result": {
+          "homeScore": 46,
+          "guestScore": 61,
+          "isFinished": true
+        }
       }
     },
     {

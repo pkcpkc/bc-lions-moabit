@@ -2,7 +2,7 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2025-10-18T10:22:38.819Z",
+  "lastUpdated": "2025-10-19T10:22:21.988Z",
   "events": [
     {
       "summary": "U11 Mix",
@@ -36,6 +36,13 @@
       "summary": "Boys L",
       "startDate": "2025-11-11T17:30:00.000Z",
       "endDate": "2025-11-11T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2025-11-18T17:30:00.000Z",
+      "endDate": "2025-11-18T19:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
