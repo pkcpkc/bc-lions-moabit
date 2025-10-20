@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1 mix",
   "teamId": "mu14-ol-a",
   "competitionId": 51848,
-  "lastUpdated": "2025-10-19T10:21:54.424Z",
+  "lastUpdated": "2025-10-20T10:33:44.252Z",
   "events": [
     {
       "summary": "Weddinger Wiesel 1 vs BC Lions Moabit 1 mix",
@@ -81,7 +81,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "DBV Charlottenburg 1",
-        "matchId": 2791227
+        "matchId": 2791227,
+        "result": {
+          "homeScore": 71,
+          "guestScore": 79,
+          "isFinished": true
+        }
       }
     },
     {
