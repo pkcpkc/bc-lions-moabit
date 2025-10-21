@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2025-10-20T10:34:08.638Z",
+  "lastUpdated": "2025-10-21T10:25:50.486Z",
   "events": [
     {
       "summary": "Damen 2",
@@ -99,6 +99,13 @@
       "summary": "Damen 1",
       "startDate": "2025-11-13T19:00:00.000Z",
       "endDate": "2025-11-13T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2025-11-20T19:00:00.000Z",
+      "endDate": "2025-11-20T20:45:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
