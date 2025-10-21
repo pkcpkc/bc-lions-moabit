@@ -2,7 +2,7 @@
   "label": "BC Lions",
   "id": "Kalender",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2025-10-21T10:25:49.886Z",
+  "lastUpdated": "2025-10-21T11:07:01.707Z",
   "events": [
     {
       "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
@@ -124,11 +124,18 @@
       "description": ""
     },
     {
-      "summary": "Herbstcamp",
+      "summary": "Herbstcamp I",
       "startDate": "2025-10-20T00:00:00.000Z",
       "endDate": "2025-10-24T00:00:00.000Z",
       "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
       "description": "10-15h"
+    },
+    {
+      "summary": "Herbstcamp II",
+      "startDate": "2025-10-27T00:00:00.000Z",
+      "endDate": "2025-10-30T00:00:00.000Z",
+      "location": "",
+      "description": ""
     }
   ]
 }
