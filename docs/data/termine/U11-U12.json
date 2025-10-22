@@ -2,7 +2,7 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2025-10-21T11:07:05.367Z",
+  "lastUpdated": "2025-10-22T10:27:29.685Z",
   "events": [
     {
       "summary": "U11 Mix",
@@ -124,6 +124,13 @@
       "description": ""
     },
     {
+      "summary": "mU12",
+      "startDate": "2025-11-21T15:00:00.000Z",
+      "endDate": "2025-11-21T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
       "summary": "Boys F",
       "startDate": "2025-11-07T16:00:00.000Z",
       "endDate": "2025-11-07T17:30:00.000Z",
@@ -134,6 +141,13 @@
       "summary": "Boys F",
       "startDate": "2025-11-14T16:00:00.000Z",
       "endDate": "2025-11-14T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys F",
+      "startDate": "2025-11-21T16:00:00.000Z",
+      "endDate": "2025-11-21T17:30:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }

@@ -2,7 +2,7 @@
   "label": "BC Lions",
   "id": "Kalender",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2025-10-21T11:07:01.707Z",
+  "lastUpdated": "2025-10-22T10:27:26.273Z",
   "events": [
     {
       "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
@@ -120,6 +120,13 @@
       "summary": "Eltern + BCL Family",
       "startDate": "2025-11-14T19:00:00.000Z",
       "endDate": "2025-11-14T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Eltern + BCL Family",
+      "startDate": "2025-11-21T19:00:00.000Z",
+      "endDate": "2025-11-21T20:30:00.000Z",
       "location": "Turmstr. 75, 10551 Berlin, Deutschland",
       "description": ""
     },
