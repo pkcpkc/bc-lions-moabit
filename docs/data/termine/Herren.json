@@ -2,7 +2,7 @@
   "label": "Herren",
   "id": "Herren",
   "calId": "53009b789daac422a9a04fb042c6d22471052464ec60da06415958dccaf5ea02@group.calendar.google.com",
-  "lastUpdated": "2025-10-23T10:26:36.904Z",
+  "lastUpdated": "2025-10-24T10:27:21.945Z",
   "events": [
     {
       "summary": "Herren 3",
@@ -146,13 +146,6 @@
     },
     {
       "summary": "Herren 2",
-      "startDate": "2025-10-23T18:00:00.000Z",
-      "endDate": "2025-10-23T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
       "startDate": "2025-10-30T19:00:00.000Z",
       "endDate": "2025-10-30T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
@@ -177,13 +170,6 @@
       "startDate": "2025-11-20T19:00:00.000Z",
       "endDate": "2025-11-20T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 3",
-      "startDate": "2025-10-23T18:30:00.000Z",
-      "endDate": "2025-10-23T20:00:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {

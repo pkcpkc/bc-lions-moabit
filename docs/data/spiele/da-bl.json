@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 2",
   "teamId": "da-bl",
   "competitionId": 50852,
-  "lastUpdated": "2025-10-23T10:25:44.613Z",
+  "lastUpdated": "2025-10-24T10:26:24.787Z",
   "events": [
     {
       "summary": "BC Lions Moabit 2 vs VfL Lichtenrade 1",
@@ -77,18 +77,6 @@
         "home": "BC Lions Moabit 2",
         "guest": "Nachmeldung 2",
         "matchId": 2755608
-      }
-    },
-    {
-      "summary": "Türkiyemspor Berlin 3 vs BC Lions Moabit 2",
-      "startDate": "2025-10-25T17:00:00.000Z",
-      "endDate": "2025-10-25T19:00:00.000Z",
-      "venueName": "Nostitzstraße (oben)",
-      "location": "Nostitzstraße 60, 10961, Berlin",
-      "game": {
-        "home": "Türkiyemspor Berlin 3",
-        "guest": "BC Lions Moabit 2",
-        "matchId": 2755615
       }
     },
     {
@@ -173,6 +161,18 @@
         "home": "BC Lions Moabit 2",
         "guest": "Nachmeldung 1",
         "matchId": 2755483
+      }
+    },
+    {
+      "summary": "Türkiyemspor Berlin 3 vs BC Lions Moabit 2",
+      "startDate": "2025-12-13T17:00:00.000Z",
+      "endDate": "2025-12-13T19:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "Türkiyemspor Berlin 3",
+        "guest": "BC Lions Moabit 2",
+        "matchId": 2755615
       }
     },
     {
