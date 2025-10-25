@@ -2,7 +2,7 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2025-10-24T10:27:24.940Z",
+  "lastUpdated": "2025-10-25T10:22:39.338Z",
   "events": [
     {
       "summary": "Girls A",
@@ -96,6 +96,13 @@
       "description": ""
     },
     {
+      "summary": "wU12",
+      "startDate": "2025-11-24T15:00:00.000Z",
+      "endDate": "2025-11-24T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
       "summary": "wU18-1",
       "startDate": "2025-10-27T16:00:00.000Z",
       "endDate": "2025-10-27T17:30:00.000Z",
@@ -120,6 +127,13 @@
       "summary": "wU18-1",
       "startDate": "2025-11-17T16:00:00.000Z",
       "endDate": "2025-11-17T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-1",
+      "startDate": "2025-11-24T16:00:00.000Z",
+      "endDate": "2025-11-24T17:30:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
