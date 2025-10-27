@@ -14,15 +14,20 @@ export class BuildHTMLCommand {
         try {
             this.logger.info('🔨 Starting HTML generation process...');
 
-            // Read team configurations
-            const teamConfigs = await this.configService.readTeamConfigs(config.paths.teamsDir);
+            // Read spiele configurations (was teams)
+            const spieleConfigs = await this.configService.readTeamConfigs(config.paths.teamsDir);
 
-            // Read termine configurations
-            const termineConfigs = await this.configService.readTermineConfigs('termine');
+            // Read training configurations (was termine)
+            const trainingConfigs = await this.configService.readCalendarConfigs('training', 'training');
+            
+            // Read termine configurations (was general)
+            const termineConfigs = this.configService.readCalendarConfigs ? 
+                await this.configService.readCalendarConfigs('termine', 'termine') : [];
 
             // Generate HTML
             const result = await this.htmlService.generateIndexHTML(
-                teamConfigs, 
+                spieleConfigs, 
+                trainingConfigs,
                 termineConfigs,
                 'index.template.html',
                 'docs/index.html'

@@ -32,7 +32,10 @@ vi.mock('../../src/config/index.js', () => ({
     config: {
         logging: { level: 'info' },
         api: { timeout: 10000 },
-        paths: { termineOutputDir: 'docs/ics/termine' }
+        paths: { 
+            termineOutputDir: 'docs/ics/termine',
+            trainingOutputDir: 'docs/ics/training'
+        }
     }
 }));
 
@@ -62,7 +65,8 @@ describe('DownloadTermineCommand', () => {
         };
 
         mockConfigService = {
-            readTermineConfigs: vi.fn()
+            readTermineConfigs: vi.fn(),
+            readCalendarConfigs: vi.fn()
         };
 
         const dependencies = {
@@ -121,6 +125,11 @@ describe('DownloadTermineCommand', () => {
 
         beforeEach(() => {
             mockConfigService.readTermineConfigs.mockResolvedValue(mockTermineConfigs);
+            mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
+                if (dir === 'training') return mockTermineConfigs;
+                if (dir === 'termine') return [];
+                return [];
+            });
         });
 
         it('should successfully download all termine calendars', async () => {
@@ -130,8 +139,10 @@ describe('DownloadTermineCommand', () => {
 
             const result = await downloadTermineCommand.execute();
 
+            expect(fs.mkdir).toHaveBeenCalledWith('docs/ics/training', { recursive: true });
             expect(fs.mkdir).toHaveBeenCalledWith('docs/ics/termine', { recursive: true });
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');  // cleanExistingTermine call
+            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');  // cleanExistingFiles call
+            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');  // cleanExistingFiles call
             expect(mockTermineService.downloadCalendar).toHaveBeenCalledWith('main@example.com');
             expect(mockTermineService.downloadCalendar).toHaveBeenCalledWith('youth@example.com');
             expect(fs.writeFile).toHaveBeenCalledWith('docs/ics/termine/calendar1.ics', mockIcsContent1, 'utf8');
@@ -185,6 +196,7 @@ describe('DownloadTermineCommand', () => {
 
         it('should handle empty termine configs', async () => {
             mockConfigService.readTermineConfigs.mockResolvedValue([]);
+            mockConfigService.readCalendarConfigs.mockResolvedValue([]);
 
             const result = await downloadTermineCommand.execute();
 
@@ -194,7 +206,7 @@ describe('DownloadTermineCommand', () => {
                 totalConfigs: 0
             });
 
-            expect(mockLogger.warn).toHaveBeenCalledWith('No termine configurations found');
+            expect(mockLogger.warn).toHaveBeenCalledWith('No training or termine configurations found');
             expect(mockTermineService.downloadCalendar).not.toHaveBeenCalled();
         });
 
@@ -213,6 +225,7 @@ describe('DownloadTermineCommand', () => {
         it('should handle config service errors', async () => {
             const configError = new Error('Failed to read configs');
             mockConfigService.readTermineConfigs.mockRejectedValue(configError);
+            mockConfigService.readCalendarConfigs.mockRejectedValue(configError);
 
             await expect(downloadTermineCommand.execute()).rejects.toThrow('Failed to read configs');
             expect(mockLogger.error).toHaveBeenCalledWith('Failed to download termine:', 'Failed to read configs');
@@ -265,6 +278,11 @@ describe('DownloadTermineCommand', () => {
                 { id: '3', label: 'Cal 3', calId: 'cal3@example.com', icsFilename: 'docs/ics/termine/3.ics' }
             ];
             mockConfigService.readTermineConfigs.mockResolvedValue(configs);
+            mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
+                if (dir === 'training') return [configs[0]];
+                if (dir === 'termine') return [configs[1], configs[2]];
+                return [];
+            });
 
             mockTermineService.downloadCalendar
                 .mockResolvedValueOnce('content1')
@@ -281,39 +299,44 @@ describe('DownloadTermineCommand', () => {
         });
     });
 
-    describe('cleanExistingTermine', () => {
+    describe('cleanExistingFiles', () => {
         it('should remove existing .ics files from termine directory', async () => {
             fs.readdir.mockResolvedValue(['calendar1.ics', 'calendar2.ics', 'other.txt', 'readme.md']);
 
-            await downloadTermineCommand.cleanExistingTermine();
+            await downloadTermineCommand.cleanExistingFiles();
 
+            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
             expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
+            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/training/calendar1.ics');
+            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/training/calendar2.ics');
             expect(fs.unlink).toHaveBeenCalledWith('docs/ics/termine/calendar1.ics');
             expect(fs.unlink).toHaveBeenCalledWith('docs/ics/termine/calendar2.ics');
+            expect(fs.unlink).not.toHaveBeenCalledWith('docs/ics/training/other.txt');
             expect(fs.unlink).not.toHaveBeenCalledWith('docs/ics/termine/other.txt');
-            expect(fs.unlink).not.toHaveBeenCalledWith('docs/ics/termine/readme.md');
-            expect(mockLogger.info).toHaveBeenCalledWith('🧹 Cleaning existing termine files...');
-            expect(mockLogger.info).toHaveBeenCalledWith('✅ Cleaned 2 existing termine files');
+            expect(mockLogger.info).toHaveBeenCalledWith('🧹 Cleaning existing calendar files...');
+            expect(mockLogger.info).toHaveBeenCalledWith('✅ Cleaned 4 existing calendar files');
         });
 
         it('should handle empty termine directory', async () => {
             fs.readdir.mockResolvedValue([]);
 
-            await downloadTermineCommand.cleanExistingTermine();
+            await downloadTermineCommand.cleanExistingFiles();
 
+            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
             expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
             expect(fs.unlink).not.toHaveBeenCalled();
-            expect(mockLogger.info).toHaveBeenCalledWith('No existing termine files to clean');
+            expect(mockLogger.info).toHaveBeenCalledWith('No existing calendar files to clean');
         });
 
         it('should handle directory with no .ics files', async () => {
             fs.readdir.mockResolvedValue(['readme.md', 'config.json']);
 
-            await downloadTermineCommand.cleanExistingTermine();
+            await downloadTermineCommand.cleanExistingFiles();
 
+            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
             expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
             expect(fs.unlink).not.toHaveBeenCalled();
-            expect(mockLogger.info).toHaveBeenCalledWith('No existing termine files to clean');
+            expect(mockLogger.info).toHaveBeenCalledWith('No existing calendar files to clean');
         });
 
         it('should handle non-existent directory gracefully', async () => {
@@ -321,8 +344,8 @@ describe('DownloadTermineCommand', () => {
             error.code = 'ENOENT';
             fs.readdir.mockRejectedValue(error);
 
-            await expect(downloadTermineCommand.cleanExistingTermine()).resolves.not.toThrow();
-            expect(mockLogger.debug).toHaveBeenCalledWith('Termine directory does not exist - nothing to clean');
+            await expect(downloadTermineCommand.cleanExistingFiles()).resolves.not.toThrow();
+            expect(mockLogger.debug).toHaveBeenCalledWith('Directory docs/ics/training does not exist - nothing to clean');
         });
 
         it('should throw error for other fs errors', async () => {
@@ -330,9 +353,23 @@ describe('DownloadTermineCommand', () => {
             error.code = 'EACCES';
             fs.readdir.mockRejectedValue(error);
 
-            await expect(downloadTermineCommand.cleanExistingTermine()).rejects.toThrow('Permission denied');
-            expect(mockLogger.error).toHaveBeenCalledWith('Failed to clean existing termine files:', 'Permission denied');
+            await expect(downloadTermineCommand.cleanExistingFiles()).rejects.toThrow('Permission denied');
+            expect(mockLogger.error).toHaveBeenCalledWith('Failed to clean existing calendar files:', 'Permission denied');
         });
+    });
+
+    describe('execute - additional edge cases', () => {
+        it('should handle empty calendar configurations gracefully', async () => {
+            mockConfigService.readTermineConfigs.mockResolvedValue([]);
+            mockConfigService.readCalendarConfigs.mockResolvedValue([]);
+
+            const result = await downloadTermineCommand.execute();
+
+            expect(result.downloadedCount).toBe(0);
+            expect(result.errorCount).toBe(0);
+        });
+
+
     });
 
     describe('downloadTermineIcsFiles function', () => {
@@ -344,6 +381,7 @@ describe('DownloadTermineCommand', () => {
             };
 
             mockConfigService.readTermineConfigs.mockResolvedValue([]);
+            mockConfigService.readCalendarConfigs.mockResolvedValue([]);
 
             const result = await downloadTermineIcsFiles(dependencies);
             expect(result.downloadedCount).toBe(0);

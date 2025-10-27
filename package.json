@@ -14,9 +14,9 @@
     "vitest": "^1.6.1"
   },
   "scripts": {
-    "fetch-games-batch": "node src/fetch-games-batch.js",
-    "fetch-games": "node src/fetch-games-single.js",
-    "download-termine": "node src/download-termine.js",
+    "fetch:all-games": "node src/fetch-all-games.js",
+    "fetch:games": "node src/fetch-games.js",
+    "fetch:calendars": "node src/download-calendars.js",
     "build:html": "node src/build-html.js",
     "build": "node src/build.js",
     "crawl": "node src/crawl.js",

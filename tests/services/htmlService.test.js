@@ -88,8 +88,9 @@ describe('HTMLService', () => {
             expect(writeFile).toHaveBeenCalledWith('docs/index.html', expect.any(String), 'utf8');
             expect(result).toEqual({
                 outputPath: 'docs/index.html',
-                teamCount: 2,
-                termineCount: 1
+                spieleCount: 2,
+                trainingCount: 1,
+                termineCount: 0
             });
         });
 
@@ -100,6 +101,7 @@ describe('HTMLService', () => {
             await htmlService.generateIndexHTML(
                 mockTeamConfigs, 
                 mockTermineConfigs, 
+                [], 
                 customTemplate, 
                 customOutput
             );
@@ -115,7 +117,7 @@ describe('HTMLService', () => {
                 { teamId: 'senior-team', competitionId: '3', teamName: 'Senior Team', icsFilename: 'test.ics', icsUrl: 'test', webUrl: 'test' }
             ];
 
-            await htmlService.generateIndexHTML(teamConfigs, []);
+            await htmlService.generateIndexHTML(teamConfigs, [], []);
 
             const writtenContent = writeFile.mock.calls[0][1];
             expect(writtenContent).toContain('"name": "mU12-TEAM"'); // M prefix converted to lowercase
@@ -124,7 +126,7 @@ describe('HTMLService', () => {
         });
 
         it('should replace template placeholders correctly', async () => {
-            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs);
+            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []);
 
             const writtenContent = writeFile.mock.calls[0][1];
             
@@ -140,11 +142,12 @@ describe('HTMLService', () => {
         });
 
         it('should handle empty configs arrays', async () => {
-            const result = await htmlService.generateIndexHTML([], []);
+            const result = await htmlService.generateIndexHTML([], [], []);
 
             expect(result).toEqual({
                 outputPath: 'docs/index.html',
-                teamCount: 0,
+                spieleCount: 0,
+                trainingCount: 0,
                 termineCount: 0
             });
 
@@ -153,10 +156,10 @@ describe('HTMLService', () => {
         });
 
         it('should log appropriate messages', async () => {
-            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs);
+            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []);
 
             expect(mockLogger.info).toHaveBeenCalledWith('Reading HTML template...');
-            expect(mockLogger.info).toHaveBeenCalledWith('Generating HTML with 2 team configs and 1 termine configs');
+            expect(mockLogger.info).toHaveBeenCalledWith('Generating HTML with 2 spiele configs, 1 training configs, and 0 termine configs');
             expect(mockLogger.info).toHaveBeenCalledWith('Successfully generated docs/index.html');
         });
 
@@ -184,7 +187,7 @@ describe('HTMLService', () => {
             `;
             readFile.mockResolvedValue(multiPlaceholderTemplate);
 
-            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs);
+            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []);
 
             const writtenContent = writeFile.mock.calls[0][1];
             const configMatches = (writtenContent.match(/"id": "mu12-team-a"/g) || []).length;
@@ -195,7 +198,7 @@ describe('HTMLService', () => {
         });
 
         it('should preserve team config properties in processed output', async () => {
-            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs);
+            await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []);
 
             const writtenContent = writeFile.mock.calls[0][1];
             const parsedContent = writtenContent.match(/data-configs='(\[.*?\])'/s);
@@ -210,5 +213,32 @@ describe('HTMLService', () => {
                 expect(configs[0]).toHaveProperty('webUrl', 'https://basketball-bund.net/liga/12345');
             }
         });
+
+        it('should handle empty arrays gracefully', async () => {
+            await htmlService.generateIndexHTML([], [], []);
+
+            expect(writeFile).toHaveBeenCalledWith('docs/index.html', expect.any(String), 'utf8');
+            const writtenContent = writeFile.mock.calls[0][1];
+            expect(writtenContent).toContain("data-configs='[]'");
+        });
+
+        it('should handle template read errors', async () => {
+            const readError = new Error('Template not found');
+            readFile.mockRejectedValue(readError);
+
+            await expect(htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []))
+                .rejects.toThrow('Template not found');
+        });
+
+        it('should handle write errors', async () => {
+            readFile.mockResolvedValue(mockTemplate);
+            const writeError = new Error('Permission denied');
+            writeFile.mockRejectedValue(writeError);
+
+            await expect(htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs, []))
+                .rejects.toThrow('Permission denied');
+        });
     });
+
+
 });

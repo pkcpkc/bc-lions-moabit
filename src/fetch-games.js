@@ -8,8 +8,8 @@ import { config } from './config/index.js';
 async function main() {
     // Read config file from command line argument
     if (process.argv.length < 3) {
-        console.error("Usage: node src/fetch-games-single.js <config-file>");
-        console.error("Example: node src/fetch-games-single.js u12.json");
+        console.error("Usage: node src/fetch-games.js <config-file>");
+        console.error("Example: node src/fetch-games.js u12.json");
         process.exit(1);
     }
 

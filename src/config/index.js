@@ -6,9 +6,9 @@ export const config = {
         retryDelay: parseInt(process.env.RETRY_DELAY) || 1000
     },
     paths: {
-        teamsDir: process.env.TEAMS_DIR || 'teams',
+        teamsDir: process.env.TEAMS_DIR || 'spiele',
         outputDir: process.env.OUTPUT_DIR || 'docs/ics/spiele',
-        termineOutputDir: process.env.TERMINE_OUTPUT_DIR || 'docs/ics/termine'
+        trainingOutputDir: process.env.TRAINING_OUTPUT_DIR || 'docs/ics/training'
     },
     logging: {
         level: process.env.LOG_LEVEL || 'info'

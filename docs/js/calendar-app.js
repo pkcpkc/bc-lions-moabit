@@ -1,6 +1,7 @@
 // Team configuration data - will be dynamically populated
 const CALENDAR_CONFIGS = window.CALENDAR_CONFIGS || [];
 const SCHEDULE_CONFIGS = window.SCHEDULE_CONFIGS || [];
+const GENERAL_CONFIGS = window.GENERAL_CONFIGS || [];
 
 // Range Type Enum with built-in filtering logic
 const RANGE_TYPES = {
@@ -226,29 +227,101 @@ function formatResultBadge(gameResult) {
     }
 }
 
-function generateTeamSections() {
-    const navContainer = document.getElementById('team-nav-row');
+function generateUnifiedNavigation() {
+    const navContainer = document.getElementById('unified-nav-container');
     const calendarContainer = document.getElementById('team-calendars-container');
 
     // Clear existing dynamic content
     navContainer.innerHTML = '';
     calendarContainer.innerHTML = '';
 
-    // Generate navigation links and calendar sections for each team
+    // Create map of team ID to team name
+    const teamMap = {};
     CALENDAR_CONFIGS.forEach(config => {
-        // Create navigation link
-        const navLink = createNavLink(
-            `#${config.id}`,
-            'nav-link team-nav-link',
-            config.name,
+        teamMap[config.id] = config.name;
+    });
+
+    // Generate cards for each termine/schedule category
+    SCHEDULE_CONFIGS.forEach(config => {
+        // Create navigation card
+        const navCard = document.createElement('div');
+        navCard.className = 'nav-card';
+        
+        const cardHeader = document.createElement('div');
+        cardHeader.className = 'nav-card-header';
+        cardHeader.textContent = config.label;
+        
+        const teamsContainer = document.createElement('div');
+        teamsContainer.className = 'nav-card-teams';
+
+        // Add training link first
+        const trainingLink = createNavLink(
+            `#schedule-${config.id}`,
+            'nav-link schedule-nav-link',
+            'Training',
             (e) => {
                 e.preventDefault();
-                showCalendarSection(`${config.id}-section`);
+                showCalendarSection(`schedule-${config.id}-section`);
             }
         );
-        navContainer.appendChild(navLink);
+        teamsContainer.appendChild(trainingLink);
 
-        // Create calendar section
+        // Add team links if teams are specified
+        if (config.teams && config.teams.length > 0) {
+            config.teams.forEach(teamId => {
+                if (teamMap[teamId]) {
+                    const teamLink = createNavLink(
+                        `#${teamId}`,
+                        'nav-link team-nav-link',
+                        teamMap[teamId].replace('BC Lions Moabit ', ''),
+                        (e) => {
+                            e.preventDefault();
+                            showCalendarSection(`${teamId}-section`);
+                        }
+                    );
+                    teamsContainer.appendChild(teamLink);
+                }
+            });
+        } else if (!config.teams) {
+            // If no teams are specified, show "Alle Teams" 
+            const allTeamsText = document.createElement('span');
+            allTeamsText.textContent = 'Alle Teams';
+            allTeamsText.className = 'nav-link';
+            allTeamsText.style.backgroundColor = '#f8f9fa';
+            allTeamsText.style.color = '#666';
+            allTeamsText.style.cursor = 'default';
+            teamsContainer.appendChild(allTeamsText);
+        }
+
+        navCard.appendChild(cardHeader);
+        navCard.appendChild(teamsContainer);
+        navContainer.appendChild(navCard);
+
+        // Create schedule calendar section
+        const scheduleSection = document.createElement('div');
+        scheduleSection.className = 'calendar-section';
+        scheduleSection.id = `schedule-${config.id}-section`;
+
+        const encodedCalId = encodeURIComponent(config.calId);
+        const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
+
+        scheduleSection.innerHTML = `
+            <div class="calendar-link" id="schedule_${config.id}">
+                <h3>Training: ${config.label}</h3>
+                ${createCalendarActionsHTML(config.icsUrl, calendarUrl, 'Kalender')}
+            </div>
+
+            <div class="events-container">
+                <h4>Training des nächsten Monats</h4>
+                <div id="schedule-${config.id}-events" class="loading">Lade Training...</div>
+            </div>
+        `;
+
+        calendarContainer.appendChild(scheduleSection);
+    });
+
+    // Generate team calendar sections (referenced by the cards above)
+    CALENDAR_CONFIGS.forEach(config => {
         const calendarSection = document.createElement('div');
         calendarSection.className = 'calendar-section';
         calendarSection.id = `${config.id}-section`;
@@ -268,52 +341,50 @@ function generateTeamSections() {
     });
 }
 
-function generateScheduleSections() {
-    const navContainer = document.getElementById('schedule-nav-row');
+function generateTermineNavigation() {
+    const overviewNavRow = document.getElementById('overview-nav-row');
     const calendarContainer = document.getElementById('team-calendars-container');
 
-    // Clear existing schedule nav content
-    navContainer.innerHTML = '';
+    if (!overviewNavRow || !calendarContainer) return;
 
-    // Generate navigation links and calendar sections for each schedule
-    SCHEDULE_CONFIGS.forEach(config => {
+    // Generate navigation links and sections for each termine config
+    GENERAL_CONFIGS.forEach(config => {
         // Create navigation link
-        const navLink = createNavLink(
-            `#schedule-${config.id}`,
-            'nav-link schedule-nav-link',
+        const termineLink = createNavLink(
+            `#termine-${config.id}`,
+            'nav-link',
             config.label,
             (e) => {
                 e.preventDefault();
-                showCalendarSection(`schedule-${config.id}-section`);
+                showCalendarSection(`termine-${config.id}-section`);
             }
         );
-        navContainer.appendChild(navLink);
+        // Insert the termine link at the beginning of the nav-row (before existing links)
+        overviewNavRow.insertBefore(termineLink, overviewNavRow.firstChild);
 
         // Create calendar section
-        const calendarSection = document.createElement('div');
-        calendarSection.className = 'calendar-section';
-        calendarSection.id = `schedule-${config.id}-section`;
+        const termineSection = document.createElement('div');
+        termineSection.className = 'calendar-section';
+        termineSection.id = `termine-${config.id}-section`;
 
         const encodedCalId = encodeURIComponent(config.calId);
         const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
 
-        calendarSection.innerHTML = `
-            <div class="calendar-link" id="schedule_${config.id}">
+        termineSection.innerHTML = `
+            <div class="calendar-link" id="termine_${config.id}">
                 <h3>Termine: ${config.label}</h3>
                 ${createCalendarActionsHTML(config.icsUrl, calendarUrl, 'Kalender')}
             </div>
 
             <div class="events-container">
                 <h4>Termine des nächsten Monats</h4>
-                <div id="schedule-${config.id}-events" class="loading">Lade Termine...</div>
+                <div id="termine-${config.id}-events" class="loading">Lade Termine...</div>
             </div>
         `;
 
-        calendarContainer.appendChild(calendarSection);
+        calendarContainer.appendChild(termineSection);
     });
 }
-
-
 
 function showCalendarSection(sectionId, updateUrl = true) {
     // Hide all calendar sections
@@ -568,7 +639,16 @@ function displayEvents(events, containerId) {
     const container = document.getElementById(containerId);
 
     if (events.length === 0) {
-        container.innerHTML = '<div>Keine Termine</div>';
+        // Provide specific empty state messages based on the container ID
+        let emptyMessage = 'Keine Termine';
+        if (containerId === 'spiele-events') {
+            emptyMessage = 'Keine Spiele in den nächsten 7 Tagen';
+        } else if (containerId === 'heimspiele-events') {
+            emptyMessage = 'Keine Heimspiele in den nächsten 7 Tagen';
+        } else if (containerId === 'ergebnisse-events') {
+            emptyMessage = 'Keine Ergebnisse in der letzten Woche';
+        }
+        container.innerHTML = `<div class="loading"><div>${emptyMessage}</div></div>`;
         return;
     }
 
@@ -700,20 +780,12 @@ function addNavClickHandler(selector, sectionId) {
         element.addEventListener('click', (e) => {
             e.preventDefault();
             showCalendarSection(sectionId);
-
-            // Load recent results when the results section is shown
-            if (sectionId === 'ergebnisse-section') {
-                loadRecentResults('ergebnisse-events');
-            }
         });
     }
 }
 
 // Function to load recent results (last week's events with game results, latest first)
 function loadRecentResults(containerId) {
-    console.log('🔍 loadRecentResults gestartet für Container:', containerId);
-    console.log('📅 Suche Ergebnisse der letzten Woche');
-
     // Custom load for recent results with different sorting - use JSON
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
         const jsonFile = `./data/spiele/${config.id}.json`;
@@ -731,11 +803,8 @@ function loadRecentResults(containerId) {
             displayEvents(allEvents, containerId);
         })
         .catch(error => {
-            console.error('❌ Fehler beim Laden der Ergebnisse:', error);
-            const container = document.getElementById(containerId);
-            if (container) {
-                container.innerHTML = '<div>Fehler beim Laden der Ergebnisse</div>';
-            }
+            console.error('Error loading recent results:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
         });
 }
 
@@ -744,11 +813,11 @@ function initializeCalendarApp() {
     // Update last modified date
     updateLastModifiedDate();
 
-    // Generate team sections dynamically
-    generateTeamSections();
-
-    // Generate schedule sections dynamically
-    generateScheduleSections();
+    // Generate unified navigation and sections dynamically
+    generateUnifiedNavigation();
+    
+    // Generate termine navigation links
+    generateTermineNavigation();
 
     // Add click handlers to existing navigation links
     addNavClickHandler('a[href="#spiele"]', 'spiele-section');
@@ -775,6 +844,12 @@ function initializeCalendarApp() {
     SCHEDULE_CONFIGS.forEach(config => {
         const jsonFile = config.jsonUrl;
         loadCalendarEventsFromJSON(jsonFile, `schedule-${config.id}-events`, -1, config.label);
+    });
+
+    // Load events for dynamically configured termine calendars
+    GENERAL_CONFIGS.forEach(config => {
+        const jsonFile = config.jsonUrl;
+        loadCalendarEventsFromJSON(jsonFile, `termine-${config.id}-events`, -1, config.label);
     });
 }
 

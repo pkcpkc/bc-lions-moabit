@@ -177,4 +177,67 @@ describe('FetchGamesCommand', () => {
             });
         });
     });
+
+    describe('execute - additional error scenarios', () => {
+        it('should handle empty competition data gracefully', async () => {
+            const teamConfig = {
+                competitionId: '50422',
+                teamName: 'BC Lions Moabit 1',
+                teamId: 'he-bl-a'
+            };
+
+            mockGamesService.fetchCompetition.mockResolvedValue({ data: null });
+
+            const result = await fetchCommand.execute(teamConfig);
+
+            expect(result.success).toBe(true);
+            expect(result.gamesFound).toBe(0);
+        });
+
+        it('should handle missing matches array in competition data', async () => {
+            const teamConfig = {
+                competitionId: '50422',
+                teamName: 'BC Lions Moabit 1',
+                teamId: 'he-bl-a'
+            };
+
+            mockGamesService.fetchCompetition.mockResolvedValue({ 
+                data: { someOtherProperty: 'value' } 
+            });
+
+            const result = await fetchCommand.execute(teamConfig);
+
+            expect(result.success).toBe(true);
+            expect(result.gamesFound).toBe(0);
+        });
+    });
+
+    describe('fetchGamesCommand convenience function', () => {
+        it('should execute command and return result', async () => {
+            // Import the convenience function
+            const { fetchGamesCommand } = await import('../../src/commands/fetchGames.js');
+            
+            // Mock the dependencies
+            const mockDeps = {
+                logger: mockLogger,
+                gamesService: mockGamesService,
+                icsService: mockICSService
+            };
+
+            const teamConfig = {
+                competitionId: '50422',
+                teamName: 'BC Lions Moabit 1',
+                teamId: 'he-bl-a'
+            };
+
+            mockGamesService.fetchCompetition.mockResolvedValue({ data: { matches: [] } });
+            mockGamesService.filterTeamGames.mockReturnValue([]);
+            mockGamesService.enrichGamesWithDetails.mockResolvedValue([]);
+
+            const result = await fetchGamesCommand(teamConfig, mockDeps);
+
+            expect(result.success).toBe(true);
+            expect(result.gamesFound).toBe(0);
+        });
+    });
 });
