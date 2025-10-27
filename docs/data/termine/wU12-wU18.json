@@ -2,7 +2,7 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2025-10-26T10:23:11.125Z",
+  "lastUpdated": "2025-10-27T10:28:11.806Z",
   "events": [
     {
       "summary": "Girls A",
@@ -29,6 +29,13 @@
       "summary": "Girls A",
       "startDate": "2025-11-19T15:00:00.000Z",
       "endDate": "2025-11-19T16:30:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls A",
+      "startDate": "2025-11-26T15:00:00.000Z",
+      "endDate": "2025-11-26T16:30:00.000Z",
       "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
       "description": ""
     },
