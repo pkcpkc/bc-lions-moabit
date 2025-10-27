@@ -127,54 +127,7 @@ function extractGameResultFromData(gameData, title) {
     return { hasResult: false };
 }
 
-// Legacy: Extract game results from event title
-function extractGameResult(title) {
-    const scoreMatch = title.match(/(\d+):(\d+)/);
-    const finishedMatch = title.match(/\(Beendet\)/);
 
-    if (scoreMatch) {
-        const homeScore = parseInt(scoreMatch[1]);
-        const guestScore = parseInt(scoreMatch[2]);
-
-        let isWin = null;
-        if (title.includes('BC Lions Moabit')) {
-            const vsIndex = title.indexOf(' vs ');
-            const lionIndex = title.indexOf('BC Lions Moabit');
-
-            if (vsIndex !== -1 && lionIndex !== -1) {
-                if (lionIndex < vsIndex) {
-                    isWin = homeScore > guestScore;
-                } else {
-                    isWin = guestScore > homeScore;
-                }
-            }
-        }
-
-        return {
-            hasResult: true,
-            homeScore,
-            guestScore,
-            isWin,
-            isFinished: true,
-            scoreText: `${homeScore}:${guestScore}`,
-            scoreDiff: Math.abs(homeScore - guestScore)
-        };
-    }
-
-    if (finishedMatch) {
-        return {
-            hasResult: true,
-            homeScore: null,
-            guestScore: null,
-            isWin: null,
-            isFinished: true,
-            scoreText: 'Beendet',
-            scoreDiff: 0
-        };
-    }
-
-    return { hasResult: false };
-}
 
 // Format date function
 function formatDate(date) {
@@ -303,69 +256,7 @@ describe('Calendar App Functions', () => {
         });
     });
 
-    describe('extractGameResult', () => {
-        it('should extract score from title with BC Lions as home team', () => {
-            const title = 'BC Lions Moabit vs Team B 85:78';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(true);
-            expect(result.homeScore).toBe(85);
-            expect(result.guestScore).toBe(78);
-            expect(result.isWin).toBe(true);
-            expect(result.scoreText).toBe('85:78');
-        });
 
-        it('should extract score from title with BC Lions as guest team', () => {
-            const title = 'Team A vs BC Lions Moabit 70:85';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(true);
-            expect(result.homeScore).toBe(70);
-            expect(result.guestScore).toBe(85);
-            expect(result.isWin).toBe(true);
-            expect(result.scoreText).toBe('70:85');
-        });
-
-        it('should extract score from title when BC Lions loses', () => {
-            const title = 'BC Lions Moabit vs Team B 75:80';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(true);
-            expect(result.homeScore).toBe(75);
-            expect(result.guestScore).toBe(80);
-            expect(result.isWin).toBe(false);
-            expect(result.scoreText).toBe('75:80');
-        });
-
-        it('should handle finished games without score', () => {
-            const title = 'BC Lions Moabit vs Team B (Beendet)';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(true);
-            expect(result.homeScore).toBe(null);
-            expect(result.guestScore).toBe(null);
-            expect(result.isWin).toBe(null);
-            expect(result.scoreText).toBe('Beendet');
-        });
-
-        it('should return no result for games without results', () => {
-            const title = 'BC Lions Moabit vs Team B';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(false);
-        });
-
-        it('should handle complex title with venue information', () => {
-            const title = 'ALBA Berlin 3 vs BC Lions Moabit 1 mix 55:88 (Knaackstraße)';
-            const result = extractGameResult(title);
-            
-            expect(result.hasResult).toBe(true);
-            expect(result.homeScore).toBe(55);
-            expect(result.guestScore).toBe(88);
-            expect(result.isWin).toBe(true); // BC Lions is guest and won
-            expect(result.scoreText).toBe('55:88');
-        });
-    });
 
     describe('extractGameResultFromData', () => {
         it('should extract result from structured game data - BC Lions home win', () => {
