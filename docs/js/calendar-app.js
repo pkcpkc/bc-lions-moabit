@@ -29,7 +29,6 @@ const RANGE_TYPES = {
             return eventDate >= oneMonthAgo && eventDate <= now;
         });
     },
-    // Legacy support for existing code
     NEXT_WEEK: (events) => {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
@@ -44,7 +43,7 @@ const RANGE_TYPES = {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const endDate = new Date(today);
-        endDate.setMonth(today.getMonth() + 30);
+        endDate.setMonth(today.getMonth() + 1);
         endDate.setHours(23, 59, 59, 999);
         return events.filter(event =>
             event.startDate >= today && event.startDate <= endDate
@@ -53,11 +52,8 @@ const RANGE_TYPES = {
 };
 
 const ERROR_MESSAGES = {
-    PARSE_ERROR: 'Fehler beim Laden der Termine',
-    FETCH_ERROR: 'Fehler beim Laden der Termine',
-    GAMES_ERROR: 'Fehler beim Laden der Spiele',
-    HOME_GAMES_ERROR: 'Fehler beim Laden der Heimspiele',
-    UPCOMING_ERROR: 'Fehler beim Laden der kommenden Termine'
+    PARSE_ERROR: 'Fehler beim Lesen der Termine',
+    GAMES_ERROR: 'Fehler beim Laden der Spiele'
 };
 
 const UI_FEEDBACK = {
@@ -66,6 +62,85 @@ const UI_FEEDBACK = {
     COPY_DEFAULT_COLOR: '#007bff',
     COPY_TIMEOUT: 2000
 };
+
+/**
+ * Container configuration array with detector functions for different event sections.
+ * Configurations are evaluated in order, first match wins.
+ * @typedef {Object} ContainerConfig
+ * @property {function(string): boolean} detector - Function to determine if config applies to containerId
+ * @property {string} emptyMessage - Message shown when no events are found
+ * @property {string} loadingMessage - Message shown while loading events
+ * @property {function(string): void} [loadMethod] - Optional method to load events for this container, receives containerId as parameter
+ */
+const CONTAINER_CONFIG = [
+    {
+        detector: (containerId) => containerId === 'spiele-events',
+        emptyMessage: 'Keine Spiele in den nächsten 7 Tagen',
+        loadingMessage: 'Lade Spiele...',
+        loadMethod: (containerId) => loadUpcomingTeamEvents(containerId)
+    },
+    {
+        detector: (containerId) => containerId === 'heimspiele-events',
+        emptyMessage: 'Keine Heimspiele in den nächsten 7 Tagen',
+        loadingMessage: 'Lade Heimspiele...',
+        loadMethod: (containerId) => loadUpcomingHomeGames(containerId)
+    },
+    {
+        detector: (containerId) => containerId === 'ergebnisse-events',
+        emptyMessage: 'Keine Ergebnisse in der letzten Woche',
+        loadingMessage: 'Lade Ergebnisse...',
+        loadMethod: (containerId) => loadRecentResults(containerId)
+    },
+    {
+        detector: (containerId) => containerId.startsWith('schedule-') && containerId.endsWith('-events'),
+        emptyMessage: 'Keine Trainings in diesem Zeitraum',
+        loadingMessage: 'Lade Training...',
+        loadMethod: (containerId) => loadScheduleEvents(containerId)
+    },
+    {
+        detector: (containerId) => containerId.startsWith('termine-') && containerId.endsWith('-events'),
+        emptyMessage: 'Keine Termine in diesem Zeitraum',
+        loadingMessage: 'Lade Termine...',
+        loadMethod: (containerId) => loadTermineEvents(containerId)
+    },
+    {
+        detector: (containerId) => containerId.endsWith('-events'),
+        emptyMessage: 'Keine Spiele in diesem Zeitraum',
+        loadingMessage: 'Lade Termine...',
+        loadMethod: (containerId) => loadTeamCalendarEvents(containerId)
+    }
+];
+
+/**
+ * Get container configuration using detector functions.
+ * Evaluates configurations in order and returns the first match.
+ * @param {string} containerId - The container ID to find configuration for
+ * @returns {ContainerConfig} The matching configuration or default fallback
+ */
+function getContainerConfig(containerId) {
+    // Find the first matching configuration using detector functions
+    const config = CONTAINER_CONFIG.find(config => config.detector(containerId));
+    
+    if (config) {
+        return config;
+    }
+    
+    // Default fallback if no detector matches
+    return {
+        emptyMessage: 'Keine Termine',
+        loadingMessage: 'Lade...'
+    };
+}
+
+// Helper function to set loading state for a container
+function setLoadingState(containerId) {
+    const container = document.getElementById(containerId);
+    if (container) {
+        const config = getContainerConfig(containerId);
+        container.innerHTML = `<div class="loading">${config.loadingMessage}</div>`;
+        container.className = 'loading';
+    }
+}
 
 // Helper function to create navigation links
 function createNavLink(href, className, textContent, clickHandler) {
@@ -93,7 +168,7 @@ function createCalendarActionsHTML(icsUrl, additionalUrl, additionalText) {
 }
 
 // Enhanced function to extract game results from structured JSON data
-function extractGameResultFromData(gameData, title) {
+function extractGameResultFromData(gameData) {
     if (gameData.result && gameData.result.isFinished) {
         const result = gameData.result;
 
@@ -137,59 +212,7 @@ function extractGameResultFromData(gameData, title) {
     return { hasResult: false };
 }
 
-// Legacy: Helper function to extract game results from event title
-function extractGameResult(title) {
-    // Match score pattern like "85:78" or "(Beendet)" - flexible with whitespace
-    const scoreMatch = title.match(/(\d+):(\d+)/);
-    const finishedMatch = title.match(/\(Beendet\)/);
 
-    if (scoreMatch) {
-        const homeScore = parseInt(scoreMatch[1]);
-        const guestScore = parseInt(scoreMatch[2]);
-
-        // Determine if BC Lions Moabit won based on their position in the title
-        let isWin = null;
-        if (title.includes('BC Lions Moabit')) {
-            const vsIndex = title.indexOf(' vs ');
-            const lionIndex = title.indexOf('BC Lions Moabit');
-
-            if (vsIndex !== -1 && lionIndex !== -1) {
-                // BC Lions is home team (before "vs")
-                if (lionIndex < vsIndex) {
-                    isWin = homeScore > guestScore;
-                }
-                // BC Lions is guest team (after "vs") 
-                else {
-                    isWin = guestScore > homeScore;
-                }
-            }
-        }
-
-        return {
-            hasResult: true,
-            homeScore,
-            guestScore,
-            isWin,
-            isFinished: true,
-            scoreText: `${homeScore}:${guestScore}`,
-            scoreDiff: Math.abs(homeScore - guestScore)
-        };
-    }
-
-    if (finishedMatch) {
-        return {
-            hasResult: true,
-            homeScore: null,
-            guestScore: null,
-            isWin: null,
-            isFinished: true,
-            scoreText: 'Beendet',
-            scoreDiff: 0
-        };
-    }
-
-    return { hasResult: false };
-}
 
 // Helper function to format title without result (since we have badges)
 function formatTitleWithResult(title, gameResult) {
@@ -305,6 +328,9 @@ function generateUnifiedNavigation() {
         const encodedCalId = encodeURIComponent(config.calId);
         const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
 
+        const containerId = `schedule-${config.id}-events`;
+        const containerConfig = getContainerConfig(containerId);
+        
         scheduleSection.innerHTML = `
             <div class="calendar-link" id="schedule_${config.id}">
                 <h3>Training: ${config.label}</h3>
@@ -313,7 +339,7 @@ function generateUnifiedNavigation() {
 
             <div class="events-container">
                 <h4>Training des nächsten Monats</h4>
-                <div id="schedule-${config.id}-events" class="loading">Lade Training...</div>
+                <div id="${containerId}" class="loading">${containerConfig.loadingMessage}</div>
             </div>
         `;
 
@@ -325,6 +351,10 @@ function generateUnifiedNavigation() {
         const calendarSection = document.createElement('div');
         calendarSection.className = 'calendar-section';
         calendarSection.id = `${config.id}-section`;
+        
+        const containerId = `${config.id}-events`;
+        const containerConfig = getContainerConfig(containerId);
+        
         calendarSection.innerHTML = `
             <div class="calendar-link" id="spielplan_${config.id}">
                 <h3>Spielplan: ${config.name}</h3>
@@ -333,7 +363,7 @@ function generateUnifiedNavigation() {
 
             <div class="events-container">
                 <h4>Alle Spieltermine</h4>
-                <div id="${config.id}-events" class="loading">Lade Termine...</div>
+                <div id="${containerId}" class="loading">${containerConfig.loadingMessage}</div>
             </div>
         `;
 
@@ -370,6 +400,9 @@ function generateTermineNavigation() {
         const encodedCalId = encodeURIComponent(config.calId);
         const calendarUrl = `https://calendar.google.com/calendar/embed?src=${encodedCalId}&ctz=Europe%2FBerlin`;
 
+        const containerId = `termine-${config.id}-events`;
+        const containerConfig = getContainerConfig(containerId);
+        
         termineSection.innerHTML = `
             <div class="calendar-link" id="termine_${config.id}">
                 <h3>Termine: ${config.label}</h3>
@@ -378,7 +411,7 @@ function generateTermineNavigation() {
 
             <div class="events-container">
                 <h4>Termine des nächsten Monats</h4>
-                <div id="termine-${config.id}-events" class="loading">Lade Termine...</div>
+                <div id="${containerId}" class="loading">${containerConfig.loadingMessage}</div>
             </div>
         `;
 
@@ -610,7 +643,7 @@ function fetchAndParseJSON(url, rangeTypeFilter = RANGE_TYPES.ALL, teamId = null
 
 
 // Load team events from JSON (Spielplan) - shows all upcoming events
-function loadTeamCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
+function loadTeamCalendarEventsFromJSON(url, containerId, teamId = null) {
     fetchAndParseJSON(url, RANGE_TYPES.FUTURE, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
@@ -623,7 +656,7 @@ function loadTeamCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId
 }
 
 // Load termine events from JSON - shows events for next month only
-function loadCalendarEventsFromJSON(url, containerId, maxEvents = -1, teamId = null) {
+function loadCalendarEventsFromJSON(url, containerId, teamId = null) {
     fetchAndParseJSON(url, RANGE_TYPES.NEXT_MONTH, teamId)
         .then(events => {
             events.sort((a, b) => a.startDate - b.startDate);
@@ -639,16 +672,9 @@ function displayEvents(events, containerId) {
     const container = document.getElementById(containerId);
 
     if (events.length === 0) {
-        // Provide specific empty state messages based on the container ID
-        let emptyMessage = 'Keine Termine';
-        if (containerId === 'spiele-events') {
-            emptyMessage = 'Keine Spiele in den nächsten 7 Tagen';
-        } else if (containerId === 'heimspiele-events') {
-            emptyMessage = 'Keine Heimspiele in den nächsten 7 Tagen';
-        } else if (containerId === 'ergebnisse-events') {
-            emptyMessage = 'Keine Ergebnisse in der letzten Woche';
-        }
-        container.innerHTML = `<div class="loading"><div>${emptyMessage}</div></div>`;
+        // Get empty message from container config using helper function
+        const config = getContainerConfig(containerId);
+        container.innerHTML = `<div class="loading"><div>${config.emptyMessage}</div></div>`;
         return;
     }
 
@@ -661,10 +687,10 @@ function displayEvents(events, containerId) {
             displayTitle += ` (${event.venueName})`;
         }
 
-        // Extract game result from title if present, or use structured data from JSON
+        // Extract game result from structured data from JSON
         const gameResult = event.gameData
-            ? extractGameResultFromData(event.gameData, displayTitle)
-            : extractGameResult(displayTitle);
+            ? extractGameResultFromData(event.gameData)
+            : { hasResult: false };
 
         // Make BC Lions team names bold
         let formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
@@ -720,9 +746,7 @@ function loadMultipleTeamEvents(containerId, rangeTypeFilter = RANGE_TYPES.ALL, 
         });
 }
 
-function loadAllTeamEvents(containerId) {
-    loadMultipleTeamEvents(containerId, RANGE_TYPES.FUTURE);
-}
+
 
 function loadUpcomingTeamEvents(containerId) {
     loadMultipleTeamEvents(containerId, RANGE_TYPES.NEXT_WEEK);
@@ -808,6 +832,57 @@ function loadRecentResults(containerId) {
         });
 }
 
+// Function to load schedule events for a specific container
+function loadScheduleEvents(containerId) {
+    // Extract schedule ID from container ID (schedule-{id}-events)
+    const scheduleId = containerId.replace('schedule-', '').replace('-events', '');
+    
+    // Find the matching schedule config
+    const scheduleConfig = SCHEDULE_CONFIGS.find(config => config.id === scheduleId);
+    if (!scheduleConfig) {
+        console.error(`No schedule config found for ID: ${scheduleId}`);
+        document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
+        return;
+    }
+    
+    const jsonFile = scheduleConfig.jsonUrl;
+    loadCalendarEventsFromJSON(jsonFile, containerId, scheduleConfig.label);
+}
+
+// Function to load termine events for a specific container
+function loadTermineEvents(containerId) {
+    // Extract termine ID from container ID (termine-{id}-events)
+    const termineId = containerId.replace('termine-', '').replace('-events', '');
+    
+    // Find the matching general config
+    const termineConfig = GENERAL_CONFIGS.find(config => config.id === termineId);
+    if (!termineConfig) {
+        console.error(`No termine config found for ID: ${termineId}`);
+        document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
+        return;
+    }
+    
+    const jsonFile = termineConfig.jsonUrl;
+    loadCalendarEventsFromJSON(jsonFile, containerId, termineConfig.label);
+}
+
+// Function to load team calendar events for a specific container
+function loadTeamCalendarEvents(containerId) {
+    // Extract team ID from container ID ({teamId}-events)
+    const teamId = containerId.replace('-events', '');
+    
+    // Find the matching calendar config
+    const calendarConfig = CALENDAR_CONFIGS.find(config => config.id === teamId);
+    if (!calendarConfig) {
+        console.error(`No calendar config found for team ID: ${teamId}`);
+        document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
+        return;
+    }
+    
+    const jsonFile = `./data/spiele/${calendarConfig.id}.json`;
+    loadTeamCalendarEventsFromJSON(jsonFile, containerId, calendarConfig.id);
+}
+
 // Initialize app when page loads
 function initializeCalendarApp() {
     // Update last modified date
@@ -828,29 +903,20 @@ function initializeCalendarApp() {
     // Handle initial routing based on URL
     handleRouting();
 
-    // Load upcoming team events for the next 7 days
-    loadUpcomingTeamEvents('spiele-events');
-
-    // Load home games for the "Heimspiele" section
-    loadUpcomingHomeGames('heimspiele-events');
-
-    // Load events for dynamically configured team calendars (using JSON files)
-    CALENDAR_CONFIGS.forEach(config => {
-        const jsonFile = `./data/spiele/${config.id}.json`;
-        loadTeamCalendarEventsFromJSON(jsonFile, `${config.id}-events`, -1, config.id);
+    // Load main overview sections using container config (only configs with loadMethod)
+    // We need to find containers that match each loadable config and call their loadMethod
+    const allContainers = document.querySelectorAll('[id$="-events"]');
+    allContainers.forEach(container => {
+        const containerId = container.id;
+        const config = getContainerConfig(containerId);
+        if (config && config.loadMethod) {
+            config.loadMethod(containerId);
+        }
     });
 
-    // Load events for dynamically configured schedule calendars
-    SCHEDULE_CONFIGS.forEach(config => {
-        const jsonFile = config.jsonUrl;
-        loadCalendarEventsFromJSON(jsonFile, `schedule-${config.id}-events`, -1, config.label);
-    });
-
-    // Load events for dynamically configured termine calendars
-    GENERAL_CONFIGS.forEach(config => {
-        const jsonFile = config.jsonUrl;
-        loadCalendarEventsFromJSON(jsonFile, `termine-${config.id}-events`, -1, config.label);
-    });
+    // Note: All event loading is now handled by the unified container config system above
+    // Dynamic configs (team calendars, schedule calendars, termine calendars) are automatically
+    // loaded based on their container IDs through the detector functions in CONTAINER_CONFIG
 }
 
 // Load events when page loads
