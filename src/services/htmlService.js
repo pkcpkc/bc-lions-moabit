@@ -5,15 +5,15 @@ export class HTMLService {
         this.logger = logger;
     }
 
-    async generateIndexHTML(teamConfigs, termineConfigs, templatePath = 'index.template.html', outputPath = 'docs/index.html') {
+    async generateIndexHTML(spieleConfigs, trainingConfigs, termineConfigs = [], templatePath = 'index.template.html', outputPath = 'docs/index.html') {
         try {
             this.logger.info('Reading HTML template...');
             const template = await readFile(templatePath, 'utf8');
             
-            this.logger.info(`Generating HTML with ${teamConfigs.length} team configs and ${termineConfigs.length} termine configs`);
+            this.logger.info(`Generating HTML with ${spieleConfigs.length} spiele configs, ${trainingConfigs.length} training configs, and ${termineConfigs.length} termine configs`);
             
-            // Process team configs for display
-            const processedTeamConfigs = teamConfigs.map(config => {
+            // Process spiele configs for display
+            const processedSpieleConfigs = spieleConfigs.map(config => {
                 let displayName = config.teamId.toUpperCase();
                 
                 // Convert M or W prefix to lowercase for display
@@ -35,8 +35,9 @@ export class HTMLService {
             
             // Replace placeholders in template
             let html = template
-                .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(processedTeamConfigs, null, 8))
-                .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(termineConfigs, null, 8));
+                .replace(/\{\{\s*CALENDAR_CONFIGS\s*\}\}/g, JSON.stringify(processedSpieleConfigs, null, 8))
+                .replace(/\{\{\s*SCHEDULE_CONFIGS\s*\}\}/g, JSON.stringify(trainingConfigs, null, 8))
+                .replace(/\{\{\s*GENERAL_CONFIGS\s*\}\}/g, JSON.stringify(termineConfigs, null, 8));
             
             // Write the generated HTML
             await writeFile(outputPath, html, 'utf8');
@@ -45,7 +46,8 @@ export class HTMLService {
             
             return {
                 outputPath,
-                teamCount: teamConfigs.length,
+                spieleCount: spieleConfigs.length,
+                trainingCount: trainingConfigs.length,
                 termineCount: termineConfigs.length
             };
             

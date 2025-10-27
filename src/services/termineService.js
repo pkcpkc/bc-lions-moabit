@@ -38,7 +38,7 @@ export class TermineService {
     createTermineConfig(config, filename) {
         const id = this.generateTermineId(filename);
         
-        return {
+        const termineConfig = {
             id,
             label: config.label,
             calId: config.calId,
@@ -46,5 +46,12 @@ export class TermineService {
             icsUrl: `./ics/termine/${id}.ics`,
             jsonUrl: `./data/termine/${id}.json`
         };
+        
+        // Include teams array if present
+        if (config.teams) {
+            termineConfig.teams = config.teams;
+        }
+        
+        return termineConfig;
     }
 }

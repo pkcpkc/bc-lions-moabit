@@ -8,6 +8,7 @@ import { Logger } from '../services/logger.js';
 import { config } from '../config/index.js';
 
 // Constants for output paths
+const TRAINING_JSON_DIR = 'docs/data/training';
 const TERMINE_JSON_DIR = 'docs/data/termine';
 
 export class DownloadTermineCommand {
@@ -22,38 +23,47 @@ export class DownloadTermineCommand {
         this.configService = dependencies.configService || new ConfigService(this.logger);
     }
 
-    async cleanExistingTermine() {
+    async cleanExistingFiles() {
         try {
-            this.logger.info('🧹 Cleaning existing termine files...');
+            this.logger.info('🧹 Cleaning existing calendar files...');
             
-            // Read all files in the termine output directory
-            const files = await fs.readdir(config.paths.termineOutputDir);
+            const directories = [config.paths.trainingOutputDir, 'docs/ics/termine'];
+            let totalCleaned = 0;
             
-            // Filter for .ics files
-            const icsFiles = files.filter(file => path.extname(file) === '.ics');
-            
-            if (icsFiles.length === 0) {
-                this.logger.info('No existing termine files to clean');
-                return;
+            for (const dir of directories) {
+                try {
+                    // Read all files in the directory
+                    const files = await fs.readdir(dir);
+                    
+                    // Filter for .ics files
+                    const icsFiles = files.filter(file => path.extname(file) === '.ics');
+                    
+                    if (icsFiles.length > 0) {
+                        // Remove each .ics file
+                        for (const file of icsFiles) {
+                            const filePath = path.join(dir, file);
+                            await fs.unlink(filePath);
+                            this.logger.debug(`Removed: ${file} from ${dir}`);
+                        }
+                        totalCleaned += icsFiles.length;
+                    }
+                } catch (error) {
+                    if (error.code === 'ENOENT') {
+                        this.logger.debug(`Directory ${dir} does not exist - nothing to clean`);
+                    } else {
+                        throw error;
+                    }
+                }
             }
             
-            // Remove each .ics file
-            for (const file of icsFiles) {
-                const filePath = path.join(config.paths.termineOutputDir, file);
-                await fs.unlink(filePath);
-                this.logger.debug(`Removed: ${file}`);
+            if (totalCleaned > 0) {
+                this.logger.info(`✅ Cleaned ${totalCleaned} existing calendar files`);
+            } else {
+                this.logger.info('No existing calendar files to clean');
             }
-            
-            this.logger.info(`✅ Cleaned ${icsFiles.length} existing termine files`);
             
         } catch (error) {
-            // If directory doesn't exist, that's fine - no files to clean
-            if (error.code === 'ENOENT') {
-                this.logger.debug('Termine directory does not exist - nothing to clean');
-                return;
-            }
-            
-            this.logger.error('Failed to clean existing termine files:', error.message);
+            this.logger.error('Failed to clean existing calendar files:', error.message);
             throw error;
         }
     }
@@ -140,26 +150,37 @@ export class DownloadTermineCommand {
         try {
             this.logger.info('🗓️  Starting termine download process...');
 
-            // Read termine configurations
-            const termineConfigs = await this.configService.readTermineConfigs('termine');
+            // Read training configurations (was termine)
+            const trainingConfigs = await this.configService.readCalendarConfigs('training', 'training');
+            
+            // Read termine configurations (was general)
+            const termineConfigs = this.configService.readCalendarConfigs ? 
+                await this.configService.readCalendarConfigs('termine', 'termine') : [];
+            
+            // Combine both types of configs
+            const allConfigs = [...trainingConfigs, ...termineConfigs];
 
-            if (termineConfigs.length === 0) {
-                this.logger.warn('No termine configurations found');
+            if (allConfigs.length === 0) {
+                this.logger.warn('No training or termine configurations found');
                 return { downloadedCount: 0, errorCount: 0, totalConfigs: 0 };
             }
+            
+            this.logger.info(`Processing ${trainingConfigs.length} training configs and ${termineConfigs.length} termine configs`);
 
             // Ensure output directories exist
-            await fs.mkdir(config.paths.termineOutputDir, { recursive: true });
+            await fs.mkdir(config.paths.trainingOutputDir, { recursive: true });
+            await fs.mkdir('docs/ics/termine', { recursive: true });
+            await fs.mkdir(TRAINING_JSON_DIR, { recursive: true });
             await fs.mkdir(TERMINE_JSON_DIR, { recursive: true });
 
-            // Clean existing termine files to avoid stale content
-            await this.cleanExistingTermine();
+            // Clean existing calendar files to avoid stale content
+            await this.cleanExistingFiles();
 
             let downloadedCount = 0;
             let errorCount = 0;
 
             // Download each calendar
-            for (const termineConfig of termineConfigs) {
+            for (const termineConfig of allConfigs) {
                 try {
                     this.logger.info(`Downloading: ${termineConfig.label}`);
                     
@@ -170,7 +191,9 @@ export class DownloadTermineCommand {
                     
                     // Parse ICS content to JSON and save JSON file
                     const jsonData = await this.parseIcsToJson(icsContent, termineConfig);
-                    const jsonFilename = path.join(TERMINE_JSON_DIR, `${termineConfig.id}.json`);
+                    // Determine the correct JSON directory based on the config
+                    const jsonDir = termineConfig.type === 'training' ? TRAINING_JSON_DIR : TERMINE_JSON_DIR;
+                    const jsonFilename = path.join(jsonDir, `${termineConfig.id}.json`);
                     await fs.writeFile(jsonFilename, JSON.stringify(jsonData, null, 2), 'utf8');
                     
                     downloadedCount++;
@@ -186,7 +209,7 @@ export class DownloadTermineCommand {
             const result = {
                 downloadedCount,
                 errorCount,
-                totalConfigs: termineConfigs.length
+                totalConfigs: allConfigs.length
             };
 
             this.logger.info(`📥 Download complete: ${downloadedCount} successful, ${errorCount} failed`);

@@ -38,9 +38,9 @@ npm test tests/commands/    # Run only command tests
 ```bash
 npm run build               # Complete build: fetch games + download termine + build HTML
 npm run build:html          # Generate HTML only (fast, ~100ms, no network needed)
-npm run fetch-games         # Fetch games for one team (for testing)
-npm run fetch-games-batch   # Fetch games for all 22 teams (~1-2 min)
-npm run download-termine    # Download 7 training calendars from Google
+npm run fetch:games         # Fetch games for one team (for testing)
+npm run fetch:all-games     # Fetch games for all 22 teams (~1-2 min)
+npm run fetch:calendars     # Download 7 training calendars from Google
 npm run crawl               # Discover new teams (rarely needed)
 ```
 

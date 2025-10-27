@@ -234,12 +234,11 @@ describe('TermineService', () => {
             });
         });
 
-        it('should preserve additional config properties', () => {
+        it('should preserve teams property if present', () => {
             const config = {
                 label: 'Test Calendar',
                 calId: 'test@example.com',
-                description: 'Additional description',
-                color: '#FF0000'
+                teams: ['team1', 'team2']
             };
 
             const result = termineService.createTermineConfig(config, 'termine/test.json');
@@ -247,9 +246,21 @@ describe('TermineService', () => {
             expect(result.label).toBe('Test Calendar');
             expect(result.calId).toBe('test@example.com');
             expect(result.id).toBe('test');
-            // Additional properties are not included in the result
-            expect(result.description).toBeUndefined();
-            expect(result.color).toBeUndefined();
+            expect(result.teams).toEqual(['team1', 'team2']);
+        });
+
+        it('should not include teams property if not present', () => {
+            const config = {
+                label: 'Test Calendar',
+                calId: 'test@example.com'
+            };
+
+            const result = termineService.createTermineConfig(config, 'termine/test.json');
+
+            expect(result.label).toBe('Test Calendar');
+            expect(result.calId).toBe('test@example.com');
+            expect(result.id).toBe('test');
+            expect(result.teams).toBeUndefined();
         });
 
         it('should handle special characters in config values', () => {

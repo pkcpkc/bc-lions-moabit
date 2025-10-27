@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BC Lions Moabit - Termine</title>
+    <title>BC Lions Moabit</title>
     <script src="./js/basketball-animation.js"></script>
     <style>
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 5px;
             position: relative;
         }
 
@@ -283,7 +283,7 @@
 
         .navigation {
             background-color: #f8f9fa;
-            padding: 15px;
+            padding: 5px;
             border-radius: 5px;
             margin: 15px 0;
             text-align: center;
@@ -342,6 +342,55 @@
             color: white;
         }
 
+        #unified-nav-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+
+        .nav-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-card-header {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .nav-card-teams {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .nav-card-teams .nav-link {
+            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+        }
+
+        .nav-card-teams .nav-link:hover {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .nav-card-teams .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
         .calendar-section {
             display: none;
         }
@@ -371,13 +420,14 @@
     <div class="container">
         <h1>
             <img src="./bc-lions-logo.png" alt="BC Lions Logo" class="logo-image">
-            BC Lions Moabit - Termine
+            BC Lions Moabit
         </h1>
         <p id="last-updated">Zuletzt aktualisiert: <span id="last-updated-date">Wird geladen...</span></p>
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
-                <div class="nav-row">
+                <div class="nav-row" id="overview-nav-row">
+                    <!-- General calendar links will be inserted here dynamically before other links -->
                     <a href="#spiele" class="nav-link">Spiele</a>
                     <a href="#heimspiele" class="nav-link">Heimspiele</a>
                     <a href="#ergebnisse" class="nav-link">Ergebnisse</a>
@@ -385,15 +435,9 @@
                 </div>
             </div>
             <div class="nav-section">
-                <h4 class="nav-headline">Spielpläne</h4>
-                <div class="nav-row" id="team-nav-row">
-                    <!-- Team navigation links will be generated dynamically -->
-                </div>
-            </div>
-            <div class="nav-section">
-                <h4 class="nav-headline">Termine</h4>
-                <div class="nav-row" id="schedule-nav-row">
-                    <!-- Schedule navigation links will be generated dynamically -->
+                <h4 class="nav-headline">Spielpläne & Termine</h4>
+                <div id="unified-nav-container">
+                    <!-- Unified navigation cards will be generated dynamically -->
                 </div>
             </div>
         </nav>
@@ -432,8 +476,10 @@
             <div class="calendar-link" id="ergebnisse">
                 <h3>Ergebnisse der letzten Woche</h3>
             </div>
-            <div id="ergebnisse-events" class="event-list">
-                <!-- Recent results will be populated by JavaScript -->
+
+            <div class="events-container">
+                <h4>Ergebnisse der letzten 7 Tage</h4>
+                <div id="ergebnisse-events" class="loading">Lade Ergebnisse...</div>
             </div>
         </div>
 
@@ -488,6 +534,7 @@
         // Set up global configuration data for the calendar app
         window.CALENDAR_CONFIGS = {{ CALENDAR_CONFIGS }};
         window.SCHEDULE_CONFIGS = {{ SCHEDULE_CONFIGS }};
+        window.GENERAL_CONFIGS = {{ GENERAL_CONFIGS }};
     </script>
     <script src="./js/calendar-app.js"></script>
 </body>

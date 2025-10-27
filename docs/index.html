@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BC Lions Moabit - Termine</title>
+    <title>BC Lions Moabit</title>
     <script src="./js/basketball-animation.js"></script>
     <style>
         body {
             font-family: sans-serif;
             line-height: 1.6;
-            margin: 20px;
+            margin: 5px;
             position: relative;
         }
 
@@ -283,7 +283,7 @@
 
         .navigation {
             background-color: #f8f9fa;
-            padding: 15px;
+            padding: 5px;
             border-radius: 5px;
             margin: 15px 0;
             text-align: center;
@@ -342,6 +342,55 @@
             color: white;
         }
 
+        #unified-nav-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+        }
+
+        .nav-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-card-header {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .nav-card-teams {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+
+        .nav-card-teams .nav-link {
+            font-size: 11px;
+            padding: 3px 6px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+        }
+
+        .nav-card-teams .nav-link:hover {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
+        .nav-card-teams .nav-link.active {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+
         .calendar-section {
             display: none;
         }
@@ -371,13 +420,14 @@
     <div class="container">
         <h1>
             <img src="./bc-lions-logo.png" alt="BC Lions Logo" class="logo-image">
-            BC Lions Moabit - Termine
+            BC Lions Moabit
         </h1>
         <p id="last-updated">Zuletzt aktualisiert: <span id="last-updated-date">Wird geladen...</span></p>
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht</h4>
-                <div class="nav-row">
+                <div class="nav-row" id="overview-nav-row">
+                    <!-- General calendar links will be inserted here dynamically before other links -->
                     <a href="#spiele" class="nav-link">Spiele</a>
                     <a href="#heimspiele" class="nav-link">Heimspiele</a>
                     <a href="#ergebnisse" class="nav-link">Ergebnisse</a>
@@ -385,15 +435,9 @@
                 </div>
             </div>
             <div class="nav-section">
-                <h4 class="nav-headline">Spielpläne</h4>
-                <div class="nav-row" id="team-nav-row">
-                    <!-- Team navigation links will be generated dynamically -->
-                </div>
-            </div>
-            <div class="nav-section">
-                <h4 class="nav-headline">Termine</h4>
-                <div class="nav-row" id="schedule-nav-row">
-                    <!-- Schedule navigation links will be generated dynamically -->
+                <h4 class="nav-headline">Spielpläne & Termine</h4>
+                <div id="unified-nav-container">
+                    <!-- Unified navigation cards will be generated dynamically -->
                 </div>
             </div>
         </nav>
@@ -432,8 +476,10 @@
             <div class="calendar-link" id="ergebnisse">
                 <h3>Ergebnisse der letzten Woche</h3>
             </div>
-            <div id="ergebnisse-events" class="event-list">
-                <!-- Recent results will be populated by JavaScript -->
+
+            <div class="events-container">
+                <h4>Ergebnisse der letzten 7 Tage</h4>
+                <div id="ergebnisse-events" class="loading">Lade Ergebnisse...</div>
             </div>
         </div>
 
@@ -710,60 +756,103 @@
 ];
         window.SCHEDULE_CONFIGS = [
         {
-                "id": "Kalender",
-                "label": "BC Lions",
-                "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/Kalender.ics",
-                "icsUrl": "./ics/termine/Kalender.ics",
-                "jsonUrl": "./data/termine/Kalender.json"
-        },
-        {
-                "id": "Damen",
+                "id": "damen",
                 "label": "Damen",
                 "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/Damen.ics",
-                "icsUrl": "./ics/termine/Damen.ics",
-                "jsonUrl": "./data/termine/Damen.json"
+                "icsFilename": "docs/ics/training/damen.ics",
+                "icsUrl": "./ics/training/damen.ics",
+                "jsonUrl": "./data/training/damen.json",
+                "type": "training",
+                "teams": [
+                        "da-bl",
+                        "da-ol"
+                ]
         },
         {
-                "id": "Herren",
+                "id": "herren",
                 "label": "Herren",
                 "calId": "53009b789daac422a9a04fb042c6d22471052464ec60da06415958dccaf5ea02@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/Herren.ics",
-                "icsUrl": "./ics/termine/Herren.ics",
-                "jsonUrl": "./data/termine/Herren.json"
+                "icsFilename": "docs/ics/training/herren.ics",
+                "icsUrl": "./ics/training/herren.ics",
+                "jsonUrl": "./data/training/herren.json",
+                "type": "training",
+                "teams": [
+                        "he-bl-a",
+                        "he-bl-c",
+                        "he-kl-a",
+                        "he-kl-b",
+                        "he-kl-c",
+                        "he-ll-b"
+                ]
         },
         {
-                "id": "mU14-mU20",
+                "id": "mu14-mu20",
                 "label": "mU14-mU20",
                 "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/mU14-mU20.ics",
-                "icsUrl": "./ics/termine/mU14-mU20.ics",
-                "jsonUrl": "./data/termine/mU14-mU20.json"
+                "icsFilename": "docs/ics/training/mu14-mu20.ics",
+                "icsUrl": "./ics/training/mu14-mu20.ics",
+                "jsonUrl": "./data/training/mu14-mu20.json",
+                "type": "training",
+                "teams": [
+                        "mu14-bl-a",
+                        "mu14-ol-a",
+                        "mu16-bl-b",
+                        "mu16-kl",
+                        "mu18-ll-b",
+                        "mu20-ll-a"
+                ]
         },
         {
-                "id": "U11-U12",
+                "id": "u11-u12",
                 "label": "U11/U12",
                 "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/U11-U12.ics",
-                "icsUrl": "./ics/termine/U11-U12.ics",
-                "jsonUrl": "./data/termine/U11-U12.json"
+                "icsFilename": "docs/ics/training/u11-u12.ics",
+                "icsUrl": "./ics/training/u11-u12.ics",
+                "jsonUrl": "./data/training/u11-u12.json",
+                "type": "training",
+                "teams": [
+                        "u11-f-1",
+                        "mu12-ll-b"
+                ]
         },
         {
-                "id": "U6-U10",
+                "id": "u6-u10",
                 "label": "U6-U10",
                 "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/U6-U10.ics",
-                "icsUrl": "./ics/termine/U6-U10.ics",
-                "jsonUrl": "./data/termine/U6-U10.json"
+                "icsFilename": "docs/ics/training/u6-u10.ics",
+                "icsUrl": "./ics/training/u6-u10.ics",
+                "jsonUrl": "./data/training/u6-u10.json",
+                "type": "training",
+                "teams": [
+                        "u9-a-2"
+                ]
         },
         {
-                "id": "wU12-wU18",
+                "id": "wu12-wu18",
                 "label": "wU12-wU18",
                 "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-                "icsFilename": "docs/ics/termine/wU12-wU18.ics",
-                "icsUrl": "./ics/termine/wU12-wU18.ics",
-                "jsonUrl": "./data/termine/wU12-wU18.json"
+                "icsFilename": "docs/ics/training/wu12-wu18.ics",
+                "icsUrl": "./ics/training/wu12-wu18.ics",
+                "jsonUrl": "./data/training/wu12-wu18.json",
+                "type": "training",
+                "teams": [
+                        "wu12-bl",
+                        "wu14-ll-a",
+                        "wu16-ll-a",
+                        "wu18-ll-b",
+                        "wu18-ol"
+                ]
+        }
+];
+        window.GENERAL_CONFIGS = [
+        {
+                "id": "bc-lions",
+                "label": "BC Lions",
+                "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
+                "icsFilename": "docs/ics/termine/bc-lions.ics",
+                "icsUrl": "./ics/termine/bc-lions.ics",
+                "jsonUrl": "./data/termine/bc-lions.json",
+                "type": "termine"
         }
 ];
     </script>

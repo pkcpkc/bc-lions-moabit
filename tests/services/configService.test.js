@@ -64,9 +64,9 @@ describe('ConfigService', () => {
                 competitionId: '12345',
                 teamName: 'Team One',
                 teamId: 'team-1',
-                icsFilename: 'docs/ics/spiele/team-1.ics',
-                icsUrl: './ics/spiele/team-1.ics',
-                jsonUrl: './data/spiele/team-1.json',
+                icsFilename: 'docs/ics/test-teams/team-1.ics',
+                icsUrl: './ics/test-teams/team-1.ics',
+                jsonUrl: './data/test-teams/team-1.json',
                 webUrl: 'https://www.basketball-bund.net/static/#/liga/12345'
             });
         });
@@ -168,9 +168,9 @@ describe('ConfigService', () => {
                 id: 'calendar1',
                 label: 'Calendar One',
                 calId: 'cal1@example.com',
-                icsFilename: 'docs/ics/termine/calendar1.ics',
-                icsUrl: './ics/termine/calendar1.ics',
-                jsonUrl: './data/termine/calendar1.json'
+                icsFilename: 'docs/ics/test-termine/calendar1.ics',
+                icsUrl: './ics/test-termine/calendar1.ics',
+                jsonUrl: './data/test-termine/calendar1.json'
             });
         });
 
@@ -221,6 +221,150 @@ describe('ConfigService', () => {
                 'Failed to read termine configs from termine:',
                 'Termine directory not found'
             );
+        });
+    });
+
+    describe('readCalendarConfigs', () => {
+        it('should successfully read and parse calendar configurations', async () => {
+            const mockFiles = ['calendar1.json', 'calendar2.json'];
+            const mockConfig1 = { label: 'Calendar One', calId: 'cal1@example.com' };
+            const mockConfig2 = { label: 'Calendar Two', calId: 'cal2@example.com', teams: ['team1', 'team2'] };
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(mockConfig1))
+                   .mockResolvedValueOnce(JSON.stringify(mockConfig2));
+
+            const result = await configService.readCalendarConfigs('test-training', 'training');
+
+            expect(result).toHaveLength(2);
+            expect(result[0]).toEqual({
+                id: 'calendar1',
+                label: 'Calendar One',
+                calId: 'cal1@example.com',
+                icsFilename: 'docs/ics/test-training/calendar1.ics',
+                icsUrl: './ics/test-training/calendar1.ics',
+                jsonUrl: './data/test-training/calendar1.json',
+                type: 'training'
+            });
+            expect(result[1]).toEqual({
+                id: 'calendar2',
+                label: 'Calendar Two',
+                calId: 'cal2@example.com',
+                icsFilename: 'docs/ics/test-training/calendar2.ics',
+                icsUrl: './ics/test-training/calendar2.ics',
+                jsonUrl: './data/test-training/calendar2.json',
+                type: 'training',
+                teams: ['team1', 'team2']
+            });
+        });
+
+        it('should normalize IDs by converting to lowercase and replacing non-alphanumeric characters', async () => {
+            const mockFiles = ['Calendar With Spaces & Special.json'];
+            const mockConfig = { label: 'Test Calendar', calId: 'test@example.com' };
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(mockConfig));
+
+            const result = await configService.readCalendarConfigs('test-dir');
+
+            expect(result[0].id).toBe('calendar-with-spaces---special');
+        });
+
+        it('should use default outputType of "termine" when not specified', async () => {
+            const mockFiles = ['calendar1.json'];
+            const mockConfig = { label: 'Test Calendar', calId: 'test@example.com' };
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(mockConfig));
+
+            const result = await configService.readCalendarConfigs('test-dir');
+
+            expect(result[0].type).toBe('termine');
+        });
+
+        it('should sort calendar configs alphabetically by label', async () => {
+            const mockFiles = ['z.json', 'a.json', 'm.json'];
+            const mockConfigs = [
+                { label: 'Z Calendar', calId: 'z@example.com' },
+                { label: 'A Calendar', calId: 'a@example.com' },
+                { label: 'M Calendar', calId: 'm@example.com' }
+            ];
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(mockConfigs[0]))
+                   .mockResolvedValueOnce(JSON.stringify(mockConfigs[1]))
+                   .mockResolvedValueOnce(JSON.stringify(mockConfigs[2]));
+
+            const result = await configService.readCalendarConfigs('test-dir');
+
+            expect(result[0].label).toBe('A Calendar');
+            expect(result[1].label).toBe('M Calendar');
+            expect(result[2].label).toBe('Z Calendar');
+        });
+
+        it('should skip files with missing required fields', async () => {
+            const mockFiles = ['valid.json', 'invalid1.json', 'invalid2.json'];
+            const validConfig = { label: 'Valid Calendar', calId: 'valid@example.com' };
+            const invalidConfig1 = { calId: 'missing-label@example.com' }; // Missing label
+            const invalidConfig2 = { label: 'Missing CalId' }; // Missing calId
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(validConfig))
+                   .mockResolvedValueOnce(JSON.stringify(invalidConfig1))
+                   .mockResolvedValueOnce(JSON.stringify(invalidConfig2));
+
+            const result = await configService.readCalendarConfigs('test-dir');
+
+            expect(result).toHaveLength(1);
+            expect(result[0].label).toBe('Valid Calendar');
+            expect(mockLogger.warn).toHaveBeenCalledWith(
+                'Skipping invalid1.json: Missing required fields (label, calId)'
+            );
+            expect(mockLogger.warn).toHaveBeenCalledWith(
+                'Skipping invalid2.json: Missing required fields (label, calId)'
+            );
+        });
+
+        it('should handle JSON parse errors gracefully', async () => {
+            const mockFiles = ['valid.json', 'invalid.json'];
+            const validConfig = { label: 'Valid Calendar', calId: 'valid@example.com' };
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValueOnce(JSON.stringify(validConfig))
+                   .mockResolvedValueOnce('invalid json content');
+
+            const result = await configService.readCalendarConfigs('test-dir');
+
+            expect(result).toHaveLength(1);
+            expect(result[0].label).toBe('Valid Calendar');
+            expect(mockLogger.warn).toHaveBeenCalledWith(
+                expect.stringMatching(/Error processing invalid\.json:/),
+                expect.any(String)
+            );
+        });
+
+        it('should handle directory read errors', async () => {
+            const dirError = new Error('Calendar directory not found');
+            readdir.mockRejectedValue(dirError);
+
+            await expect(configService.readCalendarConfigs('nonexistent-dir')).rejects.toThrow('Calendar directory not found');
+            expect(mockLogger.error).toHaveBeenCalledWith(
+                'Failed to read calendar configs from nonexistent-dir:',
+                'Calendar directory not found'
+            );
+        });
+
+        it('should log correct number of found files', async () => {
+            const mockFiles = ['cal1.json', 'cal2.json', 'readme.txt'];
+            const mockConfig = { label: 'Test', calId: 'test@example.com' };
+
+            readdir.mockResolvedValue(mockFiles);
+            readFile.mockResolvedValue(JSON.stringify(mockConfig));
+
+            await configService.readCalendarConfigs('test-dir');
+
+            expect(mockLogger.info).toHaveBeenCalledWith('Found 2 calendar configuration files in test-dir');
+            expect(mockLogger.info).toHaveBeenCalledWith('Successfully loaded 2 calendar configurations from test-dir');
         });
     });
 });

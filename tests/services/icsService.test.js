@@ -287,4 +287,63 @@ describe('ICSService', () => {
             expect(formatted).toBe(' (Beendet)');
         });
     });
+
+    describe('addHoursToTime - edge cases', () => {
+        it('should handle TBD time for any hour addition', () => {
+            const result = icsService.addHoursToTime('23:59', 2);
+            expect(result).toBe('23:59'); // TBD time remains unchanged
+        });
+
+        it('should handle zero hours addition', () => {
+            const result = icsService.addHoursToTime('15:45', 0);
+            expect(result).toBe('15:45');
+        });
+    });
+
+    describe('formatResult - additional edge cases', () => {
+        it('should handle results with zero scores', () => {
+            const result = {
+                homeScore: 0,
+                guestScore: 0,
+                isFinished: true
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe(' 0:0');
+        });
+
+        it('should handle unfinished games without scores', () => {
+            const result = {
+                homeScore: null,
+                guestScore: null,
+                isFinished: false
+            };
+
+            const formatted = icsService.formatResult(result);
+            expect(formatted).toBe('');
+        });
+    });
+
+    describe('createICSEvent - integration test', () => {
+        it('should create a complete ICS event with all properties', () => {
+            const game = {
+                date: '2024-01-15',
+                time: '18:00',
+                home: 'Team A',
+                guest: 'Team B',
+                venue: { name: 'Sports Hall' },
+                matchId: 'match123'
+            };
+
+            const event = icsService.createICSEvent(game);
+
+            expect(event).toContain('BEGIN:VEVENT');
+            expect(event).toContain('END:VEVENT');
+            expect(event).toContain('DTSTART:20240115T180000');
+            expect(event).toContain('DTEND:20240115T200000');
+            expect(event).toContain('SUMMARY:Team A vs Team B (Sports Hall)');
+            expect(event).toContain('UID:');
+            expect(event).toContain('DTSTAMP:');
+        });
+    });
 });

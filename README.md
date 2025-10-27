@@ -1,198 +1,85 @@
-# BC Lions Moabit - Dynamic Calendar System
+# BC Lions Moabit Calendar System
 
-Automated basketball team calendar system with **game results** and comprehensive test coverage.
-
-🔄 **Fully Automated**: GitHub Actions update all data daily at 10:00 UTC.
-
-## System Architecture
-
-```mermaid
-graph TB
-    subgraph "Frontend Layer"
-        A[calendar-app.js<br/>📱 51 Tests]
-        A1[Game Results Extraction]
-        A2[Date Filtering Logic] 
-        A3[URL Routing System]
-        A4[DOM Management]
-    end
-    
-    subgraph "Backend Services"
-        B[API Integration<br/>🏀 Basketball-Bund]
-        C[Data Processing<br/>📊 177 Tests]
-        D[File Generation<br/>📝 ICS + HTML]
-    end
-    
-    subgraph "Automation Layer"
-        E[GitHub Actions<br/>⏰ Daily at 10:00 UTC]
-        F[GitHub Pages<br/>🌐 Live Website]
-    end
-    
-    A --> A1
-    A --> A2
-    A --> A3
-    A --> A4
-    
-    B --> C
-    C --> D
-    E --> B
-    D --> F
-    
-    subgraph "Quality Assurance"
-        G[Frontend Tests: 51 ✅]
-        H[Backend Tests: 177 ✅]
-        I[Total Coverage: 228 ✅]
-    end
-```
-
-## Component Architecture
-
-```mermaid
-graph TB
-    subgraph "Command Layer"
-        CMD1[CrawlCommand<br/>Team Discovery]
-        CMD2[FetchGamesCommand<br/>Game Data Retrieval]
-        CMD3[BuildHtmlCommand<br/>Website Generation]
-        CMD4[DownloadTermineCommand<br/>Calendar Download]
-    end
-
-    subgraph "Service Layer"
-        SVC1[HttpClient<br/>• Retry Logic<br/>• Rate Limiting<br/>• Timeout Handling]
-        SVC2[CrawlService<br/>• League Investigation<br/>• Team Detection<br/>• Parallel Processing]
-        SVC3[GamesService<br/>• Match Processing<br/>• Score Extraction<br/>• Team Filtering]
-        SVC4[IcsService<br/>• Calendar Generation<br/>• Event Formatting<br/>• Metadata Handling]
-        SVC5[HtmlService<br/>• Template Processing<br/>• Config Injection<br/>• Asset Management]
-        SVC6[Logger<br/>• Structured Logging<br/>• Performance Tracking<br/>• Error Reporting]
-    end
-
-    subgraph "Data Layer"
-        DATA1[teams/*.json<br/>Team Configurations]
-        DATA2[termine/*.json<br/>Training Schedules]
-        DATA3[docs/ics/spiele/*.ics<br/>Game Calendars]
-        DATA4[docs/ics/termine/*.ics<br/>Training Calendars]
-        DATA5[docs/index.html<br/>Generated Website]
-    end
-
-    subgraph "External APIs"
-        API1[Basketball-Bund API<br/>Game Data & Results]
-        API2[Google Calendar API<br/>Training Schedules]
-    end
-
-    CMD1 --> SVC2
-    CMD2 --> SVC3
-    CMD3 --> SVC5
-    CMD4 --> SVC4
-
-    SVC2 --> SVC1
-    SVC3 --> SVC1
-    SVC4 --> SVC1
-    SVC5 --> SVC1
-
-    SVC1 --> API1
-    SVC1 --> API2
-
-    SVC2 --> DATA1
-    SVC3 --> DATA3
-    SVC4 --> DATA4
-    SVC5 --> DATA5
-
-    SVC1 -.-> SVC6
-    SVC2 -.-> SVC6
-    SVC3 -.-> SVC6
-    SVC4 -.-> SVC6
-    SVC5 -.-> SVC6
-```
-
-## Processing Flow
-
-```mermaid
-flowchart TD
-    START([GitHub Actions Trigger<br/>Daily 10:00 UTC]) --> SETUP[Setup Environment<br/>Node.js 18 + Dependencies]
-    
-    SETUP --> TESTS{Run Test Suite<br/>228 Tests}
-    TESTS -->|❌ Fail| ABORT([❌ Abort Build<br/>Notify Failure])
-    TESTS -->|✅ Pass| PARALLEL[Parallel Processing Phase]
-    
-    subgraph PARALLEL [Parallel Data Collection]
-        direction TB
-        P1[📅 Download Training Calendars<br/>7 Google Calendar ICS files]
-        P2[🏀 Fetch Game Data<br/>22 Teams × ~20 Games each]
-        P3[🔍 Process Match Details<br/>API calls for scores & venues]
-    end
-    
-    PARALLEL --> PROCESS[Data Processing & Generation]
-    
-    subgraph PROCESS [File Generation]
-        direction TB
-        GEN1[Generate Team ICS Files<br/>22 × spiele/*.ics]
-        GEN2[Process Training ICS Files<br/>7 × termine/*.ics] 
-        GEN3[Extract Game Results<br/>Score parsing & win/loss logic]
-        GEN4[Create HTML Template<br/>Inject configs & generate docs/index.html]
-    end
-    
-    PROCESS --> VALIDATE{Validate Changes<br/>git diff check}
-    VALIDATE -->|No Changes| SKIP([⏭️ Skip Commit<br/>No updates needed])
-    VALIDATE -->|Changes Found| COMMIT[📝 Auto-Commit & Push<br/>Update repository]
-    
-    COMMIT --> DEPLOY[🚀 GitHub Pages Deploy<br/>Live website update]
-    DEPLOY --> SUCCESS([✅ Build Complete<br/>Website Updated])
-    
-    subgraph ERROR_HANDLING [Error Handling]
-        direction TB
-        ERR1[HTTP Retry Logic<br/>3 attempts with backoff]
-        ERR2[API Timeout Handling<br/>30s per request]
-        ERR3[Graceful Degradation<br/>Continue with available data]
-    end
-    
-    PARALLEL -.-> ERROR_HANDLING
-    PROCESS -.-> ERROR_HANDLING
-```
-
-## 🏀 Key Features
-
-- **Live Game Results**: Automatic display of scores in calendar events
-- **22+ Teams**: All age groups and leagues covered
-- **Smart Formatting**: Different formats for upcoming/finished games
-- **Robust API**: Basketball-Bund integration with retry logic
-- **Enterprise Testing**: 228 tests with 100% success rate
+Automated basketball team calendar system that generates dynamic game schedules and training calendars for BC Lions Moabit basketball club.
 
 ## Quick Start
 
 ```bash
-# Complete build
-npm run build
-
-# Run tests only
-npm test
-
-# Frontend tests
-npm test tests/frontend/
-
-# With coverage report
-npm run test:coverage
+npm ci                    # Install dependencies
+npm test                 # Run all tests (279 tests)
+npm run build           # Full build (fetch games + calendars + generate HTML)
+npm run build:html      # Generate HTML only (fast)
 ```
 
-## Current Statistics
+## Processing Overview
 
-| Metric | Value |
-|--------|-------|
-| Active Teams | 22 teams |
-| Total Tests | 228 (100% ✅) |
-| Frontend Tests | 51 (100% ✅) |
-| API Calls per Build | ~450+ |
-| Build Time | 2-3 minutes |
-| Game Results Tracked | 12+ completed games |
+```mermaid
+flowchart TD
+    START([🚀 Build Process<br/>GitHub Actions Daily]) --> SETUP[⚙️ Environment Setup<br/>Node.js + Dependencies]
+    
+    SETUP --> TESTS{🧪 Run Test Suite<br/>279 Tests}
+    TESTS -->|❌ Fail| ABORT([❌ Build Aborted<br/>Tests Failed])
+    TESTS -->|✅ Pass| PARALLEL[📊 Data Collection Phase]
+    
+    subgraph PARALLEL [Parallel Processing]
+        direction TB
+        P1[🏀 Fetch Game Data<br/>22 Teams × Basketball-Bund API]
+        P2[📅 Download Training Calendars<br/>7 Google Calendar ICS Files]
+        P3[🔍 Process Match Results<br/>Extract Scores & Status]
+    end
+    
+    PARALLEL --> TRANSFORM[🔄 Data Transformation]
+    
+    subgraph TRANSFORM [File Generation]
+        direction TB
+        T1[📝 Generate Game ICS Files<br/>docs/ics/spiele/]
+        T2[📋 Process Training ICS Files<br/>docs/ics/termine/]
+        T3[🌐 Build HTML Website<br/>docs/index.html]
+        T4[💾 Create JSON Data<br/>docs/data/]
+    end
+    
+    TRANSFORM --> VALIDATE{🔍 Changes Detected?<br/>Git Diff Check}
+    VALIDATE -->|No Changes| SKIP([⏭️ No Updates<br/>Build Complete])
+    VALIDATE -->|Changes Found| COMMIT[📤 Auto-Commit<br/>Push to Repository]
+    
+    COMMIT --> DEPLOY[🌍 GitHub Pages<br/>Deploy Website]
+    DEPLOY --> SUCCESS([✅ Build Complete<br/>Website Live])
+    
+    subgraph ERROR [Error Handling]
+        direction TB
+        E1[🔄 HTTP Retry Logic<br/>3 Attempts + Backoff]
+        E2[⏱️ Timeout Handling<br/>30s Request Limit]
+        E3[🛡️ Graceful Degradation<br/>Continue with Available Data]
+    end
+    
+    PARALLEL -.-> ERROR
+    TRANSFORM -.-> ERROR
+```
 
-## Test Architecture
+## Project Structure
 
-### Frontend Tests (`tests/frontend/`)
+- **`src/`** - Backend services and commands (~1,563 lines)
+- **`tests/`** - Comprehensive test suite (~4,864 lines, 279 tests)
+- **`docs/`** - Generated website and calendar files
+- **`teams/`** - Team configurations (22 teams)
+- **`termine/`** - Training calendar configurations (7 calendars)
 
-- **calendar-app.test.js**: Core functions, data processing (22 tests)
-- **calendar-app-dom.test.js**: DOM manipulation, HTML generation (14 tests)
-- **calendar-app-routing.test.js**: URL routing, navigation (15 tests)
+## Daily Automation
 
-### Backend Tests (`tests/`)
+GitHub Actions runs daily at 10:00 UTC:
+1. Fetches latest game data from Basketball-Bund API
+2. Downloads training schedules from Google Calendar
+3. Generates ICS calendar files
+4. Builds static HTML website
+5. Deploys to GitHub Pages
 
-- **Commands**: Build, Crawl, FetchGames (5 files)
+## Tech Stack
+
+- **Runtime:** Node.js 18+ (ES Modules)
+- **APIs:** Basketball-Bund REST API, Google Calendar API
+- **Output:** Static HTML + ICS files
+- **Testing:** Vitest (100% pass rate required)
+- **Deployment:** GitHub Actions + GitHub Pages
 - **Services**: HTTP, ICS, Games, Config (9 files)
 
 ## Technical Stack
@@ -215,12 +102,17 @@ npm run test:coverage
 }
 ```
 
-### Training Configuration (`termine/boys.json`)
+### Training Configuration (`training/boys.json`)
 
 ```json
 {
     "label": "BC Lions Boys",
-    "calId": "example@group.calendar.google.com"
+    "calId": "example@group.calendar.google.com",
+    "teams": [
+        "mu12-ll-b",
+        "mu14-bl-a", 
+        "mu16-bl-b"
+    ]
 }
 ```
 

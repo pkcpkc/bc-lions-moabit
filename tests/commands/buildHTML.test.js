@@ -36,7 +36,8 @@ describe('BuildHTMLCommand', () => {
 
         mockConfigService = {
             readTeamConfigs: vi.fn(),
-            readTermineConfigs: vi.fn()
+            readTermineConfigs: vi.fn(),
+            readCalendarConfigs: vi.fn()
         };
 
         mockHTMLService = {
@@ -100,13 +101,19 @@ describe('BuildHTMLCommand', () => {
 
         const mockHTMLResult = {
             outputPath: 'docs/index.html',
-            teamCount: 2,
-            termineCount: 1
+            spieleCount: 2,
+            trainingCount: 1,
+            termineCount: 0
         };
 
         beforeEach(() => {
             mockConfigService.readTeamConfigs.mockResolvedValue(mockTeamConfigs);
             mockConfigService.readTermineConfigs.mockResolvedValue(mockTermineConfigs);
+            mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
+                if (dir === 'training') return mockTermineConfigs;
+                if (dir === 'termine') return [];
+                return [];
+            });
             mockHTMLService.generateIndexHTML.mockResolvedValue(mockHTMLResult);
         });
 
@@ -114,10 +121,12 @@ describe('BuildHTMLCommand', () => {
             const result = await buildHTMLCommand.execute();
 
             expect(mockConfigService.readTeamConfigs).toHaveBeenCalledWith('teams');
-            expect(mockConfigService.readTermineConfigs).toHaveBeenCalledWith('termine');
+            expect(mockConfigService.readCalendarConfigs).toHaveBeenCalledWith('training', 'training');
+            expect(mockConfigService.readCalendarConfigs).toHaveBeenCalledWith('termine', 'termine');
             expect(mockHTMLService.generateIndexHTML).toHaveBeenCalledWith(
                 mockTeamConfigs,
                 mockTermineConfigs,
+                [],
                 'index.template.html',
                 'docs/index.html'
             );
@@ -141,7 +150,10 @@ describe('BuildHTMLCommand', () => {
 
         it('should handle termine config read errors', async () => {
             const termineError = new Error('Failed to read termine configs');
-            mockConfigService.readTermineConfigs.mockRejectedValue(termineError);
+            mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
+                if (dir === 'training') throw termineError;
+                return [];
+            });
 
             await expect(buildHTMLCommand.execute()).rejects.toThrow('Failed to read termine configs');
             expect(mockLogger.error).toHaveBeenCalledWith('Failed to generate HTML:', 'Failed to read termine configs');
@@ -159,8 +171,9 @@ describe('BuildHTMLCommand', () => {
             mockConfigService.readTeamConfigs.mockResolvedValue([]);
             mockHTMLService.generateIndexHTML.mockResolvedValue({
                 outputPath: 'docs/index.html',
-                teamCount: 0,
-                termineCount: 1
+                spieleCount: 0,
+                trainingCount: 1,
+                termineCount: 0
             });
 
             const result = await buildHTMLCommand.execute();
@@ -168,17 +181,23 @@ describe('BuildHTMLCommand', () => {
             expect(mockHTMLService.generateIndexHTML).toHaveBeenCalledWith(
                 [],
                 mockTermineConfigs,
+                [],
                 'index.template.html',
                 'docs/index.html'
             );
-            expect(result.teamCount).toBe(0);
+            expect(result.spieleCount).toBe(0);
         });
 
         it('should work with empty termine configs', async () => {
-            mockConfigService.readTermineConfigs.mockResolvedValue([]);
+            mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
+                if (dir === 'training') return [];
+                if (dir === 'termine') return [];
+                return [];
+            });
             mockHTMLService.generateIndexHTML.mockResolvedValue({
                 outputPath: 'docs/index.html',
-                teamCount: 2,
+                spieleCount: 2,
+                trainingCount: 0,
                 termineCount: 0
             });
 
@@ -186,6 +205,7 @@ describe('BuildHTMLCommand', () => {
 
             expect(mockHTMLService.generateIndexHTML).toHaveBeenCalledWith(
                 mockTeamConfigs,
+                [],
                 [],
                 'index.template.html',
                 'docs/index.html'
@@ -199,14 +219,16 @@ describe('BuildHTMLCommand', () => {
             const callArgs = mockHTMLService.generateIndexHTML.mock.calls[0];
             expect(callArgs[0]).toBe(mockTeamConfigs);
             expect(callArgs[1]).toBe(mockTermineConfigs);
-            expect(callArgs[2]).toBe('index.template.html');
-            expect(callArgs[3]).toBe('docs/index.html');
+            expect(callArgs[2]).toEqual([]);
+            expect(callArgs[3]).toBe('index.template.html');
+            expect(callArgs[4]).toBe('docs/index.html');
         });
 
         it('should return HTML service result unchanged', async () => {
             const customResult = {
                 outputPath: 'custom/path.html',
-                teamCount: 5,
+                spieleCount: 5,
+                trainingCount: 2,
                 termineCount: 3,
                 customProperty: 'test'
             };
