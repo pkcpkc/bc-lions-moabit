@@ -173,7 +173,7 @@ function formatDateRange(startDate, endDate) {
 // Parse JSON data function
 function parseJsonData(data, teamId = null) {
     try {
-        if (!data.events || !Array.isArray(data.events)) {
+        if (!data || !data.events || !Array.isArray(data.events)) {
             console.warn('No events array found in JSON data');
             return [];
         }

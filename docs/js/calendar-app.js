@@ -75,19 +75,19 @@ const UI_FEEDBACK = {
 const CONTAINER_CONFIG = [
     {
         detector: (containerId) => containerId === 'spiele-events',
-        emptyMessage: 'Keine Spiele in den nächsten 7 Tagen',
+        emptyMessage: 'Keine zukünftigen Spiele',
         loadingMessage: 'Lade Spiele...',
         loadMethod: (containerId) => loadUpcomingTeamEvents(containerId)
     },
     {
         detector: (containerId) => containerId === 'heimspiele-events',
-        emptyMessage: 'Keine Heimspiele in den nächsten 7 Tagen',
+        emptyMessage: 'Keine zukünftigen Heimspiele',
         loadingMessage: 'Lade Heimspiele...',
         loadMethod: (containerId) => loadUpcomingHomeGames(containerId)
     },
     {
         detector: (containerId) => containerId === 'ergebnisse-events',
-        emptyMessage: 'Keine Ergebnisse in der letzten Woche',
+        emptyMessage: 'Keine Ergebnisse in dem letzten Monat',
         loadingMessage: 'Lade Ergebnisse...',
         loadMethod: (containerId) => loadRecentResults(containerId)
     },
@@ -99,7 +99,7 @@ const CONTAINER_CONFIG = [
     },
     {
         detector: (containerId) => containerId.startsWith('termine-') && containerId.endsWith('-events'),
-        emptyMessage: 'Keine Termine in diesem Zeitraum',
+        emptyMessage: 'Keine zukünftigen Termine',
         loadingMessage: 'Lade Termine...',
         loadMethod: (containerId) => loadTermineEvents(containerId)
     },
@@ -410,7 +410,7 @@ function generateTermineNavigation() {
             </div>
 
             <div class="events-container">
-                <h4>Termine des nächsten Monats</h4>
+                <h4>Alle zukünftigen Termine</h4>
                 <div id="${containerId}" class="loading">${containerConfig.loadingMessage}</div>
             </div>
         `;
@@ -491,19 +491,6 @@ function handleRouting() {
             targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 showCalendarSection(sectionId, false);
-                return;
-            }
-        }
-
-        // Handle legacy format (spielplan_teamid)
-        if (hash.startsWith('spielplan_')) {
-            const teamId = hash.replace('spielplan_', '');
-            sectionId = teamId + '-section';
-            targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                showCalendarSection(sectionId, false);
-                // Update URL to new format
-                window.history.replaceState({ section: sectionId }, '', window.location.pathname + '#' + teamId);
                 return;
             }
         }
@@ -749,7 +736,7 @@ function loadMultipleTeamEvents(containerId, rangeTypeFilter = RANGE_TYPES.ALL, 
 
 
 function loadUpcomingTeamEvents(containerId) {
-    loadMultipleTeamEvents(containerId, RANGE_TYPES.NEXT_WEEK);
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.FUTURE);
 }
 
 function loadUpcomingHomeGames(containerId) {
@@ -760,7 +747,7 @@ function loadUpcomingHomeGames(containerId) {
         );
     };
 
-    loadMultipleTeamEvents(containerId, RANGE_TYPES.NEXT_WEEK, homeGameFilter);
+    loadMultipleTeamEvents(containerId, RANGE_TYPES.FUTURE, homeGameFilter);
 }
 
 // Helper function to format date for last modified display
@@ -813,7 +800,7 @@ function loadRecentResults(containerId) {
     // Custom load for recent results with different sorting - use JSON
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
         const jsonFile = `./data/spiele/${config.id}.json`;
-        return fetchAndParseJSON(jsonFile, RANGE_TYPES.PAST_WEEK, config.id);
+        return fetchAndParseJSON(jsonFile, RANGE_TYPES.PAST_MONTH, config.id);
     });
 
     Promise.all(allEventsPromises)
@@ -849,7 +836,7 @@ function loadScheduleEvents(containerId) {
     loadCalendarEventsFromJSON(jsonFile, containerId, scheduleConfig.label);
 }
 
-// Function to load termine events for a specific container
+// Function to load termine events for a specific container - shows ALL future events
 function loadTermineEvents(containerId) {
     // Extract termine ID from container ID (termine-{id}-events)
     const termineId = containerId.replace('termine-', '').replace('-events', '');
@@ -863,7 +850,16 @@ function loadTermineEvents(containerId) {
     }
     
     const jsonFile = termineConfig.jsonUrl;
-    loadCalendarEventsFromJSON(jsonFile, containerId, termineConfig.label);
+    // Use FUTURE range for termine events to show all upcoming events (not just next month)
+    fetchAndParseJSON(jsonFile, RANGE_TYPES.FUTURE, termineConfig.label)
+        .then(events => {
+            events.sort((a, b) => a.startDate - b.startDate);
+            displayEvents(events, containerId);
+        })
+        .catch(error => {
+            console.error('Error loading termine events:', error);
+            document.getElementById(containerId).innerHTML = `<div class="error">${ERROR_MESSAGES.PARSE_ERROR}</div>`;
+        });
 }
 
 // Function to load team calendar events for a specific container
