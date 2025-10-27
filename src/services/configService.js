@@ -130,7 +130,7 @@ export class ConfigService {
                         continue;
                     }
                     
-                    const id = file.replace('.json', '').toLowerCase().replace(/[^a-z0-9]/g, '-');
+                    const id = file.replace('.json', '');
                     
                     const calendarConfig = {
                         id,

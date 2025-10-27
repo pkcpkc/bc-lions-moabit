@@ -258,7 +258,7 @@ describe('ConfigService', () => {
             });
         });
 
-        it('should normalize IDs by converting to lowercase and replacing non-alphanumeric characters', async () => {
+        it('should preserve original filename casing when creating IDs', async () => {
             const mockFiles = ['Calendar With Spaces & Special.json'];
             const mockConfig = { label: 'Test Calendar', calId: 'test@example.com' };
 
@@ -267,7 +267,7 @@ describe('ConfigService', () => {
 
             const result = await configService.readCalendarConfigs('test-dir');
 
-            expect(result[0].id).toBe('calendar-with-spaces---special');
+            expect(result[0].id).toBe('Calendar With Spaces & Special');
         });
 
         it('should use default outputType of "termine" when not specified', async () => {
