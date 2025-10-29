@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1",
   "teamId": "wu18-ol",
   "competitionId": 50365,
-  "lastUpdated": "2025-10-28T10:27:10.003Z",
+  "lastUpdated": "2025-10-29T10:27:00.641Z",
   "events": [
     {
       "summary": "BC Lions Moabit 1 vs BG Zehlendorf 1",
@@ -44,8 +44,8 @@
         "guest": "TuS Lichterfelde 1",
         "matchId": 2748853,
         "result": {
-          "homeScore": 51,
-          "guestScore": 43,
+          "homeScore": 20,
+          "guestScore": 0,
           "isFinished": true
         }
       }
