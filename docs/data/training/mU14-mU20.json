@@ -2,7 +2,7 @@
   "label": "mU14-mU20",
   "id": "mU14-mU20",
   "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-  "lastUpdated": "2025-10-29T10:27:02.750Z",
+  "lastUpdated": "2025-10-30T10:26:24.504Z",
   "events": [
     {
       "summary": "mU16-1",
@@ -90,13 +90,6 @@
     },
     {
       "summary": "mU14, mU18, mU20",
-      "startDate": "2025-10-29T17:30:00.000Z",
-      "endDate": "2025-10-29T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14, mU18, mU20",
       "startDate": "2025-11-05T17:30:00.000Z",
       "endDate": "2025-11-05T19:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
@@ -121,13 +114,6 @@
       "startDate": "2025-11-26T17:30:00.000Z",
       "endDate": "2025-11-26T19:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-2",
-      "startDate": "2025-10-29T17:30:00.000Z",
-      "endDate": "2025-10-29T19:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
