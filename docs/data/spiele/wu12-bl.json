@@ -2,12 +2,12 @@
   "teamName": "BC Lions Moabit 1",
   "teamId": "wu12-bl",
   "competitionId": 50618,
-  "lastUpdated": "2025-11-02T16:50:26.056Z",
+  "lastUpdated": "2025-11-02T21:46:07.666Z",
   "events": [
     {
       "summary": "Berliner SC 2 vs BC Lions Moabit 1",
-      "startDate": "2025-09-28T08:00:00.000Z",
-      "endDate": "2025-09-28T10:00:00.000Z",
+      "startDate": "2025-09-28T10:00:00.000Z",
+      "endDate": "2025-09-28T12:00:00.000Z",
       "venueName": "Eisenzahnstraße, unten",
       "location": "Eisenzahnstraße 47-48, 10709, Berlin",
       "game": {
@@ -23,8 +23,8 @@
     },
     {
       "summary": "Nachmeldung 1 vs BC Lions Moabit 1",
-      "startDate": "2025-10-05T21:59:00.000Z",
-      "endDate": "2025-10-05T23:59:00.000Z",
+      "startDate": "2025-10-05T23:59:00.000Z",
+      "endDate": "2025-10-06T01:59:00.000Z",
       "venueName": "N.N.",
       "location": "###, 10437, Berlin",
       "game": {
@@ -35,8 +35,8 @@
     },
     {
       "summary": "KSV Ajax 1 vs BC Lions Moabit 1",
-      "startDate": "2025-10-12T08:00:00.000Z",
-      "endDate": "2025-10-12T10:00:00.000Z",
+      "startDate": "2025-10-12T10:00:00.000Z",
+      "endDate": "2025-10-12T12:00:00.000Z",
       "venueName": "Rahnsdorfer Straße",
       "location": "Rahnsdorfer Straße 35, 12587, Berlin",
       "game": {
@@ -52,8 +52,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs Einheit Pankow 2",
-      "startDate": "2025-11-08T13:00:00.000Z",
-      "endDate": "2025-11-08T15:00:00.000Z",
+      "startDate": "2025-11-08T14:00:00.000Z",
+      "endDate": "2025-11-08T16:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -64,8 +64,8 @@
     },
     {
       "summary": "TuS Neukölln 1 vs BC Lions Moabit 1",
-      "startDate": "2025-11-15T12:30:00.000Z",
-      "endDate": "2025-11-15T14:30:00.000Z",
+      "startDate": "2025-11-15T13:30:00.000Z",
+      "endDate": "2025-11-15T15:30:00.000Z",
       "venueName": "Albert-Schweitzer-Platz",
       "location": "Karl-Marx-Straße 14, 12043, Berlin",
       "game": {
@@ -76,8 +76,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs VfL Lichtenrade 1",
-      "startDate": "2025-11-23T09:00:00.000Z",
-      "endDate": "2025-11-23T11:00:00.000Z",
+      "startDate": "2025-11-23T10:00:00.000Z",
+      "endDate": "2025-11-23T12:00:00.000Z",
       "venueName": "Gerhardtstraße",
       "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
@@ -88,8 +88,8 @@
     },
     {
       "summary": "BBC 90 Köpenick 1 vs BC Lions Moabit 1",
-      "startDate": "2025-11-30T09:00:00.000Z",
-      "endDate": "2025-11-30T11:00:00.000Z",
+      "startDate": "2025-11-30T10:00:00.000Z",
+      "endDate": "2025-11-30T12:00:00.000Z",
       "venueName": "Helmholtzstraße",
       "location": "Helmholtzstraße 37, 12459, Berlin",
       "game": {
@@ -100,8 +100,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs ALBA Kollwitz 4",
-      "startDate": "2025-12-07T11:00:00.000Z",
-      "endDate": "2025-12-07T13:00:00.000Z",
+      "startDate": "2025-12-07T12:00:00.000Z",
+      "endDate": "2025-12-07T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -112,8 +112,8 @@
     },
     {
       "summary": "ALBA Weißensee 6 vs BC Lions Moabit 1",
-      "startDate": "2025-12-13T08:30:00.000Z",
-      "endDate": "2025-12-13T10:30:00.000Z",
+      "startDate": "2025-12-13T09:30:00.000Z",
+      "endDate": "2025-12-13T11:30:00.000Z",
       "venueName": "Falkenberger Straße",
       "location": "Falkenberger Straße 31, 13088, Berlin",
       "game": {
@@ -124,8 +124,8 @@
     },
     {
       "summary": "ALBA Hausburg 5 (aK) vs BC Lions Moabit 1",
-      "startDate": "2026-01-10T10:30:00.000Z",
-      "endDate": "2026-01-10T12:30:00.000Z",
+      "startDate": "2026-01-10T11:30:00.000Z",
+      "endDate": "2026-01-10T13:30:00.000Z",
       "venueName": "Otto-Ostrowski-Straße",
       "location": "Otto-Ostrowski-Straße 44, 10249, Berlin",
       "game": {
@@ -136,8 +136,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs Berliner SC 2",
-      "startDate": "2026-01-17T09:00:00.000Z",
-      "endDate": "2026-01-17T11:00:00.000Z",
+      "startDate": "2026-01-17T10:00:00.000Z",
+      "endDate": "2026-01-17T12:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -148,8 +148,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs Nachmeldung 1",
-      "startDate": "2026-01-24T11:00:00.000Z",
-      "endDate": "2026-01-24T13:00:00.000Z",
+      "startDate": "2026-01-24T12:00:00.000Z",
+      "endDate": "2026-01-24T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -160,8 +160,8 @@
     },
     {
       "summary": "Weddinger Wiesel 1 vs BC Lions Moabit 1",
-      "startDate": "2026-02-14T08:00:00.000Z",
-      "endDate": "2026-02-14T10:00:00.000Z",
+      "startDate": "2026-02-14T09:00:00.000Z",
+      "endDate": "2026-02-14T11:00:00.000Z",
       "venueName": "Wiesenstraße",
       "location": "Wiesenstraße 56, 13357, Berlin",
       "game": {
@@ -172,8 +172,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs KSV Ajax 1",
-      "startDate": "2026-02-21T11:00:00.000Z",
-      "endDate": "2026-02-21T13:00:00.000Z",
+      "startDate": "2026-02-21T12:00:00.000Z",
+      "endDate": "2026-02-21T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -184,8 +184,8 @@
     },
     {
       "summary": "Einheit Pankow 2 vs BC Lions Moabit 1",
-      "startDate": "2026-03-01T13:00:00.000Z",
-      "endDate": "2026-03-01T15:00:00.000Z",
+      "startDate": "2026-03-01T14:00:00.000Z",
+      "endDate": "2026-03-01T16:00:00.000Z",
       "venueName": "Hauptstraße (Halle 2)",
       "location": "Hauptstraße 66, 13127, Berlin",
       "game": {
@@ -196,8 +196,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs TuS Neukölln 1",
-      "startDate": "2026-03-07T11:00:00.000Z",
-      "endDate": "2026-03-07T13:00:00.000Z",
+      "startDate": "2026-03-07T12:00:00.000Z",
+      "endDate": "2026-03-07T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -208,8 +208,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs ALBA Hausburg 5 (aK)",
-      "startDate": "2026-03-14T09:00:00.000Z",
-      "endDate": "2026-03-14T11:00:00.000Z",
+      "startDate": "2026-03-14T10:00:00.000Z",
+      "endDate": "2026-03-14T12:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -220,8 +220,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs Weddinger Wiesel 1",
-      "startDate": "2026-03-21T11:00:00.000Z",
-      "endDate": "2026-03-21T13:00:00.000Z",
+      "startDate": "2026-03-21T12:00:00.000Z",
+      "endDate": "2026-03-21T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {

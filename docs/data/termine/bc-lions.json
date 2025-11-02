@@ -2,12 +2,12 @@
   "label": "BC Lions",
   "id": "bc-lions",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2025-11-02T16:50:31.343Z",
+  "lastUpdated": "2025-11-02T21:46:23.646Z",
   "events": [
     {
       "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
-      "startDate": "2025-10-19T22:00:00.000Z",
-      "endDate": "2025-11-02T23:00:00.000Z",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-11-03T00:00:00.000Z",
       "location": "",
       "description": ""
     },
@@ -20,36 +20,36 @@
     },
     {
       "summary": "Coaches-Clinic",
-      "startDate": "2025-11-01T23:00:00.000Z",
-      "endDate": "2025-11-02T23:00:00.000Z",
+      "startDate": "2025-11-02T00:00:00.000Z",
+      "endDate": "2025-11-03T00:00:00.000Z",
       "location": "",
       "description": ""
     },
     {
       "summary": "Moabiter Grundschulcup",
-      "startDate": "2025-12-18T23:00:00.000Z",
-      "endDate": "2025-12-19T23:00:00.000Z",
+      "startDate": "2025-12-19T00:00:00.000Z",
+      "endDate": "2025-12-20T00:00:00.000Z",
       "location": "",
       "description": ""
     },
     {
       "summary": "Weihnachtsfeier & Coaches-Clinic",
-      "startDate": "2025-12-19T23:00:00.000Z",
-      "endDate": "2025-12-20T23:00:00.000Z",
+      "startDate": "2025-12-20T00:00:00.000Z",
+      "endDate": "2025-12-21T00:00:00.000Z",
       "location": "",
       "description": ""
     },
     {
       "summary": "Xmas Ballin' Project (STK)",
-      "startDate": "2025-12-21T23:00:00.000Z",
-      "endDate": "2025-12-22T23:00:00.000Z",
+      "startDate": "2025-12-22T00:00:00.000Z",
+      "endDate": "2025-12-23T00:00:00.000Z",
       "location": "",
       "description": ""
     },
     {
       "summary": "Xmas Edition Turnier & Sylvesterparty",
-      "startDate": "2025-12-27T23:00:00.000Z",
-      "endDate": "2025-12-31T23:00:00.000Z",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2026-01-01T00:00:00.000Z",
       "location": "",
       "description": ""
     },
@@ -83,29 +83,29 @@
     },
     {
       "summary": "Herbstcamp I",
-      "startDate": "2025-10-19T22:00:00.000Z",
-      "endDate": "2025-10-23T22:00:00.000Z",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-10-24T00:00:00.000Z",
       "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
       "description": "10-15h"
     },
     {
       "summary": "Herbstcamp II",
-      "startDate": "2025-10-26T23:00:00.000Z",
-      "endDate": "2025-10-29T23:00:00.000Z",
+      "startDate": "2025-10-27T00:00:00.000Z",
+      "endDate": "2025-10-30T00:00:00.000Z",
       "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
       "description": ""
     },
     {
       "summary": "Turnierreise: Pilsen Tschechien",
-      "startDate": "2025-12-27T23:00:00.000Z",
-      "endDate": "2025-12-30T23:00:00.000Z",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2025-12-31T00:00:00.000Z",
       "location": "",
       "description": "<p>Abfahrt am 28. Dezember um 09.00 Uhr (Alt-Moabit 10), zurück am 30.12. Dezember ca. Mitternacht in Berlin @Alt-Moabit 10.</p>"
     },
     {
       "summary": "Elternabend: Turnierreise Pilsen Tschechien",
-      "startDate": "2025-12-07T23:00:00.000Z",
-      "endDate": "2025-12-08T23:00:00.000Z",
+      "startDate": "2025-12-08T00:00:00.000Z",
+      "endDate": "2025-12-09T00:00:00.000Z",
       "location": "",
       "description": ""
     },
