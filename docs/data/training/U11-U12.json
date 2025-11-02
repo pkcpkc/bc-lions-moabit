@@ -2,7 +2,7 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2025-11-02T16:08:42.928Z",
+  "lastUpdated": "2025-11-02T16:19:28.436Z",
   "events": [
     {
       "summary": "U11 Mix",
@@ -124,20 +124,6 @@
       "description": ""
     },
     {
-      "summary": "Boys L",
-      "startDate": "2025-11-03T17:30:00.000Z",
-      "endDate": "2025-11-03T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys F",
-      "startDate": "2025-11-03T17:30:00.000Z",
-      "endDate": "2025-11-03T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "Boys F",
       "startDate": "2025-11-05T17:30:00.000Z",
       "endDate": "2025-11-05T19:00:00.000Z",
@@ -190,13 +176,6 @@
       "summary": "Boys L",
       "startDate": "2025-11-27T17:30:00.000Z",
       "endDate": "2025-11-27T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2025-11-03T17:30:00.000Z",
-      "endDate": "2025-11-03T19:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
