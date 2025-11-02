@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2025-11-02T15:41:03.860Z",
+  "lastUpdated": "2025-11-02T15:45:49.196Z",
   "events": [
     {
       "summary": "Damen 1",
@@ -114,27 +114,6 @@
       "startDate": "2025-11-25T17:30:00.000Z",
       "endDate": "2025-11-25T19:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 6",
-      "startDate": "2025-11-14T17:00:00.000Z",
-      "endDate": "2025-11-14T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 6",
-      "startDate": "2025-11-21T17:00:00.000Z",
-      "endDate": "2025-11-21T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 6",
-      "startDate": "2025-11-28T17:00:00.000Z",
-      "endDate": "2025-11-28T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     }
   ]
