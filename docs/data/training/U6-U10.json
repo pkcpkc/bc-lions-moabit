@@ -2,8 +2,36 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2025-11-02T21:46:22.230Z",
+  "lastUpdated": "2025-11-03T10:28:24.219Z",
   "events": [
+    {
+      "summary": "U6 bis U10",
+      "startDate": "2025-11-13T15:30:00.000Z",
+      "endDate": "2025-11-13T18:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10",
+      "startDate": "2025-11-20T15:30:00.000Z",
+      "endDate": "2025-11-20T18:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10",
+      "startDate": "2025-11-27T15:30:00.000Z",
+      "endDate": "2025-11-27T18:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10",
+      "startDate": "2025-11-06T15:30:00.000Z",
+      "endDate": "2025-11-06T18:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
     {
       "summary": "U10",
       "startDate": "2025-11-05T16:00:00.000Z",
@@ -34,6 +62,13 @@
     },
     {
       "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
       "startDate": "2025-11-05T15:00:00.000Z",
       "endDate": "2025-11-05T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
@@ -58,41 +93,6 @@
       "startDate": "2025-11-26T15:00:00.000Z",
       "endDate": "2025-11-26T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10",
-      "startDate": "2025-11-06T15:30:00.000Z",
-      "endDate": "2025-11-06T18:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10",
-      "startDate": "2025-11-13T15:30:00.000Z",
-      "endDate": "2025-11-13T18:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10",
-      "startDate": "2025-11-20T15:30:00.000Z",
-      "endDate": "2025-11-20T18:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10",
-      "startDate": "2025-11-27T15:30:00.000Z",
-      "endDate": "2025-11-27T18:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     }
   ]
