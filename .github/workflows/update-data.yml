@@ -1,10 +1,19 @@
-name: Update Termine and Spiele
+name: Update BC Lions Moabit Data
 
 on:
   schedule:
-    - cron: '0 10 * * *'  # Daily at 10:00 AM UTC
+    - cron: '0 10 * * *'  # Daily at 10:00 AM UTC (full update)
   workflow_dispatch:
     inputs:
+      update_type:
+        description: 'Select what to update'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+        - 'full'
+        - 'calendars-only'
+        - 'games-only'
       force_update:
         description: 'Force update even if no changes detected'
         required: false
@@ -15,7 +24,7 @@ permissions:
   contents: write
 
 jobs:
-  update-termine-and-spiele:
+  update-data:
     runs-on: ubuntu-latest
     
     steps:
@@ -36,12 +45,38 @@ jobs:
         echo "Running comprehensive test suite..."
         npm test
         echo "All tests passed ✅"
-      
-    - name: Run complete build process
+    
+    - name: Determine update type
+      id: update_type
       run: |
-        echo "Starting complete build process..."
+        if [ "${{ github.event_name }}" = "schedule" ]; then
+          echo "type=full" >> $GITHUB_OUTPUT
+          echo "Update triggered by schedule - running full update"
+        else
+          echo "type=${{ github.event.inputs.update_type }}" >> $GITHUB_OUTPUT
+          echo "Update triggered manually - type: ${{ github.event.inputs.update_type }}"
+        fi
+      
+    - name: Run full build process
+      if: steps.update_type.outputs.type == 'full'
+      run: |
+        echo "🔄 Starting full build process (games + calendars + HTML)..."
         npm run build
-        echo "Build process completed"
+        echo "✅ Full build process completed"
+        
+    - name: Run calendars-only build
+      if: steps.update_type.outputs.type == 'calendars-only'
+      run: |
+        echo "📅 Starting calendars-only build (calendars + HTML)..."
+        npm run build:calendars
+        echo "✅ Calendars-only build completed"
+        
+    - name: Run games-only build
+      if: steps.update_type.outputs.type == 'games-only'
+      run: |
+        echo "🏀 Starting games-only build (games + HTML)..."
+        npm run build:games
+        echo "✅ Games-only build completed"
         
     - name: Check for changes
       id: check_changes
@@ -69,15 +104,43 @@ jobs:
     - name: Summary
       run: |
         echo "## Update Summary" >> $GITHUB_STEP_SUMMARY
-        echo "- 🏀 **Optimized Build Process Completed**" >> $GITHUB_STEP_SUMMARY
-        echo "- ✅ Fetched games for all 22 BC Lions Moabit teams" >> $GITHUB_STEP_SUMMARY
-        echo "- ✅ Downloaded 7 termine calendars from Google Calendar" >> $GITHUB_STEP_SUMMARY
-        echo "- ✅ Generated ICS files with parallel processing" >> $GITHUB_STEP_SUMMARY
-        echo "- ✅ Rebuilt HTML with structured logging and error handling" >> $GITHUB_STEP_SUMMARY
-        echo "- 🚀 **Architecture**: Modular services with dependency injection" >> $GITHUB_STEP_SUMMARY
-        echo "- 🧪 **Quality**: 34 comprehensive tests ensuring reliability" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # Add update type specific summary
+        case "${{ steps.update_type.outputs.type }}" in
+          "full")
+            echo "### 🔄 Full Update Completed" >> $GITHUB_STEP_SUMMARY
+            echo "- 🏀 Fetched games for all 22 BC Lions Moabit teams" >> $GITHUB_STEP_SUMMARY
+            echo "- 📅 Downloaded 7 training calendars from Google Calendar" >> $GITHUB_STEP_SUMMARY
+            echo "- 📋 Downloaded 1 termine calendar" >> $GITHUB_STEP_SUMMARY
+            echo "- 📄 Generated all ICS files with parallel processing" >> $GITHUB_STEP_SUMMARY
+            echo "- 🌐 Rebuilt HTML website" >> $GITHUB_STEP_SUMMARY
+            ;;
+          "calendars-only")
+            echo "### 📅 Calendars-Only Update Completed" >> $GITHUB_STEP_SUMMARY
+            echo "- 📅 Downloaded 7 training calendars from Google Calendar" >> $GITHUB_STEP_SUMMARY
+            echo "- 📋 Downloaded 1 termine calendar" >> $GITHUB_STEP_SUMMARY
+            echo "- 📄 Generated calendar ICS files" >> $GITHUB_STEP_SUMMARY
+            echo "- 🌐 Rebuilt HTML website" >> $GITHUB_STEP_SUMMARY
+            echo "- ⚡ **Fast**: Skipped games data (450+ API calls saved)" >> $GITHUB_STEP_SUMMARY
+            ;;
+          "games-only")
+            echo "### 🏀 Games-Only Update Completed" >> $GITHUB_STEP_SUMMARY
+            echo "- 🏀 Fetched games for all 22 BC Lions Moabit teams" >> $GITHUB_STEP_SUMMARY
+            echo "- 📄 Generated games ICS files" >> $GITHUB_STEP_SUMMARY
+            echo "- 🌐 Rebuilt HTML website" >> $GITHUB_STEP_SUMMARY
+            echo "- ⚡ **Fast**: Skipped calendar downloads" >> $GITHUB_STEP_SUMMARY
+            ;;
+        esac
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### 🚀 Technical Details" >> $GITHUB_STEP_SUMMARY
+        echo "- **Architecture**: Modular services with dependency injection" >> $GITHUB_STEP_SUMMARY
+        echo "- **Quality**: 279 comprehensive tests ensuring reliability" >> $GITHUB_STEP_SUMMARY
+        echo "- **Triggered**: ${{ github.event_name == 'schedule' && 'Scheduled (daily at 10:00 UTC)' || 'Manual dispatch' }}" >> $GITHUB_STEP_SUMMARY
+        
         if [[ "${{ steps.check_changes.outputs.changes }}" == "true" || "${{ github.event.inputs.force_update }}" == "true" ]]; then
-          echo "- ✅ Committed and pushed changes to repository" >> $GITHUB_STEP_SUMMARY
+          echo "- **Result**: ✅ Changes committed and pushed to repository" >> $GITHUB_STEP_SUMMARY
         else
-          echo "- ℹ️ No changes detected, repository unchanged" >> $GITHUB_STEP_SUMMARY
+          echo "- **Result**: ℹ️ No changes detected, repository unchanged" >> $GITHUB_STEP_SUMMARY
         fi

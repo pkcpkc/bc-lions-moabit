@@ -2,8 +2,36 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2025-11-03T10:28:20.345Z",
+  "lastUpdated": "2025-11-04T08:49:27.466Z",
   "events": [
+    {
+      "summary": "Damen 2",
+      "startDate": "2025-11-11T17:30:00.000Z",
+      "endDate": "2025-11-11T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2025-11-18T17:30:00.000Z",
+      "endDate": "2025-11-18T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2025-11-25T17:30:00.000Z",
+      "endDate": "2025-11-25T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2025-12-02T17:30:00.000Z",
+      "endDate": "2025-12-02T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "Damen 1",
       "startDate": "2025-11-04T19:00:00.000Z",
@@ -37,6 +65,13 @@
       "startDate": "2025-12-02T19:00:00.000Z",
       "endDate": "2025-12-02T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2025-11-04T17:30:00.000Z",
+      "endDate": "2025-11-04T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -93,41 +128,6 @@
       "startDate": "2025-11-28T18:00:00.000Z",
       "endDate": "2025-11-28T19:30:00.000Z",
       "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2025-11-11T17:30:00.000Z",
-      "endDate": "2025-11-11T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2025-11-18T17:30:00.000Z",
-      "endDate": "2025-11-18T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2025-11-25T17:30:00.000Z",
-      "endDate": "2025-11-25T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2025-12-02T17:30:00.000Z",
-      "endDate": "2025-12-02T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2025-11-04T17:30:00.000Z",
-      "endDate": "2025-11-04T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
   ]

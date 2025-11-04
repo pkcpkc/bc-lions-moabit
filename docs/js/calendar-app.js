@@ -579,6 +579,17 @@ function formatDateRange(startDate, endDate) {
     }
 }
 
+// Helper function to extract the first URL from a text string
+function extractFirstUrl(text) {
+    if (!text) return null;
+    
+    // Regular expression to match URLs (http/https) - more restrictive to avoid capturing extra characters
+    const urlRegex = /(https?:\/\/[^\s<>"]+)/i;
+    const match = text.match(urlRegex);
+    
+    return match ? match[1] : null;
+}
+
 
 
 // Parse JSON data from docs/data files
@@ -687,6 +698,17 @@ function displayEvents(events, containerId) {
             formattedTitle = formatTitleWithResult(formattedTitle, gameResult);
         }
 
+        // Extract URL from description and make title clickable if URL exists
+        const eventUrl = extractFirstUrl(event.description);
+        let titleContent;
+        if (eventUrl) {
+            // Ensure URL is properly encoded for HTML attribute
+            const encodedUrl = eventUrl.replace(/"/g, '&quot;');
+            titleContent = `<a href="${encodedUrl}" target="_blank" rel="noopener noreferrer">${formattedTitle}</a>`;
+        } else {
+            titleContent = formattedTitle;
+        }
+
         return `
         <div class="event-item ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
             <div class="event-main">
@@ -695,7 +717,7 @@ function displayEvents(events, containerId) {
                     <span class="game-result">${formatResultBadge(gameResult)}</span>
                 </div>
                 <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
-                <div class="event-title">${formattedTitle}</div>
+                <div class="event-title">${titleContent}</div>
                 ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
             </div>
         </div>

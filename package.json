@@ -18,6 +18,8 @@
     "fetch:games": "node src/fetch-games.js",
     "fetch:calendars": "node src/download-calendars.js",
     "build:html": "node src/build-html.js",
+    "build:calendars": "npm run fetch:calendars && npm run build:html",
+    "build:games": "npm run fetch:all-games && npm run build:html",
     "build": "node src/build.js",
     "crawl": "node src/crawl.js",
     "test": "vitest --run",

@@ -2,72 +2,9 @@
   "label": "mU14-mU20",
   "id": "mU14-mU20",
   "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-  "lastUpdated": "2025-11-03T10:28:22.686Z",
+  "lastUpdated": "2025-11-04T08:49:28.092Z",
   "events": [
     {
-      "summary": "mU16-1",
-      "startDate": "2025-11-04T16:00:00.000Z",
-      "endDate": "2025-11-04T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1",
-      "startDate": "2025-11-11T16:00:00.000Z",
-      "endDate": "2025-11-11T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1",
-      "startDate": "2025-11-18T16:00:00.000Z",
-      "endDate": "2025-11-18T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1",
-      "startDate": "2025-11-25T16:00:00.000Z",
-      "endDate": "2025-11-25T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1",
-      "startDate": "2025-12-02T16:00:00.000Z",
-      "endDate": "2025-12-02T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14, mU18, mU20",
-      "startDate": "2025-11-05T17:30:00.000Z",
-      "endDate": "2025-11-05T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14, mU18, mU20",
-      "startDate": "2025-11-12T17:30:00.000Z",
-      "endDate": "2025-11-12T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14, mU18, mU20",
-      "startDate": "2025-11-19T17:30:00.000Z",
-      "endDate": "2025-11-19T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14, mU18, mU20",
-      "startDate": "2025-11-26T17:30:00.000Z",
-      "endDate": "2025-11-26T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "mU16-2",
       "startDate": "2025-11-05T17:30:00.000Z",
       "endDate": "2025-11-05T19:00:00.000Z",
@@ -96,66 +33,17 @@
       "description": ""
     },
     {
-      "summary": "mU14-1 und mU18-1",
-      "startDate": "2025-11-07T17:30:00.000Z",
-      "endDate": "2025-11-07T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 und mU18-1",
-      "startDate": "2025-11-14T17:30:00.000Z",
-      "endDate": "2025-11-14T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 und mU18-1",
-      "startDate": "2025-11-21T17:30:00.000Z",
-      "endDate": "2025-11-21T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 und mU18-1",
-      "startDate": "2025-11-28T17:30:00.000Z",
-      "endDate": "2025-11-28T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU20",
-      "startDate": "2025-11-07T17:30:00.000Z",
-      "endDate": "2025-11-07T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU20",
-      "startDate": "2025-11-14T17:30:00.000Z",
-      "endDate": "2025-11-14T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU20",
-      "startDate": "2025-11-21T17:30:00.000Z",
-      "endDate": "2025-11-21T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU20",
-      "startDate": "2025-11-28T17:30:00.000Z",
-      "endDate": "2025-11-28T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jugend",
-      "startDate": "2025-11-03T17:30:00.000Z",
-      "endDate": "2025-11-03T19:30:00.000Z",
+      "summary": "mU16-2",
+      "startDate": "2025-12-03T17:30:00.000Z",
+      "endDate": "2025-12-03T19:00:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jungend ab U18",
+      "startDate": "2025-11-10T18:15:00.000Z",
+      "endDate": "2025-11-10T19:30:00.000Z",
+      "location": "",
       "description": ""
     },
     {
@@ -187,45 +75,38 @@
       "description": ""
     },
     {
-      "summary": "Athletik Jungend ab U18",
-      "startDate": "2025-11-10T18:15:00.000Z",
-      "endDate": "2025-11-10T19:30:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "mU14-2",
+      "summary": "mU16-1",
       "startDate": "2025-11-04T16:00:00.000Z",
       "endDate": "2025-11-04T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU14-2",
+      "summary": "mU16-1",
       "startDate": "2025-11-11T16:00:00.000Z",
       "endDate": "2025-11-11T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU14-2",
+      "summary": "mU16-1",
       "startDate": "2025-11-18T16:00:00.000Z",
       "endDate": "2025-11-18T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU14-2",
+      "summary": "mU16-1",
       "startDate": "2025-11-25T16:00:00.000Z",
       "endDate": "2025-11-25T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU14-2",
+      "summary": "mU16-1",
       "startDate": "2025-12-02T16:00:00.000Z",
       "endDate": "2025-12-02T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -254,6 +135,132 @@
       "startDate": "2025-11-27T17:30:00.000Z",
       "endDate": "2025-11-27T19:00:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 und mU18-1",
+      "startDate": "2025-11-07T17:30:00.000Z",
+      "endDate": "2025-11-07T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 und mU18-1",
+      "startDate": "2025-11-14T17:30:00.000Z",
+      "endDate": "2025-11-14T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 und mU18-1",
+      "startDate": "2025-11-21T17:30:00.000Z",
+      "endDate": "2025-11-21T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 und mU18-1",
+      "startDate": "2025-11-28T17:30:00.000Z",
+      "endDate": "2025-11-28T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14, mU18, mU20",
+      "startDate": "2025-11-05T17:30:00.000Z",
+      "endDate": "2025-11-05T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14, mU18, mU20",
+      "startDate": "2025-11-12T17:30:00.000Z",
+      "endDate": "2025-11-12T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14, mU18, mU20",
+      "startDate": "2025-11-19T17:30:00.000Z",
+      "endDate": "2025-11-19T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14, mU18, mU20",
+      "startDate": "2025-11-26T17:30:00.000Z",
+      "endDate": "2025-11-26T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14, mU18, mU20",
+      "startDate": "2025-12-03T17:30:00.000Z",
+      "endDate": "2025-12-03T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-2",
+      "startDate": "2025-11-04T16:00:00.000Z",
+      "endDate": "2025-11-04T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU20",
+      "startDate": "2025-11-07T17:30:00.000Z",
+      "endDate": "2025-11-07T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU20",
+      "startDate": "2025-11-14T17:30:00.000Z",
+      "endDate": "2025-11-14T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU20",
+      "startDate": "2025-11-21T17:30:00.000Z",
+      "endDate": "2025-11-21T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU20",
+      "startDate": "2025-11-28T17:30:00.000Z",
+      "endDate": "2025-11-28T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-2",
+      "startDate": "2025-11-11T16:00:00.000Z",
+      "endDate": "2025-11-11T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU14-2",
+      "startDate": "2025-11-18T16:00:00.000Z",
+      "endDate": "2025-11-18T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU14-2",
+      "startDate": "2025-11-25T16:00:00.000Z",
+      "endDate": "2025-11-25T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU14-2",
+      "startDate": "2025-12-02T16:00:00.000Z",
+      "endDate": "2025-12-02T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
       "description": ""
     }
   ]
