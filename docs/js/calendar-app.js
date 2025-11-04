@@ -496,8 +496,8 @@ function handleRouting() {
         }
     }
 
-    // Default to "spiele" if no valid hash
-    showCalendarSection('spiele-section', false);
+    // Default to "termine-bc-lions" section, when no hash or invalid hash
+    showCalendarSection('termine-bc-lions-section', false);
 }
 
 // Handle browser back/forward buttons

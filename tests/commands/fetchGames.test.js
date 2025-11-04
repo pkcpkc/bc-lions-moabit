@@ -1,6 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { FetchGamesCommand } from '../../src/commands/fetchGames.js';
 
+// Mock fs to prevent writing to real files
+vi.mock('fs', () => ({
+    promises: {
+        mkdir: vi.fn().mockResolvedValue(undefined),
+        writeFile: vi.fn().mockResolvedValue(undefined)
+    }
+}));
+
 describe('FetchGamesCommand', () => {
     let fetchCommand;
     let mockLogger;

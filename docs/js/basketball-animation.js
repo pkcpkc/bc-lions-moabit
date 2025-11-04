@@ -16,8 +16,11 @@ class BasketballAnimation {
         // Start opponent scoring
         this.startOpponentScoring();
         
+        // Store bound event listener for proper removal later
+        this.triggerAnimationBound = (e) => this.triggerAnimation(e);
+        
         // Add click event listener to the document
-        document.addEventListener('click', (e) => this.triggerAnimation(e));
+        document.addEventListener('click', this.triggerAnimationBound);
     }
 
     createScoreDisplay() {
@@ -37,8 +40,48 @@ class BasketballAnimation {
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         `;
+        
+        // Create close button
+        this.closeButton = document.createElement('div');
+        this.closeButton.id = 'basketball-close';
+        this.closeButton.style.cssText = `
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            z-index: 10001;
+            pointer-events: auto;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        `;
+        this.closeButton.textContent = '⨂';
+        this.closeButton.title = 'Stop animation and hide scoreboard';
+        
+        // Add hover effect for close button
+        this.closeButton.addEventListener('mouseenter', () => {
+            this.closeButton.style.color = 'white';
+            this.closeButton.style.transform = 'scale(1.1)';
+        });
+        
+        this.closeButton.addEventListener('mouseleave', () => {
+            this.closeButton.style.color = 'rgba(255, 255, 255, 0.8)';
+            this.closeButton.style.transform = 'scale(1)';
+        });
+        
+        // Add click event to close button
+        this.closeButton.addEventListener('click', () => {
+            this.stopAnimationAndHide();
+        });
+        
         this.updateScoreDisplay();
         document.body.appendChild(this.scoreDisplay);
+        document.body.appendChild(this.closeButton);
     }
 
     updateScoreDisplay() {
@@ -161,6 +204,50 @@ class BasketballAnimation {
             this.scoreDisplay.style.opacity = '0';
             this.scoreDisplay.style.transition = 'opacity 1s ease-out';
         }
+    }
+
+    stopAnimationAndHide() {
+        // Set game over to stop all animations
+        this.gameOver = true;
+        
+        // Clear opponent scoring timer
+        if (this.opponentTimer) {
+            clearTimeout(this.opponentTimer);
+            this.opponentTimer = null;
+        }
+        
+        // Hide the score display
+        if (this.scoreDisplay) {
+            this.scoreDisplay.style.transition = 'opacity 0.3s ease-out';
+            this.scoreDisplay.style.opacity = '0';
+            setTimeout(() => {
+                if (this.scoreDisplay && this.scoreDisplay.parentNode) {
+                    document.body.removeChild(this.scoreDisplay);
+                    this.scoreDisplay = null;
+                }
+            }, 300);
+        }
+        
+        // Hide the close button
+        if (this.closeButton) {
+            this.closeButton.style.transition = 'opacity 0.3s ease-out';
+            this.closeButton.style.opacity = '0';
+            setTimeout(() => {
+                if (this.closeButton && this.closeButton.parentNode) {
+                    document.body.removeChild(this.closeButton);
+                    this.closeButton = null;
+                }
+            }, 300);
+        }
+        
+        // Remove any existing game over messages
+        const gameOverMessage = document.getElementById('game-over-message');
+        if (gameOverMessage && gameOverMessage.parentNode) {
+            document.body.removeChild(gameOverMessage);
+        }
+        
+        // Remove click event listener to stop further basketballs
+        document.removeEventListener('click', this.triggerAnimationBound);
     }
 
     showPlayerScoringEffect(celebrationEmoji) {
