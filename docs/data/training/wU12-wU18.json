@@ -2,34 +2,41 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2025-11-05T10:27:46.900Z",
+  "lastUpdated": "2025-11-06T10:28:25.233Z",
   "events": [
     {
-      "summary": "wU18-1",
-      "startDate": "2025-11-10T16:00:00.000Z",
-      "endDate": "2025-11-10T17:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "summary": "wU14 & wU18-1",
+      "startDate": "2025-10-17T15:00:00.000Z",
+      "endDate": "2025-10-17T16:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "wU18-1",
-      "startDate": "2025-11-17T16:00:00.000Z",
-      "endDate": "2025-11-17T17:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "summary": "wU14/wU18-1",
+      "startDate": "2025-11-14T16:00:00.000Z",
+      "endDate": "2025-11-14T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "wU18-1",
-      "startDate": "2025-11-24T16:00:00.000Z",
-      "endDate": "2025-11-24T17:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "summary": "wU14/wU18-1",
+      "startDate": "2025-11-21T16:00:00.000Z",
+      "endDate": "2025-11-21T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "wU18-1",
-      "startDate": "2025-12-01T16:00:00.000Z",
-      "endDate": "2025-12-01T17:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "summary": "wU14/wU18-1",
+      "startDate": "2025-11-28T16:00:00.000Z",
+      "endDate": "2025-11-28T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU14/wU18-1",
+      "startDate": "2025-12-05T16:00:00.000Z",
+      "endDate": "2025-12-05T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
@@ -61,9 +68,9 @@
       "description": ""
     },
     {
-      "summary": "Girls A",
-      "startDate": "2025-11-05T15:00:00.000Z",
-      "endDate": "2025-11-05T16:30:00.000Z",
+      "summary": "wU18-2",
+      "startDate": "2025-10-16T16:45:00.000Z",
+      "endDate": "2025-10-16T18:00:00.000Z",
       "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
       "description": ""
     },
@@ -96,10 +103,52 @@
       "description": ""
     },
     {
-      "summary": "wU14 & wU18-1",
-      "startDate": "2025-10-17T15:00:00.000Z",
-      "endDate": "2025-10-17T16:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "wU16",
+      "startDate": "2025-11-12T16:30:00.000Z",
+      "endDate": "2025-11-12T18:00:00.000Z",
+      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU18-1",
+      "startDate": "2025-11-10T16:00:00.000Z",
+      "endDate": "2025-11-10T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-1",
+      "startDate": "2025-11-17T16:00:00.000Z",
+      "endDate": "2025-11-17T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-1",
+      "startDate": "2025-11-24T16:00:00.000Z",
+      "endDate": "2025-11-24T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-1",
+      "startDate": "2025-12-01T16:00:00.000Z",
+      "endDate": "2025-12-01T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU16",
+      "startDate": "2025-10-15T15:30:00.000Z",
+      "endDate": "2025-10-15T17:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-2",
+      "startDate": "2025-11-13T17:45:00.000Z",
+      "endDate": "2025-11-13T19:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     },
     {
@@ -131,59 +180,10 @@
       "description": ""
     },
     {
-      "summary": "wU14/wU18-1",
-      "startDate": "2025-11-14T16:00:00.000Z",
-      "endDate": "2025-11-14T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2025-11-21T16:00:00.000Z",
-      "endDate": "2025-11-21T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2025-11-28T16:00:00.000Z",
-      "endDate": "2025-11-28T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
       "summary": "wU14",
       "startDate": "2025-10-16T15:00:00.000Z",
       "endDate": "2025-10-16T16:30:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU18-2",
-      "startDate": "2025-10-16T16:45:00.000Z",
-      "endDate": "2025-10-16T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU18-2",
-      "startDate": "2025-11-13T17:45:00.000Z",
-      "endDate": "2025-11-13T19:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU16",
-      "startDate": "2025-11-12T16:30:00.000Z",
-      "endDate": "2025-11-12T18:00:00.000Z",
-      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU16",
-      "startDate": "2025-10-15T15:30:00.000Z",
-      "endDate": "2025-10-15T17:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
       "description": ""
     }
   ]
