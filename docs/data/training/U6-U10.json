@@ -2,7 +2,7 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2025-11-07T10:27:17.478Z",
+  "lastUpdated": "2025-11-08T10:22:57.981Z",
   "events": [
     {
       "summary": "U6 bis U10",
@@ -61,13 +61,6 @@
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "U6 bis U10 Mix 2",
       "startDate": "2025-11-13T16:45:00.000Z",
       "endDate": "2025-11-13T18:00:00.000Z",
@@ -121,6 +114,13 @@
       "startDate": "2025-12-03T16:00:00.000Z",
       "endDate": "2025-12-03T17:30:00.000Z",
       "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
   ]
