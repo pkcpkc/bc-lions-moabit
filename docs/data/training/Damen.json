@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2025-11-08T19:21:24.906Z",
+  "lastUpdated": "2025-11-08T19:24:57.747Z",
   "events": [
     {
       "summary": "Damen 1",
@@ -34,30 +34,30 @@
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-14T18:00:00.000Z",
-      "endDate": "2025-11-14T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "startDate": "2025-11-11T17:30:00.000Z",
+      "endDate": "2025-11-11T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-21T18:00:00.000Z",
-      "endDate": "2025-11-21T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "startDate": "2025-11-18T17:30:00.000Z",
+      "endDate": "2025-11-18T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-28T18:00:00.000Z",
-      "endDate": "2025-11-28T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "startDate": "2025-11-25T17:30:00.000Z",
+      "endDate": "2025-11-25T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-12-05T18:00:00.000Z",
-      "endDate": "2025-12-05T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "startDate": "2025-12-02T17:30:00.000Z",
+      "endDate": "2025-12-02T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -90,30 +90,30 @@
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-11T17:30:00.000Z",
-      "endDate": "2025-11-11T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "startDate": "2025-11-14T18:00:00.000Z",
+      "endDate": "2025-11-14T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-18T17:30:00.000Z",
-      "endDate": "2025-11-18T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "startDate": "2025-11-21T18:00:00.000Z",
+      "endDate": "2025-11-21T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-11-25T17:30:00.000Z",
-      "endDate": "2025-11-25T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "startDate": "2025-11-28T18:00:00.000Z",
+      "endDate": "2025-11-28T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Damen 2",
-      "startDate": "2025-12-02T17:30:00.000Z",
-      "endDate": "2025-12-02T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "startDate": "2025-12-05T18:00:00.000Z",
+      "endDate": "2025-12-05T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     }
   ]

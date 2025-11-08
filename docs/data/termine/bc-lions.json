@@ -2,12 +2,68 @@
   "label": "BC Lions",
   "id": "bc-lions",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2025-11-08T19:21:29.186Z",
+  "lastUpdated": "2025-11-08T19:25:01.484Z",
   "events": [
+    {
+      "summary": "Herbstcamp II",
+      "startDate": "2025-10-27T00:00:00.000Z",
+      "endDate": "2025-10-30T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Eltern + BCL Family",
+      "startDate": "2025-11-14T19:00:00.000Z",
+      "endDate": "2025-11-14T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Eltern + BCL Family",
+      "startDate": "2025-11-21T19:00:00.000Z",
+      "endDate": "2025-11-21T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Eltern + BCL Family",
+      "startDate": "2025-11-28T19:00:00.000Z",
+      "endDate": "2025-11-28T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Eltern + BCL Family",
+      "startDate": "2025-12-05T19:00:00.000Z",
+      "endDate": "2025-12-05T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "Xmas Ballin' Project (STK)",
       "startDate": "2025-12-22T00:00:00.000Z",
       "endDate": "2025-12-23T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Coaches-Clinic",
+      "startDate": "2025-11-02T00:00:00.000Z",
+      "endDate": "2025-11-03T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Jahreshauptversammlung",
+      "startDate": "2025-10-31T18:00:00.000Z",
+      "endDate": "2025-10-31T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Weihnachtsfeier & Coaches-Clinic",
+      "startDate": "2025-12-20T00:00:00.000Z",
+      "endDate": "2025-12-21T00:00:00.000Z",
       "location": "",
       "description": ""
     },
@@ -40,34 +96,6 @@
       "description": ""
     },
     {
-      "summary": "Turnierreise: Pilsen Tschechien",
-      "startDate": "2025-12-28T00:00:00.000Z",
-      "endDate": "2025-12-31T00:00:00.000Z",
-      "location": "",
-      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
-    },
-    {
-      "summary": "Coaches-Clinic",
-      "startDate": "2025-11-02T00:00:00.000Z",
-      "endDate": "2025-11-03T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Herbstcamp I",
-      "startDate": "2025-10-20T00:00:00.000Z",
-      "endDate": "2025-10-24T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
-      "description": "10-15h"
-    },
-    {
-      "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
-      "startDate": "2025-10-20T00:00:00.000Z",
-      "endDate": "2025-11-03T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
       "summary": "Juniors vs. Seniors U5 Mix",
       "startDate": "2025-11-13T16:00:00.000Z",
       "endDate": "2025-11-13T17:30:00.000Z",
@@ -96,6 +124,20 @@
       "description": ""
     },
     {
+      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
+      "startDate": "2025-12-08T00:00:00.000Z",
+      "endDate": "2025-12-09T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-11-03T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
       "summary": "Moabiter Grundschulcup",
       "startDate": "2025-12-19T00:00:00.000Z",
       "endDate": "2025-12-20T00:00:00.000Z",
@@ -110,60 +152,18 @@
       "description": ""
     },
     {
-      "summary": "Herbstcamp II",
-      "startDate": "2025-10-27T00:00:00.000Z",
-      "endDate": "2025-10-30T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
-      "description": ""
+      "summary": "Herbstcamp I",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-10-24T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
+      "description": "10-15h"
     },
     {
-      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
-      "startDate": "2025-12-08T00:00:00.000Z",
-      "endDate": "2025-12-09T00:00:00.000Z",
+      "summary": "Turnierreise: Pilsen Tschechien",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2025-12-31T00:00:00.000Z",
       "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Eltern + BCL Family",
-      "startDate": "2025-11-14T19:00:00.000Z",
-      "endDate": "2025-11-14T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Eltern + BCL Family",
-      "startDate": "2025-11-21T19:00:00.000Z",
-      "endDate": "2025-11-21T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Eltern + BCL Family",
-      "startDate": "2025-11-28T19:00:00.000Z",
-      "endDate": "2025-11-28T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Eltern + BCL Family",
-      "startDate": "2025-12-05T19:00:00.000Z",
-      "endDate": "2025-12-05T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Weihnachtsfeier & Coaches-Clinic",
-      "startDate": "2025-12-20T00:00:00.000Z",
-      "endDate": "2025-12-21T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Jahreshauptversammlung",
-      "startDate": "2025-10-31T18:00:00.000Z",
-      "endDate": "2025-10-31T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
+      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
     }
   ]
 }
