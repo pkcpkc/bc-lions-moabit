@@ -237,8 +237,7 @@ function formatResultBadge(gameResult) {
             resultText = gameResult.scoreText;
             return `<span class="result-badge result-finished">${resultText}</span>`;
         } else {
-            const winLossText = gameResult.isWin ? 'SIEG' : 'NIEDERLAGE';
-            resultText = `${winLossText} ${gameResult.scoreText}`;
+            resultText = `${gameResult.scoreText}`;
         }
 
         return `<span class="result-badge ${resultClass}">${resultText}</span>`;
@@ -676,55 +675,178 @@ function displayEvents(events, containerId) {
         return;
     }
 
-    const eventsHTML = events.map(event => {
-        const title = event.summary || 'Kein Titel';
-        let displayTitle = title;
+    // Generate calendar week view
+    const calendarHTML = generateCalendarWeekView(events);
+    container.innerHTML = calendarHTML;
+}
 
-        // Add venueName in brackets if available
-        if (event.venueName) {
-            displayTitle += ` (${event.venueName})`;
+function generateCalendarWeekView(events) {
+    // Group events by week
+    const weekGroups = groupEventsByWeek(events);
+    
+    let calendarHTML = '';
+    
+    weekGroups.forEach(weekData => {
+        calendarHTML += generateWeekHTML(weekData.week, weekData.events);
+    });
+    
+    return calendarHTML;
+}
+
+function groupEventsByWeek(events) {
+    const weekGroups = new Map();
+    
+    events.forEach(event => {
+        const eventDate = new Date(event.startDate);
+        const weekStart = getWeekStart(eventDate);
+        const weekKey = weekStart.toISOString().split('T')[0];
+        
+        if (!weekGroups.has(weekKey)) {
+            weekGroups.set(weekKey, {
+                week: weekStart,
+                events: []
+            });
         }
+        
+        weekGroups.get(weekKey).events.push(event);
+    });
+    
+    // Convert to array and sort by week start date
+    return Array.from(weekGroups.values()).sort((a, b) => a.week - b.week);
+}
 
-        // Extract game result from structured data from JSON
-        const gameResult = event.gameData
-            ? extractGameResultFromData(event.gameData)
-            : { hasResult: false };
+function getWeekStart(date) {
+    const d = new Date(date);
+    const day = d.getDay();
+    const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Adjust for Sunday being 0
+    const monday = new Date(d.setDate(diff));
+    monday.setHours(0, 0, 0, 0);
+    return monday;
+}
 
-        // Make BC Lions team names bold
-        let formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
-
-        // Highlight game results
-        if (gameResult.hasResult) {
-            formattedTitle = formatTitleWithResult(formattedTitle, gameResult);
-        }
-
-        // Extract URL from description and make title clickable if URL exists
-        const eventUrl = extractFirstUrl(event.description);
-        let titleContent;
-        if (eventUrl) {
-            // Ensure URL is properly encoded for HTML attribute
-            const encodedUrl = eventUrl.replace(/"/g, '&quot;');
-            titleContent = `<a href="${encodedUrl}" target="_blank" rel="noopener noreferrer">${formattedTitle}</a>`;
-        } else {
-            titleContent = formattedTitle;
-        }
-
-        return `
-        <div class="event-item ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
-            <div class="event-main">
-                <div class="event-header-line">
-                    ${event.teamId ? `<span class="team-id">${event.teamId}</span>` : ''}
-                    <span class="game-result">${formatResultBadge(gameResult)}</span>
+function generateWeekHTML(weekStart, events) {
+    const weekDays = [];
+    const dayNames = ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+    
+    // Generate all 7 days of the week
+    for (let i = 0; i < 7; i++) {
+        const currentDay = new Date(weekStart);
+        currentDay.setDate(weekStart.getDate() + i);
+        
+        const dayEvents = events.filter(event => {
+            const eventDate = new Date(event.startDate);
+            return eventDate.toDateString() === currentDay.toDateString();
+        });
+        
+        weekDays.push({
+            date: currentDay,
+            dayName: dayNames[i],
+            events: dayEvents
+        });
+    }
+    
+    const weekStartFormatted = weekStart.toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    
+    const weekEnd = new Date(weekStart);
+    weekEnd.setDate(weekStart.getDate() + 6);
+    const weekEndFormatted = weekEnd.toLocaleDateString('de-DE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    
+    let weekHTML = `
+        <div class="calendar-week">
+            <div class="week-header">
+                <h3>Woche ${weekStartFormatted} - ${weekEndFormatted}</h3>
+            </div>
+            <div class="week-grid">
+    `;
+    
+    weekDays.forEach(day => {
+        const isToday = day.date.toDateString() === new Date().toDateString();
+        const dayClass = isToday ? 'calendar-day today' : 'calendar-day';
+        
+        weekHTML += `
+            <div class="${dayClass}">
+                <div class="day-header">
+                    <span class="day-name">${day.dayName}</span>
+                    <span class="day-date">${day.date.getDate()}</span>
                 </div>
-                <div class="event-date">${formatDateRange(event.startDate, event.endDate)}</div>
-                <div class="event-title">${titleContent}</div>
-                ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
+                <div class="day-events">
+        `;
+        
+        day.events.forEach(event => {
+            const title = event.summary || 'Kein Titel';
+            let displayTitle = title;
+
+            // Add venueName in brackets if available
+            if (event.venueName) {
+                displayTitle += ` (${event.venueName})`;
+            }
+
+            // Extract game result from structured data from JSON
+            const gameResult = event.gameData
+                ? extractGameResultFromData(event.gameData)
+                : { hasResult: false };
+
+            // Make BC Lions team names bold
+            let formattedTitle = displayTitle.replace(/(BC Lions\s+\w+(?:\s+\d+)?(?:\s+mix)?)/g, '<strong>$1</strong>');
+
+            // Highlight game results
+            if (gameResult.hasResult) {
+                formattedTitle = formatTitleWithResult(formattedTitle, gameResult);
+            }
+
+            // Extract URL from description and make title clickable if URL exists
+            const eventUrl = extractFirstUrl(event.description);
+            let titleContent;
+            if (eventUrl) {
+                // Ensure URL is properly encoded for HTML attribute
+                const encodedUrl = eventUrl.replace(/"/g, '&quot;');
+                titleContent = `<a href="${encodedUrl}" target="_blank" rel="noopener noreferrer">${formattedTitle}</a>`;
+            } else {
+                titleContent = formattedTitle;
+            }
+            
+            const timeFormatted = event.startDate.toLocaleTimeString('de-DE', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            const resultBadge = formatResultBadge(gameResult);
+            
+            weekHTML += `
+                <div class="calendar-event ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
+                    <div class="event-time">${timeFormatted}</div>
+                    <div class="event-info">
+                        <div class="event-header-line">
+                            ${event.teamId ? `<span class="team-id">${event.teamId}</span>` : ''}
+                            ${resultBadge ? `<span class="game-result">${resultBadge}</span>` : ''}
+                        </div>
+                        <div class="event-title">${titleContent}</div>
+                        ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
+                    </div>
+                </div>
+            `;
+        });
+        
+        weekHTML += `
+                </div>
+            </div>
+        `;
+    });
+    
+    weekHTML += `
             </div>
         </div>
     `;
-    }).join('');
-
-    container.innerHTML = eventsHTML;
+    
+    return weekHTML;
 }
 
 // Common function to load multiple team events with filtering

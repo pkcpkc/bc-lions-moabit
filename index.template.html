@@ -151,7 +151,7 @@
 
         .event-header-line {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             margin-bottom: 4px;
             gap: 10px;
@@ -160,7 +160,7 @@
         .team-id {
             font-weight: bold;
             color: #000;
-            font-size: 12px;
+            font-size: 9px;
             background-color: #f8f9fa;
             padding: 2px 6px;
             border-radius: 3px;
@@ -246,12 +246,189 @@
         .loading {
             text-align: center;
             color: #666;
-            font-style: italic;
+        }
+
+        /* Calendar Week View Styles */
+        .calendar-week {
+            margin: 20px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .week-header {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .week-header h3 {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e0e0e0;
+        }
+
+        .calendar-day {
+            background: white;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar-day.today {
+            background: #fff3cd;
+        }
+
+        .day-header {
+            padding: 8px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 20px;
+        }
+
+        .calendar-day.today .day-header {
+            background: #ffeaa7;
+        }
+
+        .day-name {
+            font-weight: bold;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .day-date {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .day-events {
+            padding: 4px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .calendar-event {
+            background: #f8f9fa;
+            border-radius: 3px;
+            padding: 4px 6px;
+            border-left: 3px solid #007bff;
+            font-size: 11px;
+            line-height: 1.2;
+        }
+
+        .calendar-event.has-result {
+            border-left-color: #28a745;
+        }
+
+        .calendar-event.has-pending {
+            border-left-color: #e0e0e0;
+        }
+
+        .event-time {
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 2px;
+        }
+
+        .event-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .calendar-event .event-header-line {
+            margin-bottom: 1px;
+            gap: 4px;
+        }
+
+        .calendar-event .team-id {
+            font-size: 10px;
+            padding: 1px 4px;
+        }
+
+        .calendar-event .event-title {
+            font-size: 11px;
+            margin: 1px 0;
+            line-height: 1.2;
+        }
+
+        .calendar-event .event-location {
+            font-size: 10px;
+            margin-top: 1px;
+        }
+
+        .calendar-event .game-result {
+            font-size: 10px;
+        }
+
+        .calendar-event .result-badge {
+            padding: 1px 4px;
+            font-size: 9px;
+        }
+
+        .event-result-line {
+            text-align: left;
+            margin: 1px 0;
+        }
+
+        .event-result-line .game-result {
+            margin-left: 0;
+            text-align: left;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .week-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calendar-day {
+                min-height: auto;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .day-header {
+                padding: 10px;
+            }
+            
+            .day-name {
+                font-size: 14px;
+            }
+            
+            .day-date {
+                font-size: 16px;
+            }
+            
+            .calendar-event {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            
+            .calendar-event .event-title {
+                font-size: 12px;
+            }
+            
+            .calendar-event .event-location {
+                font-size: 11px;
+            }
         }
 
         .error {
             color: #dc3545;
-            font-style: italic;
         }
 
         .navigation {
