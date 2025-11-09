@@ -20,6 +20,15 @@ const RANGE_TYPES = {
             return eventDate >= oneWeekAgo && eventDate <= now;
         });
     },
+    PAST_TWO_WEEKS: (events) => {
+        const now = new Date();
+        const twoWeeksAgo = new Date();
+        twoWeeksAgo.setDate(now.getDate() - 14);
+        return events.filter(event => {
+            const eventDate = new Date(event.startDate);
+            return eventDate >= twoWeeksAgo && eventDate <= now;
+        });
+    },
     PAST_MONTH: (events) => {
         const now = new Date();
         const oneMonthAgo = new Date();
@@ -87,7 +96,7 @@ const CONTAINER_CONFIG = [
     },
     {
         detector: (containerId) => containerId === 'ergebnisse-events',
-        emptyMessage: 'Keine Ergebnisse in dem letzten Monat',
+        emptyMessage: 'Keine Ergebnisse in den letzten zwei Wochen',
         loadingMessage: 'Lade Ergebnisse...',
         loadMethod: (containerId) => loadRecentResults(containerId)
     },
@@ -1014,12 +1023,12 @@ function addNavClickHandler(selector, sectionId) {
     }
 }
 
-// Function to load recent results (last week's events with game results, latest first)
+// Function to load recent results (last two weeks' events with game results, latest first)
 function loadRecentResults(containerId) {
     // Custom load for recent results with different sorting - use JSON
     const allEventsPromises = CALENDAR_CONFIGS.map(config => {
         const jsonFile = `./data/spiele/${config.id}.json`;
-        return fetchAndParseJSON(jsonFile, RANGE_TYPES.PAST_MONTH, config.id);
+        return fetchAndParseJSON(jsonFile, RANGE_TYPES.PAST_TWO_WEEKS, config.id);
     });
 
     Promise.all(allEventsPromises)
