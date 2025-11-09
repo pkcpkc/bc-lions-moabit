@@ -170,6 +170,46 @@ function formatDateRange(startDate, endDate) {
     }
 }
 
+// Helper function to check if an event is a full-day event
+function isFullDayEvent(event) {
+    // Full-day events typically start at 00:00 and either:
+    // 1. End at 00:00 the next day, or
+    // 2. Have the same start and end time at 00:00
+    const startHours = event.startDate.getHours();
+    const startMinutes = event.startDate.getMinutes();
+    const endHours = event.endDate.getHours();
+    const endMinutes = event.endDate.getMinutes();
+    
+    // Check if start time is 00:00
+    if (startHours === 0 && startMinutes === 0) {
+        // If end time is also 00:00, it's likely a full-day event
+        if (endHours === 0 && endMinutes === 0) {
+            return true;
+        }
+        
+        // Also check if it spans exactly 24 hours (some calendar systems do this)
+        const timeDiff = event.endDate.getTime() - event.startDate.getTime();
+        const dayInMs = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        if (timeDiff === dayInMs) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Helper function to format event time (handles full-day events)
+function formatEventTime(event) {
+    if (isFullDayEvent(event)) {
+        return 'ganztägig';
+    }
+    
+    return event.startDate.toLocaleTimeString('de-DE', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
 // Parse JSON data function
 function parseJsonData(data, teamId = null) {
     try {
@@ -383,6 +423,76 @@ describe('Calendar App Functions', () => {
             expect(result).toContain('bis');
             expect(result).toContain('16.10.2025');
             expect(result).toContain('18.10.2025');
+        });
+    });
+
+    describe('isFullDayEvent', () => {
+        it('should detect all-day events starting at local midnight', () => {
+            const event = {
+                startDate: new Date('2025-12-08T00:00:00'), // Local midnight
+                endDate: new Date('2025-12-08T00:00:00')
+            };
+            
+            expect(isFullDayEvent(event)).toBe(true);
+        });
+
+        it('should detect all-day events starting at UTC midnight', () => {
+            const event = {
+                startDate: new Date('2025-12-07T23:00:00.000Z'), // UTC 23:00 = local midnight (CET)
+                endDate: new Date('2025-12-07T23:00:00.000Z')
+            };
+            
+            expect(isFullDayEvent(event)).toBe(true);
+        });
+
+        it('should not detect timed events as all-day', () => {
+            const event = {
+                startDate: new Date('2025-11-13T16:00:00.000Z'), // 4 PM UTC
+                endDate: new Date('2025-11-13T17:30:00.000Z') // 5:30 PM UTC
+            };
+            
+            expect(isFullDayEvent(event)).toBe(false);
+        });
+
+        it('should detect 24-hour spanning events as full-day', () => {
+            const startDate = new Date('2025-12-08T00:00:00');
+            const endDate = new Date(startDate.getTime() + 24 * 60 * 60 * 1000); // Exactly 24 hours later
+            const event = {
+                startDate: startDate,
+                endDate: endDate
+            };
+            
+            expect(isFullDayEvent(event)).toBe(true);
+        });
+    });
+
+    describe('formatEventTime', () => {
+        it('should return "ganztägig" for full-day events', () => {
+            const event = {
+                startDate: new Date('2025-12-08T00:00:00'),
+                endDate: new Date('2025-12-08T00:00:00')
+            };
+            
+            expect(formatEventTime(event)).toBe('ganztägig');
+        });
+
+        it('should return formatted time for timed events', () => {
+            const event = {
+                startDate: new Date('2025-11-13T16:00:00.000Z'), // 4 PM UTC = 5 PM CET
+                endDate: new Date('2025-11-13T17:30:00.000Z')
+            };
+            
+            const result = formatEventTime(event);
+            expect(result).toMatch(/^\d{2}:\d{2}$/); // Should match HH:MM format
+        });
+
+        it('should return "ganztägig" for UTC midnight events', () => {
+            const event = {
+                startDate: new Date('2025-12-07T23:00:00.000Z'), // UTC 23:00 = local midnight (CET)
+                endDate: new Date('2025-12-07T23:00:00.000Z')
+            };
+            
+            expect(formatEventTime(event)).toBe('ganztägig');
         });
     });
 

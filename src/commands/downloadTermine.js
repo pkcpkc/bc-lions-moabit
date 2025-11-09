@@ -103,11 +103,24 @@ export class DownloadTermineCommand {
                         if (eventDate >= now) {
                             const endTime = new Date(eventDate);
                             endTime.setTime(eventDate.getTime() + (event.endDate.toJSDate() - event.startDate.toJSDate()));
+                            
+                            // Handle all-day events: DTEND is exclusive, so adjust for proper display
+                            let adjustedEndTime = endTime;
+                            if (event.startDate.isDate && event.endDate.isDate) {
+                                // For all-day events, subtract one day from end date if it's different from start
+                                const startDateOnly = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
+                                const endDateOnly = new Date(endTime.getFullYear(), endTime.getMonth(), endTime.getDate());
+                                
+                                if (endDateOnly.getTime() > startDateOnly.getTime()) {
+                                    adjustedEndTime = new Date(endTime);
+                                    adjustedEndTime.setDate(endTime.getDate() - 1);
+                                }
+                            }
 
                             allEvents.push({
                                 summary: event.summary,
                                 startDate: eventDate.toISOString(),
-                                endDate: endTime.toISOString(),
+                                endDate: adjustedEndTime.toISOString(),
                                 location: event.location || '',
                                 description: event.description || ''
                             });
@@ -116,10 +129,24 @@ export class DownloadTermineCommand {
                 } else {
                     // Non-recurring event
                     const eventDate = event.startDate.toJSDate();
+                    let endDate = event.endDate.toJSDate();
+                    
+                    // Handle all-day events: DTEND is exclusive, so adjust for proper display
+                    if (event.startDate.isDate && event.endDate.isDate) {
+                        // For all-day events, subtract one day from end date if it's different from start
+                        const startDateOnly = new Date(eventDate.getFullYear(), eventDate.getMonth(), eventDate.getDate());
+                        const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+                        
+                        if (endDateOnly.getTime() > startDateOnly.getTime()) {
+                            endDate = new Date(endDate);
+                            endDate.setDate(endDate.getDate() - 1);
+                        }
+                    }
+                    
                     allEvents.push({
                         summary: event.summary,
                         startDate: eventDate.toISOString(),
-                        endDate: event.endDate.toJSDate().toISOString(),
+                        endDate: endDate.toISOString(),
                         location: event.location || '',
                         description: event.description || ''
                     });

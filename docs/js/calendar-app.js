@@ -578,6 +578,46 @@ function formatDateRange(startDate, endDate) {
     }
 }
 
+// Helper function to check if an event is a full-day event
+function isFullDayEvent(event) {
+    // Full-day events typically start at 00:00 and either:
+    // 1. End at 00:00 the next day, or
+    // 2. Have the same start and end time at 00:00
+    const startHours = event.startDate.getHours();
+    const startMinutes = event.startDate.getMinutes();
+    const endHours = event.endDate.getHours();
+    const endMinutes = event.endDate.getMinutes();
+    
+    // Check if start time is 00:00
+    if (startHours === 0 && startMinutes === 0) {
+        // If end time is also 00:00, it's likely a full-day event
+        if (endHours === 0 && endMinutes === 0) {
+            return true;
+        }
+        
+        // Also check if it spans exactly 24 hours (some calendar systems do this)
+        const timeDiff = event.endDate.getTime() - event.startDate.getTime();
+        const dayInMs = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+        if (timeDiff === dayInMs) {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+// Helper function to format event time (handles full-day events)
+function formatEventTime(event) {
+    if (isFullDayEvent(event)) {
+        return 'ganztägig';
+    }
+    
+    return event.startDate.toLocaleTimeString('de-DE', {
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
 // Helper function to extract the first URL from a text string
 function extractFirstUrl(text) {
     if (!text) return null;
@@ -697,18 +737,49 @@ function groupEventsByWeek(events) {
     const weekGroups = new Map();
     
     events.forEach(event => {
-        const eventDate = new Date(event.startDate);
-        const weekStart = getWeekStart(eventDate);
-        const weekKey = weekStart.toISOString().split('T')[0];
+        const startDate = new Date(event.startDate);
+        const endDate = new Date(event.endDate);
         
-        if (!weekGroups.has(weekKey)) {
-            weekGroups.set(weekKey, {
-                week: weekStart,
-                events: []
-            });
+        // Check if it's a multi-day event (different dates, not just different times)
+        const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+        const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+        
+        if (startDateOnly.getTime() !== endDateOnly.getTime()) {
+            // Multi-day event: add to all weeks it spans
+            const startWeek = getWeekStart(startDate);
+            const endWeek = getWeekStart(endDate);
+            
+            // Generate all weeks between start and end (inclusive)
+            const currentWeek = new Date(startWeek);
+            while (currentWeek <= endWeek) {
+                const weekKey = currentWeek.toISOString().split('T')[0];
+                
+                if (!weekGroups.has(weekKey)) {
+                    weekGroups.set(weekKey, {
+                        week: new Date(currentWeek),
+                        events: []
+                    });
+                }
+                
+                weekGroups.get(weekKey).events.push(event);
+                
+                // Move to next week
+                currentWeek.setDate(currentWeek.getDate() + 7);
+            }
+        } else {
+            // Single day event: use original logic
+            const weekStart = getWeekStart(startDate);
+            const weekKey = weekStart.toISOString().split('T')[0];
+            
+            if (!weekGroups.has(weekKey)) {
+                weekGroups.set(weekKey, {
+                    week: weekStart,
+                    events: []
+                });
+            }
+            
+            weekGroups.get(weekKey).events.push(event);
         }
-        
-        weekGroups.get(weekKey).events.push(event);
     });
     
     // Convert to array and sort by week start date
@@ -734,8 +805,15 @@ function generateWeekHTML(weekStart, events) {
         currentDay.setDate(weekStart.getDate() + i);
         
         const dayEvents = events.filter(event => {
-            const eventDate = new Date(event.startDate);
-            return eventDate.toDateString() === currentDay.toDateString();
+            const eventStartDate = new Date(event.startDate);
+            const eventEndDate = new Date(event.endDate);
+            
+            // For multi-day events, check if current day falls within the event's date range
+            const currentDayOnly = new Date(currentDay.getFullYear(), currentDay.getMonth(), currentDay.getDate());
+            const startDateOnly = new Date(eventStartDate.getFullYear(), eventStartDate.getMonth(), eventStartDate.getDate());
+            const endDateOnly = new Date(eventEndDate.getFullYear(), eventEndDate.getMonth(), eventEndDate.getDate());
+            
+            return currentDayOnly >= startDateOnly && currentDayOnly <= endDateOnly;
         });
         
         weekDays.push({
@@ -813,10 +891,7 @@ function generateWeekHTML(weekStart, events) {
                 titleContent = formattedTitle;
             }
             
-            const timeFormatted = event.startDate.toLocaleTimeString('de-DE', {
-                hour: '2-digit',
-                minute: '2-digit'
-            });
+            const timeFormatted = formatEventTime(event);
             
             const resultBadge = formatResultBadge(gameResult);
             

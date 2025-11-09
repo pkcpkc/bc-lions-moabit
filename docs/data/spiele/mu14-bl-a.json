@@ -2,12 +2,12 @@
   "teamName": "BC Lions Moabit 2 mix",
   "teamId": "mu14-bl-a",
   "competitionId": 50606,
-  "lastUpdated": "2025-11-09T10:21:59.873Z",
+  "lastUpdated": "2025-11-09T13:23:22.053Z",
   "events": [
     {
       "summary": "BC Lions Moabit 2 mix vs BASS Südwest 2",
-      "startDate": "2025-09-21T12:00:00.000Z",
-      "endDate": "2025-09-21T14:00:00.000Z",
+      "startDate": "2025-09-21T10:00:00.000Z",
+      "endDate": "2025-09-21T12:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -23,8 +23,8 @@
     },
     {
       "summary": "Nachmeldung 1 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-09-28T23:59:00.000Z",
-      "endDate": "2025-09-29T01:59:00.000Z",
+      "startDate": "2025-09-28T21:59:00.000Z",
+      "endDate": "2025-09-28T23:59:00.000Z",
       "venueName": "N.N.",
       "location": "###, 10437, Berlin",
       "game": {
@@ -35,8 +35,8 @@
     },
     {
       "summary": "FREIBEUTER 2010 4 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-10-03T14:00:00.000Z",
-      "endDate": "2025-10-03T16:00:00.000Z",
+      "startDate": "2025-10-03T12:00:00.000Z",
+      "endDate": "2025-10-03T14:00:00.000Z",
       "venueName": "Pufendorfstraße",
       "location": "Pufendorfstraße 10, 10249, Berlin",
       "game": {
@@ -52,8 +52,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs VfB Hermsdorf 2",
-      "startDate": "2025-10-05T10:00:00.000Z",
-      "endDate": "2025-10-05T12:00:00.000Z",
+      "startDate": "2025-10-05T08:00:00.000Z",
+      "endDate": "2025-10-05T10:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -69,8 +69,8 @@
     },
     {
       "summary": "RSV Eintracht 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-10-12T12:00:00.000Z",
-      "endDate": "2025-10-12T14:00:00.000Z",
+      "startDate": "2025-10-12T10:00:00.000Z",
+      "endDate": "2025-10-12T12:00:00.000Z",
       "venueName": "Teltow - Elbestraße",
       "location": "Elbestraße 34, 14513, Teltow",
       "game": {
@@ -86,20 +86,25 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs DBV Charlottenburg 4",
-      "startDate": "2025-11-09T10:00:00.000Z",
-      "endDate": "2025-11-09T12:00:00.000Z",
+      "startDate": "2025-11-09T09:00:00.000Z",
+      "endDate": "2025-11-09T11:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 2 mix",
         "guest": "DBV Charlottenburg 4",
-        "matchId": 2756534
+        "matchId": 2756534,
+        "result": {
+          "homeScore": 55,
+          "guestScore": 51,
+          "isFinished": true
+        }
       }
     },
     {
       "summary": "ALBA Berlin 7 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-11-16T12:00:00.000Z",
-      "endDate": "2025-11-16T14:00:00.000Z",
+      "startDate": "2025-11-16T11:00:00.000Z",
+      "endDate": "2025-11-16T13:00:00.000Z",
       "venueName": "Hasenhegerweg",
       "location": "Hasenhegerweg 12, 12353, Berlin",
       "game": {
@@ -110,8 +115,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs BG Zehlendorf 4",
-      "startDate": "2025-11-23T12:00:00.000Z",
-      "endDate": "2025-11-23T14:00:00.000Z",
+      "startDate": "2025-11-23T11:00:00.000Z",
+      "endDate": "2025-11-23T13:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -122,8 +127,8 @@
     },
     {
       "summary": "Pfeffersport 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-11-30T14:00:00.000Z",
-      "endDate": "2025-11-30T16:00:00.000Z",
+      "startDate": "2025-11-30T13:00:00.000Z",
+      "endDate": "2025-11-30T15:00:00.000Z",
       "venueName": "Dietrich-Bonhoeffer-Straße, unten",
       "location": "Dietrich-Bonhoeffer-Straße 6, 10407, Berlin",
       "game": {
@@ -134,8 +139,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs Basket Dragons Marzahn 2",
-      "startDate": "2025-12-07T16:00:00.000Z",
-      "endDate": "2025-12-07T18:00:00.000Z",
+      "startDate": "2025-12-07T15:00:00.000Z",
+      "endDate": "2025-12-07T17:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -146,8 +151,8 @@
     },
     {
       "summary": "Viktoria Mitte 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2025-12-13T09:30:00.000Z",
-      "endDate": "2025-12-13T11:30:00.000Z",
+      "startDate": "2025-12-13T08:30:00.000Z",
+      "endDate": "2025-12-13T10:30:00.000Z",
       "venueName": "Adalbertstraße, oben",
       "location": "Adalbertstraße 53, 10179, Berlin",
       "game": {
@@ -158,8 +163,8 @@
     },
     {
       "summary": "BASS Südwest 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2026-01-11T12:00:00.000Z",
-      "endDate": "2026-01-11T14:00:00.000Z",
+      "startDate": "2026-01-11T11:00:00.000Z",
+      "endDate": "2026-01-11T13:00:00.000Z",
       "venueName": "Seydlitzstraße",
       "location": "Seydlitzstraße 30, 12249, Berlin",
       "game": {
@@ -170,8 +175,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs Nachmeldung 1",
-      "startDate": "2026-01-18T14:00:00.000Z",
-      "endDate": "2026-01-18T16:00:00.000Z",
+      "startDate": "2026-01-18T13:00:00.000Z",
+      "endDate": "2026-01-18T15:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -182,8 +187,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs FREIBEUTER 2010 4",
-      "startDate": "2026-01-25T18:00:00.000Z",
-      "endDate": "2026-01-25T20:00:00.000Z",
+      "startDate": "2026-01-25T17:00:00.000Z",
+      "endDate": "2026-01-25T19:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -194,8 +199,8 @@
     },
     {
       "summary": "VfB Hermsdorf 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2026-02-15T15:00:00.000Z",
-      "endDate": "2026-02-15T17:00:00.000Z",
+      "startDate": "2026-02-15T14:00:00.000Z",
+      "endDate": "2026-02-15T16:00:00.000Z",
       "venueName": "Heidenheimer Straße",
       "location": "Heidenheimer Straße 53-55, 13467, Berlin",
       "game": {
@@ -206,8 +211,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs RSV Eintracht 2",
-      "startDate": "2026-02-22T10:00:00.000Z",
-      "endDate": "2026-02-22T12:00:00.000Z",
+      "startDate": "2026-02-22T09:00:00.000Z",
+      "endDate": "2026-02-22T11:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -218,8 +223,8 @@
     },
     {
       "summary": "DBV Charlottenburg 4 vs BC Lions Moabit 2 mix",
-      "startDate": "2026-02-28T16:00:00.000Z",
-      "endDate": "2026-02-28T18:00:00.000Z",
+      "startDate": "2026-02-28T15:00:00.000Z",
+      "endDate": "2026-02-28T17:00:00.000Z",
       "venueName": "Leistikowstraße",
       "location": "Leistikowstraße 7, 14050, Berlin",
       "game": {
@@ -230,8 +235,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs ALBA Berlin 7",
-      "startDate": "2026-03-08T10:00:00.000Z",
-      "endDate": "2026-03-08T12:00:00.000Z",
+      "startDate": "2026-03-08T09:00:00.000Z",
+      "endDate": "2026-03-08T11:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -242,8 +247,8 @@
     },
     {
       "summary": "BG Zehlendorf 4 vs BC Lions Moabit 2 mix",
-      "startDate": "2026-03-15T15:30:00.000Z",
-      "endDate": "2026-03-15T17:30:00.000Z",
+      "startDate": "2026-03-15T14:30:00.000Z",
+      "endDate": "2026-03-15T16:30:00.000Z",
       "venueName": "Teltower Damm (alt)",
       "location": "Teltower Damm 87, 14167, Berlin",
       "game": {
@@ -254,8 +259,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs Pfeffersport 2",
-      "startDate": "2026-03-21T18:00:00.000Z",
-      "endDate": "2026-03-21T20:00:00.000Z",
+      "startDate": "2026-03-21T17:00:00.000Z",
+      "endDate": "2026-03-21T19:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -266,8 +271,8 @@
     },
     {
       "summary": "Basket Dragons Marzahn 2 vs BC Lions Moabit 2 mix",
-      "startDate": "2026-04-18T14:00:00.000Z",
-      "endDate": "2026-04-18T16:00:00.000Z",
+      "startDate": "2026-04-18T12:00:00.000Z",
+      "endDate": "2026-04-18T14:00:00.000Z",
       "venueName": "Liebensteiner Straße",
       "location": "Liebensteiner Straße 24, 12687, Berlin",
       "game": {
@@ -278,8 +283,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 mix vs Viktoria Mitte 2",
-      "startDate": "2026-04-25T10:00:00.000Z",
-      "endDate": "2026-04-25T12:00:00.000Z",
+      "startDate": "2026-04-25T08:00:00.000Z",
+      "endDate": "2026-04-25T10:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
