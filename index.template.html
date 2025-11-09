@@ -3,10 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>BC Lions Moabit</title>
     <script src="./js/basketball-animation.js"></script>
     <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            box-sizing: border-box;
+        }
+
         body {
             font-family: sans-serif;
             line-height: 1.6;
@@ -110,7 +119,7 @@
             flex-wrap: wrap;
         }
 
-        .calendar-actions > * {
+        .calendar-actions>* {
             margin: 0;
         }
 
@@ -405,11 +414,11 @@
             .week-grid {
                 grid-template-columns: repeat(7, 1fr);
             }
-            
+
             .calendar-day {
                 min-height: 100px;
             }
-            
+
             .calendar-event {
                 font-size: 10px;
                 padding: 3px 5px;
@@ -421,33 +430,33 @@
             .week-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .calendar-day {
                 min-height: auto;
                 border-bottom: 1px solid #e0e0e0;
             }
-            
+
             .day-header {
                 padding: 10px;
             }
-            
+
             .day-name {
                 font-size: 14px;
             }
-            
+
             .day-date {
                 font-size: 16px;
             }
-            
+
             .calendar-event {
                 font-size: 12px;
                 padding: 6px 8px;
             }
-            
+
             .calendar-event .event-title {
                 font-size: 12px;
             }
-            
+
             .calendar-event .event-location {
                 font-size: 11px;
             }
@@ -459,11 +468,11 @@
                 grid-template-columns: repeat(7, 1fr);
                 min-height: 120px;
             }
-            
+
             .calendar-day {
                 min-height: 140px;
             }
-            
+
             .calendar-event {
                 font-size: 11px;
                 padding: 4px 6px;
@@ -472,9 +481,19 @@
         }
 
         /* Ensure horizontal layout on landscape orientation */
-        @media (orientation: landscape) and (min-width: 769px) {
+        @media (orientation: landscape) {
+            body {
+                padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+                overflow-x: hidden;
+            }
+
             .week-grid {
-                grid-template-columns: repeat(7, 1fr) !important;
+                grid-template-columns: repeat(7, 1fr);
+                min-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+            }
+
+            .calendar-day {
+                min-height: 100px;
             }
         }
 
@@ -686,47 +705,48 @@
 
         <div class="calendar-section" id="anleitung-section">
             <div class="instructions" id="anleitung">
-            <h3>Anleitung</h3>
-            <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung siehe
-            unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
-            Updates.</p>
-            <div class="platform">
-                <h4>iOS (iPhone/iPad)</h4>
-                <ol>
-                    <li>Kopieren Sie den obigen Link.</li>
-                    <li>Öffnen Sie die "Einstellungen" App.</li>
-                    <li>Gehen Sie zu "Kalender" -> "Accounts" -> "Account hinzufügen".</li>
-                    <li>Wählen Sie "Andere" -> "Kalenderabo hinzufügen".</li>
-                    <li>Fügen Sie den Link ein und folgen Sie den Anweisungen.</li>
-                </ol>
-            </div>
-            <div class="platform">
-                <h4>macOS</h4>
-                <ol>
-                    <li>Öffnen Sie die "Kalender" App.</li>
-                    <li>Wählen Sie "Ablage" -> "Neues Kalenderabonnement".</li>
-                    <li>Fügen Sie den Link ein und klicken Sie auf "Abonnieren".</li>
-                </ol>
-            </div>
-            <div class="platform">
-                <h4>Android</h4>
-                <p>Die einfachste Methode ist, den Kalender über Ihren Google-Account hinzuzufügen:</p>
-                <ol>
-                    <li>Öffnen Sie den Google Kalender im Webbrowser auf einem Computer.</li>
-                    <li>Klicken Sie neben "Weitere Kalender" auf das "+"-Symbol und wählen Sie "Per URL".</li>
-                    <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
-                    <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät
-                        synchronisiert.</li>
-                </ol>
-            </div>
-            <div class="platform">
-                <h4>Windows</h4>
-                <ol>
-                    <li>Öffnen Sie die "Kalender" App.</li>
-                    <li>Klicken Sie auf "Kalender hinzufügen" -> "Aus dem Web".</li>
-                    <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
-                </ol>
-            </div>
+                <h3>Anleitung</h3>
+                <p>Um stets aktuelle Termine zu erhalten, empfehlen wir, den Kalender per URL zu abonnieren (Anleitung
+                    siehe
+                    unten). Alternativ können Sie die Datei einmalig herunterladen, erhalten dann aber keine zukünftigen
+                    Updates.</p>
+                <div class="platform">
+                    <h4>iOS (iPhone/iPad)</h4>
+                    <ol>
+                        <li>Kopieren Sie den obigen Link.</li>
+                        <li>Öffnen Sie die "Einstellungen" App.</li>
+                        <li>Gehen Sie zu "Kalender" -> "Accounts" -> "Account hinzufügen".</li>
+                        <li>Wählen Sie "Andere" -> "Kalenderabo hinzufügen".</li>
+                        <li>Fügen Sie den Link ein und folgen Sie den Anweisungen.</li>
+                    </ol>
+                </div>
+                <div class="platform">
+                    <h4>macOS</h4>
+                    <ol>
+                        <li>Öffnen Sie die "Kalender" App.</li>
+                        <li>Wählen Sie "Ablage" -> "Neues Kalenderabonnement".</li>
+                        <li>Fügen Sie den Link ein und klicken Sie auf "Abonnieren".</li>
+                    </ol>
+                </div>
+                <div class="platform">
+                    <h4>Android</h4>
+                    <p>Die einfachste Methode ist, den Kalender über Ihren Google-Account hinzuzufügen:</p>
+                    <ol>
+                        <li>Öffnen Sie den Google Kalender im Webbrowser auf einem Computer.</li>
+                        <li>Klicken Sie neben "Weitere Kalender" auf das "+"-Symbol und wählen Sie "Per URL".</li>
+                        <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
+                        <li>Der Kalender wird automatisch mit der Google Kalender App auf Ihrem Android-Gerät
+                            synchronisiert.</li>
+                    </ol>
+                </div>
+                <div class="platform">
+                    <h4>Windows</h4>
+                    <ol>
+                        <li>Öffnen Sie die "Kalender" App.</li>
+                        <li>Klicken Sie auf "Kalender hinzufügen" -> "Aus dem Web".</li>
+                        <li>Fügen Sie den Link zum iCS-Kalender ein.</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
