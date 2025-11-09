@@ -900,18 +900,14 @@ function generateWeekHTML(weekStart, events) {
                 titleContent = formattedTitle;
             }
             
-            const timeFormatted = formatEventTime(event);
-            
-            const resultBadge = formatResultBadge(gameResult);
+            // Show result badge in place of time when game has result, otherwise show time
+            const timeOrResultDisplay = gameResult.hasResult ? formatResultBadge(gameResult) : formatEventTime(event);
             
             weekHTML += `
                 <div class="calendar-event ${gameResult.hasResult ? 'has-result' : 'has-pending'}">
-                    <div class="event-time">${timeFormatted}</div>
+                    ${event.teamId ? `<span class="team-id">${event.teamId}</span>` : ''}
+                    <div class="event-time">${timeOrResultDisplay}</div>
                     <div class="event-info">
-                        <div class="event-header-line">
-                            ${event.teamId ? `<span class="team-id">${event.teamId}</span>` : ''}
-                            ${resultBadge ? `<span class="game-result">${resultBadge}</span>` : ''}
-                        </div>
                         <div class="event-title">${titleContent}</div>
                         ${event.location ? `<div class="event-location">📍 <a href="https://maps.google.com/maps?q=${encodeURIComponent(event.location)}" target="_blank" rel="noopener noreferrer" title="In Google Maps öffnen">${event.location}</a></div>` : ''}
                     </div>
