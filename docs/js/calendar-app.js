@@ -545,6 +545,141 @@ function copyToClipboard(text, event) {
     });
 }
 
+// Function to get next two weeks of Heimspiele events and copy to clipboard
+function copyHeimspieleToClipboard(event) {
+    event.preventDefault();
+    
+    // Define next two weeks range
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const endDate = new Date(today);
+    endDate.setDate(today.getDate() + 14);
+    endDate.setHours(23, 59, 59, 999);
+
+    const nextTwoWeeksFilter = (events) => {
+        return events.filter(eventItem =>
+            eventItem.startDate >= today && eventItem.startDate <= endDate
+        );
+    };
+
+    // Filter function to check for home games
+    const homeGameFilter = (events) => {
+        return events.filter(eventItem =>
+            eventItem.summary && eventItem.summary.startsWith('BC Lions Moabit')
+        );
+    };
+
+    // Combined filter function
+    const combinedFilter = (events) => {
+        return homeGameFilter(nextTwoWeeksFilter(events));
+    };
+
+    // Load all team events and filter for next two weeks of home games
+    const allEventsPromises = CALENDAR_CONFIGS.map(config => {
+        const jsonFile = `./data/spiele/${config.id}.json`;
+        return fetchAndParseJSON(jsonFile, RANGE_TYPES.ALL, config.id);
+    });
+
+    Promise.all(allEventsPromises)
+        .then(eventArrays => {
+            // Flatten all events into a single array
+            let allEvents = eventArrays.flat();
+
+            // Apply filtering
+            allEvents = combinedFilter(allEvents);
+
+            // Sort events by date
+            allEvents.sort((a, b) => a.startDate - b.startDate);
+
+            // Format events for clipboard
+            const formattedText = formatEventsForClipboard(allEvents);
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(formattedText).then(() => {
+                // No visual feedback - silent copy
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = formattedText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                // No visual feedback - silent copy
+            });
+            alert("Heimspiele kopiert!");
+        })
+        .catch(error => {
+            console.error('Error loading events for clipboard:', error);
+            // Silent error - no visual feedback
+        });
+}
+
+// Helper function to format events for clipboard in the requested format
+function formatEventsForClipboard(events) {
+    if (events.length === 0) {
+        return 'Keine Heimspiele in den nächsten zwei Wochen.';
+    }
+
+    const dayNames = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    const eventsByDate = new Map();
+
+    // Group events by date
+    events.forEach(event => {
+        const dateKey = event.startDate.toDateString();
+        if (!eventsByDate.has(dateKey)) {
+            eventsByDate.set(dateKey, []);
+        }
+        eventsByDate.get(dateKey).push(event);
+    });
+
+    let clipboardText = '';
+    
+    // Sort dates and format output
+    const sortedDates = Array.from(eventsByDate.keys()).sort((a, b) => new Date(a) - new Date(b));
+    
+    sortedDates.forEach(dateKey => {
+        const date = new Date(dateKey);
+        const dayName = dayNames[date.getDay()];
+        const formattedDate = date.toLocaleDateString('de-DE', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+        
+        clipboardText += `${formattedDate} ${dayName}\n`;
+        
+        const dayEvents = eventsByDate.get(dateKey);
+        // Sort events by time
+        dayEvents.sort((a, b) => a.startDate - b.startDate);
+        
+        dayEvents.forEach(event => {
+            const time = event.startDate.toLocaleTimeString('de-DE', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            // Extract team ID from event.teamId or from summary
+            let teamId = '';
+            if (event.teamId) {
+                teamId = event.teamId;
+            } else if (event.summary) {
+                // Extract team ID from summary (e.g., "BC Lions Moabit HE-BL-C" -> "HE-BL-C")
+                const match = event.summary.match(/BC Lions Moabit\s+(.+?)(?:\s+vs\s+|$)/);
+                if (match) {
+                    teamId = match[1].trim();
+                }
+            }
+            
+            clipboardText += `${time} ${teamId}\n`;
+        });
+        
+        clipboardText += '\n'; // Add empty line between dates
+    });
+
+    return clipboardText.trim();
+}
+
 function formatDate(date) {
     const options = {
         weekday: 'short',

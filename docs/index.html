@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>BC Lions Moabit</title>
     <script src="./js/basketball-animation.js"></script>
-    <script src="./js/extract-events.js"></script>
     <style>
         html,
         body {
@@ -647,7 +646,7 @@
         <nav class="navigation">
             <div class="nav-section">
                 <h4 class="nav-headline">Übersicht <sup><a href="#"
-                            onclick="extractUpcomingEvents(); return false;">π</a></sup></h4>
+                            onclick="copyHeimspieleToClipboard(event)">π</a></sup></h4>
                 <div class="nav-row" id="overview-nav-row">
                     <!-- General calendar links will be inserted here dynamically before other links -->
                     <a href="#spiele" class="nav-link">Spiele</a>
