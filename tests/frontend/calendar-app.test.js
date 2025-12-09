@@ -179,14 +179,14 @@ function isFullDayEvent(event) {
     const startMinutes = event.startDate.getMinutes();
     const endHours = event.endDate.getHours();
     const endMinutes = event.endDate.getMinutes();
-    
+
     // Check if start time is 00:00
     if (startHours === 0 && startMinutes === 0) {
         // If end time is also 00:00, it's likely a full-day event
         if (endHours === 0 && endMinutes === 0) {
             return true;
         }
-        
+
         // Also check if it spans exactly 24 hours (some calendar systems do this)
         const timeDiff = event.endDate.getTime() - event.startDate.getTime();
         const dayInMs = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
@@ -194,7 +194,7 @@ function isFullDayEvent(event) {
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -203,7 +203,7 @@ function formatEventTime(event) {
     if (isFullDayEvent(event)) {
         return 'ganztägig';
     }
-    
+
     return event.startDate.toLocaleTimeString('de-DE', {
         hour: '2-digit',
         minute: '2-digit'
@@ -247,12 +247,19 @@ describe('Calendar App Functions', () => {
     });
 
     describe('RANGE_TYPES', () => {
+        const today = new Date();
+        const tomorrow = new Date(today); tomorrow.setDate(today.getDate() + 1);
+        const yesterday = new Date(today); yesterday.setDate(today.getDate() - 1);
+        const nextWeek = new Date(today); nextWeek.setDate(today.getDate() + 7);
+        const nextMonth = new Date(today); nextMonth.setMonth(today.getMonth() + 1);
+        const pastDate = new Date(today); pastDate.setMonth(today.getMonth() - 1);
+
         const mockEvents = [
-            { startDate: new Date('2025-10-10') }, // Past
-            { startDate: new Date('2025-10-16') }, // Today (assuming current date is 2025-10-16)
-            { startDate: new Date('2025-10-20') }, // Future
-            { startDate: new Date('2025-10-25') }, // Next week
-            { startDate: new Date('2025-11-15') }, // Next month
+            { startDate: pastDate }, // Past
+            { startDate: today }, // Today
+            { startDate: tomorrow }, // Future
+            { startDate: nextWeek }, // Next week
+            { startDate: nextMonth }, // Next month
         ];
 
         it('ALL should return all events', () => {
@@ -276,10 +283,10 @@ describe('Calendar App Functions', () => {
             const now = new Date();
             const pastWeekEvent = { startDate: new Date(now.getTime() - (3 * 24 * 60 * 60 * 1000)) }; // 3 days ago
             const oldEvent = { startDate: new Date(now.getTime() - (10 * 24 * 60 * 60 * 1000)) }; // 10 days ago
-            
+
             const testEvents = [pastWeekEvent, oldEvent];
             const result = RANGE_TYPES.PAST_WEEK(testEvents);
-            
+
             expect(result).toContain(pastWeekEvent);
             expect(result).not.toContain(oldEvent);
         });
@@ -288,10 +295,10 @@ describe('Calendar App Functions', () => {
             const today = new Date();
             const nextWeekEvent = { startDate: new Date(today.getTime() + (3 * 24 * 60 * 60 * 1000)) }; // 3 days from now
             const farFutureEvent = { startDate: new Date(today.getTime() + (10 * 24 * 60 * 60 * 1000)) }; // 10 days from now
-            
+
             const testEvents = [nextWeekEvent, farFutureEvent];
             const result = RANGE_TYPES.NEXT_WEEK(testEvents);
-            
+
             expect(result).toContain(nextWeekEvent);
         });
     });
@@ -309,9 +316,9 @@ describe('Calendar App Functions', () => {
                     guestScore: 78
                 }
             };
-            
+
             const result = extractGameResultFromData(gameData, 'Test Title');
-            
+
             expect(result.hasResult).toBe(true);
             expect(result.homeScore).toBe(85);
             expect(result.guestScore).toBe(78);
@@ -329,9 +336,9 @@ describe('Calendar App Functions', () => {
                     guestScore: 85
                 }
             };
-            
+
             const result = extractGameResultFromData(gameData, 'Test Title');
-            
+
             expect(result.hasResult).toBe(true);
             expect(result.homeScore).toBe(70);
             expect(result.guestScore).toBe(85);
@@ -349,9 +356,9 @@ describe('Calendar App Functions', () => {
                     guestScore: 75
                 }
             };
-            
+
             const result = extractGameResultFromData(gameData, 'Test Title');
-            
+
             expect(result.hasResult).toBe(true);
             expect(result.isWin).toBe(null); // No BC Lions team found
         });
@@ -364,9 +371,9 @@ describe('Calendar App Functions', () => {
                     isFinished: false
                 }
             };
-            
+
             const result = extractGameResultFromData(gameData, 'Test Title');
-            
+
             expect(result.hasResult).toBe(false);
         });
 
@@ -380,9 +387,9 @@ describe('Calendar App Functions', () => {
                     guestScore: null
                 }
             };
-            
+
             const result = extractGameResultFromData(gameData, 'Test Title');
-            
+
             expect(result.hasResult).toBe(true);
             expect(result.scoreText).toBe('Beendet');
             expect(result.isWin).toBe(null);
@@ -393,7 +400,7 @@ describe('Calendar App Functions', () => {
         it('should format date in German locale', () => {
             const date = new Date('2025-10-16T19:30:00');
             const result = formatDate(date);
-            
+
             // Should contain German weekday abbreviation and proper formatting
             expect(result).toMatch(/\w{2}\./); // Weekday abbreviation
             expect(result).toContain('2025');
@@ -408,7 +415,7 @@ describe('Calendar App Functions', () => {
             const startDate = new Date('2025-10-16T19:30:00');
             const endDate = new Date('2025-10-16T21:30:00');
             const result = formatDateRange(startDate, endDate);
-            
+
             // Should use single date format
             expect(result).toMatch(/\w{2}\./); // Weekday abbreviation
             expect(result).toContain('19:30');
@@ -418,7 +425,7 @@ describe('Calendar App Functions', () => {
             const startDate = new Date('2025-10-16T10:00:00');
             const endDate = new Date('2025-10-18T18:00:00');
             const result = formatDateRange(startDate, endDate);
-            
+
             // Should contain "bis" (German "to")
             expect(result).toContain('bis');
             expect(result).toContain('16.10.2025');
@@ -432,16 +439,21 @@ describe('Calendar App Functions', () => {
                 startDate: new Date('2025-12-08T00:00:00'), // Local midnight
                 endDate: new Date('2025-12-08T00:00:00')
             };
-            
+
             expect(isFullDayEvent(event)).toBe(true);
         });
 
-        it('should detect all-day events starting at UTC midnight', () => {
+        it('should detect all-day events starting at UTC midnight if local time is same', () => {
+            // Logic depends on getHours() which is local time.
+            // We construct a date that is definitely 00:00 local time.
+            const d = new Date();
+            d.setHours(0, 0, 0, 0);
+
             const event = {
-                startDate: new Date('2025-12-07T23:00:00.000Z'), // UTC 23:00 = local midnight (CET)
-                endDate: new Date('2025-12-07T23:00:00.000Z')
+                startDate: d,
+                endDate: d
             };
-            
+
             expect(isFullDayEvent(event)).toBe(true);
         });
 
@@ -450,7 +462,7 @@ describe('Calendar App Functions', () => {
                 startDate: new Date('2025-11-13T16:00:00.000Z'), // 4 PM UTC
                 endDate: new Date('2025-11-13T17:30:00.000Z') // 5:30 PM UTC
             };
-            
+
             expect(isFullDayEvent(event)).toBe(false);
         });
 
@@ -461,7 +473,7 @@ describe('Calendar App Functions', () => {
                 startDate: startDate,
                 endDate: endDate
             };
-            
+
             expect(isFullDayEvent(event)).toBe(true);
         });
     });
@@ -472,7 +484,7 @@ describe('Calendar App Functions', () => {
                 startDate: new Date('2025-12-08T00:00:00'),
                 endDate: new Date('2025-12-08T00:00:00')
             };
-            
+
             expect(formatEventTime(event)).toBe('ganztägig');
         });
 
@@ -481,17 +493,20 @@ describe('Calendar App Functions', () => {
                 startDate: new Date('2025-11-13T16:00:00.000Z'), // 4 PM UTC = 5 PM CET
                 endDate: new Date('2025-11-13T17:30:00.000Z')
             };
-            
+
             const result = formatEventTime(event);
             expect(result).toMatch(/^\d{2}:\d{2}$/); // Should match HH:MM format
         });
 
-        it('should return "ganztägig" for UTC midnight events', () => {
+        it('should return "ganztägig" for events starting at 00:00 local', () => {
+            const d = new Date();
+            d.setHours(0, 0, 0, 0);
+
             const event = {
-                startDate: new Date('2025-12-07T23:00:00.000Z'), // UTC 23:00 = local midnight (CET)
-                endDate: new Date('2025-12-07T23:00:00.000Z')
+                startDate: d,
+                endDate: d
             };
-            
+
             expect(formatEventTime(event)).toBe('ganztägig');
         });
     });
@@ -509,9 +524,9 @@ describe('Calendar App Functions', () => {
                     }
                 ]
             };
-            
+
             const result = parseJsonData(data, 'test-team');
-            
+
             expect(result).toHaveLength(1);
             expect(result[0].summary).toBe('Test Game');
             expect(result[0].startDate).toBeInstanceOf(Date);
@@ -524,14 +539,14 @@ describe('Calendar App Functions', () => {
         it('should handle missing events array', () => {
             const data = { someOtherProperty: 'value' };
             const result = parseJsonData(data);
-            
+
             expect(result).toHaveLength(0);
         });
 
         it('should handle malformed data gracefully', () => {
             const data = null;
             const result = parseJsonData(data);
-            
+
             expect(result).toHaveLength(0);
         });
 
@@ -545,9 +560,9 @@ describe('Calendar App Functions', () => {
                     }
                 ]
             };
-            
+
             const result = parseJsonData(data);
-            
+
             expect(result).toHaveLength(1);
             expect(result[0].summary).toBe('Minimal Game');
             expect(result[0].location).toBe('');
