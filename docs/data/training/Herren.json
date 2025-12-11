@@ -2,15 +2,8 @@
   "label": "Herren",
   "id": "Herren",
   "calId": "53009b789daac422a9a04fb042c6d22471052464ec60da06415958dccaf5ea02@group.calendar.google.com",
-  "lastUpdated": "2025-12-10T10:31:18.594Z",
+  "lastUpdated": "2025-12-11T10:31:06.325Z",
   "events": [
-    {
-      "summary": "Herren 5",
-      "startDate": "2025-12-10T19:00:00.000Z",
-      "endDate": "2025-12-10T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
     {
       "summary": "Herren 5",
       "startDate": "2025-12-17T19:00:00.000Z",
@@ -40,38 +33,59 @@
       "description": ""
     },
     {
-      "summary": "Herren 6",
-      "startDate": "2025-12-12T17:00:00.000Z",
-      "endDate": "2025-12-12T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "summary": "Herren 4/Baha",
+      "startDate": "2025-12-16T19:30:00.000Z",
+      "endDate": "2025-12-16T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 6",
-      "startDate": "2025-12-19T17:00:00.000Z",
-      "endDate": "2025-12-19T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "summary": "Herren 4/Baha",
+      "startDate": "2025-12-23T19:30:00.000Z",
+      "endDate": "2025-12-23T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 6",
-      "startDate": "2025-12-26T17:00:00.000Z",
-      "endDate": "2025-12-26T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "summary": "Herren 4/Baha",
+      "startDate": "2025-12-30T19:30:00.000Z",
+      "endDate": "2025-12-30T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 6",
-      "startDate": "2026-01-02T17:00:00.000Z",
-      "endDate": "2026-01-02T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "summary": "Herren 4/Baha",
+      "startDate": "2026-01-06T19:30:00.000Z",
+      "endDate": "2026-01-06T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 6",
-      "startDate": "2026-01-09T17:00:00.000Z",
-      "endDate": "2026-01-09T19:00:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "summary": "Herren 1",
+      "startDate": "2025-12-17T19:00:00.000Z",
+      "endDate": "2025-12-17T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2025-12-24T19:00:00.000Z",
+      "endDate": "2025-12-24T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2025-12-31T19:00:00.000Z",
+      "endDate": "2025-12-31T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-01-07T19:00:00.000Z",
+      "endDate": "2026-01-07T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -111,34 +125,6 @@
     },
     {
       "summary": "Herren 3",
-      "startDate": "2025-12-15T18:30:00.000Z",
-      "endDate": "2025-12-15T20:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 3",
-      "startDate": "2025-12-22T18:30:00.000Z",
-      "endDate": "2025-12-22T20:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 3",
-      "startDate": "2025-12-29T18:30:00.000Z",
-      "endDate": "2025-12-29T20:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 3",
-      "startDate": "2026-01-05T18:30:00.000Z",
-      "endDate": "2026-01-05T20:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 3",
       "startDate": "2025-12-11T19:00:00.000Z",
       "endDate": "2025-12-11T21:30:00.000Z",
       "location": "Neues Ufer 6, 10553 Berlin, Germany",
@@ -173,38 +159,87 @@
       "description": ""
     },
     {
-      "summary": "Herren 2",
-      "startDate": "2025-12-11T19:00:00.000Z",
-      "endDate": "2025-12-11T20:30:00.000Z",
+      "summary": "Herren 3",
+      "startDate": "2025-12-15T18:30:00.000Z",
+      "endDate": "2025-12-15T20:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2025-12-22T18:30:00.000Z",
+      "endDate": "2025-12-22T20:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2025-12-29T18:30:00.000Z",
+      "endDate": "2025-12-29T20:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2026-01-05T18:30:00.000Z",
+      "endDate": "2026-01-05T20:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 5",
+      "startDate": "2025-12-16T19:00:00.000Z",
+      "endDate": "2025-12-16T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 2",
-      "startDate": "2025-12-18T19:00:00.000Z",
-      "endDate": "2025-12-18T20:30:00.000Z",
+      "summary": "Herren 5",
+      "startDate": "2025-12-23T19:00:00.000Z",
+      "endDate": "2025-12-23T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 2",
-      "startDate": "2025-12-25T19:00:00.000Z",
-      "endDate": "2025-12-25T20:30:00.000Z",
+      "summary": "Herren 5",
+      "startDate": "2025-12-30T19:00:00.000Z",
+      "endDate": "2025-12-30T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 2",
-      "startDate": "2026-01-01T19:00:00.000Z",
-      "endDate": "2026-01-01T20:30:00.000Z",
+      "summary": "Herren 5",
+      "startDate": "2026-01-06T19:00:00.000Z",
+      "endDate": "2026-01-06T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 2",
-      "startDate": "2026-01-08T19:00:00.000Z",
-      "endDate": "2026-01-08T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Herren 1",
+      "startDate": "2025-12-15T20:00:00.000Z",
+      "endDate": "2025-12-15T21:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2025-12-22T20:00:00.000Z",
+      "endDate": "2025-12-22T21:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2025-12-29T20:00:00.000Z",
+      "endDate": "2025-12-29T21:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-01-05T20:00:00.000Z",
+      "endDate": "2026-01-05T21:00:00.000Z",
+      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -243,121 +278,65 @@
       "description": ""
     },
     {
-      "summary": "Herren 1",
-      "startDate": "2025-12-15T20:00:00.000Z",
-      "endDate": "2025-12-15T21:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2025-12-22T20:00:00.000Z",
-      "endDate": "2025-12-22T21:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2025-12-29T20:00:00.000Z",
-      "endDate": "2025-12-29T21:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2026-01-05T20:00:00.000Z",
-      "endDate": "2026-01-05T21:00:00.000Z",
-      "location": "Adalbertstraße 53, 10179 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4/Baha",
-      "startDate": "2025-12-16T19:30:00.000Z",
-      "endDate": "2025-12-16T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4/Baha",
-      "startDate": "2025-12-23T19:30:00.000Z",
-      "endDate": "2025-12-23T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4/Baha",
-      "startDate": "2025-12-30T19:30:00.000Z",
-      "endDate": "2025-12-30T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4/Baha",
-      "startDate": "2026-01-06T19:30:00.000Z",
-      "endDate": "2026-01-06T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2025-12-10T19:00:00.000Z",
-      "endDate": "2025-12-10T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
+      "summary": "Herren 6/United",
       "startDate": "2025-12-17T19:00:00.000Z",
-      "endDate": "2025-12-17T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "endDate": "2025-12-17T20:45:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 1",
+      "summary": "Herren 6/United",
       "startDate": "2025-12-24T19:00:00.000Z",
-      "endDate": "2025-12-24T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "endDate": "2025-12-24T20:45:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 1",
+      "summary": "Herren 6/United",
       "startDate": "2025-12-31T19:00:00.000Z",
-      "endDate": "2025-12-31T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "endDate": "2025-12-31T20:45:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 1",
+      "summary": "Herren 6/United",
       "startDate": "2026-01-07T19:00:00.000Z",
-      "endDate": "2026-01-07T20:30:00.000Z",
+      "endDate": "2026-01-07T20:45:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2025-12-11T19:00:00.000Z",
+      "endDate": "2025-12-11T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 5",
-      "startDate": "2025-12-16T19:00:00.000Z",
-      "endDate": "2025-12-16T20:30:00.000Z",
+      "summary": "Herren 2",
+      "startDate": "2025-12-18T19:00:00.000Z",
+      "endDate": "2025-12-18T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 5",
-      "startDate": "2025-12-23T19:00:00.000Z",
-      "endDate": "2025-12-23T20:30:00.000Z",
+      "summary": "Herren 2",
+      "startDate": "2025-12-25T19:00:00.000Z",
+      "endDate": "2025-12-25T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 5",
-      "startDate": "2025-12-30T19:00:00.000Z",
-      "endDate": "2025-12-30T20:30:00.000Z",
+      "summary": "Herren 2",
+      "startDate": "2026-01-01T19:00:00.000Z",
+      "endDate": "2026-01-01T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 5",
-      "startDate": "2026-01-06T19:00:00.000Z",
-      "endDate": "2026-01-06T20:30:00.000Z",
+      "summary": "Herren 2",
+      "startDate": "2026-01-08T19:00:00.000Z",
+      "endDate": "2026-01-08T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
@@ -390,38 +369,38 @@
       "description": ""
     },
     {
-      "summary": "Herren 6/United",
-      "startDate": "2025-12-10T19:00:00.000Z",
-      "endDate": "2025-12-10T20:45:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "summary": "Herren 6",
+      "startDate": "2025-12-12T17:00:00.000Z",
+      "endDate": "2025-12-12T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 6/United",
-      "startDate": "2025-12-17T19:00:00.000Z",
-      "endDate": "2025-12-17T20:45:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "summary": "Herren 6",
+      "startDate": "2025-12-19T17:00:00.000Z",
+      "endDate": "2025-12-19T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 6/United",
-      "startDate": "2025-12-24T19:00:00.000Z",
-      "endDate": "2025-12-24T20:45:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "summary": "Herren 6",
+      "startDate": "2025-12-26T17:00:00.000Z",
+      "endDate": "2025-12-26T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 6/United",
-      "startDate": "2025-12-31T19:00:00.000Z",
-      "endDate": "2025-12-31T20:45:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "summary": "Herren 6",
+      "startDate": "2026-01-02T17:00:00.000Z",
+      "endDate": "2026-01-02T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Herren 6/United",
-      "startDate": "2026-01-07T19:00:00.000Z",
-      "endDate": "2026-01-07T20:45:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Germany",
+      "summary": "Herren 6",
+      "startDate": "2026-01-09T17:00:00.000Z",
+      "endDate": "2026-01-09T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     }
   ]

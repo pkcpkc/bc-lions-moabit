@@ -2,91 +2,14 @@
   "label": "BC Lions",
   "id": "bc-lions",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2025-12-10T10:31:23.499Z",
+  "lastUpdated": "2025-12-11T10:31:09.919Z",
   "events": [
-    {
-      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
-      "startDate": "2025-12-08T00:00:00.000Z",
-      "endDate": "2025-12-08T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Turnierreise: Pilsen Tschechien",
-      "startDate": "2025-12-28T00:00:00.000Z",
-      "endDate": "2025-12-30T00:00:00.000Z",
-      "location": "",
-      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
-    },
-    {
-      "summary": "Moabiter Grundschulcup",
-      "startDate": "2025-12-19T00:00:00.000Z",
-      "endDate": "2025-12-19T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
     {
       "summary": "Xmas Edition Turnier & Sylvesterparty",
       "startDate": "2025-12-28T00:00:00.000Z",
       "endDate": "2025-12-31T00:00:00.000Z",
       "location": "",
       "description": ""
-    },
-    {
-      "summary": "Herbstcamp I",
-      "startDate": "2025-10-20T00:00:00.000Z",
-      "endDate": "2025-10-23T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
-      "description": "10-15h"
-    },
-    {
-      "summary": "Coaches-Clinic",
-      "startDate": "2025-11-02T00:00:00.000Z",
-      "endDate": "2025-11-02T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Xmas Ballin' Project (STK)",
-      "startDate": "2025-12-22T00:00:00.000Z",
-      "endDate": "2025-12-22T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2025-12-12T19:00:00.000Z",
-      "endDate": "2025-12-12T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2025-12-19T19:00:00.000Z",
-      "endDate": "2025-12-19T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2025-12-26T19:00:00.000Z",
-      "endDate": "2025-12-26T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-01-02T19:00:00.000Z",
-      "endDate": "2026-01-02T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-01-09T19:00:00.000Z",
-      "endDate": "2026-01-09T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
       "summary": "Eltern + BCL Family",
@@ -124,17 +47,31 @@
       "description": ""
     },
     {
+      "summary": "Turnierreise: Pilsen Tschechien",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2025-12-30T00:00:00.000Z",
+      "location": "",
+      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
+    },
+    {
+      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
+      "startDate": "2025-12-08T00:00:00.000Z",
+      "endDate": "2025-12-08T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Coaches-Clinic",
+      "startDate": "2025-11-02T00:00:00.000Z",
+      "endDate": "2025-11-02T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
       "summary": "Jahreshauptversammlung",
       "startDate": "2025-10-31T18:00:00.000Z",
       "endDate": "2025-10-31T19:00:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herbstcamp II",
-      "startDate": "2025-10-27T00:00:00.000Z",
-      "endDate": "2025-10-29T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
       "description": ""
     },
     {
@@ -173,6 +110,13 @@
       "description": ""
     },
     {
+      "summary": "Herbstcamp II",
+      "startDate": "2025-10-27T00:00:00.000Z",
+      "endDate": "2025-10-29T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
       "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
       "startDate": "2025-10-20T00:00:00.000Z",
       "endDate": "2025-11-02T00:00:00.000Z",
@@ -185,6 +129,62 @@
       "endDate": "2025-12-20T00:00:00.000Z",
       "location": "",
       "description": ""
+    },
+    {
+      "summary": "Xmas Ballin' Project (STK)",
+      "startDate": "2025-12-22T00:00:00.000Z",
+      "endDate": "2025-12-22T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Moabiter Grundschulcup",
+      "startDate": "2025-12-19T00:00:00.000Z",
+      "endDate": "2025-12-19T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Herbstcamp I",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-10-23T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
+      "description": "10-15h"
+    },
+    {
+      "summary": "FIBA 3x3",
+      "startDate": "2025-12-12T19:00:00.000Z",
+      "endDate": "2025-12-12T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
+    },
+    {
+      "summary": "FIBA 3x3",
+      "startDate": "2025-12-19T19:00:00.000Z",
+      "endDate": "2025-12-19T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
+    },
+    {
+      "summary": "FIBA 3x3",
+      "startDate": "2025-12-26T19:00:00.000Z",
+      "endDate": "2025-12-26T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
+    },
+    {
+      "summary": "FIBA 3x3",
+      "startDate": "2026-01-02T19:00:00.000Z",
+      "endDate": "2026-01-02T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
+    },
+    {
+      "summary": "FIBA 3x3",
+      "startDate": "2026-01-09T19:00:00.000Z",
+      "endDate": "2026-01-09T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     }
   ]
 }
