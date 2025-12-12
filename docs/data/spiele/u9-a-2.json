@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1 mix",
   "teamId": "u9-a-2",
   "competitionId": 50493,
-  "lastUpdated": "2025-12-11T10:30:52.345Z",
+  "lastUpdated": "2025-12-12T10:29:15.044Z",
   "events": [
     {
       "summary": "BC Lions Moabit 1 mix vs FREIBEUTER 2010 1",
@@ -134,8 +134,8 @@
         "guest": "VfB Hermsdorf 1",
         "matchId": 2753192,
         "result": {
-          "homeScore": 3,
-          "guestScore": 1,
+          "homeScore": 0,
+          "guestScore": 0,
           "isFinished": true
         }
       }
