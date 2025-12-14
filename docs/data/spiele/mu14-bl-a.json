@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 2 mix",
   "teamId": "mu14-bl-a",
   "competitionId": 50606,
-  "lastUpdated": "2025-12-13T10:24:41.434Z",
+  "lastUpdated": "2025-12-14T10:24:54.700Z",
   "events": [
     {
       "summary": "BC Lions Moabit 2 mix vs BASS Südwest 2",
@@ -166,7 +166,12 @@
       "game": {
         "home": "Viktoria Mitte 2",
         "guest": "BC Lions Moabit 2 mix",
-        "matchId": 2756814
+        "matchId": 2756814,
+        "result": {
+          "homeScore": 36,
+          "guestScore": 73,
+          "isFinished": true
+        }
       }
     }
   ]

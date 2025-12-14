@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1",
   "teamId": "wu18-ol",
   "competitionId": 50365,
-  "lastUpdated": "2025-12-13T10:25:06.112Z",
+  "lastUpdated": "2025-12-14T10:25:21.338Z",
   "events": [
     {
       "summary": "BC Lions Moabit 1 vs BG Zehlendorf 1",
@@ -149,7 +149,12 @@
       "game": {
         "home": "ALBA Berlin 2",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2748888
+        "matchId": 2748888,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 39,
+          "isFinished": true
+        }
       }
     },
     {

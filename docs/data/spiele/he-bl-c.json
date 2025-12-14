@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 3",
   "teamId": "he-bl-c",
   "competitionId": 50597,
-  "lastUpdated": "2025-12-13T10:24:27.382Z",
+  "lastUpdated": "2025-12-14T10:24:40.972Z",
   "events": [
     {
       "summary": "BC Lions Moabit 3 vs Mitte SuperSonics 1",
@@ -149,7 +149,12 @@
       "game": {
         "home": "Mitte SuperSonics 1",
         "guest": "BC Lions Moabit 3",
-        "matchId": 2753209
+        "matchId": 2753209,
+        "result": {
+          "homeScore": 79,
+          "guestScore": 43,
+          "isFinished": true
+        }
       }
     },
     {

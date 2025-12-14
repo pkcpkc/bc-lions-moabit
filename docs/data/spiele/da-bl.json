@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 2",
   "teamId": "da-bl",
   "competitionId": 50852,
-  "lastUpdated": "2025-12-13T10:24:19.602Z",
+  "lastUpdated": "2025-12-14T10:24:34.115Z",
   "events": [
     {
       "summary": "BC Lions Moabit 2 vs VfL Lichtenrade 1",
@@ -161,7 +161,12 @@
       "game": {
         "home": "Türkiyemspor Berlin 3",
         "guest": "BC Lions Moabit 2",
-        "matchId": 2755615
+        "matchId": 2755615,
+        "result": {
+          "homeScore": 78,
+          "guestScore": 31,
+          "isFinished": true
+        }
       }
     },
     {
