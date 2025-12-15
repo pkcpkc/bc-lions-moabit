@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 5",
   "teamId": "he-kl-c",
   "competitionId": 50459,
-  "lastUpdated": "2025-12-14T10:24:47.821Z",
+  "lastUpdated": "2025-12-15T10:32:23.829Z",
   "events": [
     {
       "summary": "BC Lions Moabit 5 vs BTV 1850 1",
@@ -132,7 +132,12 @@
       "game": {
         "home": "BG Zehlendorf 5",
         "guest": "BC Lions Moabit 5",
-        "matchId": 2757564
+        "matchId": 2757564,
+        "result": {
+          "homeScore": 85,
+          "guestScore": 72,
+          "isFinished": true
+        }
       }
     },
     {

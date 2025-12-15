@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 2 mix",
   "teamId": "mu16-kl",
   "competitionId": 51779,
-  "lastUpdated": "2025-12-14T10:25:01.263Z",
+  "lastUpdated": "2025-12-15T10:32:36.978Z",
   "events": [
     {
       "summary": "BC Lions Moabit 2 mix vs Berlin Baskets 3",
@@ -115,7 +115,12 @@
       "game": {
         "home": "Berlin Tiger 5",
         "guest": "BC Lions Moabit 2 mix",
-        "matchId": 2791414
+        "matchId": 2791414,
+        "result": {
+          "homeScore": 25,
+          "guestScore": 74,
+          "isFinished": true
+        }
       }
     },
     {

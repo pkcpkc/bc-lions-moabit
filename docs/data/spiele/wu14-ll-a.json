@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1",
   "teamId": "wu14-ll-a",
   "competitionId": 50415,
-  "lastUpdated": "2025-12-14T10:25:13.951Z",
+  "lastUpdated": "2025-12-15T10:32:48.184Z",
   "events": [
     {
       "summary": "SSV Lok Bernau 2 vs BC Lions Moabit 1",
@@ -132,7 +132,12 @@
       "game": {
         "home": "BG Zehlendorf 2",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2751309
+        "matchId": 2751309,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 96,
+          "isFinished": true
+        }
       }
     }
   ]

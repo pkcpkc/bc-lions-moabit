@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1 mix",
   "teamId": "mu20-ll-a",
   "competitionId": 50398,
-  "lastUpdated": "2025-12-14T10:25:05.592Z",
+  "lastUpdated": "2025-12-15T10:32:41.545Z",
   "events": [
     {
       "summary": "Basket Dragons Marzahn 1 (aK) vs BC Lions Moabit 1 mix",
@@ -98,7 +98,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "Basket Dragons Marzahn 1 (aK)",
-        "matchId": 2749541
+        "matchId": 2749541,
+        "result": {
+          "homeScore": 89,
+          "guestScore": 79,
+          "isFinished": true
+        }
       }
     },
     {
