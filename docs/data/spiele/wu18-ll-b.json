@@ -2,12 +2,12 @@
   "teamName": "BC Lions Moabit 2",
   "teamId": "wu18-ll-b",
   "competitionId": 50403,
-  "lastUpdated": "2025-12-15T10:32:52.331Z",
+  "lastUpdated": "2025-12-15T19:48:45.688Z",
   "events": [
     {
       "summary": "KINGS&QUEENS Potsdam 1 vs BC Lions Moabit 2",
-      "startDate": "2025-10-12T17:00:00.000Z",
-      "endDate": "2025-10-12T19:00:00.000Z",
+      "startDate": "2025-10-12T15:00:00.000Z",
+      "endDate": "2025-10-12T17:00:00.000Z",
       "venueName": "Potsdam - Kurfürstenstraße",
       "location": "Kurfürstenstraße 48, 14467, Potsdam",
       "game": {
@@ -23,8 +23,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs FREIBEUTER 2010 1",
-      "startDate": "2025-11-08T16:00:00.000Z",
-      "endDate": "2025-11-08T18:00:00.000Z",
+      "startDate": "2025-11-08T15:00:00.000Z",
+      "endDate": "2025-11-08T17:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -40,8 +40,8 @@
     },
     {
       "summary": "VfB Hermsdorf 2 vs BC Lions Moabit 2",
-      "startDate": "2025-11-16T11:00:00.000Z",
-      "endDate": "2025-11-16T13:00:00.000Z",
+      "startDate": "2025-11-16T10:00:00.000Z",
+      "endDate": "2025-11-16T12:00:00.000Z",
       "venueName": "Cyclopstraße",
       "location": "Cyclopstraße 7, 13437, Berlin",
       "game": {
@@ -57,8 +57,8 @@
     },
     {
       "summary": "TSC Spandau 1 vs BC Lions Moabit 2",
-      "startDate": "2025-11-30T13:45:00.000Z",
-      "endDate": "2025-11-30T15:45:00.000Z",
+      "startDate": "2025-11-30T12:45:00.000Z",
+      "endDate": "2025-11-30T14:45:00.000Z",
       "venueName": "Staakener Feldstraße",
       "location": "Staakener Feldstraße 6-8, 13591, Berlin",
       "game": {
@@ -74,8 +74,8 @@
     },
     {
       "summary": "BASS Berlin 3 vs BC Lions Moabit 2",
-      "startDate": "2025-12-07T16:00:00.000Z",
-      "endDate": "2025-12-07T18:00:00.000Z",
+      "startDate": "2025-12-07T15:00:00.000Z",
+      "endDate": "2025-12-07T17:00:00.000Z",
       "venueName": "Dessauerstraße, oben",
       "location": "Dessauerstraße 63, 12249, Berlin",
       "game": {
@@ -91,8 +91,8 @@
     },
     {
       "summary": "Türkiyemspor Berlin 1 vs BC Lions Moabit 2",
-      "startDate": "2026-01-17T14:00:00.000Z",
-      "endDate": "2026-01-17T16:00:00.000Z",
+      "startDate": "2026-01-17T13:00:00.000Z",
+      "endDate": "2026-01-17T15:00:00.000Z",
       "venueName": "Nostitzstraße (oben)",
       "location": "Nostitzstraße 60, 10961, Berlin",
       "game": {
@@ -103,8 +103,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs KINGS&QUEENS Potsdam 1",
-      "startDate": "2026-01-25T17:00:00.000Z",
-      "endDate": "2026-01-25T19:00:00.000Z",
+      "startDate": "2026-01-25T16:00:00.000Z",
+      "endDate": "2026-01-25T18:00:00.000Z",
       "venueName": "Gerhardtstraße",
       "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
@@ -115,8 +115,8 @@
     },
     {
       "summary": "FREIBEUTER 2010 1 vs BC Lions Moabit 2",
-      "startDate": "2026-02-14T18:00:00.000Z",
-      "endDate": "2026-02-14T20:00:00.000Z",
+      "startDate": "2026-02-14T17:00:00.000Z",
+      "endDate": "2026-02-14T19:00:00.000Z",
       "venueName": "Pufendorfstraße",
       "location": "Pufendorfstraße 10, 10249, Berlin",
       "game": {
@@ -127,8 +127,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs VfB Hermsdorf 2",
-      "startDate": "2026-02-21T16:00:00.000Z",
-      "endDate": "2026-02-21T18:00:00.000Z",
+      "startDate": "2026-02-21T15:00:00.000Z",
+      "endDate": "2026-02-21T17:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -139,8 +139,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs TSC Spandau 1",
-      "startDate": "2026-03-07T14:00:00.000Z",
-      "endDate": "2026-03-07T16:00:00.000Z",
+      "startDate": "2026-03-07T13:00:00.000Z",
+      "endDate": "2026-03-07T15:00:00.000Z",
       "venueName": "Gerhardtstraße",
       "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
@@ -151,8 +151,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs BASS Berlin 3",
-      "startDate": "2026-03-14T12:00:00.000Z",
-      "endDate": "2026-03-14T14:00:00.000Z",
+      "startDate": "2026-03-14T11:00:00.000Z",
+      "endDate": "2026-03-14T13:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -163,8 +163,8 @@
     },
     {
       "summary": "BC Lions Moabit 2 vs Türkiyemspor Berlin 1",
-      "startDate": "2026-03-21T16:00:00.000Z",
-      "endDate": "2026-03-21T18:00:00.000Z",
+      "startDate": "2026-03-21T15:00:00.000Z",
+      "endDate": "2026-03-21T17:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
