@@ -2,12 +2,12 @@
   "teamName": "BC Lions Moabit 1 mix",
   "teamId": "mu16-bl-b",
   "competitionId": 50603,
-  "lastUpdated": "2025-12-15T19:48:44.943Z",
+  "lastUpdated": "2025-12-16T10:31:15.339Z",
   "events": [
     {
       "summary": "VfL Lichtenrade 1 vs BC Lions Moabit 1 mix",
-      "startDate": "2025-09-27T16:00:00.000Z",
-      "endDate": "2025-09-27T18:00:00.000Z",
+      "startDate": "2025-09-27T18:00:00.000Z",
+      "endDate": "2025-09-27T20:00:00.000Z",
       "venueName": "Reichnerweg",
       "location": "Reichnerweg 36, 12305, Berlin",
       "game": {
@@ -23,8 +23,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 mix vs TuS Lichterfelde 3",
-      "startDate": "2025-10-05T10:00:00.000Z",
-      "endDate": "2025-10-05T12:00:00.000Z",
+      "startDate": "2025-10-05T12:00:00.000Z",
+      "endDate": "2025-10-05T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -40,8 +40,8 @@
     },
     {
       "summary": "ALBA Berlin 7 vs BC Lions Moabit 1 mix",
-      "startDate": "2025-10-11T14:00:00.000Z",
-      "endDate": "2025-10-11T16:00:00.000Z",
+      "startDate": "2025-10-11T16:00:00.000Z",
+      "endDate": "2025-10-11T18:00:00.000Z",
       "venueName": "Knaackstraße",
       "location": "Knaackstraße 67, 10435, Berlin",
       "game": {
@@ -57,8 +57,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 mix vs FREIBEUTER 2010 2",
-      "startDate": "2025-11-09T11:00:00.000Z",
-      "endDate": "2025-11-09T13:00:00.000Z",
+      "startDate": "2025-11-09T12:00:00.000Z",
+      "endDate": "2025-11-09T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -74,8 +74,8 @@
     },
     {
       "summary": "Basket Dragons Marzahn 2 vs BC Lions Moabit 1 mix",
-      "startDate": "2025-11-15T15:00:00.000Z",
-      "endDate": "2025-11-15T17:00:00.000Z",
+      "startDate": "2025-11-15T16:00:00.000Z",
+      "endDate": "2025-11-15T18:00:00.000Z",
       "venueName": "Liebensteiner Straße",
       "location": "Liebensteiner Straße 24, 12687, Berlin",
       "game": {
@@ -91,8 +91,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 mix vs CITY Basket Berlin 1",
-      "startDate": "2025-11-23T15:00:00.000Z",
-      "endDate": "2025-11-23T17:00:00.000Z",
+      "startDate": "2025-11-23T16:00:00.000Z",
+      "endDate": "2025-11-23T18:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -108,8 +108,8 @@
     },
     {
       "summary": "Pfeffersport 3 vs BC Lions Moabit 1 mix",
-      "startDate": "2025-11-30T15:00:00.000Z",
-      "endDate": "2025-11-30T17:00:00.000Z",
+      "startDate": "2025-11-30T16:00:00.000Z",
+      "endDate": "2025-11-30T18:00:00.000Z",
       "venueName": "Dietrich-Bonhoeffer-Straße, unten",
       "location": "Dietrich-Bonhoeffer-Straße 6, 10407, Berlin",
       "game": {
@@ -125,8 +125,8 @@
     },
     {
       "summary": "TSC Spandau 2 vs BC Lions Moabit 1 mix",
-      "startDate": "2025-12-06T12:45:00.000Z",
-      "endDate": "2025-12-06T14:45:00.000Z",
+      "startDate": "2025-12-06T13:45:00.000Z",
+      "endDate": "2025-12-06T15:45:00.000Z",
       "venueName": "Staakener Feldstraße",
       "location": "Staakener Feldstraße 6-8, 13591, Berlin",
       "game": {
@@ -142,8 +142,8 @@
     },
     {
       "summary": "BC Lions Moabit 1 mix vs VfL Lichtenrade 1",
-      "startDate": "2025-12-14T15:00:00.000Z",
-      "endDate": "2025-12-14T17:00:00.000Z",
+      "startDate": "2025-12-14T16:00:00.000Z",
+      "endDate": "2025-12-14T18:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
