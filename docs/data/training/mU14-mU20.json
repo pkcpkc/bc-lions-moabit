@@ -2,36 +2,8 @@
   "label": "mU14-mU20",
   "id": "mU14-mU20",
   "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-  "lastUpdated": "2025-12-16T10:31:37.177Z",
+  "lastUpdated": "2025-12-17T10:30:27.925Z",
   "events": [
-    {
-      "summary": "Athletik Jugend bis U16",
-      "startDate": "2025-12-22T17:30:00.000Z",
-      "endDate": "2025-12-22T18:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jugend bis U16",
-      "startDate": "2025-12-29T17:30:00.000Z",
-      "endDate": "2025-12-29T18:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jugend bis U16",
-      "startDate": "2026-01-05T17:30:00.000Z",
-      "endDate": "2026-01-05T18:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jugend bis U16",
-      "startDate": "2026-01-12T17:30:00.000Z",
-      "endDate": "2026-01-12T18:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "mU14-1 und mU18-1",
       "startDate": "2025-12-19T17:30:00.000Z",
@@ -61,31 +33,10 @@
       "description": ""
     },
     {
-      "summary": "Athletik Jungend ab U18",
-      "startDate": "2025-12-22T18:30:00.000Z",
-      "endDate": "2025-12-22T19:30:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jungend ab U18",
-      "startDate": "2025-12-29T18:30:00.000Z",
-      "endDate": "2025-12-29T19:30:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jungend ab U18",
-      "startDate": "2026-01-05T18:30:00.000Z",
-      "endDate": "2026-01-05T19:30:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Athletik Jungend ab U18",
-      "startDate": "2026-01-12T18:30:00.000Z",
-      "endDate": "2026-01-12T19:30:00.000Z",
-      "location": "",
+      "summary": "mU14-1 und mU18-1",
+      "startDate": "2026-01-16T17:30:00.000Z",
+      "endDate": "2026-01-16T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -124,6 +75,34 @@
       "description": ""
     },
     {
+      "summary": "Athletik Jungend ab U18",
+      "startDate": "2025-12-22T18:30:00.000Z",
+      "endDate": "2025-12-22T19:30:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jungend ab U18",
+      "startDate": "2025-12-29T18:30:00.000Z",
+      "endDate": "2025-12-29T19:30:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jungend ab U18",
+      "startDate": "2026-01-05T18:30:00.000Z",
+      "endDate": "2026-01-05T19:30:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jungend ab U18",
+      "startDate": "2026-01-12T18:30:00.000Z",
+      "endDate": "2026-01-12T19:30:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
       "summary": "mU20",
       "startDate": "2025-12-19T17:30:00.000Z",
       "endDate": "2025-12-19T19:00:00.000Z",
@@ -148,6 +127,13 @@
       "summary": "mU20",
       "startDate": "2026-01-09T17:30:00.000Z",
       "endDate": "2026-01-09T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU20",
+      "startDate": "2026-01-16T17:30:00.000Z",
+      "endDate": "2026-01-16T19:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     },
@@ -223,13 +209,6 @@
     },
     {
       "summary": "mU16-1",
-      "startDate": "2025-12-16T16:00:00.000Z",
-      "endDate": "2025-12-16T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1",
       "startDate": "2025-12-23T16:00:00.000Z",
       "endDate": "2025-12-23T17:30:00.000Z",
       "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
@@ -254,6 +233,34 @@
       "startDate": "2026-01-13T16:00:00.000Z",
       "endDate": "2026-01-13T17:30:00.000Z",
       "location": "Lützowstraße 83, 10785 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jugend bis U16",
+      "startDate": "2025-12-22T17:30:00.000Z",
+      "endDate": "2025-12-22T18:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jugend bis U16",
+      "startDate": "2025-12-29T17:30:00.000Z",
+      "endDate": "2025-12-29T18:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jugend bis U16",
+      "startDate": "2026-01-05T17:30:00.000Z",
+      "endDate": "2026-01-05T18:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Athletik Jugend bis U16",
+      "startDate": "2026-01-12T17:30:00.000Z",
+      "endDate": "2026-01-12T18:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
