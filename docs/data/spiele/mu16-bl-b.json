@@ -2,7 +2,7 @@
   "teamName": "BC Lions Moabit 1 mix",
   "teamId": "mu16-bl-b",
   "competitionId": 50603,
-  "lastUpdated": "2025-12-17T10:30:01.202Z",
+  "lastUpdated": "2025-12-18T10:29:11.707Z",
   "events": [
     {
       "summary": "VfL Lichtenrade 1 vs BC Lions Moabit 1 mix",
@@ -149,7 +149,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "VfL Lichtenrade 1",
-        "matchId": 2756722
+        "matchId": 2756722,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     }
   ]
