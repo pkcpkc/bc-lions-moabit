@@ -2,41 +2,34 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2025-12-25T10:27:57.134Z",
+  "lastUpdated": "2025-12-26T10:27:54.136Z",
   "events": [
     {
-      "summary": "U6 bis U10 Mix 1",
-      "startDate": "2025-12-25T16:00:00.000Z",
-      "endDate": "2025-12-25T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "summary": "U10",
+      "startDate": "2025-12-31T16:00:00.000Z",
+      "endDate": "2025-12-31T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix 1",
-      "startDate": "2026-01-01T16:00:00.000Z",
-      "endDate": "2026-01-01T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "summary": "U10",
+      "startDate": "2026-01-07T16:00:00.000Z",
+      "endDate": "2026-01-07T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix 1",
-      "startDate": "2026-01-08T16:00:00.000Z",
-      "endDate": "2026-01-08T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "summary": "U10",
+      "startDate": "2026-01-14T16:00:00.000Z",
+      "endDate": "2026-01-14T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix 1",
-      "startDate": "2026-01-15T16:00:00.000Z",
-      "endDate": "2026-01-15T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 1",
-      "startDate": "2026-01-22T16:00:00.000Z",
-      "endDate": "2026-01-22T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "summary": "U10",
+      "startDate": "2026-01-21T16:00:00.000Z",
+      "endDate": "2026-01-21T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -75,38 +68,31 @@
       "description": ""
     },
     {
-      "summary": "U10",
-      "startDate": "2025-12-31T16:00:00.000Z",
-      "endDate": "2025-12-31T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix 1",
+      "startDate": "2026-01-01T16:00:00.000Z",
+      "endDate": "2026-01-01T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U10",
-      "startDate": "2026-01-07T16:00:00.000Z",
-      "endDate": "2026-01-07T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix 1",
+      "startDate": "2026-01-08T16:00:00.000Z",
+      "endDate": "2026-01-08T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U10",
-      "startDate": "2026-01-14T16:00:00.000Z",
-      "endDate": "2026-01-14T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix 1",
+      "startDate": "2026-01-15T16:00:00.000Z",
+      "endDate": "2026-01-15T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U10",
-      "startDate": "2026-01-21T16:00:00.000Z",
-      "endDate": "2026-01-21T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 2",
-      "startDate": "2025-12-25T17:00:00.000Z",
-      "endDate": "2025-12-25T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix 1",
+      "startDate": "2026-01-22T16:00:00.000Z",
+      "endDate": "2026-01-22T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
