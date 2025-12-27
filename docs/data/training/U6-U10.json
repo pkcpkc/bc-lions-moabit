@@ -2,64 +2,8 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2025-12-26T10:27:54.136Z",
+  "lastUpdated": "2025-12-27T10:25:45.617Z",
   "events": [
-    {
-      "summary": "U10",
-      "startDate": "2025-12-31T16:00:00.000Z",
-      "endDate": "2025-12-31T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U10",
-      "startDate": "2026-01-07T16:00:00.000Z",
-      "endDate": "2026-01-07T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U10",
-      "startDate": "2026-01-14T16:00:00.000Z",
-      "endDate": "2026-01-14T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U10",
-      "startDate": "2026-01-21T16:00:00.000Z",
-      "endDate": "2026-01-21T17:30:00.000Z",
-      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2025-12-31T15:00:00.000Z",
-      "endDate": "2025-12-31T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-07T15:00:00.000Z",
-      "endDate": "2026-01-07T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-14T15:00:00.000Z",
-      "endDate": "2026-01-14T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-21T15:00:00.000Z",
-      "endDate": "2026-01-21T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "U8 & U9",
       "startDate": "2025-10-29T15:00:00.000Z",
@@ -121,6 +65,62 @@
       "startDate": "2026-01-22T17:00:00.000Z",
       "endDate": "2026-01-22T18:00:00.000Z",
       "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U10",
+      "startDate": "2025-12-31T16:00:00.000Z",
+      "endDate": "2025-12-31T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U10",
+      "startDate": "2026-01-07T16:00:00.000Z",
+      "endDate": "2026-01-07T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U10",
+      "startDate": "2026-01-14T16:00:00.000Z",
+      "endDate": "2026-01-14T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U10",
+      "startDate": "2026-01-21T16:00:00.000Z",
+      "endDate": "2026-01-21T17:30:00.000Z",
+      "location": "Siemensstraße 20, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-12-31T15:00:00.000Z",
+      "endDate": "2025-12-31T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-07T15:00:00.000Z",
+      "endDate": "2026-01-07T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-14T15:00:00.000Z",
+      "endDate": "2026-01-14T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-21T15:00:00.000Z",
+      "endDate": "2026-01-21T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
   ]
