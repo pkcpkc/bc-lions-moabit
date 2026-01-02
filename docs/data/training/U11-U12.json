@@ -2,8 +2,36 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-01-01T10:28:42.423Z",
+  "lastUpdated": "2026-01-02T10:28:02.354Z",
   "events": [
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-06T17:30:00.000Z",
+      "endDate": "2026-01-06T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-13T17:30:00.000Z",
+      "endDate": "2026-01-13T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-20T17:30:00.000Z",
+      "endDate": "2026-01-20T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-27T17:30:00.000Z",
+      "endDate": "2026-01-27T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "U11/U12 Mix",
       "startDate": "2026-01-02T15:00:00.000Z",
@@ -76,13 +104,6 @@
     },
     {
       "summary": "Boys A",
-      "startDate": "2026-01-01T16:00:00.000Z",
-      "endDate": "2026-01-01T17:30:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Boys A",
       "startDate": "2026-01-08T16:00:00.000Z",
       "endDate": "2026-01-08T17:30:00.000Z",
       "location": "",
@@ -107,69 +128,6 @@
       "startDate": "2026-01-29T16:00:00.000Z",
       "endDate": "2026-01-29T17:30:00.000Z",
       "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-01T17:30:00.000Z",
-      "endDate": "2026-01-01T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-08T17:30:00.000Z",
-      "endDate": "2026-01-08T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-15T17:30:00.000Z",
-      "endDate": "2026-01-15T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-22T17:30:00.000Z",
-      "endDate": "2026-01-22T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-29T17:30:00.000Z",
-      "endDate": "2026-01-29T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-06T17:30:00.000Z",
-      "endDate": "2026-01-06T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-13T17:30:00.000Z",
-      "endDate": "2026-01-13T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-20T17:30:00.000Z",
-      "endDate": "2026-01-20T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Boys L",
-      "startDate": "2026-01-27T17:30:00.000Z",
-      "endDate": "2026-01-27T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -226,6 +184,34 @@
       "startDate": "2026-01-28T16:00:00.000Z",
       "endDate": "2026-01-28T17:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-08T17:30:00.000Z",
+      "endDate": "2026-01-08T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-15T17:30:00.000Z",
+      "endDate": "2026-01-15T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-22T17:30:00.000Z",
+      "endDate": "2026-01-22T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys L",
+      "startDate": "2026-01-29T17:30:00.000Z",
+      "endDate": "2026-01-29T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
   ]
