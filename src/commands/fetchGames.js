@@ -75,7 +75,6 @@ export class FetchGamesCommand {
                 teamName: teamConfig.teamName,
                 teamId: teamConfig.teamId,
                 competitionId: teamConfig.competitionId,
-                lastUpdated: new Date().toISOString(),
                 events: harmonizedEvents
             };
             await fs.writeFile(jsonFilename, JSON.stringify(jsonData, null, 2), 'utf-8');
@@ -166,7 +165,6 @@ export class FetchGamesCommand {
             teamName: teamConfig.teamName,
             teamId: teamConfig.teamId,
             competitionId: teamConfig.competitionId,
-            lastUpdated: new Date().toISOString(),
             events: []
         };
         await fs.writeFile(jsonFilename, JSON.stringify(jsonData, null, 2), 'utf-8');

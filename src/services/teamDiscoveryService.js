@@ -4,10 +4,12 @@ export class TeamDiscoveryService {
     }
 
     findTeam(match, teamName) {
-        if (match.homeTeam && match.homeTeam.teamname.startsWith(teamName)) {
+        const searchName = teamName.toLowerCase();
+
+        if (match.homeTeam && match.homeTeam.teamname.toLowerCase().startsWith(searchName)) {
             return match.homeTeam;
         }
-        if (match.guestTeam && match.guestTeam.teamname.startsWith(teamName)) {
+        if (match.guestTeam && match.guestTeam.teamname.toLowerCase().startsWith(searchName)) {
             return match.guestTeam;
         }
         return null;
@@ -18,7 +20,8 @@ export class TeamDiscoveryService {
             .replace(/ä/g, 'ae')
             .replace(/ö/g, 'oe')
             .replace(/ü/g, 'ue')
-            .replace(/ß/g, 'ss');
+            .replace(/ß/g, 'ss')
+            .replace(/rueckrunde/g, 'rr');
         return sanitized.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
     }
 
@@ -88,7 +91,7 @@ export class TeamDiscoveryService {
 
     createTeamConfig(team, competitionId, competitionName) {
         const teamId = this.generateTeamId(competitionName);
-        
+
         return {
             competitionId: competitionId,
             teamName: team.teamname,
@@ -98,7 +101,7 @@ export class TeamDiscoveryService {
 
     removeDuplicateTeams(teamResults) {
         const teamsFound = new Map();
-        
+
         for (const teamArray of teamResults) {
             for (const team of teamArray) {
                 const compositeKey = `${team.teamPermanentId}-${team.competitionId}`;

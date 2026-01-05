@@ -1,4 +1,4 @@
-import { writeFile, mkdir } from 'fs/promises';
+import { writeFile, mkdir, rm } from 'fs/promises';
 import { join } from 'path';
 import { HttpClient } from '../services/httpClient.js';
 import { CrawlService } from '../services/crawlService.js';
@@ -25,8 +25,8 @@ export class CrawlCommand {
     async execute(options = {}) {
         const {
             verbandId = 3, // Berlin
-            teamNameToSearch = "BC Lions Moabit",
-            outputDir = "teams"
+            teamNameToSearch = "BC Lions",
+            outputDir = "spiele"
         } = options;
 
         try {
@@ -46,7 +46,8 @@ export class CrawlCommand {
                 };
             }
 
-            // Ensure output directory exists
+            // Ensure output directory exists and is empty
+            await rm(outputDir, { recursive: true, force: true });
             await mkdir(outputDir, { recursive: true });
 
             this.logger.info("📝 Creating configuration files...");
@@ -64,7 +65,7 @@ export class CrawlCommand {
 
                     const filename = join(outputDir, `${teamConfig.teamId}.json`);
                     await writeFile(filename, JSON.stringify(teamConfig, null, 2), 'utf8');
-                    
+
                     this.logger.info(`✅ Created: ${filename} (${team.teamName})`);
                     createdFiles++;
                     createdConfigs.push({

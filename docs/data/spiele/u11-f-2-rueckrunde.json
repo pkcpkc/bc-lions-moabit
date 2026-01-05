@@ -1,0 +1,115 @@
+{
+  "teamName": "BC Lions Moabit 1",
+  "teamId": "u11-f-2-rueckrunde",
+  "competitionId": 50473,
+  "events": [
+    {
+      "summary": "ALBA Heinrich Roller 6 vs BC Lions Moabit 1",
+      "startDate": "2026-01-11T10:30:00.000Z",
+      "endDate": "2026-01-11T12:30:00.000Z",
+      "venueName": "Heinrich-Roller-Straße",
+      "location": "Heinrich-Roller-Straße 18, 10405, Berlin",
+      "game": {
+        "home": "ALBA Heinrich Roller 6",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823034
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs VfL Lichtenrade 1",
+      "startDate": "2026-01-18T11:00:00.000Z",
+      "endDate": "2026-01-18T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "VfL Lichtenrade 1",
+        "matchId": 2823041
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs DBV Charlottenburg 2",
+      "startDate": "2026-02-14T09:00:00.000Z",
+      "endDate": "2026-02-14T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "DBV Charlottenburg 2",
+        "matchId": 2823045
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Berlin Tiger 1",
+      "startDate": "2026-02-21T11:00:00.000Z",
+      "endDate": "2026-02-21T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Berlin Tiger 1",
+        "matchId": 2823052
+      }
+    },
+    {
+      "summary": "ALBA Trelleborg 5 (aK) vs BC Lions Moabit 1",
+      "startDate": "2026-03-01T08:00:00.000Z",
+      "endDate": "2026-03-01T10:00:00.000Z",
+      "venueName": "Thulestraße",
+      "location": "Thulestraße 39, 13189, Berlin",
+      "game": {
+        "home": "ALBA Trelleborg 5 (aK)",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823056
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs VfB Hermsdorf 1",
+      "startDate": "2026-03-08T09:00:00.000Z",
+      "endDate": "2026-03-08T11:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "VfB Hermsdorf 1",
+        "matchId": 2823060
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs ALBA Heinrich Roller 6",
+      "startDate": "2026-03-15T11:00:00.000Z",
+      "endDate": "2026-03-15T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "ALBA Heinrich Roller 6",
+        "matchId": 2823062
+      }
+    },
+    {
+      "summary": "BASS Südwest 1 vs BC Lions Moabit 1",
+      "startDate": "2026-03-21T13:00:00.000Z",
+      "endDate": "2026-03-21T15:00:00.000Z",
+      "venueName": "Seydlitzstraße",
+      "location": "Seydlitzstraße 30, 12249, Berlin",
+      "game": {
+        "home": "BASS Südwest 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823047
+      }
+    },
+    {
+      "summary": "VfL Lichtenrade 1 vs BC Lions Moabit 1",
+      "startDate": "2026-03-22T11:00:00.000Z",
+      "endDate": "2026-03-22T13:00:00.000Z",
+      "venueName": "Reichnerweg",
+      "location": "Reichnerweg 36, 12305, Berlin",
+      "game": {
+        "home": "VfL Lichtenrade 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823069
+      }
+    }
+  ]
+}

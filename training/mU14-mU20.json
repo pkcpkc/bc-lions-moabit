@@ -2,10 +2,13 @@
     "label": "mU14-mU20",
     "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
     "teams": [
+        "mu14-bl-a",
         "mu14-ll-a",
+        "mu14-ol-2-a",
         "mu14-ol-a",
-        "mu16-ll-b",
+        "mu16-bl-b",
         "mu16-kl",
+        "mu16-ll-b",
         "mu18-ll-b",
         "mu20-ll-a"
     ]

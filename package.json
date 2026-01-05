@@ -23,6 +23,7 @@
     "build": "node src/build.js",
     "serve": "node src/serve.js",
     "crawl": "node src/crawl.js",
+    "match-teams": "node src/commands/matchTeams.js",
     "test": "vitest --run",
     "test:watch": "vitest --watch",
     "test:coverage": "vitest --coverage",

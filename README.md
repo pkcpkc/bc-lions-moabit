@@ -46,6 +46,33 @@ flowchart TB
 - **Architecture:** Service-oriented with dependency injection
 - **Output:** Static HTML + ICS files + JSON data
 
+## Team Management Workflows
+
+### 1. Crawl for New Teams
+Fetch the latest team data from the external source (Basketball Bund). This creates or updates team configuration files in `spiele/`.
+
+```bash
+npm run crawl
+```
+*Optional arguments:*
+- `--verbandId <id>`: Filter by association ID (Default: 3 for Berlin)
+- `--teamNameToSearch <name>`: Filter by team name (Default: "BC Lions")
+- `--outputDir <dir>`: Directory to save files (Default: "spiele")
+
+### 2. Associate Teams to Trainings
+Link the discovered teams to their respective training groups based on team ID patterns. This updates `training/*.json` files.
+
+```bash
+npm run match-teams
+```
+
+### 3. Build Project
+Generate the final output files (HTML, ICS, JSON) incorporating the new team data.
+
+```bash
+npm run build
+```
+
 ## Build Commands
 
 ```bash
