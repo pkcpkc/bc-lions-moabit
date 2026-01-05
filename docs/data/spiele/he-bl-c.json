@@ -2,12 +2,12 @@
   "teamName": "BC Lions Moabit 3",
   "teamId": "he-bl-c",
   "competitionId": 50597,
-  "lastUpdated": "2026-01-05T10:30:46.963Z",
+  "lastUpdated": "2026-01-05T19:02:17.053Z",
   "events": [
     {
       "summary": "BC Lions Moabit 3 vs Mitte SuperSonics 1",
-      "startDate": "2025-09-27T14:00:00.000Z",
-      "endDate": "2025-09-27T16:00:00.000Z",
+      "startDate": "2025-09-27T12:00:00.000Z",
+      "endDate": "2025-09-27T14:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -23,8 +23,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs BG Zehlendorf 4",
-      "startDate": "2025-10-04T18:00:00.000Z",
-      "endDate": "2025-10-04T20:00:00.000Z",
+      "startDate": "2025-10-04T16:00:00.000Z",
+      "endDate": "2025-10-04T18:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -40,8 +40,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs VfB Hermsdorf 3",
-      "startDate": "2025-10-11T12:00:00.000Z",
-      "endDate": "2025-10-11T14:00:00.000Z",
+      "startDate": "2025-10-11T10:00:00.000Z",
+      "endDate": "2025-10-11T12:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -57,8 +57,8 @@
     },
     {
       "summary": "DBV Charlottenburg 8 vs BC Lions Moabit 3",
-      "startDate": "2025-11-08T18:00:00.000Z",
-      "endDate": "2025-11-08T20:00:00.000Z",
+      "startDate": "2025-11-08T17:00:00.000Z",
+      "endDate": "2025-11-08T19:00:00.000Z",
       "venueName": "Leistikowstraße",
       "location": "Leistikowstraße 7, 14050, Berlin",
       "game": {
@@ -74,8 +74,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs Basket Dragons Marzahn 1",
-      "startDate": "2025-11-15T14:00:00.000Z",
-      "endDate": "2025-11-15T16:00:00.000Z",
+      "startDate": "2025-11-15T13:00:00.000Z",
+      "endDate": "2025-11-15T15:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -91,8 +91,8 @@
     },
     {
       "summary": "Füchse Berlin 1 vs BC Lions Moabit 3",
-      "startDate": "2025-11-23T12:00:00.000Z",
-      "endDate": "2025-11-23T14:00:00.000Z",
+      "startDate": "2025-11-23T11:00:00.000Z",
+      "endDate": "2025-11-23T13:00:00.000Z",
       "venueName": "Reginhardstraße",
       "location": "Reginhardstraße 172, 13409, Berlin",
       "game": {
@@ -108,8 +108,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs Friedenauer TSC 3",
-      "startDate": "2025-11-29T12:00:00.000Z",
-      "endDate": "2025-11-29T14:00:00.000Z",
+      "startDate": "2025-11-29T11:00:00.000Z",
+      "endDate": "2025-11-29T13:00:00.000Z",
       "venueName": "Gerhardtstraße",
       "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
@@ -125,8 +125,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs SCB Friedrichsfelde 1",
-      "startDate": "2025-12-06T14:00:00.000Z",
-      "endDate": "2025-12-06T16:00:00.000Z",
+      "startDate": "2025-12-06T13:00:00.000Z",
+      "endDate": "2025-12-06T15:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -142,8 +142,8 @@
     },
     {
       "summary": "Mitte SuperSonics 1 vs BC Lions Moabit 3",
-      "startDate": "2025-12-13T19:00:00.000Z",
-      "endDate": "2025-12-13T21:00:00.000Z",
+      "startDate": "2025-12-13T18:00:00.000Z",
+      "endDate": "2025-12-13T20:00:00.000Z",
       "venueName": "Pallasstraße, oben",
       "location": "Pallasstraße 34, 10781, Berlin",
       "game": {
@@ -159,8 +159,8 @@
     },
     {
       "summary": "BG Zehlendorf 4 vs BC Lions Moabit 3",
-      "startDate": "2026-01-11T19:30:00.000Z",
-      "endDate": "2026-01-11T21:30:00.000Z",
+      "startDate": "2026-01-11T18:30:00.000Z",
+      "endDate": "2026-01-11T20:30:00.000Z",
       "venueName": "Teltower Damm (neu)",
       "location": "Teltower Damm 87, 14167, Berlin",
       "game": {
@@ -171,8 +171,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs ALBA Berlin 6",
-      "startDate": "2026-01-17T14:00:00.000Z",
-      "endDate": "2026-01-17T16:00:00.000Z",
+      "startDate": "2026-01-17T13:00:00.000Z",
+      "endDate": "2026-01-17T15:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -183,8 +183,8 @@
     },
     {
       "summary": "VfB Hermsdorf 3 vs BC Lions Moabit 3",
-      "startDate": "2026-01-25T17:00:00.000Z",
-      "endDate": "2026-01-25T19:00:00.000Z",
+      "startDate": "2026-01-25T16:00:00.000Z",
+      "endDate": "2026-01-25T18:00:00.000Z",
       "venueName": "Heidenheimer Straße",
       "location": "Heidenheimer Straße 53-55, 13467, Berlin",
       "game": {
@@ -195,8 +195,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs DBV Charlottenburg 8",
-      "startDate": "2026-02-14T12:00:00.000Z",
-      "endDate": "2026-02-14T14:00:00.000Z",
+      "startDate": "2026-02-14T11:00:00.000Z",
+      "endDate": "2026-02-14T13:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -207,8 +207,8 @@
     },
     {
       "summary": "Basket Dragons Marzahn 1 vs BC Lions Moabit 3",
-      "startDate": "2026-02-22T18:00:00.000Z",
-      "endDate": "2026-02-22T20:00:00.000Z",
+      "startDate": "2026-02-22T17:00:00.000Z",
+      "endDate": "2026-02-22T19:00:00.000Z",
       "venueName": "Liebensteiner Straße",
       "location": "Liebensteiner Straße 24, 12687, Berlin",
       "game": {
@@ -219,8 +219,8 @@
     },
     {
       "summary": "BC Lions Moabit 3 vs Füchse Berlin 1",
-      "startDate": "2026-02-28T12:00:00.000Z",
-      "endDate": "2026-02-28T14:00:00.000Z",
+      "startDate": "2026-02-28T11:00:00.000Z",
+      "endDate": "2026-02-28T13:00:00.000Z",
       "venueName": "Alt-Moabit",
       "location": "Alt-Moabit 10, 10557, Berlin",
       "game": {
@@ -231,8 +231,8 @@
     },
     {
       "summary": "Friedenauer TSC 3 vs BC Lions Moabit 3",
-      "startDate": "2026-03-07T17:00:00.000Z",
-      "endDate": "2026-03-07T19:00:00.000Z",
+      "startDate": "2026-03-07T16:00:00.000Z",
+      "endDate": "2026-03-07T18:00:00.000Z",
       "venueName": "Münchener Straße, oben",
       "location": "Münchener Straße 49, 10779, Berlin",
       "game": {
@@ -243,8 +243,8 @@
     },
     {
       "summary": "SCB Friedrichsfelde 1 vs BC Lions Moabit 3",
-      "startDate": "2026-03-14T20:00:00.000Z",
-      "endDate": "2026-03-14T22:00:00.000Z",
+      "startDate": "2026-03-14T19:00:00.000Z",
+      "endDate": "2026-03-14T21:00:00.000Z",
       "venueName": "Erich-Kurz-Straße",
       "location": "Erich-Kurz-Straße 6, 10319, Berlin",
       "game": {
@@ -255,8 +255,8 @@
     },
     {
       "summary": "ALBA Berlin 6 vs BC Lions Moabit 3",
-      "startDate": "2026-03-29T15:30:00.000Z",
-      "endDate": "2026-03-29T17:30:00.000Z",
+      "startDate": "2026-03-29T13:30:00.000Z",
+      "endDate": "2026-03-29T15:30:00.000Z",
       "venueName": "Knaackstraße",
       "location": "Knaackstraße 67, 10435, Berlin",
       "game": {

@@ -21,6 +21,7 @@
     "build:calendars": "npm run fetch:calendars && npm run build:html",
     "build:games": "npm run fetch:all-games && npm run build:html",
     "build": "node src/build.js",
+    "serve": "node src/serve.js",
     "crawl": "node src/crawl.js",
     "test": "vitest --run",
     "test:watch": "vitest --watch",

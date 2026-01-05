@@ -2,78 +2,8 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-01-05T10:31:30.957Z",
+  "lastUpdated": "2026-01-05T19:02:19.639Z",
   "events": [
-    {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 2",
-      "startDate": "2026-01-08T17:00:00.000Z",
-      "endDate": "2026-01-08T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 2",
-      "startDate": "2026-01-15T17:00:00.000Z",
-      "endDate": "2026-01-15T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 2",
-      "startDate": "2026-01-22T17:00:00.000Z",
-      "endDate": "2026-01-22T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix 2",
-      "startDate": "2026-01-29T17:00:00.000Z",
-      "endDate": "2026-01-29T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-07T15:00:00.000Z",
-      "endDate": "2026-01-07T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-14T15:00:00.000Z",
-      "endDate": "2026-01-14T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-21T15:00:00.000Z",
-      "endDate": "2026-01-21T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-28T15:00:00.000Z",
-      "endDate": "2026-01-28T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-02-04T15:00:00.000Z",
-      "endDate": "2026-02-04T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "U10",
       "startDate": "2026-01-07T16:00:00.000Z",
@@ -135,6 +65,90 @@
       "startDate": "2026-01-29T16:00:00.000Z",
       "endDate": "2026-01-29T17:00:00.000Z",
       "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 1",
+      "startDate": "2026-02-05T16:00:00.000Z",
+      "endDate": "2026-02-05T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-07T15:00:00.000Z",
+      "endDate": "2026-01-07T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-14T15:00:00.000Z",
+      "endDate": "2026-01-14T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-21T15:00:00.000Z",
+      "endDate": "2026-01-21T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-28T15:00:00.000Z",
+      "endDate": "2026-01-28T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-02-04T15:00:00.000Z",
+      "endDate": "2026-02-04T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 2",
+      "startDate": "2026-01-08T17:00:00.000Z",
+      "endDate": "2026-01-08T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 2",
+      "startDate": "2026-01-15T17:00:00.000Z",
+      "endDate": "2026-01-15T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 2",
+      "startDate": "2026-01-22T17:00:00.000Z",
+      "endDate": "2026-01-22T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 2",
+      "startDate": "2026-01-29T17:00:00.000Z",
+      "endDate": "2026-01-29T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix 2",
+      "startDate": "2026-02-05T17:00:00.000Z",
+      "endDate": "2026-02-05T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
   ]

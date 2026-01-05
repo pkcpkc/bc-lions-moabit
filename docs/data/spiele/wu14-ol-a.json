@@ -1,0 +1,133 @@
+{
+  "teamName": "BC Lions Moabit 1",
+  "teamId": "wu14-ol-a",
+  "competitionId": 52272,
+  "lastUpdated": "2026-01-05T19:02:18.277Z",
+  "events": [
+    {
+      "summary": "BC Lions Moabit 1 vs RSV Eintracht 1",
+      "startDate": "2025-12-14T11:00:00.000Z",
+      "endDate": "2025-12-14T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "RSV Eintracht 1",
+        "matchId": 2823313,
+        "result": {
+          "homeScore": 77,
+          "guestScore": 62,
+          "isFinished": true
+        }
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs FREIBEUTER 2010 1",
+      "startDate": "2026-01-18T15:00:00.000Z",
+      "endDate": "2026-01-18T17:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "FREIBEUTER 2010 1",
+        "matchId": 2823319
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Berlin Tiger 2",
+      "startDate": "2026-01-24T11:00:00.000Z",
+      "endDate": "2026-01-24T13:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Berlin Tiger 2",
+        "matchId": 2823337
+      }
+    },
+    {
+      "summary": "Friedenauer TSC 1 vs BC Lions Moabit 1",
+      "startDate": "2026-01-24T14:00:00.000Z",
+      "endDate": "2026-01-24T16:00:00.000Z",
+      "venueName": "Münchener Straße, oben",
+      "location": "Münchener Straße 49, 10779, Berlin",
+      "game": {
+        "home": "Friedenauer TSC 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823340
+      }
+    },
+    {
+      "summary": "Berlin Tiger 2 vs BC Lions Moabit 1",
+      "startDate": "2026-01-25T14:00:00.000Z",
+      "endDate": "2026-01-25T16:00:00.000Z",
+      "venueName": "Nostitzstraße (unten)",
+      "location": "Nostitzstraße 60, 10961, Berlin",
+      "game": {
+        "home": "Berlin Tiger 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823322
+      }
+    },
+    {
+      "summary": "RedHawks Potsdam 1 vs BC Lions Moabit 1",
+      "startDate": "2026-02-08T11:00:00.000Z",
+      "endDate": "2026-02-08T13:00:00.000Z",
+      "venueName": "Potsdam - Gagarinstraße",
+      "location": "Gagarinstraße 5, 14480, Potsdam",
+      "game": {
+        "home": "RedHawks Potsdam 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823316
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs Friedenauer TSC 1",
+      "startDate": "2026-02-14T13:00:00.000Z",
+      "endDate": "2026-02-14T15:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "Friedenauer TSC 1",
+        "matchId": 2823325
+      }
+    },
+    {
+      "summary": "RSV Eintracht 1 vs BC Lions Moabit 1",
+      "startDate": "2026-02-22T13:00:00.000Z",
+      "endDate": "2026-02-22T15:00:00.000Z",
+      "venueName": "Teltow - Elbestraße",
+      "location": "Elbestraße 34, 14513, Teltow",
+      "game": {
+        "home": "RSV Eintracht 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823328
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 vs RedHawks Potsdam 1",
+      "startDate": "2026-03-01T13:00:00.000Z",
+      "endDate": "2026-03-01T15:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1",
+        "guest": "RedHawks Potsdam 1",
+        "matchId": 2823331
+      }
+    },
+    {
+      "summary": "FREIBEUTER 2010 1 vs BC Lions Moabit 1",
+      "startDate": "2026-03-08T11:00:00.000Z",
+      "endDate": "2026-03-08T13:00:00.000Z",
+      "venueName": "Palisadenstraße, oben",
+      "location": "Palisadenstraße 76, 10243, Berlin",
+      "game": {
+        "home": "FREIBEUTER 2010 1",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823334
+      }
+    }
+  ]
+}
