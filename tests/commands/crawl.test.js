@@ -4,7 +4,8 @@ import { CrawlCommand, crawlTeams } from '../../src/commands/crawl.js';
 // Mock fs/promises
 vi.mock('fs/promises', () => ({
     writeFile: vi.fn(),
-    mkdir: vi.fn()
+    mkdir: vi.fn(),
+    rm: vi.fn()
 }));
 
 // Mock path
@@ -134,11 +135,11 @@ describe('CrawlCommand', () => {
         it('should execute crawl successfully with default options', async () => {
             const result = await crawlCommand.execute();
 
-            expect(mockCrawlService.discoverTeams).toHaveBeenCalledWith(3, 'BC Lions Moabit');
-            expect(mkdir).toHaveBeenCalledWith('teams', { recursive: true });
+            expect(mockCrawlService.discoverTeams).toHaveBeenCalledWith(3, 'BC Lions');
+            expect(mkdir).toHaveBeenCalledWith('spiele', { recursive: true });
             expect(writeFile).toHaveBeenCalledTimes(2);
             expect(writeFile).toHaveBeenCalledWith(
-                'teams/he-bl-a.json',
+                'spiele/he-bl-a.json',
                 JSON.stringify(mockTeamConfig1, null, 2),
                 'utf8'
             );
@@ -150,12 +151,12 @@ describe('CrawlCommand', () => {
                 errors: 0,
                 teams: [
                     {
-                        filename: 'teams/he-bl-a.json',
+                        filename: 'spiele/he-bl-a.json',
                         teamConfig: mockTeamConfig1,
                         teamName: 'BC Lions Moabit 1'
                     },
                     {
-                        filename: 'teams/da-ol.json',
+                        filename: 'spiele/da-ol.json',
                         teamConfig: mockTeamConfig2,
                         teamName: 'BC Lions Moabit 2'
                     }
@@ -206,7 +207,7 @@ describe('CrawlCommand', () => {
                 errors: 1,
                 teams: [
                     {
-                        filename: 'teams/da-ol.json',
+                        filename: 'spiele/da-ol.json',
                         teamConfig: mockTeamConfig2,
                         teamName: 'BC Lions Moabit 2'
                     }
@@ -224,7 +225,7 @@ describe('CrawlCommand', () => {
 
             expect(mockLogger.info).toHaveBeenCalledWith('🏀 Starting BC Lions team discovery crawl...');
             expect(mockLogger.info).toHaveBeenCalledWith('📝 Creating configuration files...');
-            expect(mockLogger.info).toHaveBeenCalledWith('✅ Created: teams/he-bl-a.json (BC Lions Moabit 1)');
+            expect(mockLogger.info).toHaveBeenCalledWith('✅ Created: spiele/he-bl-a.json (BC Lions Moabit 1)');
             expect(mockLogger.info).toHaveBeenCalledWith('🎉 Crawl completed successfully!');
             expect(mockLogger.info).toHaveBeenCalledWith('📊 Summary: 2 files created, 0 errors');
         });
@@ -270,7 +271,7 @@ describe('CrawlCommand', () => {
 
         it('should handle partial failures correctly', async () => {
             const configError = new Error('Invalid team data');
-            
+
             // Reset the mock to have fresh state
             mockTeamDiscoveryService.createTeamConfig.mockReset();
             mockTeamDiscoveryService.createTeamConfig

@@ -148,7 +148,12 @@
       "game": {
         "home": "BTV 1850 1",
         "guest": "BC Lions Moabit 5",
-        "matchId": 2757567
+        "matchId": 2757567,
+        "result": {
+          "homeScore": 63,
+          "guestScore": 44,
+          "isFinished": true
+        }
       }
     },
     {

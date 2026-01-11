@@ -105,7 +105,7 @@ describe('CrawlService', () => {
             };
 
             fetch.mockResolvedValueOnce(mockResponsePage1)
-                 .mockResolvedValueOnce(mockResponsePage2);
+                .mockResolvedValueOnce(mockResponsePage2);
 
             const result = await crawlService.fetchLeagues(3);
 
@@ -272,12 +272,17 @@ describe('CrawlService', () => {
 
     describe('discoverTeams', () => {
         const mockLeagues = [
-            { ligaId: '123', liganame: 'Herren BL A' },
-            { ligaId: '456', liganame: 'Damen OL' }
+            { ligaId: '123', liganame: 'Herren BL A', verbandId: 3 },
+            { ligaId: '456', liganame: 'Damen OL', verbandId: 3 }
         ];
 
         const mockTeams = [
-            { teamName: 'BC Lions Moabit 1', competitionId: '123', competitionName: 'Herren BL A' }
+            {
+                teamName: 'BC Lions Moabit 1',
+                competitionId: '123',
+                competitionName: 'Herren BL A',
+                leagueUrl: 'https://www.basketball-bund.net/static/#/liga/123'
+            }
         ];
 
         beforeEach(() => {
@@ -300,14 +305,14 @@ describe('CrawlService', () => {
 
             expect(mockLogger.info).toHaveBeenCalledWith('Starting team discovery for "BC Lions Moabit" in verband 3');
             expect(mockLogger.info).toHaveBeenCalledWith('📥 Fetching all leagues...');
-            expect(mockLogger.info).toHaveBeenCalledWith('📋 Found 2 leagues');
-            expect(mockLogger.info).toHaveBeenCalledWith('🔍 Investigating all leagues for teams...');
+            expect(mockLogger.info).toHaveBeenCalledWith('📋 Found 2 total leagues. Filtering for Verband 3 -> 2 relevant leagues.');
+            expect(mockLogger.info).toHaveBeenCalledWith('🔍 Investigating relevant leagues for teams...');
             expect(mockLogger.info).toHaveBeenCalledWith(expect.stringContaining('Investigation complete in'));
         });
 
         it('should handle parallel investigation correctly', async () => {
             const investigateSpy = vi.spyOn(crawlService, 'investigateLeague');
-            
+
             await crawlService.discoverTeams(3, 'BC Lions Moabit');
 
             // Should call investigateLeague for each league with correct parameters

@@ -42,7 +42,7 @@ flowchart TB
 
 - **Runtime:** Node.js 18+ (ES Modules)
 - **APIs:** Basketball-Bund REST API, Google Calendar API  
-- **Testing:** Vitest (279 tests, 100% pass required)
+- **Testing:** Vitest (302 tests, 100% pass required)
 - **Architecture:** Service-oriented with dependency injection
 - **Output:** Static HTML + ICS files + JSON data
 
@@ -61,6 +61,7 @@ npm run crawl
 
 ### 2. Associate Teams to Trainings
 Link the discovered teams to their respective training groups based on team ID patterns. This updates `training/*.json` files.
+**Note:** This command only includes teams that have future events. Teams with only past games are automatically filtered out.
 
 ```bash
 npm run match-teams
@@ -73,16 +74,23 @@ Generate the final output files (HTML, ICS, JSON) incorporating the new team dat
 npm run build
 ```
 
-## Build Commands
+## Available Scripts
 
-```bash
-npm ci                    # Install dependencies
-npm test                 # Run all tests
-npm run build           # Full build (games + calendars + HTML)
-npm run build:calendars # Calendars only (~30s)
-npm run build:games     # Games only (~2min)  
-npm run build:html      # HTML only (fast)
-```
+### Core Workflows
+- `npm run update:all`: Runs the complete data update workflow (Crawl -> Fetch Games -> Match Teams).
+- `npm run build`: Executes the full build process (Fetch Games -> Fetch Calendars -> Build HTML).
+- `npm test`: Runs the full Vitest test suite to verify system stability.
+- `npm ci`: Installs project dependencies cleanly from the lockfile.
+
+### Component Builds
+- `npm run build:calendars`: Downloads calendars and rebuilds HTML (skips game fetching for speed).
+- `npm run build:games`: Fetches game data and rebuilds HTML (skips calendar downloads).
+- `npm run build:html`: Regenerates the static HTML website using currently available data.
+
+### Individual Tools
+- `npm run crawl`: Crawls the Basketball-Bund website to discover new teams.
+- `npm run match-teams`: Matches discovered teams to training groups (filters out teams with no future events).
+- `npm run serve`: Starts a local web server to preview the generated documentation.
 
 ## GitHub Actions
 

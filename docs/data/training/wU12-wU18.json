@@ -2,7 +2,7 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2026-01-05T20:25:34.442Z",
+  "lastUpdated": "2026-01-11T09:26:32.820Z",
   "events": [
     {
       "summary": "wU14",
@@ -19,150 +19,10 @@
       "description": ""
     },
     {
-      "summary": "Girls A",
-      "startDate": "2026-01-07T15:00:00.000Z",
-      "endDate": "2026-01-07T16:30:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls A",
-      "startDate": "2026-01-14T15:00:00.000Z",
-      "endDate": "2026-01-14T16:30:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls A",
-      "startDate": "2026-01-21T15:00:00.000Z",
-      "endDate": "2026-01-21T16:30:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls A",
-      "startDate": "2026-01-28T15:00:00.000Z",
-      "endDate": "2026-01-28T16:30:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls A",
-      "startDate": "2026-02-04T15:00:00.000Z",
-      "endDate": "2026-02-04T16:30:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU12",
-      "startDate": "2026-01-12T15:00:00.000Z",
-      "endDate": "2026-01-12T16:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU12",
-      "startDate": "2026-01-19T15:00:00.000Z",
-      "endDate": "2026-01-19T16:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU12",
-      "startDate": "2026-01-26T15:00:00.000Z",
-      "endDate": "2026-01-26T16:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU12",
-      "startDate": "2026-02-02T15:00:00.000Z",
-      "endDate": "2026-02-02T16:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls L & F",
-      "startDate": "2026-01-06T16:00:00.000Z",
-      "endDate": "2026-01-06T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls L & F",
-      "startDate": "2026-01-13T16:00:00.000Z",
-      "endDate": "2026-01-13T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls L & F",
-      "startDate": "2026-01-20T16:00:00.000Z",
-      "endDate": "2026-01-20T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls L & F",
-      "startDate": "2026-01-27T16:00:00.000Z",
-      "endDate": "2026-01-27T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Girls L & F",
-      "startDate": "2026-02-03T16:00:00.000Z",
-      "endDate": "2026-02-03T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2026-01-09T16:00:00.000Z",
-      "endDate": "2026-01-09T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2026-01-16T16:00:00.000Z",
-      "endDate": "2026-01-16T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2026-01-23T16:00:00.000Z",
-      "endDate": "2026-01-23T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14/wU18-1",
-      "startDate": "2026-01-30T16:00:00.000Z",
-      "endDate": "2026-01-30T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14 & wU18-1",
-      "startDate": "2025-10-17T15:00:00.000Z",
-      "endDate": "2025-10-17T16:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "wU16",
-      "startDate": "2025-11-12T16:30:00.000Z",
-      "endDate": "2025-11-12T18:00:00.000Z",
-      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU14",
-      "startDate": "2026-01-08T16:00:00.000Z",
-      "endDate": "2026-01-08T17:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "startDate": "2025-10-15T15:30:00.000Z",
+      "endDate": "2025-10-15T17:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -194,9 +54,65 @@
       "description": ""
     },
     {
-      "summary": "wU16",
-      "startDate": "2025-10-15T15:30:00.000Z",
-      "endDate": "2025-10-15T17:00:00.000Z",
+      "summary": "Girls L & F",
+      "startDate": "2026-01-13T16:00:00.000Z",
+      "endDate": "2026-01-13T17:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls L & F",
+      "startDate": "2026-01-20T16:00:00.000Z",
+      "endDate": "2026-01-20T17:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls L & F",
+      "startDate": "2026-01-27T16:00:00.000Z",
+      "endDate": "2026-01-27T17:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls L & F",
+      "startDate": "2026-02-03T16:00:00.000Z",
+      "endDate": "2026-02-03T17:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls L & F",
+      "startDate": "2026-02-10T16:00:00.000Z",
+      "endDate": "2026-02-10T17:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls A",
+      "startDate": "2026-01-14T15:00:00.000Z",
+      "endDate": "2026-01-14T16:30:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls A",
+      "startDate": "2026-01-21T15:00:00.000Z",
+      "endDate": "2026-01-21T16:30:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls A",
+      "startDate": "2026-01-28T15:00:00.000Z",
+      "endDate": "2026-01-28T16:30:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Girls A",
+      "startDate": "2026-02-04T15:00:00.000Z",
+      "endDate": "2026-02-04T16:30:00.000Z",
       "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
       "description": ""
     },
@@ -229,10 +145,94 @@
       "description": ""
     },
     {
+      "summary": "wU18-1",
+      "startDate": "2026-02-09T16:00:00.000Z",
+      "endDate": "2026-02-09T17:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU14/wU18-1",
+      "startDate": "2026-01-16T16:00:00.000Z",
+      "endDate": "2026-01-16T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU14/wU18-1",
+      "startDate": "2026-01-23T16:00:00.000Z",
+      "endDate": "2026-01-23T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU14/wU18-1",
+      "startDate": "2026-01-30T16:00:00.000Z",
+      "endDate": "2026-01-30T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU14/wU18-1",
+      "startDate": "2026-02-06T16:00:00.000Z",
+      "endDate": "2026-02-06T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU14 & wU18-1",
+      "startDate": "2025-10-17T15:00:00.000Z",
+      "endDate": "2025-10-17T16:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU12",
+      "startDate": "2026-01-12T15:00:00.000Z",
+      "endDate": "2026-01-12T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU12",
+      "startDate": "2026-01-19T15:00:00.000Z",
+      "endDate": "2026-01-19T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU12",
+      "startDate": "2026-01-26T15:00:00.000Z",
+      "endDate": "2026-01-26T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU12",
+      "startDate": "2026-02-02T15:00:00.000Z",
+      "endDate": "2026-02-02T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU12",
+      "startDate": "2026-02-09T15:00:00.000Z",
+      "endDate": "2026-02-09T16:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
       "summary": "wU18-2",
       "startDate": "2025-10-16T16:45:00.000Z",
       "endDate": "2025-10-16T18:00:00.000Z",
       "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU16",
+      "startDate": "2025-11-12T16:30:00.000Z",
+      "endDate": "2025-11-12T18:00:00.000Z",
+      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
       "description": ""
     }
   ]

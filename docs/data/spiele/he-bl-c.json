@@ -99,8 +99,8 @@
         "guest": "BC Lions Moabit 3",
         "matchId": 2753078,
         "result": {
-          "homeScore": 37,
-          "guestScore": 30,
+          "homeScore": 20,
+          "guestScore": 0,
           "isFinished": true
         }
       }
@@ -160,8 +160,8 @@
       "summary": "BG Zehlendorf 4 vs BC Lions Moabit 3",
       "startDate": "2026-01-11T18:30:00.000Z",
       "endDate": "2026-01-11T20:30:00.000Z",
-      "venueName": "Teltower Damm (neu)",
-      "location": "Teltower Damm 87, 14167, Berlin",
+      "venueName": "Lippstädter Straße 5, oben",
+      "location": "Lippstädter Straße 5, 12207, Berlin",
       "game": {
         "home": "BG Zehlendorf 4",
         "guest": "BC Lions Moabit 3",

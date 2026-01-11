@@ -2,15 +2,8 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-01-05T20:25:33.348Z",
+  "lastUpdated": "2026-01-11T09:26:31.682Z",
   "events": [
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-01-06T19:00:00.000Z",
-      "endDate": "2026-01-06T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "Damen 1",
       "startDate": "2026-01-13T19:00:00.000Z",
@@ -40,45 +33,10 @@
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-01-06T17:30:00.000Z",
-      "endDate": "2026-01-06T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-01-13T17:30:00.000Z",
-      "endDate": "2026-01-13T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-01-20T17:30:00.000Z",
-      "endDate": "2026-01-20T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-01-27T17:30:00.000Z",
-      "endDate": "2026-01-27T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-02-03T17:30:00.000Z",
-      "endDate": "2026-02-03T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "Damen 1",
-      "startDate": "2026-01-08T19:00:00.000Z",
-      "endDate": "2026-01-08T20:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "startDate": "2026-02-10T19:00:00.000Z",
+      "endDate": "2026-02-10T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -111,13 +69,6 @@
     },
     {
       "summary": "Damen 2",
-      "startDate": "2026-01-09T18:00:00.000Z",
-      "endDate": "2026-01-09T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
       "startDate": "2026-01-16T18:00:00.000Z",
       "endDate": "2026-01-16T19:30:00.000Z",
       "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
@@ -135,6 +86,48 @@
       "startDate": "2026-01-30T18:00:00.000Z",
       "endDate": "2026-01-30T19:30:00.000Z",
       "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-06T18:00:00.000Z",
+      "endDate": "2026-02-06T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-01-13T17:30:00.000Z",
+      "endDate": "2026-01-13T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-01-20T17:30:00.000Z",
+      "endDate": "2026-01-20T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-01-27T17:30:00.000Z",
+      "endDate": "2026-01-27T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-03T17:30:00.000Z",
+      "endDate": "2026-02-03T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-10T17:30:00.000Z",
+      "endDate": "2026-02-10T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
   ]

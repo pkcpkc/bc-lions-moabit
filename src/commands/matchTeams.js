@@ -17,6 +17,29 @@ const TRAINING_GROUPS = {
     'U6-U10.json': /^u([0-9]|10)-/
 };
 
+const DATA_DIR = path.resolve(__dirname, '../../docs/data/spiele');
+
+async function hasFutureEvents(teamId) {
+    try {
+        const filePath = path.join(DATA_DIR, `${teamId}.json`);
+        const content = await fs.readFile(filePath, 'utf-8');
+        const data = JSON.parse(content);
+
+        if (!data.events || !Array.isArray(data.events)) {
+            return false;
+        }
+
+        const now = new Date();
+        return data.events.some(event => {
+            const eventDate = new Date(event.startDate);
+            return eventDate > now;
+        });
+    } catch (error) {
+        // file might not exist or be invalid, treat as no future events
+        return false;
+    }
+}
+
 async function matchTeams() {
     try {
         // Read all team IDs from spiele directory
@@ -51,11 +74,17 @@ async function matchTeams() {
 
             for (const teamId of teamIds) {
                 if (matcher.test(teamId)) {
-                    if (!existingTeams.has(teamId)) {
+                    // Check for future events
+                    const hasEvents = await hasFutureEvents(teamId);
+
+                    if (hasEvents && !existingTeams.has(teamId)) {
                         fileContent.teams.push(teamId);
                         existingTeams.add(teamId); // Prevent duplicates in this run if any
                         addedCount++;
                         console.log(`Added ${teamId} to ${trainingFile}`);
+                    } else if (!hasEvents) {
+                        // Optional: Log that team was skipped due to no future events
+                        // console.log(`Skipped ${teamId} (no future events)`);
                     }
                 }
             }

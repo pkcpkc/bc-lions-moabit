@@ -126,12 +126,17 @@
       "summary": "BC Lions Moabit 2 mix vs Berlin Baskets 3",
       "startDate": "2026-01-10T11:00:00.000Z",
       "endDate": "2026-01-10T13:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 2 mix",
         "guest": "Berlin Baskets 3",
-        "matchId": 2791418
+        "matchId": 2791418,
+        "result": {
+          "homeScore": 90,
+          "guestScore": 18,
+          "isFinished": true
+        }
       }
     },
     {

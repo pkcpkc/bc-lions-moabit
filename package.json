@@ -15,18 +15,16 @@
   },
   "scripts": {
     "fetch:all-games": "node src/fetch-all-games.js",
-    "fetch:games": "node src/fetch-games.js",
     "fetch:calendars": "node src/download-calendars.js",
     "build:html": "node src/build-html.js",
     "build:calendars": "npm run fetch:calendars && npm run build:html",
     "build:games": "npm run fetch:all-games && npm run build:html",
-    "build": "node src/build.js",
+    "build": "npm run fetch:all-games && npm run fetch:calendars && npm run build:html",
     "serve": "node src/serve.js",
     "crawl": "node src/crawl.js",
     "match-teams": "node src/commands/matchTeams.js",
+    "update:all": "npm run crawl && npm run fetch:all-games && npm run match-teams",
     "test": "vitest --run",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui"
+    "test:coverage": "vitest --coverage"
   }
 }

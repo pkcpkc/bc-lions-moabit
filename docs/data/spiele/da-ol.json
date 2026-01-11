@@ -126,12 +126,17 @@
       "summary": "BC Lions Moabit 1 vs CITY Basket Berlin 2",
       "startDate": "2026-01-10T13:00:00.000Z",
       "endDate": "2026-01-10T15:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "CITY Basket Berlin 2",
-        "matchId": 2749619
+        "matchId": 2749619,
+        "result": {
+          "homeScore": 41,
+          "guestScore": 67,
+          "isFinished": true
+        }
       }
     },
     {

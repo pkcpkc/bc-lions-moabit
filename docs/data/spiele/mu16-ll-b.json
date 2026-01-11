@@ -7,12 +7,17 @@
       "summary": "BC Lions Moabit 1 mix vs SV Empor Berlin 1",
       "startDate": "2026-01-10T15:00:00.000Z",
       "endDate": "2026-01-10T17:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "SV Empor Berlin 1",
-        "matchId": 2750632
+        "matchId": 2750632,
+        "result": {
+          "homeScore": 53,
+          "guestScore": 47,
+          "isFinished": true
+        }
       }
     },
     {

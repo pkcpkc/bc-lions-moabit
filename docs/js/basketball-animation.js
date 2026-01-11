@@ -10,16 +10,85 @@ class BasketballAnimation {
     }
 
     init() {
+        // Create start button
+        this.createStartButton();
+
+        // Store bound event listener for proper removal logic
+        this.triggerAnimationBound = (e) => this.triggerAnimation(e);
+    }
+
+    createStartButton() {
+        // Create basketball emoji button in top right
+        this.startButton = document.createElement('div');
+        this.startButton.id = 'basketball-start';
+        this.startButton.style.cssText = `
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10001;
+            pointer-events: auto;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+            animation: float 3s ease-in-out infinite;
+        `;
+        this.startButton.textContent = '🏀';
+        this.startButton.title = 'Start Basketball Game';
+
+        // Add float animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+        `;
+        if (!document.querySelector('style[data-float-anim]')) {
+            style.setAttribute('data-float-anim', 'true');
+            document.head.appendChild(style);
+        }
+
+        // Add hover effect
+        this.startButton.addEventListener('mouseenter', () => {
+            this.startButton.style.transform = 'scale(1.2)';
+            this.startButton.style.animationPlayState = 'paused';
+        });
+
+        this.startButton.addEventListener('mouseleave', () => {
+            this.startButton.style.transform = 'scale(1)';
+            this.startButton.style.animationPlayState = 'running';
+        });
+
+        // Add click event to start game
+        this.startButton.addEventListener('click', () => {
+            this.startGame();
+        });
+
+        document.body.appendChild(this.startButton);
+    }
+
+    startGame() {
+        // Remove start button
+        if (this.startButton && this.startButton.parentNode) {
+            document.body.removeChild(this.startButton);
+            this.startButton = null;
+        }
+
+        this.gameOver = false;
+
         // Create persistent score display
         this.createScoreDisplay();
-        
+
         // Start opponent scoring
         this.startOpponentScoring();
-        
-        // Store bound event listener for proper removal later
-        this.triggerAnimationBound = (e) => this.triggerAnimation(e);
-        
-        // Add click event listener to the document
+
+        // Add click event listener to the document for shooting
         document.addEventListener('click', this.triggerAnimationBound);
     }
 
@@ -40,7 +109,7 @@ class BasketballAnimation {
             backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         `;
-        
+
         // Create close button
         this.closeButton = document.createElement('div');
         this.closeButton.id = 'basketball-close';
@@ -62,23 +131,24 @@ class BasketballAnimation {
         `;
         this.closeButton.textContent = '⨂';
         this.closeButton.title = 'Stop animation and hide scoreboard';
-        
+
         // Add hover effect for close button
         this.closeButton.addEventListener('mouseenter', () => {
             this.closeButton.style.color = 'white';
             this.closeButton.style.transform = 'scale(1.1)';
         });
-        
+
         this.closeButton.addEventListener('mouseleave', () => {
             this.closeButton.style.color = 'rgba(255, 255, 255, 0.8)';
             this.closeButton.style.transform = 'scale(1)';
         });
-        
+
         // Add click event to close button
-        this.closeButton.addEventListener('click', () => {
+        this.closeButton.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent ensuring shot when closing
             this.stopAnimationAndHide();
         });
-        
+
         this.updateScoreDisplay();
         document.body.appendChild(this.scoreDisplay);
         document.body.appendChild(this.closeButton);
@@ -98,24 +168,24 @@ class BasketballAnimation {
             if (this.gameOver) {
                 return;
             }
-            
+
             // Randomly add 1, 2, or 3 points to opponent
             const points = Math.floor(Math.random() * 3) + 1; // 1, 2, or 3
             this.opponentScore += points;
             this.updateScoreDisplay();
-            
+
             // Check for game over after opponent scores
             if (this.checkGameOver()) {
                 return;
             }
-            
+
             // Show opponent scoring animation
             this.showOpponentScoringEffect(points);
-            
+
             const nextScoreDelay = (Math.random() * 2 + 1) * 300;
             this.opponentTimer = setTimeout(scoreOpponent, nextScoreDelay);
         };
-        
+
         // Start the opponent scoring after initial delay
         const initialDelay = (Math.random() * 2 + 1) * 1000; // 1000-3000ms
         this.opponentTimer = setTimeout(scoreOpponent, initialDelay);
@@ -126,20 +196,20 @@ class BasketballAnimation {
             // Only show game over message if this is the first time reaching the condition
             if (!this.gameOver) {
                 this.gameOver = true;
-                
+
                 // Clear opponent scoring timer
                 if (this.opponentTimer) {
                     clearTimeout(this.opponentTimer);
                     this.opponentTimer = null;
                 }
-                
+
                 // Hide score immediately before showing game over message
                 this.hideScore();
-                
+
                 // Show game over message only once
                 this.showGameOverMessage();
             }
-            
+
             return true;
         }
         return false;
@@ -148,9 +218,9 @@ class BasketballAnimation {
     showGameOverMessage() {
         const gameOverDiv = document.createElement('div');
         gameOverDiv.id = 'game-over-message';
-        
+
         const message = this.totalScore >= 100 ? '🏆' : '😭';
-        
+
         gameOverDiv.style.cssText = `
             position: fixed;
             top: 20px;
@@ -167,7 +237,7 @@ class BasketballAnimation {
             animation: gameOverBounce 0.8s ease-out;
         `;
         gameOverDiv.textContent = message;
-        
+
         // Add game over animation
         const gameOverStyle = document.createElement('style');
         gameOverStyle.textContent = `
@@ -177,14 +247,14 @@ class BasketballAnimation {
                 100% { transform: scale(1) rotate(0deg); opacity: 1; }
             }
         `;
-        
+
         if (!document.querySelector('style[data-game-over-bounce]')) {
             gameOverStyle.setAttribute('data-game-over-bounce', 'true');
             document.head.appendChild(gameOverStyle);
         }
-        
+
         document.body.appendChild(gameOverDiv);
-        
+
         // Hide the game over message after 5 seconds
         setTimeout(() => {
             if (gameOverDiv && gameOverDiv.parentNode) {
@@ -193,6 +263,8 @@ class BasketballAnimation {
                 setTimeout(() => {
                     if (gameOverDiv.parentNode) {
                         document.body.removeChild(gameOverDiv);
+                        // Be nice and show the start button again
+                        this.createStartButton();
                     }
                 }, 1000); // Remove after fade out completes
             }
@@ -209,13 +281,13 @@ class BasketballAnimation {
     stopAnimationAndHide() {
         // Set game over to stop all animations
         this.gameOver = true;
-        
+
         // Clear opponent scoring timer
         if (this.opponentTimer) {
             clearTimeout(this.opponentTimer);
             this.opponentTimer = null;
         }
-        
+
         // Hide the score display
         if (this.scoreDisplay) {
             this.scoreDisplay.style.transition = 'opacity 0.3s ease-out';
@@ -227,7 +299,7 @@ class BasketballAnimation {
                 }
             }, 300);
         }
-        
+
         // Hide the close button
         if (this.closeButton) {
             this.closeButton.style.transition = 'opacity 0.3s ease-out';
@@ -236,16 +308,18 @@ class BasketballAnimation {
                 if (this.closeButton && this.closeButton.parentNode) {
                     document.body.removeChild(this.closeButton);
                     this.closeButton = null;
+                    // Restore start button
+                    this.createStartButton();
                 }
             }, 300);
         }
-        
+
         // Remove any existing game over messages
         const gameOverMessage = document.getElementById('game-over-message');
         if (gameOverMessage && gameOverMessage.parentNode) {
             document.body.removeChild(gameOverMessage);
         }
-        
+
         // Remove click event listener to stop further basketballs
         document.removeEventListener('click', this.triggerAnimationBound);
     }
@@ -267,12 +341,12 @@ class BasketballAnimation {
 
         // Create celebration effect below the player score (left side)
         const scoreCelebration = document.createElement('div');
-        
+
         // Calculate position below the score display
         const scoreRect = this.scoreDisplay.getBoundingClientRect();
         const leftPosition = scoreRect.left;
         const topPosition = scoreRect.bottom + 5; // 5px below the score
-        
+
         scoreCelebration.style.cssText = `
             position: fixed;
             left: ${leftPosition}px;
@@ -302,21 +376,21 @@ class BasketballAnimation {
                 100% { transform: scale(0); opacity: 0; }
             }
         `;
-        
+
         // Only add styles if they don't exist
         if (!document.querySelector('style[data-basketball-bounce-center]')) {
             centerStyle.setAttribute('data-basketball-bounce-center', 'true');
             document.head.appendChild(centerStyle);
         }
-        
+
         if (!document.querySelector('style[data-basketball-bounce]')) {
             scoreStyle.setAttribute('data-basketball-bounce', 'true');
             document.head.appendChild(scoreStyle);
         }
-        
+
         document.body.appendChild(centerCelebration);
         document.body.appendChild(scoreCelebration);
-        
+
         setTimeout(() => {
             if (centerCelebration.parentNode) {
                 document.body.removeChild(centerCelebration);
@@ -340,12 +414,12 @@ class BasketballAnimation {
 
         // Create celebration effect below the opponent score (right side)
         const celebration = document.createElement('div');
-        
+
         // Calculate position below the score display (right side for opponent)
         const scoreRect = this.scoreDisplay.getBoundingClientRect();
         const rightPosition = scoreRect.right;
         const topPosition = scoreRect.bottom + 5; // 5px below the score, same as home score
-        
+
         celebration.style.cssText = `
             position: fixed;
             left: ${rightPosition - 30}px;
@@ -356,9 +430,9 @@ class BasketballAnimation {
             animation: bounce 0.6s ease-out;
         `;
         celebration.textContent = celebrationEmoji;
-        
+
         document.body.appendChild(celebration);
-        
+
         setTimeout(() => {
             if (celebration.parentNode) {
                 document.body.removeChild(celebration);
@@ -395,33 +469,33 @@ class BasketballAnimation {
         if (this.gameOver) {
             return;
         }
-        
+
         // Remove the animation lock to allow multiple basketballs
-        
+
         // Create a new basketball for this animation
         const basketball = this.createBasketball();
-        
+
         // Get click position
         const startX = event.clientX;
         const startY = event.clientY;
-        
+
         // Calculate target position (center, lower target point)
         const targetX = window.innerWidth / 2;
         const targetY = 180; // Even lower target point
-        
+
         // Position the animated basketball at click position
         basketball.style.left = (startX - 30) + 'px';
         basketball.style.top = (startY - 30) + 'px';
         basketball.style.opacity = '1';
-        
+
         // Calculate animation parameters
         const deltaX = targetX - startX;
         const deltaY = targetY - startY;
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        
+
         // Create the parabolic curve animation
         this.animateLogo(basketball, startX, startY, targetX, targetY, distance);
-        
+
         // Reset after animation completes
         setTimeout(() => {
             this.resetAnimation(basketball);
@@ -431,47 +505,47 @@ class BasketballAnimation {
     animateLogo(basketball, startX, startY, targetX, targetY, distance) {
         const startTime = performance.now();
         const peakHeight = Math.max(200, distance * 0.3); // Height of the arc
-        
+
         const animate = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / this.animationDuration, 1);
-            
+
             if (progress < 1) {
                 // Calculate position along the parabolic curve
                 const x = startX + (targetX - startX) * progress;
-                
+
                 // Parabolic curve: y = ax² + bx + c
                 // We want the curve to peak at the middle of the trajectory
                 const parabolaProgress = progress;
-                const y = startY + (targetY - startY) * progress - 
-                         peakHeight * 4 * parabolaProgress * (1 - parabolaProgress);
-                
+                const y = startY + (targetY - startY) * progress -
+                    peakHeight * 4 * parabolaProgress * (1 - parabolaProgress);
+
                 // Update position
                 basketball.style.left = (x - 30) + 'px';
                 basketball.style.top = (y - 30) + 'px';
-                
+
                 // Rotation effect (spinning like a basketball)
                 const rotation = progress * 720; // 2 full rotations
-                
+
                 // Scale effect (getting smaller as it approaches the hoop)
                 const scale = 1 - (progress * 0.6); // Shrink to 40% of original size
-                
+
                 // Combine transformations
                 basketball.style.transform = `rotate(${rotation}deg) scale(${scale})`;
-                
+
                 // Add some fade out near the end
                 if (progress > 0.8) {
                     const fadeProgress = (progress - 0.8) / 0.2;
                     basketball.style.opacity = 1 - fadeProgress;
                 }
-                
+
                 requestAnimationFrame(animate);
             } else {
                 // Animation complete - trigger scoring effect
                 this.triggerScoringEffect(distance);
             }
         };
-        
+
         requestAnimationFrame(animate);
     }
 
@@ -501,7 +575,7 @@ class BasketballAnimation {
 
         // Show player scoring animation at both locations
         this.showPlayerScoringEffect(celebrationEmoji);
-        
+
 
     }
 
