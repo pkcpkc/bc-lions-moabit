@@ -165,7 +165,12 @@
       "game": {
         "home": "BG Zehlendorf 4",
         "guest": "BC Lions Moabit 3",
-        "matchId": 2753279
+        "matchId": 2753279,
+        "result": {
+          "homeScore": 59,
+          "guestScore": 62,
+          "isFinished": true
+        }
       }
     },
     {

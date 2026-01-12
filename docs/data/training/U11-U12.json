@@ -2,8 +2,43 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-01-11T20:47:43.450Z",
+  "lastUpdated": "2026-01-12T10:32:33.200Z",
   "events": [
+    {
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-01-12T16:00:00.000Z",
+      "endDate": "2026-01-12T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-01-19T16:00:00.000Z",
+      "endDate": "2026-01-19T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-01-26T16:00:00.000Z",
+      "endDate": "2026-01-26T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-02-02T16:00:00.000Z",
+      "endDate": "2026-02-02T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-02-09T16:00:00.000Z",
+      "endDate": "2026-02-09T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "Boys Förder 2011-2016",
       "startDate": "2026-01-14T16:00:00.000Z",
@@ -40,38 +75,10 @@
       "description": ""
     },
     {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-01-12T16:00:00.000Z",
-      "endDate": "2026-01-12T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-01-19T16:00:00.000Z",
-      "endDate": "2026-01-19T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-01-26T16:00:00.000Z",
-      "endDate": "2026-01-26T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-02-02T16:00:00.000Z",
-      "endDate": "2026-02-02T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-02-09T16:00:00.000Z",
-      "endDate": "2026-02-09T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2025-11-05T17:30:00.000Z",
+      "endDate": "2025-11-05T19:00:00.000Z",
+      "location": "",
       "description": ""
     },
     {
@@ -134,13 +141,6 @@
       "summary": "Boys Förder 2006-2010",
       "startDate": "2026-02-11T17:30:00.000Z",
       "endDate": "2026-02-11T19:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2025-11-05T17:30:00.000Z",
-      "endDate": "2025-11-05T19:00:00.000Z",
       "location": "",
       "description": ""
     }

@@ -199,7 +199,12 @@
       "game": {
         "home": "BC Lions Moabit 6",
         "guest": "Mitte SuperSonics 2",
-        "matchId": 2751620
+        "matchId": 2751620,
+        "result": {
+          "homeScore": 72,
+          "guestScore": 47,
+          "isFinished": true
+        }
       }
     },
     {
