@@ -169,18 +169,6 @@
       }
     },
     {
-      "summary": "CITY Basket Berlin 1 vs BC Lions Moabit 1",
-      "startDate": "2026-01-11T20:00:00.000Z",
-      "endDate": "2026-01-11T22:00:00.000Z",
-      "venueName": "Schillerstraße, unten",
-      "location": "Schillerstraße 121, 10625, Berlin",
-      "game": {
-        "home": "CITY Basket Berlin 1",
-        "guest": "BC Lions Moabit 1",
-        "matchId": 2748949
-      }
-    },
-    {
       "summary": "BC Lions Moabit 1 vs BASS Berlin 1",
       "startDate": "2026-01-17T12:00:00.000Z",
       "endDate": "2026-01-17T14:00:00.000Z",
@@ -241,15 +229,15 @@
       }
     },
     {
-      "summary": "TuS Lichterfelde 1 vs BC Lions Moabit 1",
-      "startDate": "2026-02-21T15:00:00.000Z",
-      "endDate": "2026-02-21T17:00:00.000Z",
-      "venueName": "Moltkestraße",
-      "location": "Moltkestraße 25, 12203, Berlin",
+      "summary": "CITY Basket Berlin 1 vs BC Lions Moabit 1",
+      "startDate": "2026-02-16T18:50:00.000Z",
+      "endDate": "2026-02-16T20:50:00.000Z",
+      "venueName": "Schillerstraße, oben",
+      "location": "Schillerstraße 121, 10625, Berlin",
       "game": {
-        "home": "TuS Lichterfelde 1",
+        "home": "CITY Basket Berlin 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2748919
+        "matchId": 2748949
       }
     },
     {

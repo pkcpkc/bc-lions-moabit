@@ -4,18 +4,6 @@
   "competitionId": 50393,
   "events": [
     {
-      "summary": "ALBA Berlin 2 vs BC Lions Moabit 1",
-      "startDate": "2026-01-10T18:00:00.000Z",
-      "endDate": "2026-01-10T20:00:00.000Z",
-      "venueName": "Knaackstraße",
-      "location": "Knaackstraße 67, 10435, Berlin",
-      "game": {
-        "home": "ALBA Berlin 2",
-        "guest": "BC Lions Moabit 1",
-        "matchId": 2823376
-      }
-    },
-    {
       "summary": "BC Lions Moabit 1 vs VfB Hermsdorf 1",
       "startDate": "2026-01-18T14:00:00.000Z",
       "endDate": "2026-01-18T16:00:00.000Z",
@@ -25,6 +13,18 @@
         "home": "BC Lions Moabit 1",
         "guest": "VfB Hermsdorf 1",
         "matchId": 2823383
+      }
+    },
+    {
+      "summary": "ALBA Berlin 2 vs BC Lions Moabit 1",
+      "startDate": "2026-01-24T11:00:00.000Z",
+      "endDate": "2026-01-24T13:00:00.000Z",
+      "venueName": "Max-Schmeling-Halle A",
+      "location": "Am Falkplatz 1, 10437, Berlin",
+      "game": {
+        "home": "ALBA Berlin 2",
+        "guest": "BC Lions Moabit 1",
+        "matchId": 2823376
       }
     },
     {

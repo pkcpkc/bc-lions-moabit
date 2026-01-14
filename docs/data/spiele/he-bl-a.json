@@ -143,7 +143,12 @@
       "game": {
         "home": "BC Lions Moabit 2",
         "guest": "Pfeffersport 3",
-        "matchId": 2753247
+        "matchId": 2753247,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
