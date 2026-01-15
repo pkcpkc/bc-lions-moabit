@@ -2,43 +2,8 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-01-14T10:32:09.636Z",
+  "lastUpdated": "2026-01-15T10:31:31.228Z",
   "events": [
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-01-15T17:00:00.000Z",
-      "endDate": "2026-01-15T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-01-22T17:00:00.000Z",
-      "endDate": "2026-01-22T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-01-29T17:00:00.000Z",
-      "endDate": "2026-01-29T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-02-05T17:00:00.000Z",
-      "endDate": "2026-02-05T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-02-12T17:00:00.000Z",
-      "endDate": "2026-02-12T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "U6 bis U10 Mix Jure",
       "startDate": "2026-01-15T16:00:00.000Z",
@@ -75,10 +40,66 @@
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-14T15:00:00.000Z",
-      "endDate": "2026-01-14T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "mU10",
+      "startDate": "2026-01-20T15:00:00.000Z",
+      "endDate": "2026-01-20T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU10",
+      "startDate": "2026-01-27T15:00:00.000Z",
+      "endDate": "2026-01-27T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU10",
+      "startDate": "2026-02-03T15:00:00.000Z",
+      "endDate": "2026-02-03T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU10",
+      "startDate": "2026-02-10T15:00:00.000Z",
+      "endDate": "2026-02-10T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-01-15T17:00:00.000Z",
+      "endDate": "2026-01-15T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-01-22T17:00:00.000Z",
+      "endDate": "2026-01-22T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-01-29T17:00:00.000Z",
+      "endDate": "2026-01-29T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-02-05T17:00:00.000Z",
+      "endDate": "2026-02-05T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-02-12T17:00:00.000Z",
+      "endDate": "2026-02-12T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -114,34 +135,6 @@
       "startDate": "2025-10-29T15:00:00.000Z",
       "endDate": "2025-10-29T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU10",
-      "startDate": "2026-01-20T15:00:00.000Z",
-      "endDate": "2026-01-20T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU10",
-      "startDate": "2026-01-27T15:00:00.000Z",
-      "endDate": "2026-01-27T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU10",
-      "startDate": "2026-02-03T15:00:00.000Z",
-      "endDate": "2026-02-03T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU10",
-      "startDate": "2026-02-10T15:00:00.000Z",
-      "endDate": "2026-02-10T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     }
   ]
