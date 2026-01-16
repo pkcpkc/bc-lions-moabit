@@ -2,112 +2,42 @@
   "label": "BC Lions",
   "id": "bc-lions",
   "calId": "58d5269a4ecd02fda7315d422b7e05a566435d0ad1bafb59d718d28159ff4a33@group.calendar.google.com",
-  "lastUpdated": "2026-01-15T10:31:32.765Z",
+  "lastUpdated": "2026-01-16T10:31:21.999Z",
   "events": [
     {
-      "summary": "Xmas Edition Turnier & Sylvesterparty",
-      "startDate": "2025-12-28T00:00:00.000Z",
-      "endDate": "2025-12-31T00:00:00.000Z",
-      "location": "",
-      "description": ""
+      "summary": "FIBA 3x3",
+      "startDate": "2026-01-16T19:00:00.000Z",
+      "endDate": "2026-01-16T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-01-20T16:00:00.000Z",
-      "endDate": "2026-01-20T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
-      "description": ""
+      "summary": "FIBA 3x3",
+      "startDate": "2026-01-23T19:00:00.000Z",
+      "endDate": "2026-01-23T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-01-27T16:00:00.000Z",
-      "endDate": "2026-01-27T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
-      "description": ""
+      "summary": "FIBA 3x3",
+      "startDate": "2026-01-30T19:00:00.000Z",
+      "endDate": "2026-01-30T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-02-03T16:00:00.000Z",
-      "endDate": "2026-02-03T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
-      "description": ""
+      "summary": "FIBA 3x3",
+      "startDate": "2026-02-06T19:00:00.000Z",
+      "endDate": "2026-02-06T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-02-10T16:00:00.000Z",
-      "endDate": "2026-02-10T17:30:00.000Z",
-      "location": "Lützowstraße 83, 10785 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Xmas Ballin",
-      "startDate": "2025-12-20T14:00:00.000Z",
-      "endDate": "2025-12-20T20:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3784771828288629082?utm_source=ig_story_item_share&igsh=MWg0ODhkMHplb2VhaQ=="
-    },
-    {
-      "summary": "Pilsen Elternabend",
-      "startDate": "2025-12-15T19:30:00.000Z",
-      "endDate": "2025-12-15T20:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-01-15T17:30:00.000Z",
-      "endDate": "2026-01-15T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-01-22T17:30:00.000Z",
-      "endDate": "2026-01-22T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-01-29T17:30:00.000Z",
-      "endDate": "2026-01-29T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-02-05T17:30:00.000Z",
-      "endDate": "2026-02-05T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Grundlagen ALLE",
-      "startDate": "2026-02-12T17:30:00.000Z",
-      "endDate": "2026-02-12T19:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Moabiter Grundschulcup",
-      "startDate": "2025-12-19T00:00:00.000Z",
-      "endDate": "2025-12-19T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Herbstcamp I",
-      "startDate": "2025-10-20T00:00:00.000Z",
-      "endDate": "2025-10-23T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
-      "description": "10-15h"
-    },
-    {
-      "summary": "Jahreshauptversammlung",
-      "startDate": "2025-10-31T18:00:00.000Z",
-      "endDate": "2025-10-31T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
+      "summary": "FIBA 3x3",
+      "startDate": "2026-02-13T19:00:00.000Z",
+      "endDate": "2026-02-13T21:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
     },
     {
       "summary": "Eltern + BCL Family",
@@ -145,25 +75,11 @@
       "description": ""
     },
     {
-      "summary": "Herbstcamp II",
-      "startDate": "2025-10-27T00:00:00.000Z",
-      "endDate": "2025-10-29T00:00:00.000Z",
-      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Coaches-Clinic",
-      "startDate": "2025-11-02T00:00:00.000Z",
-      "endDate": "2025-11-02T00:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
-      "startDate": "2025-10-20T00:00:00.000Z",
-      "endDate": "2025-11-02T00:00:00.000Z",
-      "location": "",
-      "description": ""
+      "summary": "Xmas Ballin",
+      "startDate": "2025-12-20T14:00:00.000Z",
+      "endDate": "2025-12-20T20:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": "https://www.instagram.com/stories/bclionsmoabit/3784771828288629082?utm_source=ig_story_item_share&igsh=MWg0ODhkMHplb2VhaQ=="
     },
     {
       "summary": "Xmas Ballin' Project (STK)",
@@ -173,18 +89,53 @@
       "description": ""
     },
     {
-      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
-      "startDate": "2025-12-08T00:00:00.000Z",
-      "endDate": "2025-12-08T00:00:00.000Z",
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-01-22T17:30:00.000Z",
+      "endDate": "2026-01-22T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-01-29T17:30:00.000Z",
+      "endDate": "2026-01-29T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-02-05T17:30:00.000Z",
+      "endDate": "2026-02-05T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-02-12T17:30:00.000Z",
+      "endDate": "2026-02-12T19:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Pilsen Elternabend",
+      "startDate": "2025-12-15T19:30:00.000Z",
+      "endDate": "2025-12-15T20:00:00.000Z",
       "location": "",
       "description": ""
     },
     {
-      "summary": "Juniors vs. Seniors U5 Mix",
-      "startDate": "2026-01-15T16:00:00.000Z",
-      "endDate": "2026-01-15T17:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Herbstcamp II",
+      "startDate": "2025-10-27T00:00:00.000Z",
+      "endDate": "2025-10-29T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Germany",
       "description": ""
+    },
+    {
+      "summary": "Turnierreise: Pilsen Tschechien",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2025-12-30T00:00:00.000Z",
+      "location": "",
+      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
     },
     {
       "summary": "Juniors vs. Seniors U5 Mix",
@@ -215,6 +166,76 @@
       "description": ""
     },
     {
+      "summary": "Jahreshauptversammlung",
+      "startDate": "2025-10-31T18:00:00.000Z",
+      "endDate": "2025-10-31T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Elternabend: Turnierreise Pilsen Tschechien",
+      "startDate": "2025-12-08T00:00:00.000Z",
+      "endDate": "2025-12-08T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-01-20T16:00:00.000Z",
+      "endDate": "2026-01-20T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-01-27T16:00:00.000Z",
+      "endDate": "2026-01-27T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-02-03T16:00:00.000Z",
+      "endDate": "2026-02-03T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Grundlagen ALLE",
+      "startDate": "2026-02-10T16:00:00.000Z",
+      "endDate": "2026-02-10T17:30:00.000Z",
+      "location": "Lützowstraße 83, 10785 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herbstferien (Camps, Istanbul DSJ Austausch + Ferientrainingsplan)",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-11-02T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Herbstcamp I",
+      "startDate": "2025-10-20T00:00:00.000Z",
+      "endDate": "2025-10-23T00:00:00.000Z",
+      "location": "Gymnasium Tiergarten, Altonaer Str. 26, 10555 Berlin, Deutschland",
+      "description": "10-15h"
+    },
+    {
+      "summary": "Moabiter Grundschulcup",
+      "startDate": "2025-12-19T00:00:00.000Z",
+      "endDate": "2025-12-19T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "Xmas Edition Turnier & Sylvesterparty",
+      "startDate": "2025-12-28T00:00:00.000Z",
+      "endDate": "2025-12-31T00:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
       "summary": "Weihnachtsfeier & Coaches-Clinic",
       "startDate": "2025-12-20T00:00:00.000Z",
       "endDate": "2025-12-20T00:00:00.000Z",
@@ -222,46 +243,11 @@
       "description": ""
     },
     {
-      "summary": "Turnierreise: Pilsen Tschechien",
-      "startDate": "2025-12-28T00:00:00.000Z",
-      "endDate": "2025-12-30T00:00:00.000Z",
+      "summary": "Coaches-Clinic",
+      "startDate": "2025-11-02T00:00:00.000Z",
+      "endDate": "2025-11-02T00:00:00.000Z",
       "location": "",
-      "description": "<a href=\"https://www.instagram.com/p/DQha0Q8DLUw/\">https://www.instagram.com/p/DQha0Q8DLUw/</a>"
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-01-16T19:00:00.000Z",
-      "endDate": "2026-01-16T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-01-23T19:00:00.000Z",
-      "endDate": "2026-01-23T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-01-30T19:00:00.000Z",
-      "endDate": "2026-01-30T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-02-06T19:00:00.000Z",
-      "endDate": "2026-02-06T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
-    },
-    {
-      "summary": "FIBA 3x3",
-      "startDate": "2026-02-13T19:00:00.000Z",
-      "endDate": "2026-02-13T21:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": "https://www.instagram.com/stories/bclionsmoabit/3772444796464708596?utm_source=ig_story_item_share&igsh=MWxmcW9qb2p1Nmh6dA=="
+      "description": ""
     }
   ]
 }
