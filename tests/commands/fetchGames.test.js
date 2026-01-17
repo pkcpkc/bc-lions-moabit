@@ -248,4 +248,42 @@ describe('FetchGamesCommand', () => {
             expect(result.gamesFound).toBe(0);
         });
     });
+
+    describe('parseBerlinTime', () => {
+        it('should parse winter time (CET) dates correctly with UTC+1 offset', () => {
+            // January is winter time (CET = UTC+1)
+            const date = fetchCommand.parseBerlinTime('2025-01-15', '14:00');
+            // 14:00 Berlin (UTC+1) = 13:00 UTC
+            expect(date.toISOString()).toBe('2025-01-15T13:00:00.000Z');
+        });
+
+        it('should parse summer time (CEST) dates correctly with UTC+2 offset', () => {
+            // July is summer time (CEST = UTC+2)
+            const date = fetchCommand.parseBerlinTime('2025-07-15', '14:00');
+            // 14:00 Berlin (UTC+2) = 12:00 UTC
+            expect(date.toISOString()).toBe('2025-07-15T12:00:00.000Z');
+        });
+
+        it('should handle DST transition in March correctly', () => {
+            // Last Sunday of March 2025 is March 30 - after this date it's CEST
+            const beforeDST = fetchCommand.parseBerlinTime('2025-03-29', '14:00');
+            const afterDST = fetchCommand.parseBerlinTime('2025-03-30', '14:00');
+            
+            // Before DST: 14:00 CET (UTC+1) = 13:00 UTC
+            expect(beforeDST.toISOString()).toBe('2025-03-29T13:00:00.000Z');
+            // After DST: 14:00 CEST (UTC+2) = 12:00 UTC
+            expect(afterDST.toISOString()).toBe('2025-03-30T12:00:00.000Z');
+        });
+
+        it('should handle DST transition in October correctly', () => {
+            // Last Sunday of October 2025 is October 26 - before this date it's CEST
+            const beforeEnd = fetchCommand.parseBerlinTime('2025-10-25', '14:00');
+            const afterEnd = fetchCommand.parseBerlinTime('2025-10-26', '14:00');
+            
+            // Before end: 14:00 CEST (UTC+2) = 12:00 UTC
+            expect(beforeEnd.toISOString()).toBe('2025-10-25T12:00:00.000Z');
+            // After end: 14:00 CET (UTC+1) = 13:00 UTC
+            expect(afterEnd.toISOString()).toBe('2025-10-26T13:00:00.000Z');
+        });
+    });
 });

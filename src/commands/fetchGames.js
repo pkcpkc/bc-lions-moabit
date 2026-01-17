@@ -106,12 +106,39 @@ export class FetchGamesCommand {
         }
     }
 
+    /**
+     * Parse a date and time as Berlin timezone (Europe/Berlin).
+     * This ensures consistent parsing regardless of server timezone.
+     * @param {string} dateStr - Date in YYYY-MM-DD format
+     * @param {string} timeStr - Time in HH:MM format
+     * @returns {Date} - Date object in UTC
+     */
+    parseBerlinTime(dateStr, timeStr) {
+        // Determine if DST is in effect for the given date
+        // German DST: last Sunday of March to last Sunday of October
+        const [year, month, day] = dateStr.split('-').map(Number);
+        
+        // Calculate last Sunday of March and October for the given year
+        const lastSundayOfMarch = new Date(year, 2, 31);
+        lastSundayOfMarch.setDate(31 - lastSundayOfMarch.getDay());
+        
+        const lastSundayOfOctober = new Date(year, 9, 31);
+        lastSundayOfOctober.setDate(31 - lastSundayOfOctober.getDay());
+        
+        const testDate = new Date(year, month - 1, day);
+        const isDST = testDate >= lastSundayOfMarch && testDate < lastSundayOfOctober;
+        
+        // Berlin is UTC+1 (CET) or UTC+2 (CEST during DST)
+        const offset = isDST ? '+02:00' : '+01:00';
+        
+        return new Date(`${dateStr}T${timeStr}:00${offset}`);
+    }
+
     transformGamesToEvents(games) {
         return games.map(game => {
-            // Create game date from date and time
-            const gameDate = new Date(`${game.date}T${game.time}:00`);
-            const endDate = new Date(gameDate);
-            endDate.setHours(gameDate.getHours() + 2); // Assume 2-hour duration
+            // Create game date from date and time using Berlin timezone
+            const gameDate = this.parseBerlinTime(game.date, game.time);
+            const endDate = new Date(gameDate.getTime() + 2 * 60 * 60 * 1000); // Add 2 hours in milliseconds
 
             // Create summary from home vs guest
             const summary = `${game.home} vs ${game.guest}`;
