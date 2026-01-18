@@ -2,8 +2,71 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-01-17T19:12:26.021Z",
+  "lastUpdated": "2026-01-18T10:27:37.931Z",
   "events": [
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-21T15:00:00.000Z",
+      "endDate": "2026-01-21T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-01-28T15:00:00.000Z",
+      "endDate": "2026-01-28T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-02-04T15:00:00.000Z",
+      "endDate": "2026-02-04T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-02-11T15:00:00.000Z",
+      "endDate": "2026-02-11T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-01-22T16:00:00.000Z",
+      "endDate": "2026-01-22T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-01-29T16:00:00.000Z",
+      "endDate": "2026-01-29T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-02-05T16:00:00.000Z",
+      "endDate": "2026-02-05T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-02-12T16:00:00.000Z",
+      "endDate": "2026-02-12T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "mU10",
       "startDate": "2026-01-20T15:00:00.000Z",
@@ -40,41 +103,6 @@
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-21T15:00:00.000Z",
-      "endDate": "2026-01-21T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-01-28T15:00:00.000Z",
-      "endDate": "2026-01-28T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-02-04T15:00:00.000Z",
-      "endDate": "2026-02-04T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2026-02-11T15:00:00.000Z",
-      "endDate": "2026-02-11T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
       "summary": "U6 bis U10 Mix Ali",
       "startDate": "2026-01-22T17:00:00.000Z",
       "endDate": "2026-01-22T18:00:00.000Z",
@@ -100,34 +128,6 @@
       "startDate": "2026-02-12T17:00:00.000Z",
       "endDate": "2026-02-12T18:00:00.000Z",
       "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-01-22T16:00:00.000Z",
-      "endDate": "2026-01-22T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-01-29T16:00:00.000Z",
-      "endDate": "2026-01-29T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-02-05T16:00:00.000Z",
-      "endDate": "2026-02-05T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-02-12T16:00:00.000Z",
-      "endDate": "2026-02-12T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     }
   ]
