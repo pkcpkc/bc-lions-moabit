@@ -12,7 +12,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "VfB Hermsdorf 1",
-        "matchId": 2823383
+        "matchId": 2823383,
+        "result": {
+          "homeScore": 36,
+          "guestScore": 60,
+          "isFinished": true
+        }
       }
     },
     {

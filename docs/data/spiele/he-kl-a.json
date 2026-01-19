@@ -169,18 +169,6 @@
       }
     },
     {
-      "summary": "SV Neukölln 09 3 vs BC Lions Moabit 4",
-      "startDate": "2026-01-10T15:00:00.000Z",
-      "endDate": "2026-01-10T17:00:00.000Z",
-      "venueName": "Hertastraße",
-      "location": "Hertastraße 1b, 12051, Berlin",
-      "game": {
-        "home": "SV Neukölln 09 3",
-        "guest": "BC Lions Moabit 4",
-        "matchId": 2751660
-      }
-    },
-    {
       "summary": "BC Lions Moabit 4 vs Pfeffersport 4",
       "startDate": "2026-01-18T17:00:00.000Z",
       "endDate": "2026-01-18T19:00:00.000Z",
@@ -189,7 +177,12 @@
       "game": {
         "home": "BC Lions Moabit 4",
         "guest": "Pfeffersport 4",
-        "matchId": 2751686
+        "matchId": 2751686,
+        "result": {
+          "homeScore": 66,
+          "guestScore": 59,
+          "isFinished": true
+        }
       }
     },
     {
@@ -262,6 +255,18 @@
         "home": "BC Lions Moabit 4",
         "guest": "BASS Südwest 4",
         "matchId": 2751896
+      }
+    },
+    {
+      "summary": "SV Neukölln 09 3 vs BC Lions Moabit 4",
+      "startDate": "2026-04-12T12:00:00.000Z",
+      "endDate": "2026-04-12T14:00:00.000Z",
+      "venueName": "Hertastraße",
+      "location": "Hertastraße 1b, 12051, Berlin",
+      "game": {
+        "home": "SV Neukölln 09 3",
+        "guest": "BC Lions Moabit 4",
+        "matchId": 2751660
       }
     },
     {
