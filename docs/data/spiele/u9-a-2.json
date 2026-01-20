@@ -165,7 +165,12 @@
       "game": {
         "home": "SV Empor Berlin 1",
         "guest": "BC Lions Moabit 1 mix",
-        "matchId": 2753334
+        "matchId": 2753334,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
