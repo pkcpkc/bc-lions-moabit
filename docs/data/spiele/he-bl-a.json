@@ -177,7 +177,12 @@
       "game": {
         "home": "BC Lions Moabit 2",
         "guest": "Neukölln Minotaurs 1",
-        "matchId": 2753368
+        "matchId": 2753368,
+        "result": {
+          "homeScore": 55,
+          "guestScore": 78,
+          "isFinished": true
+        }
       }
     },
     {

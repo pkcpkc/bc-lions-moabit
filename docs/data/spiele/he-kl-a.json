@@ -194,7 +194,12 @@
       "game": {
         "home": "BC Lions Moabit 4",
         "guest": "BBC 90 Köpenick 3",
-        "matchId": 2751747
+        "matchId": 2751747,
+        "result": {
+          "homeScore": 58,
+          "guestScore": 67,
+          "isFinished": true
+        }
       }
     },
     {

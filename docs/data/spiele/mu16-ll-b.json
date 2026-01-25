@@ -63,7 +63,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "Berlin Tiger 4",
-        "matchId": 2750778
+        "matchId": 2750778,
+        "result": {
+          "homeScore": 103,
+          "guestScore": 42,
+          "isFinished": true
+        }
       }
     },
     {

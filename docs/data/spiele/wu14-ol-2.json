@@ -29,7 +29,12 @@
       "game": {
         "home": "ALBA Berlin 2",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2823376
+        "matchId": 2823376,
+        "result": {
+          "homeScore": 53,
+          "guestScore": 57,
+          "isFinished": true
+        }
       }
     },
     {
