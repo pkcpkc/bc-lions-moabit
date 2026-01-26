@@ -143,7 +143,12 @@
       "game": {
         "home": "Berliner SC 2 (aK)",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2758835
+        "matchId": 2758835,
+        "result": {
+          "homeScore": 46,
+          "guestScore": 42,
+          "isFinished": true
+        }
       }
     },
     {

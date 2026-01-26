@@ -233,7 +233,12 @@
       "game": {
         "home": "Berlin Tiger 2",
         "guest": "BC Lions Moabit 6",
-        "matchId": 2751763
+        "matchId": 2751763,
+        "result": {
+          "homeScore": 73,
+          "guestScore": 62,
+          "isFinished": true
+        }
       }
     },
     {

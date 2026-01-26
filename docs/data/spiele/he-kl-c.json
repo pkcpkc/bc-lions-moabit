@@ -182,7 +182,12 @@
       "game": {
         "home": "BC ASKA 2",
         "guest": "BC Lions Moabit 5",
-        "matchId": 2757579
+        "matchId": 2757579,
+        "result": {
+          "homeScore": 57,
+          "guestScore": 62,
+          "isFinished": true
+        }
       }
     },
     {
