@@ -2,36 +2,8 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-01-26T10:34:09.282Z",
+  "lastUpdated": "2026-01-27T10:35:01.264Z",
   "events": [
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-01-29T19:00:00.000Z",
-      "endDate": "2026-01-29T20:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-02-05T19:00:00.000Z",
-      "endDate": "2026-02-05T20:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-02-12T19:00:00.000Z",
-      "endDate": "2026-02-12T20:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-02-19T19:00:00.000Z",
-      "endDate": "2026-02-19T20:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
     {
       "summary": "Damen 2",
       "startDate": "2026-01-27T17:30:00.000Z",
@@ -69,6 +41,69 @@
     },
     {
       "summary": "Damen 1",
+      "startDate": "2026-01-29T19:00:00.000Z",
+      "endDate": "2026-01-29T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-02-05T19:00:00.000Z",
+      "endDate": "2026-02-05T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-02-12T19:00:00.000Z",
+      "endDate": "2026-02-12T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-02-19T19:00:00.000Z",
+      "endDate": "2026-02-19T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-02-26T19:00:00.000Z",
+      "endDate": "2026-02-26T20:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-01-30T18:00:00.000Z",
+      "endDate": "2026-01-30T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-06T18:00:00.000Z",
+      "endDate": "2026-02-06T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-13T18:00:00.000Z",
+      "endDate": "2026-02-13T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-02-20T18:00:00.000Z",
+      "endDate": "2026-02-20T19:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
       "startDate": "2026-01-27T19:00:00.000Z",
       "endDate": "2026-01-27T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
@@ -100,34 +135,6 @@
       "startDate": "2026-02-24T19:00:00.000Z",
       "endDate": "2026-02-24T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-01-30T18:00:00.000Z",
-      "endDate": "2026-01-30T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-02-06T18:00:00.000Z",
-      "endDate": "2026-02-06T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-02-13T18:00:00.000Z",
-      "endDate": "2026-02-13T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-02-20T18:00:00.000Z",
-      "endDate": "2026-02-20T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     }
   ]
