@@ -80,7 +80,12 @@
       "game": {
         "home": "RedHawks Potsdam 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2823316
+        "matchId": 2823316,
+        "result": {
+          "homeScore": 36,
+          "guestScore": 115,
+          "isFinished": true
+        }
       }
     },
     {
