@@ -135,23 +135,6 @@
       }
     },
     {
-      "summary": "BC Lions Moabit 2 vs Pfeffersport 3",
-      "startDate": "2026-01-11T15:00:00.000Z",
-      "endDate": "2026-01-11T17:00:00.000Z",
-      "venueName": "Gerhardtstraße",
-      "location": "Gerhardtstraße 3, 10557, Berlin",
-      "game": {
-        "home": "BC Lions Moabit 2",
-        "guest": "Pfeffersport 3",
-        "matchId": 2753247,
-        "result": {
-          "homeScore": 0,
-          "guestScore": 0,
-          "isFinished": true
-        }
-      }
-    },
-    {
       "summary": "VfL Lichtenrade 1 vs BC Lions Moabit 2",
       "startDate": "2026-01-18T13:00:00.000Z",
       "endDate": "2026-01-18T15:00:00.000Z",
@@ -267,6 +250,18 @@
         "home": "Neukölln Minotaurs 1",
         "guest": "BC Lions Moabit 2",
         "matchId": 2752974
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 2 vs Pfeffersport 3",
+      "startDate": "2026-04-26T14:00:00.000Z",
+      "endDate": "2026-04-26T16:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 2",
+        "guest": "Pfeffersport 3",
+        "matchId": 2833273
       }
     }
   ]

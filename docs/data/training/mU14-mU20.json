@@ -2,7 +2,7 @@
   "label": "mU14-mU20",
   "id": "mU14-mU20",
   "calId": "f986731db14b0378837c3d0f6a2f54333fe9d8471f0b6de29095b6abdd33025c@group.calendar.google.com",
-  "lastUpdated": "2026-02-10T10:58:29.795Z",
+  "lastUpdated": "2026-02-11T10:56:34.103Z",
   "events": [
     {
       "summary": "mU20",
@@ -34,13 +34,6 @@
     },
     {
       "summary": "mU16-1 Team",
-      "startDate": "2026-02-10T17:30:00.000Z",
-      "endDate": "2026-02-10T19:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
-      "summary": "mU16-1 Team",
       "startDate": "2026-02-17T17:30:00.000Z",
       "endDate": "2026-02-17T19:00:00.000Z",
       "location": "",
@@ -61,10 +54,38 @@
       "description": ""
     },
     {
-      "summary": "mU14-mU18 Team",
-      "startDate": "2026-02-10T16:00:00.000Z",
-      "endDate": "2026-02-10T17:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "mU16-1 Team",
+      "startDate": "2026-03-10T17:30:00.000Z",
+      "endDate": "2026-03-10T19:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 & mU18 Team",
+      "startDate": "2026-02-13T17:30:00.000Z",
+      "endDate": "2026-02-13T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 & mU18 Team",
+      "startDate": "2026-02-20T17:30:00.000Z",
+      "endDate": "2026-02-20T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 & mU18 Team",
+      "startDate": "2026-02-27T17:30:00.000Z",
+      "endDate": "2026-02-27T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU14-1 & mU18 Team",
+      "startDate": "2026-03-06T17:30:00.000Z",
+      "endDate": "2026-03-06T19:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -86,6 +107,41 @@
       "startDate": "2026-03-03T16:00:00.000Z",
       "endDate": "2026-03-03T17:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU14-mU18 Team",
+      "startDate": "2026-03-10T16:00:00.000Z",
+      "endDate": "2026-03-10T17:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "mU16-2 Team",
+      "startDate": "2026-02-11T17:30:00.000Z",
+      "endDate": "2026-02-11T19:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU16-2 Team",
+      "startDate": "2026-02-18T17:30:00.000Z",
+      "endDate": "2026-02-18T19:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU16-2 Team",
+      "startDate": "2026-02-25T17:30:00.000Z",
+      "endDate": "2026-02-25T19:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "mU16-2 Team",
+      "startDate": "2026-03-04T17:30:00.000Z",
+      "endDate": "2026-03-04T19:00:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -142,62 +198,6 @@
       "startDate": "2026-03-05T16:00:00.000Z",
       "endDate": "2026-03-05T17:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 & mU18 Team",
-      "startDate": "2026-02-13T17:30:00.000Z",
-      "endDate": "2026-02-13T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 & mU18 Team",
-      "startDate": "2026-02-20T17:30:00.000Z",
-      "endDate": "2026-02-20T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 & mU18 Team",
-      "startDate": "2026-02-27T17:30:00.000Z",
-      "endDate": "2026-02-27T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU14-1 & mU18 Team",
-      "startDate": "2026-03-06T17:30:00.000Z",
-      "endDate": "2026-03-06T19:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-2 Team",
-      "startDate": "2026-02-11T17:30:00.000Z",
-      "endDate": "2026-02-11T19:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-2 Team",
-      "startDate": "2026-02-18T17:30:00.000Z",
-      "endDate": "2026-02-18T19:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-2 Team",
-      "startDate": "2026-02-25T17:30:00.000Z",
-      "endDate": "2026-02-25T19:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "mU16-2 Team",
-      "startDate": "2026-03-04T17:30:00.000Z",
-      "endDate": "2026-03-04T19:00:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
   ]
