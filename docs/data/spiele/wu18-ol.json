@@ -228,7 +228,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "CITY Basket Berlin 1",
-        "matchId": 2748883
+        "matchId": 2748883,
+        "result": {
+          "homeScore": 41,
+          "guestScore": 92,
+          "isFinished": true
+        }
       }
     },
     {
