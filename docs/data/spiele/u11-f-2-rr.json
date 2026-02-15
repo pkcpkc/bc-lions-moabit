@@ -46,7 +46,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "DBV Charlottenburg 2",
-        "matchId": 2823045
+        "matchId": 2823045,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
