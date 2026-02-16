@@ -177,7 +177,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "SSV Lok Bernau 2",
-        "matchId": 2751741
+        "matchId": 2751741,
+        "result": {
+          "homeScore": 57,
+          "guestScore": 59,
+          "isFinished": true
+        }
       }
     },
     {
