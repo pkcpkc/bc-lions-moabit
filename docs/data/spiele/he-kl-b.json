@@ -250,7 +250,12 @@
       "game": {
         "home": "BC Lions Moabit 6",
         "guest": "Berliner SV 92 1",
-        "matchId": 2751806
+        "matchId": 2751806,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 54,
+          "isFinished": true
+        }
       }
     },
     {

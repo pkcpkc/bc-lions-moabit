@@ -199,7 +199,12 @@
       "game": {
         "home": "BC Lions Moabit 5",
         "guest": "SV Neukölln 09 2",
-        "matchId": 2757586
+        "matchId": 2757586,
+        "result": {
+          "homeScore": 33,
+          "guestScore": 48,
+          "isFinished": true
+        }
       }
     },
     {
