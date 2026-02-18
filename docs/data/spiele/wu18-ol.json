@@ -165,7 +165,12 @@
       "game": {
         "home": "BG Zehlendorf 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2748896
+        "matchId": 2748896,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
@@ -245,7 +250,12 @@
       "game": {
         "home": "ALBA Berlin 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2748942
+        "matchId": 2748942,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {

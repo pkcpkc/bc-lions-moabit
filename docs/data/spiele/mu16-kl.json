@@ -167,8 +167,8 @@
         "guest": "BC Lions Moabit 2 mix",
         "matchId": 2791462,
         "result": {
-          "homeScore": 0,
-          "guestScore": 0,
+          "homeScore": 30,
+          "guestScore": 130,
           "isFinished": true
         }
       }

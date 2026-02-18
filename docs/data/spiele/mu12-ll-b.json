@@ -157,18 +157,6 @@
       }
     },
     {
-      "summary": "Einheit Pankow 2 vs BC Lions Moabit 1 mix",
-      "startDate": "2026-01-24T13:00:00.000Z",
-      "endDate": "2026-01-24T15:00:00.000Z",
-      "venueName": "Hauptstraße (Halle 2)",
-      "location": "Hauptstraße 66, 13127, Berlin",
-      "game": {
-        "home": "Einheit Pankow 2",
-        "guest": "BC Lions Moabit 1 mix",
-        "matchId": 2751665
-      }
-    },
-    {
       "summary": "BC Lions Moabit 1 mix vs SSV Lok Bernau 2",
       "startDate": "2026-02-15T11:00:00.000Z",
       "endDate": "2026-02-15T13:00:00.000Z",
@@ -231,6 +219,18 @@
         "home": "BG Red Dragons KW 1",
         "guest": "BC Lions Moabit 1 mix",
         "matchId": 2751213
+      }
+    },
+    {
+      "summary": "Einheit Pankow 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-04-26T10:00:00.000Z",
+      "endDate": "2026-04-26T12:00:00.000Z",
+      "venueName": "Hauptstraße (Halle 2)",
+      "location": "Hauptstraße 66, 13127, Berlin",
+      "game": {
+        "home": "Einheit Pankow 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2751665
       }
     }
   ]

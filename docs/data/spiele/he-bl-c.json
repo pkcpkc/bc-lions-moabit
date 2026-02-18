@@ -208,18 +208,6 @@
       }
     },
     {
-      "summary": "BC Lions Moabit 3 vs DBV Charlottenburg 8",
-      "startDate": "2026-02-14T11:00:00.000Z",
-      "endDate": "2026-02-14T13:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
-      "game": {
-        "home": "BC Lions Moabit 3",
-        "guest": "DBV Charlottenburg 8",
-        "matchId": 2753405
-      }
-    },
-    {
       "summary": "Basket Dragons Marzahn 1 vs BC Lions Moabit 3",
       "startDate": "2026-02-22T17:00:00.000Z",
       "endDate": "2026-02-22T19:00:00.000Z",
@@ -277,6 +265,18 @@
         "home": "ALBA Berlin 6",
         "guest": "BC Lions Moabit 3",
         "matchId": 2752911
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 3 vs DBV Charlottenburg 8",
+      "startDate": "2026-04-18T16:00:00.000Z",
+      "endDate": "2026-04-18T18:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 3",
+        "guest": "DBV Charlottenburg 8",
+        "matchId": 2753405
       }
     }
   ]
