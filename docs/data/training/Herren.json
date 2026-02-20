@@ -2,36 +2,8 @@
   "label": "Herren",
   "id": "Herren",
   "calId": "53009b789daac422a9a04fb042c6d22471052464ec60da06415958dccaf5ea02@group.calendar.google.com",
-  "lastUpdated": "2026-02-19T10:52:25.605Z",
+  "lastUpdated": "2026-02-20T10:43:35.513Z",
   "events": [
-    {
-      "summary": "Herren 4",
-      "startDate": "2026-02-24T19:30:00.000Z",
-      "endDate": "2026-02-24T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4",
-      "startDate": "2026-03-03T19:30:00.000Z",
-      "endDate": "2026-03-03T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4",
-      "startDate": "2026-03-10T19:30:00.000Z",
-      "endDate": "2026-03-10T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 4",
-      "startDate": "2026-03-17T19:30:00.000Z",
-      "endDate": "2026-03-17T21:00:00.000Z",
-      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "Herren 6/United",
       "startDate": "2026-02-25T19:00:00.000Z",
@@ -61,118 +33,6 @@
       "description": ""
     },
     {
-      "summary": "Herren 1",
-      "startDate": "2026-02-25T19:00:00.000Z",
-      "endDate": "2026-02-25T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2026-03-04T19:00:00.000Z",
-      "endDate": "2026-03-04T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2026-03-11T19:00:00.000Z",
-      "endDate": "2026-03-11T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 1",
-      "startDate": "2026-03-18T19:00:00.000Z",
-      "endDate": "2026-03-18T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-02-24T19:00:00.000Z",
-      "endDate": "2026-02-24T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-03T19:00:00.000Z",
-      "endDate": "2026-03-03T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-10T19:00:00.000Z",
-      "endDate": "2026-03-10T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-17T19:00:00.000Z",
-      "endDate": "2026-03-17T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-02-25T19:00:00.000Z",
-      "endDate": "2026-02-25T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-04T19:00:00.000Z",
-      "endDate": "2026-03-04T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-11T19:00:00.000Z",
-      "endDate": "2026-03-11T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 5",
-      "startDate": "2026-03-18T19:00:00.000Z",
-      "endDate": "2026-03-18T20:30:00.000Z",
-      "location": "Turmstr. 75, 10551 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
-      "startDate": "2026-02-24T19:00:00.000Z",
-      "endDate": "2026-02-24T20:45:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
-      "startDate": "2026-03-03T19:00:00.000Z",
-      "endDate": "2026-03-03T20:45:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
-      "startDate": "2026-03-10T19:00:00.000Z",
-      "endDate": "2026-03-10T20:45:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
-      "startDate": "2026-03-17T19:00:00.000Z",
-      "endDate": "2026-03-17T20:45:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
       "summary": "Herren 6",
       "startDate": "2026-02-20T17:30:00.000Z",
       "endDate": "2026-02-20T19:00:00.000Z",
@@ -197,6 +57,146 @@
       "summary": "Herren 6",
       "startDate": "2026-03-13T17:30:00.000Z",
       "endDate": "2026-03-13T19:00:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2026-02-26T19:00:00.000Z",
+      "endDate": "2026-02-26T21:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2026-03-05T19:00:00.000Z",
+      "endDate": "2026-03-05T21:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2026-03-12T19:00:00.000Z",
+      "endDate": "2026-03-12T21:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 3",
+      "startDate": "2026-03-19T19:00:00.000Z",
+      "endDate": "2026-03-19T21:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2026-02-26T19:00:00.000Z",
+      "endDate": "2026-02-26T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2026-03-05T19:00:00.000Z",
+      "endDate": "2026-03-05T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2026-03-12T19:00:00.000Z",
+      "endDate": "2026-03-12T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2026-03-19T19:00:00.000Z",
+      "endDate": "2026-03-19T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-02-20T19:00:00.000Z",
+      "endDate": "2026-02-20T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-02-27T19:00:00.000Z",
+      "endDate": "2026-02-27T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-03-06T19:00:00.000Z",
+      "endDate": "2026-03-06T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 1",
+      "startDate": "2026-03-13T19:00:00.000Z",
+      "endDate": "2026-03-13T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 4",
+      "startDate": "2026-02-24T19:30:00.000Z",
+      "endDate": "2026-02-24T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 4",
+      "startDate": "2026-03-03T19:30:00.000Z",
+      "endDate": "2026-03-03T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 4",
+      "startDate": "2026-03-10T19:30:00.000Z",
+      "endDate": "2026-03-10T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 4",
+      "startDate": "2026-03-17T19:30:00.000Z",
+      "endDate": "2026-03-17T21:00:00.000Z",
+      "location": "Paulstraße 28, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Herren 5",
+      "startDate": "2026-02-25T19:00:00.000Z",
+      "endDate": "2026-02-25T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 5",
+      "startDate": "2026-03-04T19:00:00.000Z",
+      "endDate": "2026-03-04T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 5",
+      "startDate": "2026-03-11T19:00:00.000Z",
+      "endDate": "2026-03-11T20:30:00.000Z",
+      "location": "Turmstr. 75, 10551 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 5",
+      "startDate": "2026-03-18T19:00:00.000Z",
+      "endDate": "2026-03-18T20:30:00.000Z",
       "location": "Turmstr. 75, 10551 Berlin, Germany",
       "description": ""
     },
@@ -230,29 +230,29 @@
     },
     {
       "summary": "Herren 1",
-      "startDate": "2026-02-20T19:00:00.000Z",
-      "endDate": "2026-02-20T20:30:00.000Z",
+      "startDate": "2026-02-25T19:00:00.000Z",
+      "endDate": "2026-02-25T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Herren 1",
-      "startDate": "2026-02-27T19:00:00.000Z",
-      "endDate": "2026-02-27T20:30:00.000Z",
+      "startDate": "2026-03-04T19:00:00.000Z",
+      "endDate": "2026-03-04T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Herren 1",
-      "startDate": "2026-03-06T19:00:00.000Z",
-      "endDate": "2026-03-06T20:30:00.000Z",
+      "startDate": "2026-03-11T19:00:00.000Z",
+      "endDate": "2026-03-11T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Herren 1",
-      "startDate": "2026-03-13T19:00:00.000Z",
-      "endDate": "2026-03-13T20:30:00.000Z",
+      "startDate": "2026-03-18T19:00:00.000Z",
+      "endDate": "2026-03-18T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
@@ -285,59 +285,59 @@
       "description": ""
     },
     {
-      "summary": "Herren 3",
-      "startDate": "2026-02-19T19:00:00.000Z",
-      "endDate": "2026-02-19T21:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "summary": "Herren 5",
+      "startDate": "2026-02-24T19:00:00.000Z",
+      "endDate": "2026-02-24T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 3",
-      "startDate": "2026-02-26T19:00:00.000Z",
-      "endDate": "2026-02-26T21:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "summary": "Herren 5",
+      "startDate": "2026-03-03T19:00:00.000Z",
+      "endDate": "2026-03-03T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 3",
-      "startDate": "2026-03-05T19:00:00.000Z",
-      "endDate": "2026-03-05T21:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Germany",
+      "summary": "Herren 5",
+      "startDate": "2026-03-10T19:00:00.000Z",
+      "endDate": "2026-03-10T20:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Herren 3",
-      "startDate": "2026-03-12T19:00:00.000Z",
-      "endDate": "2026-03-12T21:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Herren 2",
-      "startDate": "2026-02-19T19:00:00.000Z",
-      "endDate": "2026-02-19T20:30:00.000Z",
+      "summary": "Herren 5",
+      "startDate": "2026-03-17T19:00:00.000Z",
+      "endDate": "2026-03-17T20:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Herren 2",
-      "startDate": "2026-02-26T19:00:00.000Z",
-      "endDate": "2026-02-26T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "startDate": "2026-02-24T19:00:00.000Z",
+      "endDate": "2026-02-24T20:45:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     },
     {
       "summary": "Herren 2",
-      "startDate": "2026-03-05T19:00:00.000Z",
-      "endDate": "2026-03-05T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "startDate": "2026-03-03T19:00:00.000Z",
+      "endDate": "2026-03-03T20:45:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     },
     {
       "summary": "Herren 2",
-      "startDate": "2026-03-12T19:00:00.000Z",
-      "endDate": "2026-03-12T20:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "startDate": "2026-03-10T19:00:00.000Z",
+      "endDate": "2026-03-10T20:45:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Herren 2",
+      "startDate": "2026-03-17T19:00:00.000Z",
+      "endDate": "2026-03-17T20:45:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     }
   ]
