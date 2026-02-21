@@ -73,10 +73,10 @@
     },
     {
       "summary": "BC Lions Moabit 1 vs SSV Lok Bernau 1",
-      "startDate": "2026-02-22T11:00:00.000Z",
-      "endDate": "2026-02-22T13:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
+      "startDate": "2026-02-22T09:00:00.000Z",
+      "endDate": "2026-02-22T11:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "SSV Lok Bernau 1",
