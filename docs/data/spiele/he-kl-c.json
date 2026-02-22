@@ -216,7 +216,12 @@
       "game": {
         "home": "Nonstop Berlin 1",
         "guest": "BC Lions Moabit 5",
-        "matchId": 2757591
+        "matchId": 2757591,
+        "result": {
+          "homeScore": 40,
+          "guestScore": 67,
+          "isFinished": true
+        }
       }
     },
     {

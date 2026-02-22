@@ -63,7 +63,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "ALBA Weißensee 6",
-        "matchId": 2822867
+        "matchId": 2822867,
+        "result": {
+          "homeScore": 24,
+          "guestScore": 37,
+          "isFinished": true
+        }
       }
     },
     {

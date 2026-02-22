@@ -2,36 +2,8 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-02-21T10:32:35.563Z",
+  "lastUpdated": "2026-02-22T10:32:24.659Z",
   "events": [
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-02-26T16:00:00.000Z",
-      "endDate": "2026-02-26T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-03-05T16:00:00.000Z",
-      "endDate": "2026-03-05T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-03-12T16:00:00.000Z",
-      "endDate": "2026-03-12T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-03-19T16:00:00.000Z",
-      "endDate": "2026-03-19T17:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
     {
       "summary": "mU10",
       "startDate": "2026-02-24T15:00:00.000Z",
@@ -62,30 +34,37 @@
     },
     {
       "summary": "U8 & U9",
-      "startDate": "2026-02-25T15:00:00.000Z",
-      "endDate": "2026-02-25T17:30:00.000Z",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2026-03-04T15:00:00.000Z",
-      "endDate": "2026-03-04T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-02-26T16:00:00.000Z",
+      "endDate": "2026-02-26T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2026-03-11T15:00:00.000Z",
-      "endDate": "2026-03-11T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-03-05T16:00:00.000Z",
+      "endDate": "2026-03-05T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U8 & U9",
-      "startDate": "2026-03-18T15:00:00.000Z",
-      "endDate": "2026-03-18T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-03-12T16:00:00.000Z",
+      "endDate": "2026-03-12T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-03-19T16:00:00.000Z",
+      "endDate": "2026-03-19T17:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
       "description": ""
     },
     {
@@ -118,8 +97,29 @@
     },
     {
       "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
+      "startDate": "2026-02-25T15:00:00.000Z",
+      "endDate": "2026-02-25T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-03-04T15:00:00.000Z",
+      "endDate": "2026-03-04T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-03-11T15:00:00.000Z",
+      "endDate": "2026-03-11T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2026-03-18T15:00:00.000Z",
+      "endDate": "2026-03-18T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
