@@ -114,7 +114,12 @@
       "game": {
         "home": "RSV Eintracht 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2823328
+        "matchId": 2823328,
+        "result": {
+          "homeScore": 78,
+          "guestScore": 101,
+          "isFinished": true
+        }
       }
     },
     {
