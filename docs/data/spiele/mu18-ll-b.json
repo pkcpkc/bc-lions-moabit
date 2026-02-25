@@ -206,7 +206,12 @@
       "game": {
         "home": "AC Berlin 1",
         "guest": "BC Lions Moabit 1 mix",
-        "matchId": 2750802
+        "matchId": 2750802,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 20,
+          "isFinished": true
+        }
       }
     },
     {
