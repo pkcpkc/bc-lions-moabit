@@ -170,10 +170,10 @@
     },
     {
       "summary": "BC Lions Moabit 1 mix vs BG Zehlendorf 2",
-      "startDate": "2026-03-01T17:00:00.000Z",
-      "endDate": "2026-03-01T19:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
+      "startDate": "2026-03-01T11:00:00.000Z",
+      "endDate": "2026-03-01T13:00:00.000Z",
+      "venueName": "Gerhardtstraße",
+      "location": "Gerhardtstraße 3, 10557, Berlin",
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "BG Zehlendorf 2",

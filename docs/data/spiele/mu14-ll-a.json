@@ -65,7 +65,7 @@
         "guest": "TSC Spandau 1",
         "matchId": 2822592,
         "result": {
-          "homeScore": 0,
+          "homeScore": 20,
           "guestScore": 0,
           "isFinished": true
         }
