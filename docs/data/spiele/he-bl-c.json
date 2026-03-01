@@ -233,7 +233,12 @@
       "game": {
         "home": "BC Lions Moabit 3",
         "guest": "Füchse Berlin 1",
-        "matchId": 2753472
+        "matchId": 2753472,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 39,
+          "isFinished": true
+        }
       }
     },
     {

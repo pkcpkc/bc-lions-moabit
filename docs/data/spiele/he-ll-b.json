@@ -250,7 +250,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "TSV Sportuniversum 1",
-        "matchId": 2749846
+        "matchId": 2749846,
+        "result": {
+          "homeScore": 84,
+          "guestScore": 80,
+          "isFinished": true
+        }
       }
     },
     {

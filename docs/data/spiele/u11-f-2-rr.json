@@ -80,7 +80,12 @@
       "game": {
         "home": "ALBA Trelleborg 5 (aK)",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2823056
+        "matchId": 2823056,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
