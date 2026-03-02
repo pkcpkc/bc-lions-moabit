@@ -177,7 +177,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "BG Zehlendorf 2",
-        "matchId": 2749786
+        "matchId": 2749786,
+        "result": {
+          "homeScore": 98,
+          "guestScore": 62,
+          "isFinished": true
+        }
       }
     },
     {

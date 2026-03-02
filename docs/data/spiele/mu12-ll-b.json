@@ -182,7 +182,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "ALBA Berlin 9 (wbl.)",
-        "matchId": 2751809
+        "matchId": 2751809,
+        "result": {
+          "homeScore": 93,
+          "guestScore": 95,
+          "isFinished": true
+        }
       }
     },
     {

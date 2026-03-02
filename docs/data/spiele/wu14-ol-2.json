@@ -97,7 +97,12 @@
       "game": {
         "home": "Basket Dragons Marzahn 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2823398
+        "matchId": 2823398,
+        "result": {
+          "homeScore": 102,
+          "guestScore": 55,
+          "isFinished": true
+        }
       }
     },
     {
