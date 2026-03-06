@@ -191,18 +191,6 @@
       }
     },
     {
-      "summary": "Viktoria Mitte 2 vs BC Lions Moabit 1 mix",
-      "startDate": "2026-02-15T08:30:00.000Z",
-      "endDate": "2026-02-15T10:30:00.000Z",
-      "venueName": "Berolinastraße",
-      "location": "Berolinastraße 8, 10178, Berlin",
-      "game": {
-        "home": "Viktoria Mitte 2",
-        "guest": "BC Lions Moabit 1 mix",
-        "matchId": 2753416
-      }
-    },
-    {
       "summary": "BC Lions Moabit 1 mix vs Weddinger Wiesel 1",
       "startDate": "2026-02-21T11:00:00.000Z",
       "endDate": "2026-02-21T13:00:00.000Z",
@@ -277,6 +265,18 @@
         "home": "FREIBEUTER 2010 1",
         "guest": "BC Lions Moabit 1 mix",
         "matchId": 2753210
+      }
+    },
+    {
+      "summary": "Viktoria Mitte 2 vs BC Lions Moabit 1 mix",
+      "startDate": "2026-04-25T09:30:00.000Z",
+      "endDate": "2026-04-25T11:30:00.000Z",
+      "venueName": "Adalbertstraße, oben",
+      "location": "Adalbertstraße 53, 10179, Berlin",
+      "game": {
+        "home": "Viktoria Mitte 2",
+        "guest": "BC Lions Moabit 1 mix",
+        "matchId": 2753416
       }
     }
   ]
