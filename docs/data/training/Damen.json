@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-03-06T10:42:11.433Z",
+  "lastUpdated": "2026-03-07T10:30:09.976Z",
   "events": [
     {
       "summary": "Damen 2",
@@ -30,13 +30,6 @@
       "startDate": "2026-03-31T16:30:00.000Z",
       "endDate": "2026-03-31T18:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-03-06T18:00:00.000Z",
-      "endDate": "2026-03-06T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {

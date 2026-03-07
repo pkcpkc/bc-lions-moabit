@@ -2,34 +2,34 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-03-06T10:42:14.676Z",
+  "lastUpdated": "2026-03-07T10:30:13.368Z",
   "events": [
     {
-      "summary": "mU10",
-      "startDate": "2026-03-10T15:00:00.000Z",
-      "endDate": "2026-03-10T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-03-12T17:00:00.000Z",
+      "endDate": "2026-03-12T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU10",
-      "startDate": "2026-03-17T15:00:00.000Z",
-      "endDate": "2026-03-17T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-03-19T17:00:00.000Z",
+      "endDate": "2026-03-19T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU10",
-      "startDate": "2026-03-24T15:00:00.000Z",
-      "endDate": "2026-03-24T16:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-03-26T17:00:00.000Z",
+      "endDate": "2026-03-26T18:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "mU10",
-      "startDate": "2026-03-31T14:00:00.000Z",
-      "endDate": "2026-03-31T15:00:00.000Z",
-      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-04-02T16:00:00.000Z",
+      "endDate": "2026-04-02T17:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -96,31 +96,31 @@
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-03-12T17:00:00.000Z",
-      "endDate": "2026-03-12T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "summary": "mU10",
+      "startDate": "2026-03-10T15:00:00.000Z",
+      "endDate": "2026-03-10T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-03-19T17:00:00.000Z",
-      "endDate": "2026-03-19T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "summary": "mU10",
+      "startDate": "2026-03-17T15:00:00.000Z",
+      "endDate": "2026-03-17T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-03-26T17:00:00.000Z",
-      "endDate": "2026-03-26T18:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "summary": "mU10",
+      "startDate": "2026-03-24T15:00:00.000Z",
+      "endDate": "2026-03-24T16:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-04-02T16:00:00.000Z",
-      "endDate": "2026-04-02T17:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "summary": "mU10",
+      "startDate": "2026-03-31T14:00:00.000Z",
+      "endDate": "2026-03-31T15:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     }
   ]
