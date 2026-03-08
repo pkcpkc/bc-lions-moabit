@@ -240,7 +240,12 @@
       "game": {
         "home": "BC Lions Moabit 4",
         "guest": "Viktoria Mitte 2",
-        "matchId": 2751872
+        "matchId": 2751872,
+        "result": {
+          "homeScore": 56,
+          "guestScore": 52,
+          "isFinished": true
+        }
       }
     },
     {

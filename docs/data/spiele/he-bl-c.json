@@ -250,7 +250,12 @@
       "game": {
         "home": "Friedenauer TSC 3",
         "guest": "BC Lions Moabit 3",
-        "matchId": 2753507
+        "matchId": 2753507,
+        "result": {
+          "homeScore": 77,
+          "guestScore": 48,
+          "isFinished": true
+        }
       }
     },
     {
