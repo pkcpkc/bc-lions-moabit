@@ -318,7 +318,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "VfL Lichtenrade 1",
-        "matchId": 2748935
+        "matchId": 2748935,
+        "result": {
+          "homeScore": 48,
+          "guestScore": 33,
+          "isFinished": true
+        }
       }
     }
   ]
