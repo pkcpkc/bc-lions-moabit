@@ -218,8 +218,8 @@
         "guest": "DBV Charlottenburg 2",
         "matchId": 2753517,
         "result": {
-          "homeScore": 5,
-          "guestScore": 2,
+          "homeScore": 0,
+          "guestScore": 0,
           "isFinished": true
         }
       }
