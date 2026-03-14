@@ -114,7 +114,12 @@
       "game": {
         "home": "ALBA Kollwitz 4",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2822883
+        "matchId": 2822883,
+        "result": {
+          "homeScore": 66,
+          "guestScore": 64,
+          "isFinished": true
+        }
       }
     },
     {
