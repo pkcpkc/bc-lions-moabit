@@ -267,7 +267,12 @@
       "game": {
         "home": "SCB Friedrichsfelde 1",
         "guest": "BC Lions Moabit 3",
-        "matchId": 2752779
+        "matchId": 2752779,
+        "result": {
+          "homeScore": 63,
+          "guestScore": 57,
+          "isFinished": true
+        }
       }
     },
     {

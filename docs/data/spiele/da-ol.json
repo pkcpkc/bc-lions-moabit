@@ -250,7 +250,12 @@
       "game": {
         "home": "TuS Neukölln 2",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2749089
+        "matchId": 2749089,
+        "result": {
+          "homeScore": 71,
+          "guestScore": 35,
+          "isFinished": true
+        }
       }
     },
     {

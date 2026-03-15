@@ -182,7 +182,12 @@
       "game": {
         "home": "BC Lions Moabit 2",
         "guest": "BASS Berlin 3",
-        "matchId": 2758968
+        "matchId": 2758968,
+        "result": {
+          "homeScore": 50,
+          "guestScore": 34,
+          "isFinished": true
+        }
       }
     },
     {

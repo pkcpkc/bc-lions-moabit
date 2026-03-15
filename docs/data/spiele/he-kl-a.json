@@ -257,7 +257,12 @@
       "game": {
         "home": "Berlin Baskets 2",
         "guest": "BC Lions Moabit 4",
-        "matchId": 2751886
+        "matchId": 2751886,
+        "result": {
+          "homeScore": 69,
+          "guestScore": 52,
+          "isFinished": true
+        }
       }
     },
     {
