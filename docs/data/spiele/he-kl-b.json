@@ -318,7 +318,12 @@
       "game": {
         "home": "BC Lions Moabit 6",
         "guest": "TSC Berlin 1",
-        "matchId": 2751883
+        "matchId": 2751883,
+        "result": {
+          "homeScore": 82,
+          "guestScore": 58,
+          "isFinished": true
+        }
       }
     },
     {

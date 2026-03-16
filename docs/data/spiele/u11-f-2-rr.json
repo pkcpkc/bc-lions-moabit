@@ -114,7 +114,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "ALBA Heinrich Roller 6",
-        "matchId": 2823062
+        "matchId": 2823062,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
