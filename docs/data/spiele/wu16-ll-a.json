@@ -303,7 +303,12 @@
       "game": {
         "home": "BASS Berlin 4",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2758789
+        "matchId": 2758789,
+        "result": {
+          "homeScore": 60,
+          "guestScore": 69,
+          "isFinished": true
+        }
       }
     },
     {
