@@ -257,7 +257,12 @@
       "game": {
         "home": "BC Lions Moabit 2",
         "guest": "VfL Lichtenrade 1",
-        "matchId": 2752912
+        "matchId": 2752912,
+        "result": {
+          "homeScore": 62,
+          "guestScore": 79,
+          "isFinished": true
+        }
       }
     },
     {
@@ -269,7 +274,12 @@
       "game": {
         "home": "Neukölln Minotaurs 1",
         "guest": "BC Lions Moabit 2",
-        "matchId": 2752974
+        "matchId": 2752974,
+        "result": {
+          "homeScore": 72,
+          "guestScore": 76,
+          "isFinished": true
+        }
       }
     },
     {

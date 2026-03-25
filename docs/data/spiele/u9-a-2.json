@@ -269,8 +269,8 @@
         "guest": "SV Empor Berlin 1",
         "matchId": 2752933,
         "result": {
-          "homeScore": 3,
-          "guestScore": 1,
+          "homeScore": 0,
+          "guestScore": 0,
           "isFinished": true
         }
       }

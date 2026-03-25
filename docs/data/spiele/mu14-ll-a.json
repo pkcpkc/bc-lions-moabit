@@ -148,7 +148,12 @@
       "game": {
         "home": "BC Lions Moabit 2 mix",
         "guest": "FREIBEUTER 2010 2",
-        "matchId": 2822588
+        "matchId": 2822588,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 88,
+          "isFinished": true
+        }
       }
     }
   ]
