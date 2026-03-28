@@ -2,7 +2,7 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-03-27T10:54:50.861Z",
+  "lastUpdated": "2026-03-28T10:38:12.600Z",
   "events": [
     {
       "summary": "Damen 1",
@@ -33,10 +33,31 @@
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-03-27T18:00:00.000Z",
-      "endDate": "2026-03-27T19:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "summary": "Damen 1",
+      "startDate": "2026-04-02T18:00:00.000Z",
+      "endDate": "2026-04-02T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-09T18:00:00.000Z",
+      "endDate": "2026-04-09T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-16T18:00:00.000Z",
+      "endDate": "2026-04-16T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-23T18:00:00.000Z",
+      "endDate": "2026-04-23T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
       "description": ""
     },
     {
@@ -93,34 +114,6 @@
       "startDate": "2026-04-21T16:30:00.000Z",
       "endDate": "2026-04-21T18:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-02T18:00:00.000Z",
-      "endDate": "2026-04-02T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-09T18:00:00.000Z",
-      "endDate": "2026-04-09T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-16T18:00:00.000Z",
-      "endDate": "2026-04-16T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-23T18:00:00.000Z",
-      "endDate": "2026-04-23T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
       "description": ""
     }
   ]
