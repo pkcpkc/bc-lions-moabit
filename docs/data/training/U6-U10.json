@@ -2,8 +2,43 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-03-28T10:38:15.252Z",
+  "lastUpdated": "2026-03-29T10:40:43.155Z",
   "events": [
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-04-02T15:00:00.000Z",
+      "endDate": "2026-04-02T16:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-04-09T15:00:00.000Z",
+      "endDate": "2026-04-09T16:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-04-16T15:00:00.000Z",
+      "endDate": "2026-04-16T16:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Jure",
+      "startDate": "2026-04-23T15:00:00.000Z",
+      "endDate": "2026-04-23T16:00:00.000Z",
+      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
     {
       "summary": "U6 bis U10 Mix Ali",
       "startDate": "2026-04-02T16:00:00.000Z",
@@ -30,13 +65,6 @@
       "startDate": "2026-04-23T16:00:00.000Z",
       "endDate": "2026-04-23T17:00:00.000Z",
       "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -96,31 +124,10 @@
       "description": ""
     },
     {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-04-02T15:00:00.000Z",
-      "endDate": "2026-04-02T16:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-04-09T15:00:00.000Z",
-      "endDate": "2026-04-09T16:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-04-16T15:00:00.000Z",
-      "endDate": "2026-04-16T16:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Jure",
-      "startDate": "2026-04-23T15:00:00.000Z",
-      "endDate": "2026-04-23T16:00:00.000Z",
-      "location": "Zinzendorfstraße 15, 10555 Berlin, Germany",
+      "summary": "mU10",
+      "startDate": "2026-04-28T14:00:00.000Z",
+      "endDate": "2026-04-28T15:00:00.000Z",
+      "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
       "description": ""
     }
   ]

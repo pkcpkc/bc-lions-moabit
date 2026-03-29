@@ -2,34 +2,34 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-03-28T10:38:12.600Z",
+  "lastUpdated": "2026-03-29T10:40:40.294Z",
   "events": [
     {
-      "summary": "Damen 1",
-      "startDate": "2026-03-31T18:00:00.000Z",
-      "endDate": "2026-03-31T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Damen 2",
+      "startDate": "2026-04-03T17:00:00.000Z",
+      "endDate": "2026-04-03T18:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 1",
-      "startDate": "2026-04-07T18:00:00.000Z",
-      "endDate": "2026-04-07T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Damen 2",
+      "startDate": "2026-04-10T17:00:00.000Z",
+      "endDate": "2026-04-10T18:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 1",
-      "startDate": "2026-04-14T18:00:00.000Z",
-      "endDate": "2026-04-14T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Damen 2",
+      "startDate": "2026-04-17T17:00:00.000Z",
+      "endDate": "2026-04-17T18:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 1",
-      "startDate": "2026-04-21T18:00:00.000Z",
-      "endDate": "2026-04-21T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "Damen 2",
+      "startDate": "2026-04-24T17:00:00.000Z",
+      "endDate": "2026-04-24T18:30:00.000Z",
+      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -61,31 +61,38 @@
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-04-03T17:00:00.000Z",
-      "endDate": "2026-04-03T18:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "summary": "Damen 1",
+      "startDate": "2026-03-31T18:00:00.000Z",
+      "endDate": "2026-03-31T19:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-04-10T17:00:00.000Z",
-      "endDate": "2026-04-10T18:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "summary": "Damen 1",
+      "startDate": "2026-04-07T18:00:00.000Z",
+      "endDate": "2026-04-07T19:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-04-17T17:00:00.000Z",
-      "endDate": "2026-04-17T18:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "summary": "Damen 1",
+      "startDate": "2026-04-14T18:00:00.000Z",
+      "endDate": "2026-04-14T19:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Damen 2",
-      "startDate": "2026-04-24T17:00:00.000Z",
-      "endDate": "2026-04-24T18:30:00.000Z",
-      "location": "Neues Ufer 6, 10553 Berlin, Deutschland",
+      "summary": "Damen 1",
+      "startDate": "2026-04-21T18:00:00.000Z",
+      "endDate": "2026-04-21T19:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-28T18:00:00.000Z",
+      "endDate": "2026-04-28T19:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -113,6 +120,13 @@
       "summary": "Damen 2",
       "startDate": "2026-04-21T16:30:00.000Z",
       "endDate": "2026-04-21T18:00:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Damen 2",
+      "startDate": "2026-04-28T16:30:00.000Z",
+      "endDate": "2026-04-28T18:00:00.000Z",
       "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
