@@ -284,7 +284,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "Vgg. Adler 1912 1",
-        "matchId": 2749763
+        "matchId": 2749763,
+        "result": {
+          "homeScore": 42,
+          "guestScore": 37,
+          "isFinished": true
+        }
       }
     },
     {
