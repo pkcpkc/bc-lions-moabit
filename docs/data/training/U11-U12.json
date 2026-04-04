@@ -2,13 +2,13 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-04-03T10:50:18.341Z",
+  "lastUpdated": "2026-04-04T10:39:37.240Z",
   "events": [
     {
-      "summary": "U11 & U12 Team",
-      "startDate": "2026-04-03T14:00:00.000Z",
-      "endDate": "2026-04-03T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2025-11-05T17:30:00.000Z",
+      "endDate": "2025-11-05T19:00:00.000Z",
+      "location": "",
       "description": ""
     },
     {
@@ -40,38 +40,31 @@
       "description": ""
     },
     {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-04-06T15:00:00.000Z",
-      "endDate": "2026-04-06T16:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-04-13T15:00:00.000Z",
-      "endDate": "2026-04-13T16:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-04-20T15:00:00.000Z",
-      "endDate": "2026-04-20T16:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12 Teamtraining",
-      "startDate": "2026-04-27T15:00:00.000Z",
-      "endDate": "2026-04-27T16:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2026-04-08T16:30:00.000Z",
+      "endDate": "2026-04-08T18:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
       "summary": "Boys Förder 2006-2010",
-      "startDate": "2025-11-05T17:30:00.000Z",
-      "endDate": "2025-11-05T19:00:00.000Z",
-      "location": "",
+      "startDate": "2026-04-15T16:30:00.000Z",
+      "endDate": "2026-04-15T18:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2026-04-22T16:30:00.000Z",
+      "endDate": "2026-04-22T18:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2026-04-29T16:30:00.000Z",
+      "endDate": "2026-04-29T18:00:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -103,31 +96,31 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2026-04-08T16:30:00.000Z",
-      "endDate": "2026-04-08T18:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-04-06T15:00:00.000Z",
+      "endDate": "2026-04-06T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2026-04-15T16:30:00.000Z",
-      "endDate": "2026-04-15T18:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-04-13T15:00:00.000Z",
+      "endDate": "2026-04-13T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2026-04-22T16:30:00.000Z",
-      "endDate": "2026-04-22T18:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-04-20T15:00:00.000Z",
+      "endDate": "2026-04-20T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2026-04-29T16:30:00.000Z",
-      "endDate": "2026-04-29T18:00:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "summary": "U11 & U12 Teamtraining",
+      "startDate": "2026-04-27T15:00:00.000Z",
+      "endDate": "2026-04-27T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
   ]
