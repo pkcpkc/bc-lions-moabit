@@ -2,36 +2,8 @@
   "label": "U6-U10",
   "id": "U6-U10",
   "calId": "df38d6948a68a0c864639edde500fd21de33b1620a62a8d5c552693e5521e93b@group.calendar.google.com",
-  "lastUpdated": "2026-04-04T10:39:37.846Z",
+  "lastUpdated": "2026-04-05T10:41:24.498Z",
   "events": [
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-04-09T16:00:00.000Z",
-      "endDate": "2026-04-09T17:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-04-16T16:00:00.000Z",
-      "endDate": "2026-04-16T17:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-04-23T16:00:00.000Z",
-      "endDate": "2026-04-23T17:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U6 bis U10 Mix Ali",
-      "startDate": "2026-04-30T16:00:00.000Z",
-      "endDate": "2026-04-30T17:00:00.000Z",
-      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "mU10",
       "startDate": "2026-04-07T14:00:00.000Z",
@@ -58,13 +30,6 @@
       "startDate": "2026-04-28T14:00:00.000Z",
       "endDate": "2026-04-28T15:00:00.000Z",
       "location": "Carl-Bolle-Grundschule, Waldenserstraße 20/21, 10551 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "U8 & U9",
-      "startDate": "2025-10-29T15:00:00.000Z",
-      "endDate": "2025-10-29T17:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -96,6 +61,34 @@
       "description": ""
     },
     {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-04-09T16:00:00.000Z",
+      "endDate": "2026-04-09T17:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-04-16T16:00:00.000Z",
+      "endDate": "2026-04-16T17:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-04-23T16:00:00.000Z",
+      "endDate": "2026-04-23T17:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U6 bis U10 Mix Ali",
+      "startDate": "2026-04-30T16:00:00.000Z",
+      "endDate": "2026-04-30T17:00:00.000Z",
+      "location": "Zinzendorfstraße 16, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
       "summary": "U8 & U9",
       "startDate": "2026-04-08T14:00:00.000Z",
       "endDate": "2026-04-08T16:30:00.000Z",
@@ -120,6 +113,13 @@
       "summary": "U8 & U9",
       "startDate": "2026-04-29T14:00:00.000Z",
       "endDate": "2026-04-29T16:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "U8 & U9",
+      "startDate": "2025-10-29T15:00:00.000Z",
+      "endDate": "2025-10-29T17:30:00.000Z",
       "location": "Bochumer Str. 8, 10555 Berlin, Deutschland",
       "description": ""
     }
