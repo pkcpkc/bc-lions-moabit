@@ -2,15 +2,8 @@
   "label": "Damen",
   "id": "Damen",
   "calId": "373060122563f5e9b14fa707097de038562e1c1e6e6a17278a34a428319a2b73@group.calendar.google.com",
-  "lastUpdated": "2026-04-07T11:02:21.219Z",
+  "lastUpdated": "2026-04-08T11:03:25.631Z",
   "events": [
-    {
-      "summary": "Damen 2",
-      "startDate": "2026-04-07T16:30:00.000Z",
-      "endDate": "2026-04-07T18:00:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "Damen 2",
       "startDate": "2026-04-14T16:30:00.000Z",
@@ -41,9 +34,37 @@
     },
     {
       "summary": "Damen 1",
-      "startDate": "2026-04-07T18:00:00.000Z",
-      "endDate": "2026-04-07T19:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
+      "startDate": "2026-04-09T18:00:00.000Z",
+      "endDate": "2026-04-09T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-16T18:00:00.000Z",
+      "endDate": "2026-04-16T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-23T18:00:00.000Z",
+      "endDate": "2026-04-23T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-04-30T18:00:00.000Z",
+      "endDate": "2026-04-30T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Damen 1",
+      "startDate": "2026-05-07T18:00:00.000Z",
+      "endDate": "2026-05-07T19:45:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
       "description": ""
     },
     {
@@ -72,34 +93,6 @@
       "startDate": "2026-05-05T18:00:00.000Z",
       "endDate": "2026-05-05T19:30:00.000Z",
       "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-09T18:00:00.000Z",
-      "endDate": "2026-04-09T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-16T18:00:00.000Z",
-      "endDate": "2026-04-16T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-23T18:00:00.000Z",
-      "endDate": "2026-04-23T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Damen 1",
-      "startDate": "2026-04-30T18:00:00.000Z",
-      "endDate": "2026-04-30T19:45:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
       "description": ""
     },
     {
