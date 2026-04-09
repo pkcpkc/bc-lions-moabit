@@ -232,18 +232,6 @@
       }
     },
     {
-      "summary": "BC Lions Moabit 1 mix vs BASS Südwest 1",
-      "startDate": "2026-03-14T13:00:00.000Z",
-      "endDate": "2026-03-14T15:00:00.000Z",
-      "venueName": "Alt-Moabit",
-      "location": "Alt-Moabit 10, 10557, Berlin",
-      "game": {
-        "home": "BC Lions Moabit 1 mix",
-        "guest": "BASS Südwest 1",
-        "matchId": 2750086
-      }
-    },
-    {
       "summary": "BC Lions Moabit 1 mix vs RSV Eintracht 1",
       "startDate": "2026-03-15T15:00:00.000Z",
       "endDate": "2026-03-15T17:00:00.000Z",
@@ -270,6 +258,18 @@
         "home": "BC Lions Moabit 1 mix",
         "guest": "Einheit Pankow 1",
         "matchId": 2750223
+      }
+    },
+    {
+      "summary": "BC Lions Moabit 1 mix vs BASS Südwest 1",
+      "startDate": "2026-04-12T16:00:00.000Z",
+      "endDate": "2026-04-12T18:00:00.000Z",
+      "venueName": "Alt-Moabit",
+      "location": "Alt-Moabit 10, 10557, Berlin",
+      "game": {
+        "home": "BC Lions Moabit 1 mix",
+        "guest": "BASS Südwest 1",
+        "matchId": 2750086
       }
     },
     {
