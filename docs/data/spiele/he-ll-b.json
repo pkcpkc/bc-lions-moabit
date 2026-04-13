@@ -318,7 +318,12 @@
       "game": {
         "home": "BC Lions Moabit 1",
         "guest": "Weddinger Wiesel 2",
-        "matchId": 2750008
+        "matchId": 2750008,
+        "result": {
+          "homeScore": 91,
+          "guestScore": 60,
+          "isFinished": true
+        }
       }
     },
     {

@@ -301,7 +301,12 @@
       "game": {
         "home": "BC Lions Moabit 5",
         "guest": "TSC Spandau 4",
-        "matchId": 2757537
+        "matchId": 2757537,
+        "result": {
+          "homeScore": 52,
+          "guestScore": 56,
+          "isFinished": true
+        }
       }
     },
     {

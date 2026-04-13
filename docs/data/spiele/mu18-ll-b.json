@@ -269,7 +269,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "BASS Südwest 1",
-        "matchId": 2750086
+        "matchId": 2750086,
+        "result": {
+          "homeScore": 53,
+          "guestScore": 57,
+          "isFinished": true
+        }
       }
     },
     {
