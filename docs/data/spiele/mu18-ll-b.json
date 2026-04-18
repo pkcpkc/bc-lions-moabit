@@ -257,7 +257,12 @@
       "game": {
         "home": "BC Lions Moabit 1 mix",
         "guest": "Einheit Pankow 1",
-        "matchId": 2750223
+        "matchId": 2750223,
+        "result": {
+          "homeScore": 0,
+          "guestScore": 20,
+          "isFinished": true
+        }
       }
     },
     {
