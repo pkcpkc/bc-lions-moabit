@@ -320,7 +320,12 @@
       "game": {
         "home": "ALBA Gropiusstadt 4",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2758941
+        "matchId": 2758941,
+        "result": {
+          "homeScore": 49,
+          "guestScore": 50,
+          "isFinished": true
+        }
       }
     },
     {

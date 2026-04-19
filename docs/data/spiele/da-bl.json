@@ -342,7 +342,12 @@
       "game": {
         "home": "BC Lions Moabit 2",
         "guest": "BC Lichterfelde 1",
-        "matchId": 2755580
+        "matchId": 2755580,
+        "result": {
+          "homeScore": 28,
+          "guestScore": 61,
+          "isFinished": true
+        }
       }
     },
     {
