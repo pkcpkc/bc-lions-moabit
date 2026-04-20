@@ -233,7 +233,12 @@
       "game": {
         "home": "BG Red Dragons KW 1",
         "guest": "BC Lions Moabit 1 mix",
-        "matchId": 2751213
+        "matchId": 2751213,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {

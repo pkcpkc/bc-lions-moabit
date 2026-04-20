@@ -337,7 +337,12 @@
       "game": {
         "home": "KINGS&QUEENS Potsdam 1",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2758590
+        "matchId": 2758590,
+        "result": {
+          "homeScore": 23,
+          "guestScore": 62,
+          "isFinished": true
+        }
       }
     }
   ]

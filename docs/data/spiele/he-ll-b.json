@@ -335,7 +335,12 @@
       "game": {
         "home": "Türkiyemspor Berlin 2",
         "guest": "BC Lions Moabit 1",
-        "matchId": 2749993
+        "matchId": 2749993,
+        "result": {
+          "homeScore": 65,
+          "guestScore": 106,
+          "isFinished": true
+        }
       }
     }
   ]
