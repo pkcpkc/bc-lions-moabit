@@ -40,7 +40,7 @@ flowchart TB
 
 ## Tech Stack
 
-- **Runtime:** Node.js 18+ (ES Modules)
+- **Runtime:** Node.js 24+ (ES Modules)
 - **APIs:** Basketball-Bund REST API, Google Calendar API  
 - **Testing:** Vitest (302 tests, 100% pass required)
 - **Architecture:** Service-oriented with dependency injection
