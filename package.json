@@ -8,10 +8,10 @@
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^1.6.1",
-    "@vitest/ui": "^1.6.1",
+    "@vitest/coverage-v8": "^4.1.5",
+    "@vitest/ui": "^4.1.5",
     "c8": "^8.0.1",
-    "vitest": "^1.6.1"
+    "vitest": "^4.1.5"
   },
   "scripts": {
     "fetch:all-games": "node src/fetch-all-games.js",

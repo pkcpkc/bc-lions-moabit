@@ -2,34 +2,20 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2026-04-21T16:08:22.819Z",
+  "lastUpdated": "2026-04-21T16:24:04.379Z",
   "events": [
-    {
-      "summary": "wU14 & wU18-1",
-      "startDate": "2025-10-17T15:00:00.000Z",
-      "endDate": "2025-10-17T16:30:00.000Z",
-      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
-      "description": ""
-    },
-    {
-      "summary": "wU18-2",
-      "startDate": "2025-11-13T17:45:00.000Z",
-      "endDate": "2025-11-13T19:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "wU18-2",
-      "startDate": "2025-10-16T16:45:00.000Z",
-      "endDate": "2025-10-16T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
-      "description": ""
-    },
     {
       "summary": "wU16",
       "startDate": "2025-10-15T15:30:00.000Z",
       "endDate": "2025-10-15T17:00:00.000Z",
       "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU14 & wU18-1",
+      "startDate": "2025-10-17T15:00:00.000Z",
+      "endDate": "2025-10-17T16:30:00.000Z",
+      "location": "OSZ Banken, Immobilien und Versicherungen Berlin, Alt-Moabit 10, 10557 Berlin, Deutschland",
       "description": ""
     },
     {
@@ -44,6 +30,20 @@
       "startDate": "2025-11-12T16:30:00.000Z",
       "endDate": "2025-11-12T18:00:00.000Z",
       "location": "Kaiserdamm 100, 14057 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU18-2",
+      "startDate": "2025-10-16T16:45:00.000Z",
+      "endDate": "2025-10-16T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Deutschland",
+      "description": ""
+    },
+    {
+      "summary": "wU18-2",
+      "startDate": "2025-11-13T17:45:00.000Z",
+      "endDate": "2025-11-13T19:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     }
   ]

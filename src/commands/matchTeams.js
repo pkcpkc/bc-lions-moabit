@@ -13,7 +13,7 @@ const TRAINING_GROUPS = {
     'Damen.json': /^da-/,
     'mU14-mU20.json': /^mu(14|16|18|20)-/,
     'wU12-wU18.json': /^wu(12|14|16|18)-/,
-    'U11-U12.json': /^(mu12-|u11-)/,
+    'U11-U13.json': /^(mu(12|13)-|u11-)/,
     'U6-U10.json': /^u([0-9]|10)-/
 };
 
