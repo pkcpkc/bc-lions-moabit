@@ -352,7 +352,12 @@
       "game": {
         "home": "BC Lions Moabit 6",
         "guest": "VfL Lichtenrade 2",
-        "matchId": 2751905
+        "matchId": 2751905,
+        "result": {
+          "homeScore": 20,
+          "guestScore": 0,
+          "isFinished": true
+        }
       }
     },
     {
