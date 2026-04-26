@@ -320,7 +320,12 @@
       "game": {
         "home": "BC Lions Moabit 4",
         "guest": "SSV Intercor 2",
-        "matchId": 2751918
+        "matchId": 2751918,
+        "result": {
+          "homeScore": 67,
+          "guestScore": 49,
+          "isFinished": true
+        }
       }
     }
   ]

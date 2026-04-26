@@ -369,7 +369,12 @@
       "game": {
         "home": "KSV Ajax 1",
         "guest": "BC Lions Moabit 6",
-        "matchId": 2751919
+        "matchId": 2751919,
+        "result": {
+          "homeScore": 57,
+          "guestScore": 70,
+          "isFinished": true
+        }
       }
     }
   ]
