@@ -2,15 +2,8 @@
   "label": "wU12-wU18",
   "id": "wU12-wU18",
   "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
-  "lastUpdated": "2026-04-27T11:48:43.328Z",
+  "lastUpdated": "2026-04-28T11:49:55.563Z",
   "events": [
-    {
-      "summary": "wU18-2",
-      "startDate": "2025-11-13T17:45:00.000Z",
-      "endDate": "2025-11-13T19:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
     {
       "summary": "wU14 & wU18-1",
       "startDate": "2025-10-17T15:00:00.000Z",
@@ -19,10 +12,17 @@
       "description": ""
     },
     {
-      "summary": "wU14",
-      "startDate": "2025-10-16T15:00:00.000Z",
-      "endDate": "2025-10-16T16:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
+      "summary": "wU16",
+      "startDate": "2025-11-12T16:30:00.000Z",
+      "endDate": "2025-11-12T18:00:00.000Z",
+      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "wU18-2",
+      "startDate": "2025-11-13T17:45:00.000Z",
+      "endDate": "2025-11-13T19:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     },
     {
@@ -40,10 +40,10 @@
       "description": ""
     },
     {
-      "summary": "wU16",
-      "startDate": "2025-11-12T16:30:00.000Z",
-      "endDate": "2025-11-12T18:00:00.000Z",
-      "location": "Kaiserdamm 100, 14057 Berlin, Germany",
+      "summary": "wU14",
+      "startDate": "2025-10-16T15:00:00.000Z",
+      "endDate": "2025-10-16T16:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Deutschland",
       "description": ""
     }
   ]
