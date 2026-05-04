@@ -2,8 +2,50 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-05-03T10:57:56.230Z",
+  "lastUpdated": "2026-05-04T11:54:04.693Z",
   "events": [
+    {
+      "summary": "Boys Förder 2011-2016",
+      "startDate": "2026-04-30T15:00:00.000Z",
+      "endDate": "2026-04-30T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2025-11-05T17:30:00.000Z",
+      "endDate": "2025-11-05T19:00:00.000Z",
+      "location": "",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-05-08T14:00:00.000Z",
+      "endDate": "2026-05-08T15:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-05-15T14:00:00.000Z",
+      "endDate": "2026-05-15T15:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-05-22T14:00:00.000Z",
+      "endDate": "2026-05-22T15:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-05-29T14:00:00.000Z",
+      "endDate": "2026-05-29T15:30:00.000Z",
+      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "description": ""
+    },
     {
       "summary": "Boys Grundlagen",
       "startDate": "2026-05-07T16:45:00.000Z",
@@ -33,9 +75,9 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder 2011-2016",
-      "startDate": "2026-04-30T15:00:00.000Z",
-      "endDate": "2026-04-30T16:30:00.000Z",
+      "summary": "Boys Förder",
+      "startDate": "2026-04-23T15:00:00.000Z",
+      "endDate": "2026-04-23T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
@@ -68,31 +110,10 @@
       "description": ""
     },
     {
-      "summary": "U11 & U12",
-      "startDate": "2026-05-08T14:00:00.000Z",
-      "endDate": "2026-05-08T15:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-05-15T14:00:00.000Z",
-      "endDate": "2026-05-15T15:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-05-22T14:00:00.000Z",
-      "endDate": "2026-05-22T15:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-05-29T14:00:00.000Z",
-      "endDate": "2026-05-29T15:30:00.000Z",
-      "location": "Gerhardtstraße 3, 10557 Berlin, Germany",
+      "summary": "U12 & U14",
+      "startDate": "2026-06-03T15:00:00.000Z",
+      "endDate": "2026-06-03T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
@@ -131,13 +152,6 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2025-11-05T17:30:00.000Z",
-      "endDate": "2025-11-05T19:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
-    {
       "summary": "U13",
       "startDate": "2026-05-05T15:00:00.000Z",
       "endDate": "2026-05-05T16:30:00.000Z",
@@ -169,13 +183,6 @@
       "summary": "U13",
       "startDate": "2026-06-02T15:00:00.000Z",
       "endDate": "2026-06-02T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Förder",
-      "startDate": "2026-04-23T15:00:00.000Z",
-      "endDate": "2026-04-23T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     }
