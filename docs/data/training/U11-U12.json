@@ -2,8 +2,15 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-05-14T11:55:39.148Z",
+  "lastUpdated": "2026-05-15T11:59:26.973Z",
   "events": [
+    {
+      "summary": "Boys Förder",
+      "startDate": "2026-04-23T15:00:00.000Z",
+      "endDate": "2026-04-23T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
     {
       "summary": "U13",
       "startDate": "2026-05-19T15:00:00.000Z",
@@ -33,30 +40,37 @@
       "description": ""
     },
     {
-      "summary": "U12 & U14",
-      "startDate": "2026-05-20T15:00:00.000Z",
-      "endDate": "2026-05-20T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-05-21T16:45:00.000Z",
+      "endDate": "2026-05-21T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U12 & U14",
-      "startDate": "2026-05-27T15:00:00.000Z",
-      "endDate": "2026-05-27T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-05-28T16:45:00.000Z",
+      "endDate": "2026-05-28T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U12 & U14",
-      "startDate": "2026-06-03T15:00:00.000Z",
-      "endDate": "2026-06-03T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-04T16:45:00.000Z",
+      "endDate": "2026-06-04T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U12 & U14",
-      "startDate": "2026-06-10T15:00:00.000Z",
-      "endDate": "2026-06-10T16:30:00.000Z",
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-11T16:45:00.000Z",
+      "endDate": "2026-06-11T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Förder 2011-2016",
+      "startDate": "2026-04-30T15:00:00.000Z",
+      "endDate": "2026-04-30T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
@@ -131,52 +145,31 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder 2011-2016",
-      "startDate": "2026-04-30T15:00:00.000Z",
-      "endDate": "2026-04-30T16:30:00.000Z",
+      "summary": "U12 & U14",
+      "startDate": "2026-05-20T15:00:00.000Z",
+      "endDate": "2026-05-20T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Boys Förder",
-      "startDate": "2026-04-23T15:00:00.000Z",
-      "endDate": "2026-04-23T16:30:00.000Z",
+      "summary": "U12 & U14",
+      "startDate": "2026-05-27T15:00:00.000Z",
+      "endDate": "2026-05-27T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-05-14T16:45:00.000Z",
-      "endDate": "2026-05-14T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "summary": "U12 & U14",
+      "startDate": "2026-06-03T15:00:00.000Z",
+      "endDate": "2026-06-03T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-05-21T16:45:00.000Z",
-      "endDate": "2026-05-21T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-05-28T16:45:00.000Z",
-      "endDate": "2026-05-28T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-04T16:45:00.000Z",
-      "endDate": "2026-06-04T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-11T16:45:00.000Z",
-      "endDate": "2026-06-11T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "summary": "U12 & U14",
+      "startDate": "2026-06-10T15:00:00.000Z",
+      "endDate": "2026-06-10T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     }
   ]
