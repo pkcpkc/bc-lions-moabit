@@ -2,7 +2,7 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-05-27T12:55:42.067Z",
+  "lastUpdated": "2026-05-28T13:56:04.130Z",
   "events": [
     {
       "summary": "Boys Förder 2011-2016",
@@ -12,38 +12,31 @@
       "description": ""
     },
     {
-      "summary": "U11 & U12",
-      "startDate": "2026-05-29T14:00:00.000Z",
-      "endDate": "2026-05-29T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "summary": "U13",
+      "startDate": "2026-06-02T15:00:00.000Z",
+      "endDate": "2026-06-02T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-05T14:00:00.000Z",
-      "endDate": "2026-06-05T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "summary": "U13",
+      "startDate": "2026-06-09T15:00:00.000Z",
+      "endDate": "2026-06-09T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-12T14:00:00.000Z",
-      "endDate": "2026-06-12T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "summary": "U13",
+      "startDate": "2026-06-16T15:00:00.000Z",
+      "endDate": "2026-06-16T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-19T14:00:00.000Z",
-      "endDate": "2026-06-19T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-26T14:00:00.000Z",
-      "endDate": "2026-06-26T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "summary": "U13",
+      "startDate": "2026-06-23T15:00:00.000Z",
+      "endDate": "2026-06-23T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
     {
@@ -89,13 +82,6 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder",
-      "startDate": "2026-04-23T15:00:00.000Z",
-      "endDate": "2026-04-23T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
       "summary": "U11 & U12 Teamtraining",
       "startDate": "2026-06-01T15:00:00.000Z",
       "endDate": "2026-06-01T16:30:00.000Z",
@@ -124,9 +110,9 @@
       "description": ""
     },
     {
-      "summary": "U12 & U14",
-      "startDate": "2026-05-27T15:00:00.000Z",
-      "endDate": "2026-05-27T16:30:00.000Z",
+      "summary": "Boys Förder",
+      "startDate": "2026-04-23T15:00:00.000Z",
+      "endDate": "2026-04-23T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
       "description": ""
     },
@@ -159,31 +145,38 @@
       "description": ""
     },
     {
-      "summary": "U13",
-      "startDate": "2026-06-02T15:00:00.000Z",
-      "endDate": "2026-06-02T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "U11 & U12",
+      "startDate": "2026-05-29T14:00:00.000Z",
+      "endDate": "2026-05-29T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U13",
-      "startDate": "2026-06-09T15:00:00.000Z",
-      "endDate": "2026-06-09T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "U11 & U12",
+      "startDate": "2026-06-05T14:00:00.000Z",
+      "endDate": "2026-06-05T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U13",
-      "startDate": "2026-06-16T15:00:00.000Z",
-      "endDate": "2026-06-16T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "U11 & U12",
+      "startDate": "2026-06-12T14:00:00.000Z",
+      "endDate": "2026-06-12T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     },
     {
-      "summary": "U13",
-      "startDate": "2026-06-23T15:00:00.000Z",
-      "endDate": "2026-06-23T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "summary": "U11 & U12",
+      "startDate": "2026-06-19T14:00:00.000Z",
+      "endDate": "2026-06-19T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-06-26T14:00:00.000Z",
+      "endDate": "2026-06-26T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
       "description": ""
     }
   ]
