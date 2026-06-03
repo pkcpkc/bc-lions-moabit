@@ -2,113 +2,8 @@
   "label": "U11/U12",
   "id": "U11-U12",
   "calId": "6f946bc99a6785308b4facc586f3f865fbdc24c3dee6fbd779848d459d645cf3@group.calendar.google.com",
-  "lastUpdated": "2026-06-02T14:08:55.270Z",
+  "lastUpdated": "2026-06-03T14:46:43.879Z",
   "events": [
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-04T16:45:00.000Z",
-      "endDate": "2026-06-04T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-11T16:45:00.000Z",
-      "endDate": "2026-06-11T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-18T16:45:00.000Z",
-      "endDate": "2026-06-18T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Grundlagen",
-      "startDate": "2026-06-25T16:45:00.000Z",
-      "endDate": "2026-06-25T18:00:00.000Z",
-      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Förder 2011-2016",
-      "startDate": "2026-04-30T15:00:00.000Z",
-      "endDate": "2026-04-30T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U13",
-      "startDate": "2026-06-02T15:00:00.000Z",
-      "endDate": "2026-06-02T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U13",
-      "startDate": "2026-06-09T15:00:00.000Z",
-      "endDate": "2026-06-09T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U13",
-      "startDate": "2026-06-16T15:00:00.000Z",
-      "endDate": "2026-06-16T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U13",
-      "startDate": "2026-06-23T15:00:00.000Z",
-      "endDate": "2026-06-23T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U13",
-      "startDate": "2026-06-30T15:00:00.000Z",
-      "endDate": "2026-06-30T16:30:00.000Z",
-      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-05T14:00:00.000Z",
-      "endDate": "2026-06-05T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-12T14:00:00.000Z",
-      "endDate": "2026-06-12T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-19T14:00:00.000Z",
-      "endDate": "2026-06-19T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "U11 & U12",
-      "startDate": "2026-06-26T14:00:00.000Z",
-      "endDate": "2026-06-26T15:30:00.000Z",
-      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
-      "description": ""
-    },
-    {
-      "summary": "Boys Förder 2006-2010",
-      "startDate": "2025-11-05T17:30:00.000Z",
-      "endDate": "2025-11-05T19:00:00.000Z",
-      "location": "",
-      "description": ""
-    },
     {
       "summary": "U12 & U14",
       "startDate": "2026-06-03T15:00:00.000Z",
@@ -145,6 +40,76 @@
       "description": ""
     },
     {
+      "summary": "Boys Förder",
+      "startDate": "2026-04-23T15:00:00.000Z",
+      "endDate": "2026-04-23T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-06-05T14:00:00.000Z",
+      "endDate": "2026-06-05T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-06-12T14:00:00.000Z",
+      "endDate": "2026-06-12T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-06-19T14:00:00.000Z",
+      "endDate": "2026-06-19T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-06-26T14:00:00.000Z",
+      "endDate": "2026-06-26T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U11 & U12",
+      "startDate": "2026-07-03T14:00:00.000Z",
+      "endDate": "2026-07-03T15:30:00.000Z",
+      "location": "Bochumer Str. 8, 10555 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U13",
+      "startDate": "2026-06-09T15:00:00.000Z",
+      "endDate": "2026-06-09T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U13",
+      "startDate": "2026-06-16T15:00:00.000Z",
+      "endDate": "2026-06-16T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U13",
+      "startDate": "2026-06-23T15:00:00.000Z",
+      "endDate": "2026-06-23T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "U13",
+      "startDate": "2026-06-30T15:00:00.000Z",
+      "endDate": "2026-06-30T16:30:00.000Z",
+      "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
       "summary": "U11 & U12 Teamtraining",
       "startDate": "2026-06-08T15:00:00.000Z",
       "endDate": "2026-06-08T16:30:00.000Z",
@@ -173,10 +138,52 @@
       "description": ""
     },
     {
-      "summary": "Boys Förder",
-      "startDate": "2026-04-23T15:00:00.000Z",
-      "endDate": "2026-04-23T16:30:00.000Z",
+      "summary": "Boys Förder 2011-2016",
+      "startDate": "2026-04-30T15:00:00.000Z",
+      "endDate": "2026-04-30T16:30:00.000Z",
       "location": "OSZ banks, real estate and insurance Berlin, Alt-Moabit 10, 10557 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-04T16:45:00.000Z",
+      "endDate": "2026-06-04T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-11T16:45:00.000Z",
+      "endDate": "2026-06-11T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-18T16:45:00.000Z",
+      "endDate": "2026-06-18T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-06-25T16:45:00.000Z",
+      "endDate": "2026-06-25T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Grundlagen",
+      "startDate": "2026-07-02T16:45:00.000Z",
+      "endDate": "2026-07-02T18:00:00.000Z",
+      "location": "Kaiserin-Augusta-Allee 100, 10553 Berlin, Germany",
+      "description": ""
+    },
+    {
+      "summary": "Boys Förder 2006-2010",
+      "startDate": "2025-11-05T17:30:00.000Z",
+      "endDate": "2025-11-05T19:00:00.000Z",
+      "location": "",
       "description": ""
     }
   ]
