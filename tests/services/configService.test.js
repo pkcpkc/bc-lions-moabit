@@ -19,7 +19,7 @@ describe('ConfigService', () => {
             warn: vi.fn(),
             error: vi.fn()
         };
-        configService = new ConfigService(mockLogger);
+        configService = new ConfigService(mockLogger, 'docs');
         vi.clearAllMocks();
     });
 

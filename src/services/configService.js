@@ -2,8 +2,9 @@ import { readFile, readdir } from 'fs/promises';
 import { join } from 'path';
 
 export class ConfigService {
-    constructor(logger = console) {
+    constructor(logger = console, pathPrefix = 'dist') {
         this.logger = logger;
+        this.pathPrefix = pathPrefix;
     }
 
     async readTeamConfigs(teamsDir = 'teams') {
@@ -30,7 +31,7 @@ export class ConfigService {
                     configs.push({
                         file,
                         ...config,
-                        icsFilename: `docs/ics/${teamsDir}/${config.teamId}.ics`,
+                        icsFilename: `${this.pathPrefix}/ics/${teamsDir}/${config.teamId}.ics`,
                         icsUrl: `./ics/${teamsDir}/${config.teamId}.ics`,
                         jsonUrl: `./data/${teamsDir}/${config.teamId}.json`,
                         webUrl: `https://www.basketball-bund.net/static/#/liga/${config.competitionId}`
@@ -80,7 +81,7 @@ export class ConfigService {
                         id,
                         label: config.label,
                         calId: config.calId,
-                        icsFilename: `docs/ics/${termineDir}/${id}.ics`,
+                        icsFilename: `${this.pathPrefix}/ics/${termineDir}/${id}.ics`,
                         icsUrl: `./ics/${termineDir}/${id}.ics`,
                         jsonUrl: `./data/${termineDir}/${id}.json`
                     };
@@ -136,7 +137,7 @@ export class ConfigService {
                         id,
                         label: config.label,
                         calId: config.calId,
-                        icsFilename: `docs/ics/${sourceDir}/${id}.ics`,
+                        icsFilename: `${this.pathPrefix}/ics/${sourceDir}/${id}.ics`,
                         icsUrl: `./ics/${sourceDir}/${id}.ics`,
                         jsonUrl: `./data/${sourceDir}/${id}.json`,
                         type: outputType

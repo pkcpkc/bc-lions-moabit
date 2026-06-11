@@ -11,7 +11,8 @@ export default defineConfig({
         'node_modules/**',
         'tests/**',
         '*.config.js',
-        'docs/**',
+        'dist/**',
+        'public/**',
         'teams/**',
         'termine/**'
       ]

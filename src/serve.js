@@ -1,6 +1,7 @@
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
+import { config } from './config/index.js';
 
 const PORT = 3000;
 const MIME_TYPES = {
@@ -19,7 +20,7 @@ const server = http.createServer((req, res) => {
 
     // Prevent directory traversal
     const sanitizedUrl = path.normalize(req.url).replace(/^(\.\.[\/\\])+/, '');
-    let filePath = path.join('./docs', sanitizedUrl === '/' ? 'index.html' : sanitizedUrl);
+    let filePath = path.join(config.paths.distDir, sanitizedUrl === '/' ? 'index.html' : sanitizedUrl);
 
     const extname = path.extname(filePath);
     const contentType = MIME_TYPES[extname] || 'application/octet-stream';
@@ -41,5 +42,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/ (serving docs/)`);
+    console.log(`Server running at http://localhost:${PORT}/ (serving ${config.paths.distDir}/)`);
 });

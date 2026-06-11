@@ -17,7 +17,7 @@ const TRAINING_GROUPS = {
     'U6-U10.json': /^u([0-9]|10)-/
 };
 
-const DATA_DIR = path.resolve(__dirname, '../../docs/data/spiele');
+const DATA_DIR = path.resolve(__dirname, '../../dist/data/spiele');
 
 async function hasFutureEvents(teamId) {
     try {

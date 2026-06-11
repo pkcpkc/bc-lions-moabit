@@ -24,7 +24,7 @@ describe('TermineService', () => {
             info: vi.fn(),
             warn: vi.fn()
         };
-        termineService = new TermineService(mockHttpClient, mockLogger);
+        termineService = new TermineService(mockHttpClient, mockLogger, 'docs');
         vi.clearAllMocks();
     });
 

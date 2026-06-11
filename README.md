@@ -19,9 +19,9 @@ flowchart TB
     end
     
     subgraph OUTPUT [Generated Output]
-        ICS[ICS Calendar Files<br/>docs/ics/spiele/ + docs/ics/termine/]
-        JSON[JSON Data Files<br/>docs/data/spiele/ + docs/data/termine/]
-        HTML[Static Website<br/>docs/index.html + JavaScript app]
+        ICS[ICS Calendar Files<br/>dist/ics/spiele/ + dist/ics/termine/]
+        JSON[JSON Data Files<br/>dist/data/spiele/ + dist/data/termine/]
+        HTML[Static Website<br/>dist/index.html + JavaScript app]
     end
     
     API --> FETCH
@@ -90,7 +90,7 @@ npm run build
 ### Individual Tools
 - `npm run crawl`: Crawls the Basketball-Bund website to discover new teams.
 - `npm run match-teams`: Matches discovered teams to training groups (filters out teams with no future events).
-- `npm run serve`: Starts a local web server to preview the generated documentation.
+- `npm run serve`: Starts a local web server to preview the generated website.
 
 ## GitHub Actions
 

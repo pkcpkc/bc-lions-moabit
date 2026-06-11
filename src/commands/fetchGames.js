@@ -7,7 +7,7 @@ import { Logger } from '../services/logger.js';
 import { config } from '../config/index.js';
 
 // Constants for output paths
-const SPIELE_JSON_DIR = 'docs/data/spiele';
+const SPIELE_JSON_DIR = config.paths.spieleJsonDir;
 
 export class FetchGamesCommand {
     constructor(dependencies = {}) {

@@ -21,7 +21,14 @@ on:
         type: boolean
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   update-data:
@@ -80,29 +87,6 @@ jobs:
         npm run build:games
         echo "✅ Games-only build completed"
         
-    - name: Check for changes
-      id: check_changes
-      run: |
-        if git diff --quiet; then
-          echo "changes=false" >> $GITHUB_OUTPUT
-          echo "No changes detected"
-        else
-          echo "changes=true" >> $GITHUB_OUTPUT
-          echo "Changes detected"
-          git status
-        fi
-        
-    - name: Commit and push changes
-      if: steps.check_changes.outputs.changes == 'true' || github.event.inputs.force_update == 'true'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Update termine and spiele, rebuild HTML - $(date '+%Y-%m-%d %H:%M:%S')"
-        git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
     - name: Summary
       run: |
         echo "## Update Summary" >> $GITHUB_STEP_SUMMARY
@@ -140,9 +124,23 @@ jobs:
         echo "- **Architecture**: Modular services with dependency injection" >> $GITHUB_STEP_SUMMARY
         echo "- **Quality**: 279 comprehensive tests ensuring reliability" >> $GITHUB_STEP_SUMMARY
         echo "- **Triggered**: ${{ github.event_name == 'schedule' && 'Scheduled (daily at 10:00 UTC)' || 'Manual dispatch' }}" >> $GITHUB_STEP_SUMMARY
-        
-        if [[ "${{ steps.check_changes.outputs.changes }}" == "true" || "${{ github.event.inputs.force_update }}" == "true" ]]; then
-          echo "- **Result**: ✅ Changes committed and pushed to repository" >> $GITHUB_STEP_SUMMARY
-        else
-          echo "- **Result**: ℹ️ No changes detected, repository unchanged" >> $GITHUB_STEP_SUMMARY
-        fi
+        echo "- **Result**: ✅ Website rebuilt and uploaded for deployment" >> $GITHUB_STEP_SUMMARY
+
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: dist
+
+  deploy:
+    needs: update-data
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

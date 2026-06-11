@@ -1,9 +1,10 @@
 import fetch from 'node-fetch';
 
 export class TermineService {
-    constructor(httpClient, logger = console) {
+    constructor(httpClient, logger = console, pathPrefix = 'dist') {
         this.httpClient = httpClient;
         this.logger = logger;
+        this.pathPrefix = pathPrefix;
     }
 
     async downloadCalendar(calId, retries = 3) {
@@ -42,7 +43,7 @@ export class TermineService {
             id,
             label: config.label,
             calId: config.calId,
-            icsFilename: `docs/ics/termine/${id}.ics`,
+            icsFilename: `${this.pathPrefix}/ics/termine/${id}.ics`,
             icsUrl: `./ics/termine/${id}.ics`,
             jsonUrl: `./data/termine/${id}.json`
         };

@@ -5,7 +5,7 @@ export class HTMLService {
         this.logger = logger;
     }
 
-    async generateIndexHTML(spieleConfigs, trainingConfigs, termineConfigs = [], templatePath = 'index.template.html', outputPath = 'docs/index.html') {
+    async generateIndexHTML(spieleConfigs, trainingConfigs, termineConfigs = [], templatePath = 'index.template.html', outputPath = 'dist/index.html') {
         try {
             this.logger.info('Reading HTML template...');
             const template = await readFile(templatePath, 'utf8');

@@ -1,6 +1,12 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { BuildHTMLCommand, generateIndexHTML } from '../../src/commands/buildHTML.js';
 
+// Mock fs/promises
+vi.mock('fs/promises', () => ({
+    cp: vi.fn().mockResolvedValue(undefined),
+    mkdir: vi.fn().mockResolvedValue(undefined)
+}));
+
 // Mock dependencies
 vi.mock('../../src/services/configService.js', () => ({
     ConfigService: vi.fn()
@@ -17,7 +23,14 @@ vi.mock('../../src/services/logger.js', () => ({
 vi.mock('../../src/config/index.js', () => ({
     config: {
         logging: { level: 'info' },
-        paths: { teamsDir: 'teams' }
+        paths: { 
+            teamsDir: 'teams',
+            pathPrefix: 'dist',
+            indexTemplatePath: 'index.template.html',
+            indexOutputPath: 'dist/index.html',
+            publicDir: 'public',
+            distDir: 'dist'
+        }
     }
 }));
 
@@ -100,7 +113,7 @@ describe('BuildHTMLCommand', () => {
         ];
 
         const mockHTMLResult = {
-            outputPath: 'docs/index.html',
+            outputPath: 'dist/index.html',
             spieleCount: 2,
             trainingCount: 1,
             termineCount: 0
@@ -128,7 +141,7 @@ describe('BuildHTMLCommand', () => {
                 mockTermineConfigs,
                 [],
                 'index.template.html',
-                'docs/index.html'
+                'dist/index.html'
             );
             expect(result).toEqual(mockHTMLResult);
         });
@@ -170,7 +183,7 @@ describe('BuildHTMLCommand', () => {
         it('should work with empty team configs', async () => {
             mockConfigService.readTeamConfigs.mockResolvedValue([]);
             mockHTMLService.generateIndexHTML.mockResolvedValue({
-                outputPath: 'docs/index.html',
+                outputPath: 'dist/index.html',
                 spieleCount: 0,
                 trainingCount: 1,
                 termineCount: 0
@@ -183,7 +196,7 @@ describe('BuildHTMLCommand', () => {
                 mockTermineConfigs,
                 [],
                 'index.template.html',
-                'docs/index.html'
+                'dist/index.html'
             );
             expect(result.spieleCount).toBe(0);
         });
@@ -195,7 +208,7 @@ describe('BuildHTMLCommand', () => {
                 return [];
             });
             mockHTMLService.generateIndexHTML.mockResolvedValue({
-                outputPath: 'docs/index.html',
+                outputPath: 'dist/index.html',
                 spieleCount: 2,
                 trainingCount: 0,
                 termineCount: 0
@@ -208,7 +221,7 @@ describe('BuildHTMLCommand', () => {
                 [],
                 [],
                 'index.template.html',
-                'docs/index.html'
+                'dist/index.html'
             );
             expect(result.termineCount).toBe(0);
         });
@@ -221,7 +234,7 @@ describe('BuildHTMLCommand', () => {
             expect(callArgs[1]).toBe(mockTermineConfigs);
             expect(callArgs[2]).toEqual([]);
             expect(callArgs[3]).toBe('index.template.html');
-            expect(callArgs[4]).toBe('docs/index.html');
+            expect(callArgs[4]).toBe('dist/index.html');
         });
 
         it('should return HTML service result unchanged', async () => {

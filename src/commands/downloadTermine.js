@@ -8,8 +8,8 @@ import { Logger } from '../services/logger.js';
 import { config } from '../config/index.js';
 
 // Constants for output paths
-const TRAINING_JSON_DIR = 'docs/data/training';
-const TERMINE_JSON_DIR = 'docs/data/termine';
+const TRAINING_JSON_DIR = config.paths.trainingJsonDir;
+const TERMINE_JSON_DIR = config.paths.termineJsonDir;
 
 export class DownloadTermineCommand {
     constructor(dependencies = {}) {
@@ -20,14 +20,14 @@ export class DownloadTermineCommand {
             this.logger
         );
         this.termineService = dependencies.termineService || new TermineService(this.httpClient, this.logger);
-        this.configService = dependencies.configService || new ConfigService(this.logger);
+        this.configService = dependencies.configService || new ConfigService(this.logger, config.paths.pathPrefix);
     }
 
     async cleanExistingFiles() {
         try {
             this.logger.info('🧹 Cleaning existing calendar files...');
             
-            const directories = [config.paths.trainingOutputDir, 'docs/ics/termine'];
+            const directories = [config.paths.trainingOutputDir, config.paths.termineOutputDir];
             let totalCleaned = 0;
             
             for (const dir of directories) {
@@ -196,7 +196,7 @@ export class DownloadTermineCommand {
 
             // Ensure output directories exist
             await fs.mkdir(config.paths.trainingOutputDir, { recursive: true });
-            await fs.mkdir('docs/ics/termine', { recursive: true });
+            await fs.mkdir(config.paths.termineOutputDir, { recursive: true });
             await fs.mkdir(TRAINING_JSON_DIR, { recursive: true });
             await fs.mkdir(TERMINE_JSON_DIR, { recursive: true });
 

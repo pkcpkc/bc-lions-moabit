@@ -33,8 +33,11 @@ vi.mock('../../src/config/index.js', () => ({
         logging: { level: 'info' },
         api: { timeout: 10000 },
         paths: { 
-            termineOutputDir: 'docs/ics/termine',
-            trainingOutputDir: 'docs/ics/training'
+            pathPrefix: 'dist',
+            termineOutputDir: 'dist/ics/termine',
+            trainingOutputDir: 'dist/ics/training',
+            trainingJsonDir: 'dist/data/training',
+            termineJsonDir: 'dist/data/termine'
         }
     }
 }));
@@ -110,13 +113,13 @@ describe('DownloadTermineCommand', () => {
                 id: 'calendar1',
                 label: 'Main Calendar',
                 calId: 'main@example.com',
-                icsFilename: 'docs/ics/termine/calendar1.ics'
+                icsFilename: 'dist/ics/termine/calendar1.ics'
             },
             {
                 id: 'calendar2',
                 label: 'Youth Calendar',
                 calId: 'youth@example.com',
-                icsFilename: 'docs/ics/termine/calendar2.ics'
+                icsFilename: 'dist/ics/termine/calendar2.ics'
             }
         ];
 
@@ -139,14 +142,14 @@ describe('DownloadTermineCommand', () => {
 
             const result = await downloadTermineCommand.execute();
 
-            expect(fs.mkdir).toHaveBeenCalledWith('docs/ics/training', { recursive: true });
-            expect(fs.mkdir).toHaveBeenCalledWith('docs/ics/termine', { recursive: true });
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');  // cleanExistingFiles call
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');  // cleanExistingFiles call
+            expect(fs.mkdir).toHaveBeenCalledWith('dist/ics/training', { recursive: true });
+            expect(fs.mkdir).toHaveBeenCalledWith('dist/ics/termine', { recursive: true });
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/training');  // cleanExistingFiles call
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/termine');  // cleanExistingFiles call
             expect(mockTermineService.downloadCalendar).toHaveBeenCalledWith('main@example.com');
             expect(mockTermineService.downloadCalendar).toHaveBeenCalledWith('youth@example.com');
-            expect(fs.writeFile).toHaveBeenCalledWith('docs/ics/termine/calendar1.ics', mockIcsContent1, 'utf8');
-            expect(fs.writeFile).toHaveBeenCalledWith('docs/ics/termine/calendar2.ics', mockIcsContent2, 'utf8');
+            expect(fs.writeFile).toHaveBeenCalledWith('dist/ics/termine/calendar1.ics', mockIcsContent1, 'utf8');
+            expect(fs.writeFile).toHaveBeenCalledWith('dist/ics/termine/calendar2.ics', mockIcsContent2, 'utf8');
             
             expect(result).toEqual({
                 downloadedCount: 2,
@@ -218,7 +221,7 @@ describe('DownloadTermineCommand', () => {
             expect(mockLogger.info).toHaveBeenCalledWith('🗓️  Starting termine download process...');
             expect(mockLogger.info).toHaveBeenCalledWith('Downloading: Main Calendar');
             expect(mockLogger.info).toHaveBeenCalledWith('Downloading: Youth Calendar');
-            expect(mockLogger.info).toHaveBeenCalledWith('✅ Downloaded: Main Calendar -> docs/ics/termine/calendar1.ics');
+            expect(mockLogger.info).toHaveBeenCalledWith('✅ Downloaded: Main Calendar -> dist/ics/termine/calendar1.ics');
             expect(mockLogger.info).toHaveBeenCalledWith('📥 Download complete: 2 successful, 0 failed');
         });
 
@@ -244,7 +247,7 @@ describe('DownloadTermineCommand', () => {
 
             await downloadTermineCommand.execute();
 
-            expect(fs.mkdir).toHaveBeenCalledWith('docs/ics/termine', { recursive: true });
+            expect(fs.mkdir).toHaveBeenCalledWith('dist/ics/termine', { recursive: true });
         });
 
         it('should download calendars in sequence', async () => {
@@ -268,14 +271,14 @@ describe('DownloadTermineCommand', () => {
 
             expect(result.downloadedCount).toBe(1);
             expect(result.errorCount).toBe(1);
-            expect(fs.writeFile).toHaveBeenCalledWith('docs/ics/termine/calendar2.ics', mockIcsContent2, 'utf8');
+            expect(fs.writeFile).toHaveBeenCalledWith('dist/ics/termine/calendar2.ics', mockIcsContent2, 'utf8');
         });
 
         it('should preserve error count accuracy with mixed results', async () => {
             const configs = [
-                { id: '1', label: 'Cal 1', calId: 'cal1@example.com', icsFilename: 'docs/ics/termine/1.ics' },
-                { id: '2', label: 'Cal 2', calId: 'cal2@example.com', icsFilename: 'docs/ics/termine/2.ics' },
-                { id: '3', label: 'Cal 3', calId: 'cal3@example.com', icsFilename: 'docs/ics/termine/3.ics' }
+                { id: '1', label: 'Cal 1', calId: 'cal1@example.com', icsFilename: 'dist/ics/termine/1.ics' },
+                { id: '2', label: 'Cal 2', calId: 'cal2@example.com', icsFilename: 'dist/ics/termine/2.ics' },
+                { id: '3', label: 'Cal 3', calId: 'cal3@example.com', icsFilename: 'dist/ics/termine/3.ics' }
             ];
             mockConfigService.readTermineConfigs.mockResolvedValue(configs);
             mockConfigService.readCalendarConfigs.mockImplementation((dir, type) => {
@@ -305,14 +308,14 @@ describe('DownloadTermineCommand', () => {
 
             await downloadTermineCommand.cleanExistingFiles();
 
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
-            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/training/calendar1.ics');
-            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/training/calendar2.ics');
-            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/termine/calendar1.ics');
-            expect(fs.unlink).toHaveBeenCalledWith('docs/ics/termine/calendar2.ics');
-            expect(fs.unlink).not.toHaveBeenCalledWith('docs/ics/training/other.txt');
-            expect(fs.unlink).not.toHaveBeenCalledWith('docs/ics/termine/other.txt');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/training');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/termine');
+            expect(fs.unlink).toHaveBeenCalledWith('dist/ics/training/calendar1.ics');
+            expect(fs.unlink).toHaveBeenCalledWith('dist/ics/training/calendar2.ics');
+            expect(fs.unlink).toHaveBeenCalledWith('dist/ics/termine/calendar1.ics');
+            expect(fs.unlink).toHaveBeenCalledWith('dist/ics/termine/calendar2.ics');
+            expect(fs.unlink).not.toHaveBeenCalledWith('dist/ics/training/other.txt');
+            expect(fs.unlink).not.toHaveBeenCalledWith('dist/ics/termine/other.txt');
             expect(mockLogger.info).toHaveBeenCalledWith('🧹 Cleaning existing calendar files...');
             expect(mockLogger.info).toHaveBeenCalledWith('✅ Cleaned 4 existing calendar files');
         });
@@ -322,8 +325,8 @@ describe('DownloadTermineCommand', () => {
 
             await downloadTermineCommand.cleanExistingFiles();
 
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/training');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/termine');
             expect(fs.unlink).not.toHaveBeenCalled();
             expect(mockLogger.info).toHaveBeenCalledWith('No existing calendar files to clean');
         });
@@ -333,8 +336,8 @@ describe('DownloadTermineCommand', () => {
 
             await downloadTermineCommand.cleanExistingFiles();
 
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/training');
-            expect(fs.readdir).toHaveBeenCalledWith('docs/ics/termine');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/training');
+            expect(fs.readdir).toHaveBeenCalledWith('dist/ics/termine');
             expect(fs.unlink).not.toHaveBeenCalled();
             expect(mockLogger.info).toHaveBeenCalledWith('No existing calendar files to clean');
         });
@@ -345,7 +348,7 @@ describe('DownloadTermineCommand', () => {
             fs.readdir.mockRejectedValue(error);
 
             await expect(downloadTermineCommand.cleanExistingFiles()).resolves.not.toThrow();
-            expect(mockLogger.debug).toHaveBeenCalledWith('Directory docs/ics/training does not exist - nothing to clean');
+            expect(mockLogger.debug).toHaveBeenCalledWith('Directory dist/ics/training does not exist - nothing to clean');
         });
 
         it('should throw error for other fs errors', async () => {

@@ -52,7 +52,7 @@ describe('HTMLService', () => {
                 teamId: 'mu12-team-a',
                 competitionId: '12345',
                 teamName: 'BC Lions U12 A',
-                icsFilename: 'docs/ics/spiele/mu12-team-a.ics',
+                icsFilename: 'dist/ics/spiele/mu12-team-a.ics',
                 icsUrl: 'https://example.com/ics/mu12-team-a.ics',
                 webUrl: 'https://basketball-bund.net/liga/12345'
             },
@@ -60,7 +60,7 @@ describe('HTMLService', () => {
                 teamId: 'wu16-team-b',
                 competitionId: '67890',
                 teamName: 'BC Lions W16 B',
-                icsFilename: 'docs/ics/spiele/wu16-team-b.ics',
+                icsFilename: 'dist/ics/spiele/wu16-team-b.ics',
                 icsUrl: 'https://example.com/ics/wu16-team-b.ics',
                 webUrl: 'https://basketball-bund.net/liga/67890'
             }
@@ -71,7 +71,7 @@ describe('HTMLService', () => {
                 id: 'calendar1',
                 label: 'Main Calendar',
                 calId: 'cal1@example.com',
-                icsFilename: 'docs/ics/termine/calendar1.ics',
+                icsFilename: 'dist/ics/termine/calendar1.ics',
                 icsUrl: 'https://example.com/ics/termine/calendar1.ics'
             }
         ];
@@ -85,9 +85,9 @@ describe('HTMLService', () => {
             const result = await htmlService.generateIndexHTML(mockTeamConfigs, mockTermineConfigs);
 
             expect(readFile).toHaveBeenCalledWith('index.template.html', 'utf8');
-            expect(writeFile).toHaveBeenCalledWith('docs/index.html', expect.any(String), 'utf8');
+            expect(writeFile).toHaveBeenCalledWith('dist/index.html', expect.any(String), 'utf8');
             expect(result).toEqual({
-                outputPath: 'docs/index.html',
+                outputPath: 'dist/index.html',
                 spieleCount: 2,
                 trainingCount: 1,
                 termineCount: 0
@@ -145,7 +145,7 @@ describe('HTMLService', () => {
             const result = await htmlService.generateIndexHTML([], [], []);
 
             expect(result).toEqual({
-                outputPath: 'docs/index.html',
+                outputPath: 'dist/index.html',
                 spieleCount: 0,
                 trainingCount: 0,
                 termineCount: 0
@@ -160,7 +160,7 @@ describe('HTMLService', () => {
 
             expect(mockLogger.info).toHaveBeenCalledWith('Reading HTML template...');
             expect(mockLogger.info).toHaveBeenCalledWith('Generating HTML with 2 spiele configs, 1 training configs, and 0 termine configs');
-            expect(mockLogger.info).toHaveBeenCalledWith('Successfully generated docs/index.html');
+            expect(mockLogger.info).toHaveBeenCalledWith('Successfully generated dist/index.html');
         });
 
         it('should handle template read errors', async () => {
@@ -208,7 +208,7 @@ describe('HTMLService', () => {
                 expect(configs[0]).toHaveProperty('id', 'mu12-team-a');
                 expect(configs[0]).toHaveProperty('competitionId', '12345');
                 expect(configs[0]).toHaveProperty('teamName', 'BC Lions U12 A');
-                expect(configs[0]).toHaveProperty('icsFilename', 'docs/ics/spiele/mu12-team-a.ics');
+                expect(configs[0]).toHaveProperty('icsFilename', 'dist/ics/spiele/mu12-team-a.ics');
                 expect(configs[0]).toHaveProperty('icsUrl', 'https://example.com/ics/mu12-team-a.ics');
                 expect(configs[0]).toHaveProperty('webUrl', 'https://basketball-bund.net/liga/12345');
             }
@@ -217,7 +217,7 @@ describe('HTMLService', () => {
         it('should handle empty arrays gracefully', async () => {
             await htmlService.generateIndexHTML([], [], []);
 
-            expect(writeFile).toHaveBeenCalledWith('docs/index.html', expect.any(String), 'utf8');
+            expect(writeFile).toHaveBeenCalledWith('dist/index.html', expect.any(String), 'utf8');
             const writtenContent = writeFile.mock.calls[0][1];
             expect(writtenContent).toContain("data-configs='[]'");
         });
