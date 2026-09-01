@@ -1,11 +1,11 @@
 {
-    "label": "wU12-wU18",
+    "label": "wU11-wU18",
     "calId": "e57ad8e7d2244e436d1327d044460a70692db857c4972772c24786a1bdca4ff3@group.calendar.google.com",
     "teams": [
-        "wu12-bl-rr",
-        "wu14-ol-2",
-        "wu16-ll-a",
-        "wu18-ll-b",
-        "wu18-ol"
+        "wu18-ol",
+        "wu16-bl",
+        "wu14-ll",
+        "wu12-bl-a",
+        "wu11-a"
     ]
 }
